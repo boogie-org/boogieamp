@@ -9,7 +9,6 @@
      ====================================================================== -->
 <project name="boogieamp" default="default">
 
-        <property name="boogieamp" location="boogieamp" />        
         <property name="dist" location="dist" />
 
         <property name="bin" value="bin" />
