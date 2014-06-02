@@ -1,0 +1,475 @@
+/*
+ * boogieamp - Parser, Factory, and Utilities to create Boogie Programs from Java
+ * Copyright (C) 2013 Martin Schaef and Stephan Arlt
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+package boogie.controlflow;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map.Entry;
+
+import typechecker.TypeChecker;
+import util.Log;
+import boogie.ast.Attribute;
+import boogie.ast.ParentEdge;
+import boogie.ast.Unit;
+import boogie.ast.VarList;
+import boogie.ast.asttypes.ASTType;
+import boogie.controlflow.expression.CfgArrayAccessExpression;
+import boogie.controlflow.expression.CfgArrayStoreExpression;
+import boogie.controlflow.expression.CfgBinaryExpression;
+import boogie.controlflow.expression.CfgBitVectorAccessExpression;
+import boogie.controlflow.expression.CfgBitvecLiteral;
+import boogie.controlflow.expression.CfgBooleanLiteral;
+import boogie.controlflow.expression.CfgExpression;
+import boogie.controlflow.expression.CfgFunctionApplication;
+import boogie.controlflow.expression.CfgIdentifierExpression;
+import boogie.controlflow.expression.CfgIfThenElseExpression;
+import boogie.controlflow.expression.CfgIntegerLiteral;
+import boogie.controlflow.expression.CfgQuantifierExpression;
+import boogie.controlflow.expression.CfgRealLiteral;
+import boogie.controlflow.expression.CfgStringLiteral;
+import boogie.controlflow.expression.CfgUnaryExpression;
+import boogie.controlflow.expression.CfgWildcardExpression;
+import boogie.controlflow.statement.CfgStatement;
+import boogie.declaration.Axiom;
+import boogie.declaration.ConstDeclaration;
+import boogie.declaration.Declaration;
+import boogie.declaration.FunctionDeclaration;
+import boogie.declaration.Procedure;
+import boogie.declaration.TypeDeclaration;
+import boogie.declaration.VariableDeclaration;
+import boogie.expression.ArrayAccessExpression;
+import boogie.expression.ArrayStoreExpression;
+import boogie.expression.BinaryExpression;
+import boogie.expression.BitVectorAccessExpression;
+import boogie.expression.Expression;
+import boogie.expression.FunctionApplication;
+import boogie.expression.IdentifierExpression;
+import boogie.expression.IfThenElseExpression;
+import boogie.expression.QuantifierExpression;
+import boogie.expression.UnaryExpression;
+import boogie.expression.WildcardExpression;
+import boogie.expression.literal.BitvecLiteral;
+import boogie.expression.literal.BooleanLiteral;
+import boogie.expression.literal.IntegerLiteral;
+import boogie.expression.literal.RealLiteral;
+import boogie.expression.literal.StringLiteral;
+import boogie.statement.Statement;
+import boogie.type.BoogieType;
+
+/**
+ * @author martin
+ * 
+ */
+public abstract class AbstractControlFlowFactory {
+
+	protected TypeChecker typechecker;
+	protected HashMap<String, CfgProcedure> procedureGraphs = new HashMap<String, CfgProcedure>();
+	protected HashMap<String, CfgFunction> cfgFunctions = new HashMap<String, CfgFunction>();
+	protected HashMap<String, BasicBlock> blockMap = new HashMap<String, BasicBlock>();
+	protected HashMap<String, CfgVariable> globalVars = new HashMap<String, CfgVariable>();
+	protected LinkedList<CfgAxiom> globalAxioms = new LinkedList<CfgAxiom>();
+
+	
+	protected HashMap<CfgStatement, Statement> astStatementMap = new HashMap<CfgStatement, Statement>();
+	
+	public Statement findAstStatement(CfgStatement stmt) {
+		return this.astStatementMap.get(stmt);
+	}
+	
+	public void Hack_ThrowAwayProcedureBody(CfgProcedure proc) {		
+		LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>();
+		LinkedList<BasicBlock> done = new LinkedList<BasicBlock>();
+		todo.add(proc.getRootNode());
+		while (!todo.isEmpty()) {
+			BasicBlock current = todo.pop();
+			done.add(current);
+			for (CfgStatement st : current.getStatements()) {
+				this.astStatementMap.remove(st);
+			}
+			current.setStatements(new LinkedList<CfgStatement>());
+			for (BasicBlock succ : current.getSuccessors()) {
+				if (!todo.contains(succ) && !done.contains(succ)) {
+					todo.push(succ);
+				}
+			}
+		}
+		proc.setRootNode(null);
+		proc.setExitNode(null);
+	}
+	
+	
+	// TODO: refactor this into something that is only constructed per procedure
+	
+	protected class ProcedureContext {
+		public LinkedList<BasicBlock> currentBreakDestinations = new LinkedList<BasicBlock>();
+		public BasicBlock currentUnifiedExit = null;
+		public HashMap<String, CfgVariable> localVars = null;
+		public HashMap<String, CfgVariable> inParamVars = null;
+		public HashMap<String, CfgVariable> outParamVars = null;
+	}
+
+	protected ProcedureContext context;
+	
+	public AbstractControlFlowFactory(Unit astroot, TypeChecker tc) {
+		this.typechecker = tc;
+		// first, collect all global variables and constants
+		for (Declaration decl : astroot.getDeclarations()) {
+			if (decl instanceof ConstDeclaration) {
+				// TODO: do something with attributes
+				ConstDeclaration cdecl = (ConstDeclaration) decl;
+				CfgVariable[] vars = varList2CfgVariables(cdecl.getVarList(),
+						true, true, cdecl.isUnique(), cdecl.isComplete());
+				for (int i = 0; i < cdecl.getVarList().getIdentifiers().length; i++) {					
+					this.globalVars.put(cdecl.getVarList().getIdentifiers()[i],
+							vars[i]);
+				}
+			} else if (decl instanceof VariableDeclaration) {
+				VariableDeclaration vdecl = (VariableDeclaration) decl;				
+				CfgVariable[] vars = varList2CfgVariables(vdecl.getVariables(),
+						false, true, false, false);
+				for (int i = 0; i < vars.length; i++) {
+					this.globalVars.put(vars[i].getVarname(), vars[i]);
+				}
+			} else if (decl instanceof TypeDeclaration) {
+				// do nothing
+			}
+		}
+		//now in a second pass, deal with the parent edges.
+		for (Declaration decl : astroot.getDeclarations()) {
+			if (decl instanceof ConstDeclaration) {
+				ConstDeclaration cdecl = (ConstDeclaration) decl;	
+				LinkedList<CfgParentEdge> cfgedges = new LinkedList<CfgParentEdge>();
+				if (cdecl.getParentInfo()!=null) {
+					for (ParentEdge edge : cdecl.getParentInfo()) {
+						CfgParentEdge pedge = new CfgParentEdge(this.globalVars.get(edge.getIdentifier()), edge.isUnique());
+						cfgedges.add(pedge);
+					}
+				}
+				for (String s : cdecl.getVarList().getIdentifiers()) {
+					this.globalVars.get(s).setParentEdges(cfgedges);
+				}
+			}
+		}				
+		
+		// after previously collecting all global vars, build the cfg for each
+		// procedure
+		for (Declaration decl : astroot.getDeclarations()) {
+			if (decl instanceof Procedure) {
+				Procedure proc = (Procedure) decl;
+				if (!this.procedureGraphs.containsKey(proc
+						.getIdentifier())) {
+					CfgProcedure cfg = new CfgProcedure(
+							proc.getIdentifier());
+					this.procedureGraphs.put(
+							proc.getIdentifier(), cfg);
+				}
+				constructCfg((Procedure) decl,
+						this.procedureGraphs.get(proc
+								.getIdentifier()));
+				Log.debug("Build CFG for: "
+						+ this.procedureGraphs.get(proc.getIdentifier()).getProcedureName());
+			} else if (decl instanceof FunctionDeclaration) {
+				if (!this.cfgFunctions.containsKey(((FunctionDeclaration) decl)
+						.getIdentifier())) {
+					CfgFunction cfg = new CfgFunction(
+							((FunctionDeclaration) decl).getIdentifier());
+					this.cfgFunctions.put(
+							((FunctionDeclaration) decl).getIdentifier(), cfg);
+				}
+				constructCfg((FunctionDeclaration) decl,
+						this.cfgFunctions.get(((FunctionDeclaration) decl)
+								.getIdentifier()));
+			} else if (decl instanceof Axiom) {
+				Axiom ax = (Axiom) decl;
+				CfgAxiom axiom = new CfgAxiom(ax.getLocation(),
+						expression2CfgExpression(ax.getFormula()));
+				this.globalAxioms.add(axiom);
+			}
+		}
+	}
+
+	
+	public HashMap<String, CfgVariable> getGlobalVars() {
+		return globalVars;
+	}
+
+	public Collection<CfgProcedure> getProcedureCFGs() {
+		return this.procedureGraphs.values();
+	}
+
+	public Collection<CfgAxiom> getGlobalAxioms() {
+		return this.globalAxioms;
+	}
+	
+	public CfgFunction findCfgFunction(String name) {
+		if (!this.cfgFunctions.containsKey(name)) {
+			return null;
+		}
+		return this.cfgFunctions.get(name);
+	}	
+		
+	
+	protected void constructCfg(FunctionDeclaration fun, CfgFunction cfgfun) {
+		this.context = new ProcedureContext();
+		context.inParamVars = new HashMap<String, CfgVariable>();
+		CfgVariable[] vars = varList2CfgVariables(fun.getInParams(), false,
+				false, false, false);
+		cfgfun.setInParams(vars);
+		for (int i = 0; i < vars.length; i++) {
+			context.inParamVars.put(vars[i].getVarname(), vars[i]);
+		}
+
+		context.outParamVars = new HashMap<String, CfgVariable>();
+		vars = varList2CfgVariables(fun.getOutParam(), false, false, false, false);
+		if (vars.length == 1) {
+			cfgfun.setOutParam(vars[0]);
+		} else {
+			throw new RuntimeException("Function " + cfgfun.getIndentifier()
+					+ " has " + vars.length + " instead of 1 out param!");
+		}
+		for (int i = 0; i < vars.length; i++) {
+			context.outParamVars.put(vars[i].getVarname(), vars[i]);
+		}
+		// reset the locals because CfgFunctions dont have locals.
+		context.localVars = new HashMap<String, CfgVariable>();
+		context.currentUnifiedExit = null;
+		if (fun.getBody() != null) {
+			cfgfun.setBody(expression2CfgExpression(fun.getBody()));
+		}
+
+		cfgfun.setLocation(fun.getLocation());
+	}
+	
+	abstract protected void constructCfg(Procedure proc, CfgProcedure cfg);
+	
+	
+	protected CfgExpression[] expression2CfgExpression(Expression[] exp) {
+		CfgExpression[] ret = new CfgExpression[exp.length];
+		for (int i = 0; i < exp.length; i++) {
+			ret[i] = expression2CfgExpression(exp[i]);
+		}
+		return ret;
+	}
+
+	protected CfgExpression expression2CfgExpression(Expression exp) {
+		if (exp instanceof ArrayAccessExpression) {
+			ArrayAccessExpression aee = (ArrayAccessExpression) exp;
+			CfgExpression base = expression2CfgExpression(aee.getArray());
+			CfgExpression[] indices = expression2CfgExpression(aee.getIndices());
+			return new CfgArrayAccessExpression(exp.getLocation(),
+					exp.getType(), base, indices);
+		} else if (exp instanceof ArrayStoreExpression) {
+			ArrayStoreExpression ase = (ArrayStoreExpression) exp;
+			CfgExpression base = expression2CfgExpression(ase.getArray());
+			CfgExpression[] indices = expression2CfgExpression(ase.getIndices());
+			CfgExpression value = expression2CfgExpression(ase.getValue());
+			return new CfgArrayStoreExpression(exp.getLocation(),
+					exp.getType(), base, indices, value);
+		} else if (exp instanceof BinaryExpression) {
+			BinaryExpression bexp = (BinaryExpression) exp;
+			return new CfgBinaryExpression(exp.getLocation(), exp.getType(),
+					bexp.getOperator(),
+					expression2CfgExpression(bexp.getLeft()),
+					expression2CfgExpression(bexp.getRight()));
+		} else if (exp instanceof BitVectorAccessExpression) {
+			BitVectorAccessExpression bva = (BitVectorAccessExpression) exp;
+			return new CfgBitVectorAccessExpression(exp.getLocation(),
+					exp.getType(), expression2CfgExpression(bva.getBitvec()),
+					bva.getStart(), bva.getEnd());
+		} else if (exp instanceof FunctionApplication) {
+			FunctionApplication funapp = (FunctionApplication) exp;
+			if (!this.cfgFunctions.containsKey(funapp.getIdentifier())) {
+				// if the function has not been visited, create a stub here.
+				this.cfgFunctions.put(funapp.getIdentifier(), new CfgFunction(
+						funapp.getIdentifier()));
+			}
+			CfgFunction callee = this.cfgFunctions.get(funapp.getIdentifier());
+			CfgExpression[] args = expression2CfgExpression(funapp
+					.getArguments());
+			return new CfgFunctionApplication(exp.getLocation(), exp.getType(),
+					callee, args);
+		} else if (exp instanceof IdentifierExpression) {
+			IdentifierExpression idexp = (IdentifierExpression) exp;
+			return new CfgIdentifierExpression(idexp.getLocation(),
+					lookupVariable(idexp.getIdentifier()));
+		} else if (exp instanceof IfThenElseExpression) {
+			IfThenElseExpression ite = (IfThenElseExpression) exp;
+			return new CfgIfThenElseExpression(exp.getLocation(),
+					exp.getType(),
+					expression2CfgExpression(ite.getCondition()),
+					expression2CfgExpression(ite.getThenPart()),
+					expression2CfgExpression(ite.getElsePart()));
+		} else if (exp instanceof QuantifierExpression) {
+			QuantifierExpression qexp = (QuantifierExpression) exp;
+			qexp.getAttributes(); 						
+			BoogieType[] typeparams = null;	// TODO		
+			
+			LinkedList<CfgVariable> params = new LinkedList<CfgVariable>();
+			for (int i = 0; i<qexp.getParameters().length; i++) {
+				for (CfgVariable var : varList2CfgVariables(qexp.getParameters()[i], false, false, false, false)) {
+					params.add(var);
+				}
+			}
+			CfgVariable[] parameters = params.toArray(new CfgVariable[params.size()]);
+			
+			Attribute[] attributes = null; // TODO
+			CfgExpression subformula = expression2CfgExpression(qexp.getSubformula());
+			return new CfgQuantifierExpression(exp.getLocation(), exp.getType(), qexp.isUniversal(), 
+					typeparams, parameters, attributes, subformula);
+			
+		} else if (exp instanceof UnaryExpression) {
+			UnaryExpression uexp = (UnaryExpression) exp;
+			return new CfgUnaryExpression(exp.getLocation(), exp.getType(),
+					uexp.getOperator(),
+					expression2CfgExpression(uexp.getExpr()));
+		} else if (exp instanceof WildcardExpression) {
+			WildcardExpression wce = (WildcardExpression) exp;
+			return new CfgWildcardExpression(wce.getLocation(), wce.getType());
+		} else if (exp instanceof BitvecLiteral) {
+			BitvecLiteral bvl = (BitvecLiteral) exp;
+			return new CfgBitvecLiteral(bvl.getLocation(), bvl.getType(),
+					bvl.getLength(), bvl.getValue());
+		} else if (exp instanceof BooleanLiteral) {
+			BooleanLiteral bl = (BooleanLiteral) exp;
+			return new CfgBooleanLiteral(bl.getLocation(), bl.getType(),
+					bl.getValue());
+		} else if (exp instanceof IntegerLiteral) {
+			IntegerLiteral il = (IntegerLiteral) exp;
+			return new CfgIntegerLiteral(il.getLocation(), il.getType(),
+					Long.parseLong(il.getValue()));					
+		} else if (exp instanceof RealLiteral) {
+			RealLiteral rl = (RealLiteral) exp;
+			return new CfgRealLiteral(rl.getLocation(), rl.getType(),
+					rl.getValue());
+		} else if (exp instanceof StringLiteral) {
+			StringLiteral sl = (StringLiteral) exp;
+			return new CfgStringLiteral(sl.getLocation(), sl.getType(),
+					sl.getValue());
+		} else {
+			throw new RuntimeException("Not implemented");
+		}
+	}
+
+
+
+	protected BoogieType getBoogieType(ASTType asttype) {
+		return this.typechecker.getBoogieType(asttype);
+	}
+
+
+	protected CfgVariable[] lookupVariable(String[] name) {
+		CfgVariable[] ret = new CfgVariable[name.length];
+		for (int i = 0; i < name.length; i++) {
+			ret[i] = lookupVariable(name[i]);
+		}
+		return ret;
+	}
+		
+	protected CfgVariable lookupVariable(String name) {
+		if (context.localVars != null && context.localVars.containsKey(name)) {
+			return context.localVars.get(name);
+		} else if (context.inParamVars != null
+				&& context.inParamVars.containsKey(name)) {
+			return context.inParamVars.get(name);
+		} else if (context.outParamVars != null
+				&& context.outParamVars.containsKey(name)) {
+			return context.outParamVars.get(name);
+		} else if (this.globalVars.containsKey(name)) {
+			return this.globalVars.get(name);
+		}
+		throw new RuntimeException("Variable " + name + " is not known to me.");
+	}
+
+	protected CfgVariable[] varList2CfgVariables(VarList[] vl, boolean constant,
+			boolean global, boolean unique, boolean complete) {
+		LinkedList<CfgVariable> ret = new LinkedList<CfgVariable>();
+		for (int i = 0; i < vl.length; i++) {
+			CfgVariable[] tmp = varList2CfgVariables(vl[i], constant, global,
+					unique, complete);
+			for (int j = 0; j < tmp.length; j++)
+				ret.add(tmp[j]);
+		}
+		return ret.toArray(new CfgVariable[ret.size()]);
+	}
+
+	protected CfgVariable[] varList2CfgVariables(VarList vl, boolean constant,
+			boolean global, boolean unique, boolean complete) {
+		CfgVariable[] vars = new CfgVariable[vl.getIdentifiers().length];
+		for (int i = 0; i < vl.getIdentifiers().length; i++) {
+			BoogieType type = this.getBoogieType(vl.getType());
+			vars[i] = new CfgVariable(vl.getIdentifiers()[i], type, constant,
+					global, unique, complete);
+		}
+		return vars;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		//TODO: print the declared types.
+		
+		//print the global variables
+		for (Entry<String, CfgVariable> entry : this.globalVars.entrySet()) {			
+			sb.append("var ");
+			sb.append(entry.getValue().getVarname());
+			sb.append(" : ");
+			sb.append(entry.getValue().getType());
+			sb.append("; \n");
+		}
+		
+		for (CfgAxiom axiom : this.globalAxioms) {
+			sb.append("axiom ");
+			sb.append(axiom.getFormula().toString());
+			sb.append("; \n");
+		}
+		
+		for (Entry<String, CfgFunction> entry : this.cfgFunctions.entrySet()) {
+			sb.append(entry.getValue().toString());
+			sb.append("\n");
+		}
+
+		for (Entry<String, CfgProcedure> entry : this.procedureGraphs.entrySet()) {
+			sb.append(entry.getValue().toString());
+			sb.append("\n");
+		}
+		
+		return sb.toString();
+	}
+
+	/**
+	 * Write the boogie program to a file.
+	 * @param filename
+	 */	
+	public void toFile(String filename) {
+		File fpw = new File(filename);
+		try {
+			PrintWriter pw = new PrintWriter(fpw);			
+			pw.println(this.toString());
+			pw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
