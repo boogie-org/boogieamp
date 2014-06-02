@@ -1,4 +1,4 @@
-== boogieamp ==
+##boogieamp
 =========
 
 This is a Java parser for the [boogie.codeplex.com](Boogie) intermediate verification language.
@@ -6,9 +6,9 @@ Currently, this is work in progress and mostly used for our [www.joogie.org](Joo
 
 If you plan to use the library in your project, just download the [https://github.com/martinschaef/boogieamp/blob/master/boogieamp/dist/boogieamp.jar](jar file).
 
-==== Requirements ====
+####Requirements
 - Java >= 7
 - Junit 4
 
-==== Usage ====
+####Usage 
 To get an idea how to use the library to parse, process, and create Boogie files look into our [https://github.com/martinschaef/jar2bpl](Java to Boogie) translation or our [https://code.google.com/p/jimple2boogie/](gradual verifier).
