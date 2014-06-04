@@ -58,6 +58,7 @@ import boogie.declaration.FunctionDeclaration;
 import boogie.declaration.Procedure;
 import boogie.declaration.TypeDeclaration;
 import boogie.declaration.VariableDeclaration;
+import boogie.enums.UnaryOperator;
 import boogie.expression.ArrayAccessExpression;
 import boogie.expression.ArrayStoreExpression;
 import boogie.expression.BinaryExpression;
@@ -340,6 +341,14 @@ public abstract class AbstractControlFlowFactory {
 			
 		} else if (exp instanceof UnaryExpression) {
 			UnaryExpression uexp = (UnaryExpression) exp;
+			if (uexp.getOperator() == UnaryOperator.ARITHNEGATIVE && uexp.getExpr() instanceof IntegerLiteral) {
+				//this is a special case if the integer literal if MIN_LONG. 
+				//using the unary expression and then trying to parse abs(MIN_LONG)
+				//will cause a parse exception because its MAX_LONG+1
+				IntegerLiteral il = (IntegerLiteral) uexp.getExpr();
+				return new CfgIntegerLiteral(il.getLocation(), il.getType(),
+						Long.parseLong("-"+il.getValue()));					
+			}
 			return new CfgUnaryExpression(exp.getLocation(), exp.getType(),
 					uexp.getOperator(),
 					expression2CfgExpression(uexp.getExpr()));
