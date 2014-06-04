@@ -94,7 +94,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		for (Specification spec : proc.getSpecification()) {
 			if (spec instanceof EnsuresSpecification) {
 				EnsuresSpecification sp = (EnsuresSpecification) spec;
-				cfg.getEnusres()
+				cfg.getEnsures()
 						.add(expression2CfgExpression(sp.getFormula()));
 			} else if (spec instanceof LoopInvariantSpecification) {
 				LoopInvariantSpecification sp = (LoopInvariantSpecification) spec;

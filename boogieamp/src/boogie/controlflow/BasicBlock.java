@@ -50,7 +50,7 @@ public class BasicBlock {
 	private HashSet<BasicBlock> successors = new HashSet<BasicBlock>();
 	private String label;
 
-	private HashMap<CfgVariable, Integer> localIncarnationMap = new HashMap<CfgVariable, Integer>();
+	public HashMap<CfgVariable, Integer> localIncarnationMap = new HashMap<CfgVariable, Integer>();
 	public boolean isLoopHead = false;
 	public boolean returns = false;
 	
@@ -133,104 +133,6 @@ public class BasicBlock {
 		return predecessors;
 	}
 
-	public void recomputLocalSSA(HashMap<CfgVariable, Integer> offset) {
-		this.localIncarnationMap = new HashMap<CfgVariable, Integer>(offset);
-		for (CfgStatement stmt : statments) {
-			if (stmt instanceof CfgAssertStatement) {
-				CfgAssertStatement asrt = (CfgAssertStatement) stmt;
-				recomputLocalSSA(asrt.getCondition(), this.localIncarnationMap);
-			} else if (stmt instanceof CfgAssumeStatement) {
-				CfgAssumeStatement asum = (CfgAssumeStatement) stmt;
-				recomputLocalSSA(asum.getCondition(), this.localIncarnationMap);
-			} else if (stmt instanceof CfgAssignStatement) {
-				CfgAssignStatement asgn = (CfgAssignStatement) stmt;
-				recomputLocalSSA(asgn.getRight(), this.localIncarnationMap);
-				for (CfgIdentifierExpression id : asgn.getLeft()) {
-					if (!this.localIncarnationMap.containsKey(id.getVariable())) {
-						this.localIncarnationMap.put(id.getVariable(), 0);
-					}
-					this.localIncarnationMap.put(id.getVariable(),
-							this.localIncarnationMap.get(id.getVariable()) + 1);
-					id.setCurrentIncarnation(this.localIncarnationMap.get(id.getVariable()));
-				}
-			} else if (stmt instanceof CfgCallStatement) {
-				CfgCallStatement call = (CfgCallStatement) stmt;
-				recomputLocalSSA(call.getArguments(), this.localIncarnationMap);
-				for (CfgVariable v : call.getCallee().getModifies()) {
-					if (!this.localIncarnationMap.containsKey(v)) {
-						this.localIncarnationMap.put(v, 0);
-					}
-					this.localIncarnationMap.put(v, this.localIncarnationMap.get(v) + 1);
-				}
-				for (CfgIdentifierExpression id : call.getLeftHandSide()) {
-					if (!this.localIncarnationMap.containsKey(id.getVariable())) {
-						this.localIncarnationMap.put(id.getVariable(), 0);
-					}
-					this.localIncarnationMap.put(id.getVariable(),
-							this.localIncarnationMap.get(id.getVariable()) + 1);
-					id.setCurrentIncarnation(this.localIncarnationMap.get(id.getVariable()));
-				}
-			} else if (stmt instanceof CfgHavocStatement) {
-				for (CfgVariable v : ((CfgHavocStatement) stmt).getVariables()) {
-					if (!this.localIncarnationMap.containsKey(v)) {
-						this.localIncarnationMap.put(v, 0);
-					}
-					this.localIncarnationMap.put(v, this.localIncarnationMap.get(v) + 1);
-				}
-			}
-		}
-	}
-
-	private void recomputLocalSSA(CfgExpression[] exp,
-			HashMap<CfgVariable, Integer> offset) {
-		if (exp == null) {
-			return;
-		}
-		for (int i = 0; i < exp.length; i++) {
-			recomputLocalSSA(exp[i], offset);
-		}
-	}
-
-	private void recomputLocalSSA(CfgExpression exp,
-			HashMap<CfgVariable, Integer> offset) {
-		if (exp instanceof CfgArrayAccessExpression) {
-			CfgArrayAccessExpression aae = (CfgArrayAccessExpression) exp;
-			recomputLocalSSA(aae.getIndices(), offset);
-			recomputLocalSSA(aae.getBaseExpression(), offset);
-		} else if (exp instanceof CfgArrayStoreExpression) {
-			CfgArrayStoreExpression ase = (CfgArrayStoreExpression) exp;
-			recomputLocalSSA(ase.getValueExpression(), offset);
-			recomputLocalSSA(ase.getIndices(), offset);
-			recomputLocalSSA(ase.getBaseExpression(), offset);
-		} else if (exp instanceof CfgBinaryExpression) {
-			CfgBinaryExpression bexp = (CfgBinaryExpression) exp;
-			recomputLocalSSA(bexp.getLeftOp(), offset);
-			recomputLocalSSA(bexp.getRightOp(), offset);
-		} else if (exp instanceof CfgBitVectorAccessExpression) {
-			CfgBitVectorAccessExpression bva = (CfgBitVectorAccessExpression) exp;
-			recomputLocalSSA(bva.getBitvector(), offset);
-		} else if (exp instanceof CfgFunctionApplication) {
-			CfgFunctionApplication fa = (CfgFunctionApplication) exp;
-			recomputLocalSSA(fa.getArguments(), offset);
-		} else if (exp instanceof CfgIdentifierExpression) {
-			CfgIdentifierExpression id = (CfgIdentifierExpression) exp;
-			if (!offset.containsKey(id.getVariable())) {
-				offset.put(id.getVariable(), Integer.valueOf(0));
-			}
-			id.setCurrentIncarnation(offset.get(id.getVariable()));
-		} else if (exp instanceof CfgIfThenElseExpression) {
-			CfgIfThenElseExpression ite = (CfgIfThenElseExpression) exp;
-			recomputLocalSSA(ite.getCondition(), offset);
-			recomputLocalSSA(ite.getThenExpression(), offset);
-			recomputLocalSSA(ite.getElseExpression(), offset);
-		} else if (exp instanceof CfgQuantifierExpression) {
-			CfgQuantifierExpression qe = (CfgQuantifierExpression) exp;
-			// TODO
-		} else if (exp instanceof CfgUnaryExpression) {
-			CfgUnaryExpression uexp = (CfgUnaryExpression) exp;
-			recomputLocalSSA(uexp.getExpression(), offset);
-		}
-	}
 
 	/**
 	 * @return the label

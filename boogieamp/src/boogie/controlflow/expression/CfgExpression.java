@@ -73,6 +73,6 @@ public abstract class CfgExpression {
 		return substitute(null);
 	}
 	
-	public abstract CfgExpression substitute(HashMap<CfgVariable, CfgExpression> substitutes);
+	public abstract CfgExpression substitute(HashMap<CfgVariable, CfgExpression> substitutes);	
 	
 }

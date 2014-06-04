@@ -103,7 +103,7 @@ public class CfgProcedure {
 	/**
 	 * @return the enusres
 	 */
-	public HashSet<CfgExpression> getEnusres() {
+	public HashSet<CfgExpression> getEnsures() {
 		return enusres;
 	}
 
