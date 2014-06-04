@@ -516,6 +516,10 @@ public class CfgProcedure {
 	 * from the root node.
 	 */
 	public void pruneUnreachableBlocks() {
+		if (this.rootNode==null) {
+			Log.error("You tried to prune on an empty body!");
+			return;
+		}
 		LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>();
 		LinkedList<BasicBlock> reachable = new LinkedList<BasicBlock>();		
 		todo.add(this.rootNode);
