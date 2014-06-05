@@ -22,6 +22,7 @@ package boogie.statement;
 import java.util.List;
 
 import boogie.ast.ASTNode;
+import boogie.ast.Attribute;
 import boogie.location.ILocation;
 
 /**
@@ -32,6 +33,9 @@ public abstract class Statement extends ASTNode {
 	 * The serial version UID.
 	 */
 	// private static final long serialVersionUID = 1L;
+	
+	protected Attribute[] attributes;
+	
 	/**
 	 * The constructor taking initial values.
 	 * 
@@ -42,6 +46,12 @@ public abstract class Statement extends ASTNode {
 		super(loc);
 	}
 
+	public Statement(ILocation loc, Attribute[] attributes) {
+		super(loc);
+		this.attributes = attributes;
+	}
+	
+	
 	/**
 	 * Returns a textual description of this object.
 	 */

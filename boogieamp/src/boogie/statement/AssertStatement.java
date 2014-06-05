@@ -21,6 +21,7 @@ package boogie.statement;
 
 import java.util.List;
 
+import boogie.ast.Attribute;
 import boogie.expression.Expression;
 import boogie.location.ILocation;
 
@@ -50,6 +51,22 @@ public class AssertStatement extends Statement {
 		this.formula = formula;
 	}
 
+	/**
+	 * The constructor taking initial values.
+	 * 
+	 * @param loc
+	 *            the node's location
+	 * @param attributes
+	 *            attributes
+	 * @param formula
+	 *            the formula of this assert statement.
+	 */
+	public AssertStatement(ILocation loc, Attribute[] attributes, Expression formula) {
+		super(loc, attributes);
+		this.formula = formula;
+	}
+	
+	
 	/**
 	 * Returns a textual description of this object.
 	 */

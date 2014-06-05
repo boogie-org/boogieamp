@@ -84,6 +84,7 @@ import boogie.statement.Label;
 import boogie.statement.ReturnStatement;
 import boogie.statement.Statement;
 import boogie.statement.WhileStatement;
+import boogie.statement.YieldStatement;
 import boogie.type.ArrayType;
 import boogie.type.BoogieType;
 import boogie.type.ConstructedType;
@@ -465,7 +466,11 @@ public class ProgramFactory {
 	public Statement mkReturnStatement(ILocation loc) {
 		return new ReturnStatement(loc);
 	}
-
+	
+	public Statement mkYieldStatement(ILocation loc) {
+		return new YieldStatement(loc);
+	}
+	
 	public Statement mkWhileStatement(ILocation loc, Expression condition,
 			LoopInvariantSpecification[] invariants, Statement[] body) {
 		return new WhileStatement(loc, condition, invariants, body);

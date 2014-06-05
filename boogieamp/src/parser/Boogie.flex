@@ -62,6 +62,7 @@ BvType = "bv" {DecIntegerLiteral}
   "procedure"     { return symbol(LexerSymbols.PROCEDURE); }
   "implementation" { return symbol(LexerSymbols.IMPLEMENTATION); }
 
+  "async"         { return symbol(LexerSymbols.ASYNC); }
   "finite"        { return symbol(LexerSymbols.FINITE); }
   "unique"        { return symbol(LexerSymbols.UNIQUE); }
   "complete"      { return symbol(LexerSymbols.COMPLETE); }
@@ -84,6 +85,7 @@ BvType = "bv" {DecIntegerLiteral}
   "break"         { return symbol(LexerSymbols.BREAK); }
   "return"        { return symbol(LexerSymbols.RETURN); }
   "goto"          { return symbol(LexerSymbols.GOTO); }
+  "yield"          { return symbol(LexerSymbols.YIELD); }
 
   "old"           { return symbol(LexerSymbols.OLD); }
 
@@ -104,6 +106,7 @@ BvType = "bv" {DecIntegerLiteral}
   "]"             { return symbol(LexerSymbols.RBKT); }
   "{"             { return symbol(LexerSymbols.LBRC); }
   "}"             { return symbol(LexerSymbols.RBRC); }
+  "|"             { return symbol(LexerSymbols.CODEBRC); }
   ","             { return symbol(LexerSymbols.COMMA); }
   ":"             { return symbol(LexerSymbols.COLON); }
   ";"             { return symbol(LexerSymbols.SEMI); }

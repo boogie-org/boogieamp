@@ -21,6 +21,7 @@ package boogie.specification;
 
 import java.util.List;
 
+import boogie.ast.Attribute;
 import boogie.expression.Expression;
 import boogie.location.ILocation;
 
@@ -54,6 +55,27 @@ public class LoopInvariantSpecification extends Specification {
 		this.formula = formula;
 	}
 
+
+	/**
+	 * The constructor taking initial values.
+	 * 
+	 * @param loc
+	 *            the node's location
+	 * @param attributes
+	 * 			  attributes           
+	 * @param isFree
+	 *            true iff this specification is free.
+	 * @param formula
+	 *            the formula of this ensures specification.
+	 */
+	public LoopInvariantSpecification(ILocation loc, Attribute[] attributes, boolean isFree,
+			Expression formula) {
+		super(loc, attributes, isFree);
+		this.formula = formula;
+	}
+		
+		
+	
 	/**
 	 * Returns a textual description of this object.
 	 */

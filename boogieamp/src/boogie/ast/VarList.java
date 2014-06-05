@@ -54,6 +54,8 @@ public class VarList extends ASTNode {
 	 */
 	Expression whereClause;
 
+	Attribute[] attributes;	
+	
 	/**
 	 * The constructor taking initial values.
 	 * 
@@ -77,6 +79,24 @@ public class VarList extends ASTNode {
 	 *            the node's location
 	 * @param identifiers
 	 *            the identifiers of this var list.
+	 * @param attributes
+	 * @param type
+	 *            the type of this var list.
+	 */
+	public VarList(ILocation loc,  Attribute[] attributes, String[] identifiers, ASTType type) {
+		super(loc);
+		this.identifiers = identifiers;
+		this.type = type;
+	}
+	
+	
+	/**
+	 * The constructor taking initial values.
+	 * 
+	 * @param loc
+	 *            the node's location
+	 * @param identifiers
+	 *            the identifiers of this var list.
 	 * @param type
 	 *            the type of this var list.
 	 * @param whereClause
@@ -90,6 +110,29 @@ public class VarList extends ASTNode {
 		this.whereClause = whereClause;
 	}
 
+	/**
+	 * The constructor taking initial values.
+	 * 
+	 * @param loc
+	 *            the node's location
+	 * @param attributes
+	 * @param identifiers
+	 *            the identifiers of this var list.
+	 * @param type
+	 *            the type of this var list.
+	 * @param whereClause
+	 *            the where clause of this var list.
+	 */
+	public VarList(ILocation loc, Attribute[] attributes, String[] identifiers, ASTType type,
+			Expression whereClause) {
+		super(loc);
+		this.attributes = attributes;
+		this.identifiers = identifiers;
+		this.type = type;
+		this.whereClause = whereClause;
+	}
+	
+	
 	/**
 	 * Returns a textual description of this object.
 	 */

@@ -21,16 +21,12 @@ package boogie.statement;
 
 import java.util.List;
 
-import boogie.expression.Expression;
 import boogie.location.ILocation;
 
 /**
  * Represents a return statement which is a special form of a statement.
  */
-public class ReturnStatement extends Statement {
-	
-	private Expression expression;
-	
+public class YieldStatement extends Statement {
 	/**
 	 * The serial version UID.
 	 */
@@ -41,30 +37,15 @@ public class ReturnStatement extends Statement {
 	 * @param loc
 	 *            the node's location
 	 */
-	public ReturnStatement(ILocation loc) {
+	public YieldStatement(ILocation loc) {
 		super(loc);
 	}
 
 	/**
-	 * The constructor taking initial values.
-	 * 
-	 * @param loc
-	 *            the node's location
-	 * @param e
-	 * 			  the return expression. NOTE: this can only be used in code-expression. 
-	 *            Regular boogie code never returns an expression but uses out-variables instead!
-	 */
-	public ReturnStatement(ILocation loc, Expression e) {
-		super(loc);
-		this.expression = e;
-	}
-	
-	
-	/**
 	 * Returns a textual description of this object.
 	 */
 	public String toString() {
-		return "ReturnStatement";
+		return "YieldStatement";
 	}
 
 	public List<Object> getChildren() {

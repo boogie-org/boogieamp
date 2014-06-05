@@ -63,6 +63,7 @@ import boogie.expression.ArrayAccessExpression;
 import boogie.expression.ArrayStoreExpression;
 import boogie.expression.BinaryExpression;
 import boogie.expression.BitVectorAccessExpression;
+import boogie.expression.CodeExpression;
 import boogie.expression.Expression;
 import boogie.expression.FunctionApplication;
 import boogie.expression.IdentifierExpression;
@@ -375,6 +376,10 @@ public abstract class AbstractControlFlowFactory {
 			StringLiteral sl = (StringLiteral) exp;
 			return new CfgStringLiteral(sl.getLocation(), sl.getType(),
 					sl.getValue());
+		} else if (exp instanceof CodeExpression) {
+			Log.error("CodeExpression in CFG not implemented!");
+			return new CfgBooleanLiteral(exp.getLocation(), BoogieType.boolType,
+					true);
 		} else {
 			throw new RuntimeException("Not implemented");
 		}

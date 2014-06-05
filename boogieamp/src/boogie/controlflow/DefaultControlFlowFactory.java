@@ -60,6 +60,7 @@ import boogie.statement.Label;
 import boogie.statement.ReturnStatement;
 import boogie.statement.Statement;
 import boogie.statement.WhileStatement;
+import boogie.statement.YieldStatement;
 
 /**
  * @author martin
@@ -404,6 +405,9 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			// remove the current break destination
 			context.currentBreakDestinations.pop();
 			return breakDestination;
+		} else if (s instanceof YieldStatement) {			
+			Log.error("Yield not implemented!");
+			return b;
 		}
 		return b;
 	}

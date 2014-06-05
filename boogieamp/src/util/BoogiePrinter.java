@@ -46,6 +46,7 @@ import boogie.expression.ArrayAccessExpression;
 import boogie.expression.ArrayStoreExpression;
 import boogie.expression.BinaryExpression;
 import boogie.expression.BitVectorAccessExpression;
+import boogie.expression.CodeExpression;
 import boogie.expression.Expression;
 import boogie.expression.FunctionApplication;
 import boogie.expression.IdentifierExpression;
@@ -75,6 +76,7 @@ import boogie.statement.Label;
 import boogie.statement.ReturnStatement;
 import boogie.statement.Statement;
 import boogie.statement.WhileStatement;
+import boogie.statement.YieldStatement;
 
 /**
  * @author hoenicke
@@ -378,6 +380,12 @@ public class BoogiePrinter {
 			appendAttributes(sb, quant.getAttributes());
 			appendExpression(sb, quant.getSubformula(), 0);
 			sb.append(")");
+		} else if (expr instanceof CodeExpression) {	
+			sb.append("|");
+			for (Statement s: ((CodeExpression)expr).getStatements() ) {
+				this.appendStatement(sb, s);
+			}
+			sb.append("|");
 		} else {
 			throw new IllegalArgumentException(expr.toString());
 		}
@@ -443,6 +451,8 @@ public class BoogiePrinter {
 	 *            the attributes to handle.
 	 */
 	private void appendAttributes(StringBuilder sb, Attribute[] attributes) {
+		if (attributes==null) return;
+		
 		for (Attribute a : attributes) {
 			if (a instanceof NamedAttribute) {
 				NamedAttribute attr = (NamedAttribute) a;
@@ -767,6 +777,10 @@ public class BoogiePrinter {
 				comma = ", ";
 			}
 			sb.append(";");
+		} else if (s instanceof YieldStatement) {
+			sb.append("yield;");
+		} else if (s instanceof Label) {	
+			sb.append( ((Label)s).getName() + ":\t"  );			
 		} else {
 			throw new IllegalArgumentException(s.toString());
 		}
@@ -891,7 +905,7 @@ public class BoogiePrinter {
 	 */
 	public void printVarDeclaration(VariableDeclaration decl, String indent) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(indent).append("var ");
+		sb.append(indent).append("var ");		
 		appendAttributes(sb, decl.getAttributes());
 		String comma = "";
 		for (VarList vl : decl.getVariables()) {

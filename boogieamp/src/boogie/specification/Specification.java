@@ -22,6 +22,7 @@ package boogie.specification;
 import java.util.List;
 
 import boogie.ast.ASTNode;
+import boogie.ast.Attribute;
 import boogie.location.ILocation;
 
 /**
@@ -35,7 +36,8 @@ public abstract class Specification extends ASTNode {
 	/**
 	 * True iff this specification is free.
 	 */
-	boolean isFree;
+	protected boolean isFree;
+	protected Attribute[] attributes;
 
 	/**
 	 * The constructor taking initial values.
@@ -50,6 +52,13 @@ public abstract class Specification extends ASTNode {
 		this.isFree = isFree;
 	}
 
+	public Specification(ILocation loc, Attribute[] attributes, boolean isFree) {
+		super(loc);
+		this.isFree = isFree;
+		this.attributes = attributes;
+	}
+	
+	
 	/**
 	 * Returns a textual description of this object.
 	 */

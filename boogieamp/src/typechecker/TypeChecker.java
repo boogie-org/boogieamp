@@ -53,6 +53,7 @@ import boogie.expression.ArrayAccessExpression;
 import boogie.expression.ArrayStoreExpression;
 import boogie.expression.BinaryExpression;
 import boogie.expression.BitVectorAccessExpression;
+import boogie.expression.CodeExpression;
 import boogie.expression.Expression;
 import boogie.expression.FunctionApplication;
 import boogie.expression.IdentifierExpression;
@@ -82,6 +83,7 @@ import boogie.statement.Label;
 import boogie.statement.ReturnStatement;
 import boogie.statement.Statement;
 import boogie.statement.WhileStatement;
+import boogie.statement.YieldStatement;
 import boogie.type.ArrayType;
 import boogie.type.BoogieType;
 import boogie.type.FunctionSignature;
@@ -450,6 +452,9 @@ public class TypeChecker {
 			varScopes.pop();
 			typeManager.popTypeScope();
 			resultType = boolType;
+		} else if (expr instanceof CodeExpression) {
+			Log.error("TypeCheck for CodeExpression is not implemented");
+			resultType = boolType;
 		} else {
 			throw new IllegalStateException("Unknown expression node " + expr);
 		}
@@ -503,6 +508,7 @@ public class TypeChecker {
 	}
 
 	private void typecheckAttributes(Attribute[] attributes) {
+		if (attributes == null) return;		 
 		for (Attribute attr : attributes) {
 			Expression[] exprs;
 			if (attr instanceof Trigger) {
@@ -914,6 +920,8 @@ public class TypeChecker {
 					}
 				}
 			}
+		} else if (statement instanceof YieldStatement) {
+			Log.error("TypeCheck for YieldStatement not implemented");
 		} else {
 			internalError("Not implemented: type checking for " + statement);
 		}

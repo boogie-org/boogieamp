@@ -21,6 +21,8 @@ package boogie.statement;
 
 import java.util.List;
 
+import boogie.ast.Attribute;
+import boogie.expression.Expression;
 import boogie.location.ILocation;
 
 /**
@@ -49,6 +51,22 @@ public class HavocStatement extends Statement {
 		this.identifiers = identifiers;
 	}
 
+	/**
+	 * The constructor taking initial values.
+	 * 
+	 * @param loc
+	 *            the node's location
+	 * @param attributes
+	 *            attributes
+	 * @param formula
+	 *            the formula of this assert statement.
+	 */
+	public HavocStatement(ILocation loc, Attribute[] attributes, String[] identifiers) {
+		super(loc, attributes);
+		this.identifiers = identifiers;
+	}
+	
+	
 	/**
 	 * Returns a textual description of this object.
 	 */

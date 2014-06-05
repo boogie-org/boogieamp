@@ -1,57 +1,40 @@
-// RUN: %boogie -noinfer "%s" > "%t"
+// RUN: %boogie -noVerify -print:- -env:0 "%s" > "%t"
 // RUN: %diff "%s.expect" "%t"
-var {:phase 1} g:int;
+type {:sourcefile "test.ssc"} T; 
 
-procedure {:yields} {:phase 1} PB()
+function {:source "test.scc"} f(int) returns (int);
+
+const {:description "The largest integer value"} unique MAXINT: int;
+
+axiom {:naming "MyFavoriteAxiom"} (forall i: int :: {f(i)} f(i) == i+1);
+
+var {:description "memory"} $Heap: [ref, name]any;
+
+var {:sort_of_like_a_trigger (forall i: int :: true)} Bla: [ref, name]any;
+
+procedure {:use_impl 1} foo(x : int) returns(n : int);
+
+implementation {:id 1} foo1(x : int) returns(n : int)
 {
-  yield;
-  call Incr();
-  yield;
+  block1: return;
 }
 
-procedure {:yields} {:phase 0,1} Incr();
-ensures {:atomic}
-|{A:
-  g := g + 1; return true;
-}|;
-
-procedure {:yields} {:phase 0,1} Set(v: int);
-ensures {:atomic}
-|{A:
-  g := v; return true;
-}|;
-
-procedure {:yields} {:phase 1} PC()
-ensures {:phase 1} g == old(g);
+implementation {:id 2} foo2(x : int) returns(n : int)
 {
-  yield;
-  assert {:phase 1} g == old(g);
+  block1: return;
 }
 
-procedure {:yields} {:phase 1} PE()
-{
-  call PC();
-}
+type ref, any, name;
 
-procedure {:yields} {:phase 1} PD()
-{
-  yield;
-  call Set(3);
-  call PC();
-  assert {:phase 1} g == 3;
-}
 
-procedure {:yields} {:phase 1} Main2()
-{
-  yield;
-  while (*)
-  {
-    yield;
-    async call PB();
-    yield;
-    async call PE();
-    yield;
-    async call PD();
-    yield;
-  }
-}
+// allow \" and other backslashes rather liberally:
+
+procedure
+  {:myAttribute
+        "h\n\"ello\"",
+        "again",
+        "and\\" a\"gain\"",
+        again}
+P();
+
+const again: int;

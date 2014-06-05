@@ -36,6 +36,7 @@ public class CallStatement extends Statement {
 	 * True iff this call statement is forall.
 	 */
 	boolean isForall;
+	boolean async = false;
 
 	/**
 	 * The lhs of this call statement.
@@ -75,6 +76,30 @@ public class CallStatement extends Statement {
 		this.arguments = arguments;
 	}
 
+	/**
+	 * The constructor taking initial values.
+	 * 
+	 * @param loc
+	 *            the node's location
+	 * @param isForall
+	 *            true iff this call statement is forall.
+	 * @param lhs
+	 *            the lhs of this call statement.
+	 * @param methodName
+	 *            the method name of this call statement.
+	 * @param arguments
+	 *            the arguments of this call statement.
+	 */
+	public CallStatement(ILocation loc, boolean isForall, String[] lhs,
+			String methodName, Expression[] arguments, boolean async) {
+		super(loc);
+		this.isForall = isForall;
+		this.lhs = lhs;
+		this.methodName = methodName;
+		this.arguments = arguments;
+		this.async = async;
+	}
+	
 	/**
 	 * Returns a textual description of this object.
 	 */
