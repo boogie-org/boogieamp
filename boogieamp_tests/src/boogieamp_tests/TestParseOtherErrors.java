@@ -25,7 +25,7 @@ public class TestParseOtherErrors  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/failing");
+		  File dir = new File("./regression/name_error");
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	
@@ -61,7 +61,7 @@ public class TestParseOtherErrors  {
 			
 		} catch (Exception e) {		    			
 			e.printStackTrace();
-			org.junit.Assert.assertTrue("Parse error: " + e.toString(), false);
+			org.junit.Assert.assertTrue("Parse error: " + e.toString(), true);
 			return;
 		}
 		

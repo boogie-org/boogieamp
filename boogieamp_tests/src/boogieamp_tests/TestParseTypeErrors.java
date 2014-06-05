@@ -25,7 +25,7 @@ public class TestParseTypeErrors  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/tc-errors");
+		  File dir = new File("./regression/tc_error");
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	
@@ -45,11 +45,10 @@ public class TestParseTypeErrors  {
    }
 	
     private String input;
-    private String shortname;
+    
 
     public TestParseTypeErrors(String input, String shortname) {
         this.input = input;
-        this.shortname = shortname;
     }
 
 	
@@ -65,8 +64,14 @@ public class TestParseTypeErrors  {
 			return;
 		}
 		
-		TypeChecker tc = new TypeChecker(pf.getASTRoot(), false);		
-		org.junit.Assert.assertTrue(tc.hasTypeError());
+		TypeChecker tc = new TypeChecker(pf.getASTRoot(), false);
+		try {
+			org.junit.Assert.assertTrue(tc.hasTypeError());			
+		} catch (Exception e) {		    			
+			e.printStackTrace();
+			org.junit.Assert.assertTrue("Typechecker crashed.", false);
+			return;
+		}
 		
 	}
 

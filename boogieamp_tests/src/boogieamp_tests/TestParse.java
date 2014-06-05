@@ -25,7 +25,7 @@ public class TestParse  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/passing");
+		  File dir = new File("./regression/good");
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	
@@ -45,11 +45,8 @@ public class TestParse  {
    }
 	
     private String input;
-    private String shortname;
-
     public TestParse(String input, String shortname) {
         this.input = input;
-        this.shortname = shortname;
     }
 
 	
@@ -66,7 +63,7 @@ public class TestParse  {
 		}
 		
 		TypeChecker tc = new TypeChecker(pf.getASTRoot(), false);		
-		org.junit.Assert.assertTrue(tc.hasTypeError());
+		org.junit.Assert.assertTrue(!tc.hasTypeError());
 		
 	}
 

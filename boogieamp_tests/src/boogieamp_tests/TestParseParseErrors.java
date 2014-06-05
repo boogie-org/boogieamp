@@ -25,7 +25,7 @@ public class TestParseParseErrors  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/parse-errors");
+		  File dir = new File("./regression/parse_error");
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	
@@ -54,20 +54,16 @@ public class TestParseParseErrors  {
 
 	
 	@Test
-	public void test() {
-		ProgramFactory pf = null;
+	public void test() {		
 		try {
-			pf = new ProgramFactory(this.input);
-			
+			new ProgramFactory(this.input);
 		} catch (Exception e) {		    			
 			e.printStackTrace();
-			org.junit.Assert.assertTrue("Parse error: " + e.toString(), false);
+			//Parser should fail for these inputs
+			org.junit.Assert.assertTrue(true);
 			return;
 		}
-		
-		TypeChecker tc = new TypeChecker(pf.getASTRoot(), false);		
-		org.junit.Assert.assertTrue(tc.hasTypeError());
-		
+		org.junit.Assert.assertTrue("Parser should fail!", false);
 	}
 
 }
