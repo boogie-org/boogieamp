@@ -255,13 +255,13 @@ public class ProgramFactory {
 		}
 		Body body = new Body(procdecl.getLocation(), decls, stmts);
 
-		Implementation proc = new Implementation(procdecl.getLocation(),
+		Implementation impl = new Implementation(procdecl.getLocation(),
 				procdecl.getAttributes(), procdecl.getIdentifier(),
 				procdecl.getTypeParams(), procdecl.getInParams(),
 				procdecl.getOutParams(), null, body);
 
-		globalDeclarations.add(proc);
-		return proc;
+		globalDeclarations.add(impl);
+		return impl;
 	}
 
 	/**

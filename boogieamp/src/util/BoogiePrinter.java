@@ -39,7 +39,9 @@ import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
+import boogie.declaration.Implementation;
 import boogie.declaration.ProcedureDeclaration;
+import boogie.declaration.ProcedureOrImplementationDeclaration;
 import boogie.declaration.TypeDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.expression.ArrayAccessExpression;
@@ -104,8 +106,8 @@ public class BoogiePrinter {
 				printFunctionDeclaration((FunctionDeclaration) d);
 			else if (d instanceof Axiom)
 				printAxiom((Axiom) d);
-			else if (d instanceof ProcedureDeclaration)
-				printProcedure((ProcedureDeclaration) d);
+			else if (d instanceof ProcedureOrImplementationDeclaration)
+				printProcedureOrImplementation((ProcedureOrImplementationDeclaration) d);		
 		}
 	}
 
@@ -547,6 +549,7 @@ public class BoogiePrinter {
 			sb.append(";");
 		m_Writer.println(sb.toString());
 	}
+
 	
 	/**
 	 * Print procedure.
@@ -554,13 +557,14 @@ public class BoogiePrinter {
 	 * @param decl
 	 *            the procedure to print.
 	 */
-	public void printProcedure(ProcedureDeclaration decl) {
+	public void printProcedureOrImplementation(ProcedureOrImplementationDeclaration decl) {
 		StringBuilder sb = new StringBuilder();
-		if (decl.getSpecification() != null) {
+		if (decl instanceof ProcedureDeclaration) {
 			sb.append("procedure ");
 		} else {
 			sb.append("implementation ");
 		}
+
 		appendAttributes(sb, decl.getAttributes());
 		sb.append(decl.getIdentifier());
 		if (decl.getTypeParams().length > 0) {
@@ -669,7 +673,7 @@ public class BoogiePrinter {
 	 */
 	public void printBody(StringBuilder sb, Body body) {
 		for (VariableDeclaration decl : body.getLocalVars()) {
-			printVarDeclaration(sb, decl, "    ");
+			printVarDeclaration(sb, decl, "    \n");
 		}
 		if (body.getLocalVars().length > 0)
 			sb.append("\n");
@@ -698,7 +702,7 @@ public class BoogiePrinter {
 				// treated as pragmas if they are. Added "  "
 				sb.append(indent + "  " + ((Label) s).getName() + ":\n");
 			} else {
-				printStatement(s, nextIndent);
+				printStatement(sb, s, nextIndent);
 			}
 		}
 	}
@@ -844,12 +848,11 @@ public class BoogiePrinter {
 				sb.append(" else ");
 			}
 			if (elsePart.length > 0) {
-				sb.append(" else {");
-				sb.append("\n");
-				printBlock(stmt.getElsePart(), indent);				
+				sb.append(" else {\n");
+				printBlock(sb, stmt.getElsePart(), indent);				
 				sb.append(indent).append("}");
 			}
-			m_Writer.println(sb.toString());
+			sb.append("\n");
 		} else if (s instanceof WhileStatement) {
 			WhileStatement stmt = (WhileStatement) s;
 			sb.append("while (");
@@ -868,7 +871,7 @@ public class BoogiePrinter {
 			}			
 			sb.append(indent).append("{");
 			sb.append("\n");
-			printBlock(stmt.getBody(), indent);
+			printBlock(sb, stmt.getBody(), indent);
 			
 			sb.append(indent).append("}");
 			sb.append("\n");
