@@ -5,6 +5,7 @@ package boogie.expression;
 
 import java.util.HashMap;
 
+import boogie.ast.Body;
 import boogie.location.ILocation;
 import boogie.statement.Statement;
 
@@ -14,15 +15,15 @@ import boogie.statement.Statement;
  */
 public class CodeExpression extends Expression {
 
-	Statement[] statements;
+	Body body;
 	
-	public CodeExpression(ILocation loc, Statement[] stmts) {
+	public CodeExpression(ILocation loc, Body b) {
 		super(loc);
-		this.statements = stmts;
+		this.body = b;
 	}
 
-	public Statement[] getStatements() {
-		return this.statements;
+	public Body getBody() {
+		return this.body;
 	}
 	
 	/**
@@ -39,8 +40,7 @@ public class CodeExpression extends Expression {
 	 */
 	@Override
 	public Expression substitute(HashMap<String, Expression> s) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Subsitution for CodeExpression not implemented!");
 	}
 
 }

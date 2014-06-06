@@ -73,10 +73,10 @@ terminal OLD;
 terminal FORALL, EXISTS;
 terminal BOOL, INT, REAL;
 terminal FALSE, TRUE;
-terminal ASSUME, ASSERT, HAVOC, CALL, IF, THEN, ELSE, WHILE, BREAK, RETURN, GOTO, YIELD;
+terminal ASSUME, ASSERT, HAVOC, CALL, IF, THEN, ELSE, WHILE, BREAK, RETURN, GOTO, YIELD, PAR;
 /* Other Symbols */
 terminal COMMA, COLON, SEMI, COLONEQUALS, EQUALS;
-terminal LPAR, RPAR, LBKT, RBKT, LBRC, RBRC, LANG, RANG, CODEBRC;
+terminal LPAR, RPAR, LBKT, RBKT, LBRC, RBRC, LANG, RANG, VBAR;
 terminal LESS, GREATER, LTEQ, GTEQ, NEQ, EQ, PARTORDER;
 terminal PLUS, MINUS;
 terminal TIMES, DIVIDE, MOD;
@@ -102,8 +102,8 @@ non terminal ConstDeclaration    constantDecl;
 non terminal FunctionDeclaration functionDecl;
 non terminal Axiom               axiomDecl;
 non terminal VariableDeclaration varDecl;
-non terminal Procedure           procedureDecl; 
-non terminal Procedure           implementationDecl;
+non terminal ProcedureDeclaration        procedureDecl; 
+non terminal Implementation        implementationDecl;
 
 non terminal Boolean uniqueOpt, completeOpt;
 non terminal ParentEdge[] parentInfoOpt;
@@ -133,7 +133,6 @@ non terminal ASTType  type, typeAtom, mapType;
 non terminal String[] typeArgsOpt;
 non terminal List<ASTType> typeCtorArgsOpt, typeCommaList;
 
-non terminal Expression normalOrCodeExpr;
 non terminal List<Expression> exprCommaPlus, exprCommaStar;
 non terminal Expression expr, expr1, expr2, expr3, expr4, expr5; 
 non terminal Expression expr6, expr7, expr8, expr9;
@@ -158,6 +157,7 @@ non terminal Statement   ifStmt;
 non terminal Statement[] elseOpt;
 non terminal List<LoopInvariantSpecification> loopInvStar;
 non terminal LoopInvariantSpecification loopInv;
+non terminal LinkedList<Expression> parallelCallPlus;
 
 non terminal List<String> idStar, idCommaStar, idCommaPlus;
 non terminal List<VarList> idsTypeCommaPlus, idsTypeCommaStar;
@@ -297,17 +297,17 @@ procedureDecl ::=
 	  PROCEDURE:x attributes:attr ID:i 
 	    typeArgsOpt:ta LPAR idsTypeWhereCommaStar:param RPAR poutparmOpt:outp
 	    SEMI specStar:s
-	  {: RESULT = new Procedure(getLocation(x$,s$,false), attr, i, ta, param.toArray(new VarList[param.size()]), outp.toArray(new VarList[outp.size()]), s.toArray(new Specification[s.size()]), null); :}
+	  {: RESULT = new ProcedureDeclaration(getLocation(x$,s$,false), attr, i, ta, param.toArray(new VarList[param.size()]), outp.toArray(new VarList[outp.size()]), s.toArray(new Specification[s.size()]), null); :}
 	| PROCEDURE:x attributes:attr ID:i 
 	    typeArgsOpt:ta LPAR idsTypeWhereCommaStar:param RPAR poutparmOpt:outp
 	    specStar:s body:b
-	  {: RESULT = new Procedure(getLocation(x$,b$,false), attr, i, ta, param.toArray(new VarList[param.size()]), outp.toArray(new VarList[outp.size()]), s.toArray(new Specification[s.size()]), b); :}
+	  {: RESULT = new ProcedureDeclaration(getLocation(x$,b$,false), attr, i, ta, param.toArray(new VarList[param.size()]), outp.toArray(new VarList[outp.size()]), s.toArray(new Specification[s.size()]), b); :}
 	;
 implementationDecl ::=
 	  IMPLEMENTATION:x attributes:attr ID:i
 	    typeArgsOpt:ta LPAR idsTypeCommaStar:param RPAR ioutparmOpt:out
 	    body:b
-	  {: RESULT = new Procedure(getLocation(x$,b$,false), attr, i, ta, param.toArray(new VarList[param.size()]), out.toArray(new VarList[out.size()]), null, b); :}
+	  {: RESULT = new Implementation(getLocation(x$,b$,false), attr, i, ta, param.toArray(new VarList[param.size()]), out.toArray(new VarList[out.size()]), null, b); :}
 	;
 
 poutparmOpt ::=
@@ -325,9 +325,9 @@ specStar ::=
 	| specStar:l spec:s {: RESULT = l; l.add(s); :}
 	; 
 spec ::=
-	  freeOpt:free REQUIRES attributes:attr normalOrCodeExpr:e SEMI:semi
+	  freeOpt:free REQUIRES attributes:attr expr:e SEMI:semi
 	  {: RESULT = new RequiresSpecification(getLocation(free$,semi$,false), attr, free, e); :}
-	| freeOpt:free ENSURES attributes:attr normalOrCodeExpr:e SEMI:semi
+	| freeOpt:free ENSURES attributes:attr expr:e SEMI:semi
 	  {: RESULT = new EnsuresSpecification(getLocation(free$,semi$,false), attr, free, e); :}
 	| freeOpt:free MODIFIES idCommaStar:l SEMI:semi
 	  {: RESULT = new ModifiesSpecification(getLocation(free$,semi$,false), free, l.toArray(new String[l.size()])); :}
@@ -426,10 +426,18 @@ exprCommaPlus ::=
 	  {: el.add(e); RESULT = el; :}
 	;
 
-expr  ::= expr1NI:e1 IFF expr:e2
+expr  ::= 
+        codeExpression:ce  {: RESULT = ce; :} 
+	    |expr1NI:e1 IFF expr:e2
            {:RESULT = new BinaryExpression(getLocation(e1$,e2$,false), BinaryOperator.LOGICIFF, e1, e2);:}
         | expr1:e
         ;
+
+codeExpression  ::= 
+	VBAR:l body:b VBAR:r
+		{: RESULT = new CodeExpression(getLocation(l$,r$,false), b); :} 
+	;  
+        
 expr1 ::= expr2NI:e1 IMPLIES exprImplies:e2
            {:RESULT = new BinaryExpression(getLocation(e1$,e2$,false), BinaryOperator.LOGICIMPLIES, e1, e2);:}
         | exprExpliesNI:e1 EXPLIES expr2:e2
@@ -438,6 +446,7 @@ expr1 ::= expr2NI:e1 IMPLIES exprImplies:e2
         ;
 exprImplies ::= expr2NI:e1 IMPLIES exprImplies:e2
             {:RESULT = new BinaryExpression(getLocation(e1$,e2$,false), BinaryOperator.LOGICIMPLIES, e1, e2);:}
+          | codeExpression:e  
           | expr2:e
           ;
 expr2 ::= expr3NI:e1 AND exprAnd:e2
@@ -703,8 +712,16 @@ stmt ::=
 	| GOTO:x idCommaPlus:l SEMI
 	  {: RESULT = new GotoStatement(getLocation(x$,l$,false), l.toArray(new String[l.size()])); :}
 	| YIELD:x SEMI
-	  {: RESULT = new YieldStatement(getLocation(x$,x$,false)); :}	  
+	  {: RESULT = new YieldStatement(getLocation(x$,x$,false)); :}
+	| PAR:x parallelCallPlus:pl SEMI
+	  {: RESULT = new ParallelCall(getLocation(x$,x$,false), pl.toArray(new FunctionApplication[pl.size()]) ); :}	  
 	;
+
+parallelCallPlus ::=
+	expr:e {: RESULT=new LinkedList<Expression>(); RESULT.add(e); :}
+	| parallelCallPlus:pl VBAR expr:e {: RESULT=pl; RESULT.add(e);  :}
+;	
+	
 ifStmt ::=
 	  IF:x LPAR wildcardExpr:c RPAR blockStmt:block elseOpt:e
 	  {: RESULT = new IfStatement(getLocation(x$,e$,false), c, block, e); :}
@@ -805,11 +822,3 @@ whereClauseOpt ::=
 	| WHERE expr:e {: RESULT = e; :}
 	;
 
-normalOrCodeExpr  ::=
-	codeExpression:ce  {: RESULT = ce; :}
-	| expr:e  {: RESULT = e; :}
-	;
-codeExpression  ::= 
-	CODEBRC:l blockStmt:bstmt CODEBRC:r
-		{: RESULT = new CodeExpression(getLocation(l$,r$,false), bstmt); :} 
-	;

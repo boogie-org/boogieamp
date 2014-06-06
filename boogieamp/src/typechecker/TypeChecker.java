@@ -46,7 +46,7 @@ import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
-import boogie.declaration.Procedure;
+import boogie.declaration.ProcedureDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.enums.BinaryOperator;
 import boogie.expression.ArrayAccessExpression;
@@ -80,6 +80,7 @@ import boogie.statement.GotoStatement;
 import boogie.statement.HavocStatement;
 import boogie.statement.IfStatement;
 import boogie.statement.Label;
+import boogie.statement.ParallelCall;
 import boogie.statement.ReturnStatement;
 import boogie.statement.Statement;
 import boogie.statement.WhileStatement;
@@ -645,7 +646,7 @@ public class TypeChecker {
 	 * @param proc
 	 *            the procedure to process.
 	 */
-	public void processProcedureDeclaration(Procedure proc) {
+	public void processProcedureDeclaration(ProcedureDeclaration proc) {
 		if (proc.getSpecification() == null) {
 			/* This is only an implementation. It is checked later. */
 			return;
@@ -922,6 +923,8 @@ public class TypeChecker {
 			}
 		} else if (statement instanceof YieldStatement) {
 			Log.error("TypeCheck for YieldStatement not implemented");
+		} else if (statement instanceof ParallelCall) {
+			Log.error("TypeCheck for ParallelCall not implemented");			
 		} else {
 			internalError("Not implemented: type checking for " + statement);
 		}
@@ -1049,7 +1052,7 @@ public class TypeChecker {
 		varScopes.pop();
 	}
 
-	private void processImplementation(Procedure impl) {
+	private void processImplementation(ProcedureDeclaration impl) {
 		if (impl.getBody() == null) {
 			/* This is a procedure declaration without body. Nothing to check. */
 			return;
@@ -1162,8 +1165,8 @@ public class TypeChecker {
 				processFunctionDefinition((FunctionDeclaration) decl);
 			else if (decl instanceof Axiom)
 				typecheckExpression(((Axiom) decl).getFormula());
-			else if (decl instanceof Procedure)
-				processProcedureDeclaration((Procedure) decl);
+			else if (decl instanceof ProcedureDeclaration)
+				processProcedureDeclaration((ProcedureDeclaration) decl);
 			else if (decl instanceof VariableDeclaration) {
 				/* check where clauses */
 				for (VarList vl : ((VariableDeclaration) decl).getVariables()) {
@@ -1178,8 +1181,8 @@ public class TypeChecker {
 		}
 		// pass4: procedure definitions, implementations
 		for (Declaration decl : unit.getDeclarations()) {
-			if (decl instanceof Procedure)
-				processImplementation((Procedure) decl);
+			if (decl instanceof ProcedureDeclaration)
+				processImplementation((ProcedureDeclaration) decl);
 		}
 		return false;
 	}

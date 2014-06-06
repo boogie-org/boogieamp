@@ -43,7 +43,7 @@ import boogie.controlflow.statement.CfgAssumeStatement;
 import boogie.controlflow.statement.CfgCallStatement;
 import boogie.controlflow.statement.CfgHavocStatement;
 import boogie.controlflow.statement.CfgStatement;
-import boogie.declaration.Procedure;
+import boogie.declaration.ProcedureDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.enums.BinaryOperator;
 import boogie.enums.UnaryOperator;
@@ -78,7 +78,7 @@ public class AltControlFlowFactory extends AbstractControlFlowFactory {
 	}
 	
 	@Override
-	protected void constructCfg(Procedure proc, CfgProcedure cfg) {		
+	protected void constructCfg(ProcedureDeclaration proc, CfgProcedure cfg) {		
 		this.context = new ProcedureContext();
 		context.inParamVars = new HashMap<String, CfgVariable>();
 		CfgVariable[] vars = varList2CfgVariables(proc.getInParams(), false,

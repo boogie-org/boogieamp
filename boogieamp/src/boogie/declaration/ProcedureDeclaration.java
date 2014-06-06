@@ -30,7 +30,7 @@ import boogie.specification.Specification;
 /**
  * Represents a procedure or an implementation.
  */
-public class Procedure extends Declaration {
+public class ProcedureDeclaration extends Declaration {
 	/**
 	 * The serial version UID.
 	 */
@@ -38,35 +38,35 @@ public class Procedure extends Declaration {
 	/**
 	 * The identifier of this procedure.
 	 */
-	String identifier;
+	protected String identifier;
 
 	/**
 	 * The type params of this procedure.
 	 */
-	String[] typeParams;
+	protected String[] typeParams;
 
 	/**
 	 * The in params of this procedure.
 	 */
-	VarList[] inParams;
+	protected VarList[] inParams;
 
 	/**
 	 * The out params of this procedure.
 	 */
-	VarList[] outParams;
+	protected VarList[] outParams;
 
 	/**
 	 * The specification. It is null for an implementation and != null (but its
 	 * length may be 0) for a procedure.
 	 */
-	Specification[] specification;
+	protected Specification[] specification;
 
 	/**
 	 * The body. If this is an implementation (getSpecification() returns null)
 	 * this must be present, otherwise it is optional.
 	 */
-	Body body;
-
+	protected Body body;
+	
 	/**
 	 * The constructor taking initial values.
 	 * 
@@ -87,7 +87,7 @@ public class Procedure extends Declaration {
 	 * @param body
 	 *            the body.
 	 */
-	public Procedure(ILocation loc, Attribute[] attributes, String identifier,
+	public ProcedureDeclaration(ILocation loc, Attribute[] attributes, String identifier,
 			String[] typeParams, VarList[] inParams, VarList[] outParams,
 			Specification[] specification, Body body) {
 		super(loc, attributes);
@@ -97,8 +97,8 @@ public class Procedure extends Declaration {
 		this.outParams = outParams;
 		this.specification = specification;
 		this.body = body;
-	}
-
+	}	
+	
 	/**
 	 * Returns a textual description of this object.
 	 */

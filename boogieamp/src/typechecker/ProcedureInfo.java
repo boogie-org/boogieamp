@@ -19,11 +19,11 @@
 
 package typechecker;
 
-import boogie.declaration.Procedure;
+import boogie.declaration.ProcedureDeclaration;
 import boogie.type.TypeParameters;
 
 public class ProcedureInfo {
-	private final Procedure declaration;
+	private final ProcedureDeclaration declaration;
 	private final TypeParameters typeParams;
 	private final VariableInfo[] inParams;
 	private final VariableInfo[] outParams;
@@ -32,7 +32,7 @@ public class ProcedureInfo {
 		return typeParams;
 	}
 
-	public Procedure getDeclaration() {
+	public ProcedureDeclaration getDeclaration() {
 		return declaration;
 	}
 
@@ -44,7 +44,7 @@ public class ProcedureInfo {
 		return outParams;
 	}
 
-	public ProcedureInfo(Procedure declaration, TypeParameters typeParams,
+	public ProcedureInfo(ProcedureDeclaration declaration, TypeParameters typeParams,
 			VariableInfo[] inParams, VariableInfo[] outParams) {
 		this.declaration = declaration;
 		this.typeParams = typeParams;

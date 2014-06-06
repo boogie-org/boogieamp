@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map.Entry;
 
@@ -55,7 +56,7 @@ import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
-import boogie.declaration.Procedure;
+import boogie.declaration.ProcedureDeclaration;
 import boogie.declaration.TypeDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.enums.UnaryOperator;
@@ -177,8 +178,8 @@ public abstract class AbstractControlFlowFactory {
 		// after previously collecting all global vars, build the cfg for each
 		// procedure
 		for (Declaration decl : astroot.getDeclarations()) {
-			if (decl instanceof Procedure) {
-				Procedure proc = (Procedure) decl;
+			if (decl instanceof ProcedureDeclaration) {
+				ProcedureDeclaration proc = (ProcedureDeclaration) decl;
 				if (!this.procedureGraphs.containsKey(proc
 						.getIdentifier())) {
 					CfgProcedure cfg = new CfgProcedure(
@@ -186,7 +187,7 @@ public abstract class AbstractControlFlowFactory {
 					this.procedureGraphs.put(
 							proc.getIdentifier(), cfg);
 				}
-				constructCfg((Procedure) decl,
+				constructCfg((ProcedureDeclaration) decl,
 						this.procedureGraphs.get(proc
 								.getIdentifier()));
 				Log.debug("Build CFG for: "
@@ -236,17 +237,17 @@ public abstract class AbstractControlFlowFactory {
 		this.context = new ProcedureContext();
 		context.inParamVars = new HashMap<String, CfgVariable>();
 		CfgVariable[] vars = varList2CfgVariables(fun.getInParams(), false,
-				false, false, false);
+				false, false, false, "$in");
 		cfgfun.setInParams(vars);
 		for (int i = 0; i < vars.length; i++) {
 			context.inParamVars.put(vars[i].getVarname(), vars[i]);
 		}
-
 		context.outParamVars = new HashMap<String, CfgVariable>();
-		vars = varList2CfgVariables(fun.getOutParam(), false, false, false, false);
+		vars = varList2CfgVariables(fun.getOutParam(), false, false, false, false, "$return");
 		if (vars.length == 1) {
 			cfgfun.setOutParam(vars[0]);
 		} else {
+			
 			throw new RuntimeException("Function " + cfgfun.getIndentifier()
 					+ " has " + vars.length + " instead of 1 out param!");
 		}
@@ -263,7 +264,7 @@ public abstract class AbstractControlFlowFactory {
 		cfgfun.setLocation(fun.getLocation());
 	}
 	
-	abstract protected void constructCfg(Procedure proc, CfgProcedure cfg);
+	abstract protected void constructCfg(ProcedureDeclaration proc, CfgProcedure cfg);
 	
 	
 	protected CfgExpression[] expression2CfgExpression(Expression[] exp) {
@@ -273,6 +274,8 @@ public abstract class AbstractControlFlowFactory {
 		}
 		return ret;
 	}
+	
+	protected HashSet<CfgVariable> boundVariables = new HashSet<CfgVariable>();
 
 	protected CfgExpression expression2CfgExpression(Expression exp) {
 		if (exp instanceof ArrayAccessExpression) {
@@ -331,12 +334,21 @@ public abstract class AbstractControlFlowFactory {
 			for (int i = 0; i<qexp.getParameters().length; i++) {
 				for (CfgVariable var : varList2CfgVariables(qexp.getParameters()[i], false, false, false, false)) {
 					params.add(var);
+					this.boundVariables.add(var); //add the quantifier variables to the list of bound variables
 				}
 			}
 			CfgVariable[] parameters = params.toArray(new CfgVariable[params.size()]);
 			
 			Attribute[] attributes = null; // TODO
 			CfgExpression subformula = expression2CfgExpression(qexp.getSubformula());
+			
+			for (CfgVariable var : params) {
+				if (this.boundVariables.contains(var)) {
+					this.boundVariables.remove(var);
+					//remove the quantified variables again after the quantified expression has been translated.
+				}
+			}
+			
 			return new CfgQuantifierExpression(exp.getLocation(), exp.getType(), qexp.isUniversal(), 
 					typeparams, parameters, attributes, subformula);
 			
@@ -401,6 +413,11 @@ public abstract class AbstractControlFlowFactory {
 	}
 		
 	protected CfgVariable lookupVariable(String name) {
+		if (this.boundVariables!=null) {
+			for (CfgVariable v : this.boundVariables) {
+				if (v.getVarname()==name) return v;
+			}
+		}
 		if (context.localVars != null && context.localVars.containsKey(name)) {
 			return context.localVars.get(name);
 		} else if (context.inParamVars != null
@@ -417,10 +434,15 @@ public abstract class AbstractControlFlowFactory {
 
 	protected CfgVariable[] varList2CfgVariables(VarList[] vl, boolean constant,
 			boolean global, boolean unique, boolean complete) {
+		return varList2CfgVariables(vl, constant, global, unique, complete, "");
+	}	
+	
+	protected CfgVariable[] varList2CfgVariables(VarList[] vl, boolean constant,
+			boolean global, boolean unique, boolean complete, String dummyName) {
 		LinkedList<CfgVariable> ret = new LinkedList<CfgVariable>();
 		for (int i = 0; i < vl.length; i++) {
 			CfgVariable[] tmp = varList2CfgVariables(vl[i], constant, global,
-					unique, complete);
+					unique, complete, dummyName+i);
 			for (int j = 0; j < tmp.length; j++)
 				ret.add(tmp[j]);
 		}
@@ -429,15 +451,27 @@ public abstract class AbstractControlFlowFactory {
 
 	protected CfgVariable[] varList2CfgVariables(VarList vl, boolean constant,
 			boolean global, boolean unique, boolean complete) {
-		CfgVariable[] vars = new CfgVariable[vl.getIdentifiers().length];
-		for (int i = 0; i < vl.getIdentifiers().length; i++) {
-			BoogieType type = this.getBoogieType(vl.getType());
-			vars[i] = new CfgVariable(vl.getIdentifiers()[i], type, constant,
-					global, unique, complete);
+		return varList2CfgVariables(vl, constant, global, unique, complete, "");
+	}
+
+	protected CfgVariable[] varList2CfgVariables(VarList vl, boolean constant,
+			boolean global, boolean unique, boolean complete, String dummyName) {
+		CfgVariable[] vars;
+		if (vl.getIdentifiers().length>0) {
+			vars = new CfgVariable[vl.getIdentifiers().length];
+			for (int i = 0; i < vl.getIdentifiers().length; i++) {
+				BoogieType type = this.getBoogieType(vl.getType());
+				vars[i] = new CfgVariable(vl.getIdentifiers()[i], type, constant,
+						global, unique, complete);
+			}
+		} else {
+			vars = new CfgVariable[]{new CfgVariable(dummyName, this.getBoogieType(vl.getType()), constant,
+					global, unique, complete)};			
 		}
 		return vars;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

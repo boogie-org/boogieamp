@@ -46,7 +46,8 @@ import boogie.ast.asttypes.NamedAstType;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
-import boogie.declaration.Procedure;
+import boogie.declaration.Implementation;
+import boogie.declaration.ProcedureDeclaration;
 import boogie.declaration.TypeDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.enums.UnaryOperator;
@@ -186,7 +187,7 @@ public class ProgramFactory {
 	 * create procedures and other global stuff
 	 */
 
-	public Procedure mkProcedureDeclaration(ILocation loc, String identifier,
+	public ProcedureDeclaration mkProcedureDeclaration(ILocation loc, String identifier,
 			IdentifierExpression[] inParams, IdentifierExpression[] outParams,
 			Specification[] specification) {
 		Attribute[] attributes = {};
@@ -195,7 +196,7 @@ public class ProgramFactory {
 				inParams, outParams, specification);
 	}
 
-	public Procedure mkProcedureDeclaration(ILocation loc,
+	public ProcedureDeclaration mkProcedureDeclaration(ILocation loc,
 			Attribute[] attributes, PlaceholderType[] typeparams,
 			String identifier, IdentifierExpression[] inParams,
 			IdentifierExpression[] outParams, Specification[] specification) {
@@ -221,7 +222,7 @@ public class ProgramFactory {
 			specification = new Specification[0];
 		}
 
-		Procedure decl = new Procedure(loc, attributes, identifier, tparams,
+		ProcedureDeclaration decl = new ProcedureDeclaration(loc, attributes, identifier, tparams,
 				in, out, specification, null);
 		globalDeclarations.add(decl);
 		return decl;
@@ -240,7 +241,7 @@ public class ProgramFactory {
 	 *            the local variables used in the implementation
 	 * @return
 	 */
-	public Procedure mkProcedure(Procedure procdecl, Statement[] stmts,
+	public Implementation mkProcedure(ProcedureDeclaration procdecl, Statement[] stmts,
 			IdentifierExpression[] localvars) {
 
 		if (procdecl.getBody() != null || procdecl == null) {
@@ -254,7 +255,7 @@ public class ProgramFactory {
 		}
 		Body body = new Body(procdecl.getLocation(), decls, stmts);
 
-		Procedure proc = new Procedure(procdecl.getLocation(),
+		Implementation proc = new Implementation(procdecl.getLocation(),
 				procdecl.getAttributes(), procdecl.getIdentifier(),
 				procdecl.getTypeParams(), procdecl.getInParams(),
 				procdecl.getOutParams(), null, body);

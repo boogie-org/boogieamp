@@ -39,7 +39,7 @@ import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
-import boogie.declaration.Procedure;
+import boogie.declaration.ProcedureDeclaration;
 import boogie.declaration.TypeDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.expression.ArrayAccessExpression;
@@ -73,6 +73,7 @@ import boogie.statement.GotoStatement;
 import boogie.statement.HavocStatement;
 import boogie.statement.IfStatement;
 import boogie.statement.Label;
+import boogie.statement.ParallelCall;
 import boogie.statement.ReturnStatement;
 import boogie.statement.Statement;
 import boogie.statement.WhileStatement;
@@ -103,8 +104,8 @@ public class BoogiePrinter {
 				printFunctionDeclaration((FunctionDeclaration) d);
 			else if (d instanceof Axiom)
 				printAxiom((Axiom) d);
-			else if (d instanceof Procedure)
-				printProcedure((Procedure) d);
+			else if (d instanceof ProcedureDeclaration)
+				printProcedure((ProcedureDeclaration) d);
 		}
 	}
 
@@ -381,11 +382,10 @@ public class BoogiePrinter {
 			appendExpression(sb, quant.getSubformula(), 0);
 			sb.append(")");
 		} else if (expr instanceof CodeExpression) {	
-			sb.append("|");
-			for (Statement s: ((CodeExpression)expr).getStatements() ) {
-				this.appendStatement(sb, s);
-			}
-			sb.append("|");
+			sb.append("|{");
+			CodeExpression ce = (CodeExpression)expr;			
+			printBody(sb, ce.getBody());
+			sb.append("}|");
 		} else {
 			throw new IllegalArgumentException(expr.toString());
 		}
@@ -547,14 +547,14 @@ public class BoogiePrinter {
 			sb.append(";");
 		m_Writer.println(sb.toString());
 	}
-
+	
 	/**
 	 * Print procedure.
 	 * 
 	 * @param decl
 	 *            the procedure to print.
 	 */
-	public void printProcedure(Procedure decl) {
+	public void printProcedure(ProcedureDeclaration decl) {
 		StringBuilder sb = new StringBuilder();
 		if (decl.getSpecification() != null) {
 			sb.append("procedure ");
@@ -607,16 +607,17 @@ public class BoogiePrinter {
 		sb.append(")");
 		if (decl.getBody() == null)
 			sb.append(";");
-		m_Writer.println(sb.toString());
+		
 		if (decl.getSpecification() != null) {
 			for (Specification spec : decl.getSpecification())
-				printSpecification(spec);
+				printSpecification(sb, spec);
 		}
 		if (decl.getBody() != null) {
-			m_Writer.println("{");
-			printBody(decl.getBody());
-			m_Writer.println("}");
+			sb.append("{\n");
+			printBody(sb, decl.getBody());
+			sb.append("}\n");
 		}
+		m_Writer.println(sb.toString());
 		m_Writer.println();
 	}
 
@@ -628,6 +629,11 @@ public class BoogiePrinter {
 	 */
 	public void printSpecification(Specification spec) {
 		StringBuilder sb = new StringBuilder();
+		printSpecification(sb, spec);
+		m_Writer.println(sb.toString());
+	}
+	
+	public void printSpecification(StringBuilder sb, Specification spec) {
 		sb.append("    ");
 		if (spec.isFree())
 			sb.append("free ");
@@ -652,8 +658,7 @@ public class BoogiePrinter {
 		} else {
 			throw new IllegalArgumentException(spec.toString());
 		}
-		sb.append(";");
-		m_Writer.println(sb.toString());
+		sb.append(";");		
 	}
 
 	/**
@@ -662,13 +667,13 @@ public class BoogiePrinter {
 	 * @param body
 	 *            the body to print.
 	 */
-	public void printBody(Body body) {
+	public void printBody(StringBuilder sb, Body body) {
 		for (VariableDeclaration decl : body.getLocalVars()) {
-			printVarDeclaration(decl, "    ");
+			printVarDeclaration(sb, decl, "    ");
 		}
 		if (body.getLocalVars().length > 0)
-			m_Writer.println();
-		printBlock(body.getBlock(), "");
+			sb.append("\n");
+		printBlock(sb, body.getBlock(), "");
 	}
 
 	/**
@@ -680,12 +685,18 @@ public class BoogiePrinter {
 	 *            the current indent level.
 	 */
 	public void printBlock(Statement[] block, String indent) {
+		StringBuilder sb = new StringBuilder();
+		printBlock(sb, block, indent);
+		m_Writer.print(sb.toString());
+	}
+	
+	public void printBlock(StringBuilder sb, Statement[] block, String indent) {		
 		String nextIndent = indent + "    ";
 		for (Statement s : block) {
 			if (s instanceof Label) {
 				// SF: Labels aren't on the first column anymore, they are
 				// treated as pragmas if they are. Added "  "
-				m_Writer.println(indent + "  " + ((Label) s).getName() + ":");
+				sb.append(indent + "  " + ((Label) s).getName() + ":\n");
 			} else {
 				printStatement(s, nextIndent);
 			}
@@ -780,7 +791,19 @@ public class BoogiePrinter {
 		} else if (s instanceof YieldStatement) {
 			sb.append("yield;");
 		} else if (s instanceof Label) {	
-			sb.append( ((Label)s).getName() + ":\t"  );			
+			sb.append( ((Label)s).getName() + ":\t"  );
+		} else if (s instanceof ParallelCall) {
+			ParallelCall pc = (ParallelCall)s;
+			sb.append( "par "  );
+			boolean first = true;
+			for (Expression e : pc.getFunctionApplication()) {
+				if (!first) {					
+					sb.append(" | ");
+				}				
+				this.appendExpression(sb, e);
+				first = false;
+			}
+			sb.append( ";"  );
 		} else {
 			throw new IllegalArgumentException(s.toString());
 		}
@@ -796,6 +819,11 @@ public class BoogiePrinter {
 	 */
 	public void printStatement(Statement s, String indent) {
 		StringBuilder sb = new StringBuilder();
+		printStatement(sb, s, indent);
+		m_Writer.println(sb.toString());
+	}
+	
+	public void printStatement(StringBuilder sb, Statement s, String indent) {		
 		sb.append(indent);
 		if (s instanceof IfStatement) {
 			IfStatement stmt = (IfStatement) s;
@@ -804,9 +832,9 @@ public class BoogiePrinter {
 				sb.append("if (");
 				appendExpression(sb, stmt.getCondition(), 0);
 				sb.append(") {");
-				m_Writer.println(sb.toString());
-				printBlock(stmt.getThenPart(), indent);
-				sb = new StringBuilder();
+				sb.append("\n");
+				printBlock(sb, stmt.getThenPart(), indent);
+				
 				sb.append(indent).append("}");
 				elsePart = stmt.getElsePart();
 				if (elsePart.length != 1
@@ -817,9 +845,8 @@ public class BoogiePrinter {
 			}
 			if (elsePart.length > 0) {
 				sb.append(" else {");
-				m_Writer.println(sb.toString());
-				printBlock(stmt.getElsePart(), indent);
-				sb = new StringBuilder();
+				sb.append("\n");
+				printBlock(stmt.getElsePart(), indent);				
 				sb.append(indent).append("}");
 			}
 			m_Writer.println(sb.toString());
@@ -828,9 +855,8 @@ public class BoogiePrinter {
 			sb.append("while (");
 			appendExpression(sb, stmt.getCondition(), 0);
 			sb.append(")");
-			m_Writer.println(sb.toString());
-			for (LoopInvariantSpecification spec : stmt.getInvariants()) {
-				sb = new StringBuilder();
+			sb.append("\n");
+			for (LoopInvariantSpecification spec : stmt.getInvariants()) {				
 				sb.append(indent).append("    ");
 				if (spec.isFree()) {
 					sb.append("free ");
@@ -838,18 +864,17 @@ public class BoogiePrinter {
 				sb.append("invariant ");
 				appendExpression(sb, spec.getFormula(), 0);
 				sb.append(";");
-				m_Writer.println(sb.toString());
-			}
-			sb = new StringBuilder();
+				sb.append("\n");
+			}			
 			sb.append(indent).append("{");
-			m_Writer.println(sb.toString());
+			sb.append("\n");
 			printBlock(stmt.getBody(), indent);
-			sb = new StringBuilder();
+			
 			sb.append(indent).append("}");
-			m_Writer.println(sb.toString());
+			sb.append("\n");
 		} else {
 			appendStatement(sb, s);
-			m_Writer.println(sb.toString());
+			sb.append("\n");
 		}
 	}
 
@@ -905,6 +930,11 @@ public class BoogiePrinter {
 	 */
 	public void printVarDeclaration(VariableDeclaration decl, String indent) {
 		StringBuilder sb = new StringBuilder();
+		printVarDeclaration(sb, decl, indent);
+		m_Writer.println(sb.toString());
+	}
+
+	private void printVarDeclaration(StringBuilder sb, VariableDeclaration decl, String indent) {
 		sb.append(indent).append("var ");		
 		appendAttributes(sb, decl.getAttributes());
 		String comma = "";
@@ -924,9 +954,9 @@ public class BoogiePrinter {
 			comma = ", ";
 		}
 		sb.append(";");
-		m_Writer.println(sb.toString());
 	}
-
+	
+	
 	/**
 	 * Print constant declaration.
 	 * 

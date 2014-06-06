@@ -74,6 +74,7 @@ BvType = "bv" {DecIntegerLiteral}
   "modifies"      { return symbol(LexerSymbols.MODIFIES); }
   "invariant"     { return symbol(LexerSymbols.INVARIANT); }
 
+  "par"           { return symbol(LexerSymbols.PAR); }
   "assume"        { return symbol(LexerSymbols.ASSUME); }
   "assert"        { return symbol(LexerSymbols.ASSERT); }
   "havoc"         { return symbol(LexerSymbols.HAVOC); }
@@ -106,7 +107,7 @@ BvType = "bv" {DecIntegerLiteral}
   "]"             { return symbol(LexerSymbols.RBKT); }
   "{"             { return symbol(LexerSymbols.LBRC); }
   "}"             { return symbol(LexerSymbols.RBRC); }
-  "|"             { return symbol(LexerSymbols.CODEBRC); }
+  "|"             { return symbol(LexerSymbols.VBAR); }
   ","             { return symbol(LexerSymbols.COMMA); }
   ":"             { return symbol(LexerSymbols.COLON); }
   ";"             { return symbol(LexerSymbols.SEMI); }

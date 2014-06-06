@@ -30,7 +30,7 @@ import boogie.ast.Unit;
 import boogie.ast.VarList;
 import boogie.ast.VariableLHS;
 import boogie.declaration.Declaration;
-import boogie.declaration.Procedure;
+import boogie.declaration.ProcedureDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.specification.ModifiesSpecification;
 import boogie.specification.Specification;
@@ -54,26 +54,26 @@ public class ModifiesClauseConstruction {
 				+ "on the CFG.");
 		ModifiesClauseConstruction instance = new ModifiesClauseConstruction();
 		// unify procedure declarations and implementations
-		HashSet<Declaration> unifieddecls = new HashSet<Declaration>();
-		HashMap<String, Procedure> merged_procedures = new HashMap<String, Procedure>();
-		for (Declaration c : root.getDeclarations()) {
-			if (c instanceof Procedure) {
-				Procedure p = (Procedure) c;
-				if (!merged_procedures.containsKey(p.getIdentifier())) {
-					merged_procedures.put(p.getIdentifier(), p);
-				} else {
-					merged_procedures
-							.put(p.getIdentifier(),
-									mergeProcedures(merged_procedures.get(p
-											.getIdentifier()), p));
-				}
-			} else {
-				unifieddecls.add(c);
-			}
-		}
-		unifieddecls.addAll(merged_procedures.values());
-		root.setDeclarations(unifieddecls.toArray(new Declaration[unifieddecls
-				.size()]));
+//		HashSet<Declaration> unifieddecls = new HashSet<Declaration>();
+//		HashMap<String, ProcedureDeclaration> merged_procedures = new HashMap<String, ProcedureDeclaration>();
+//		for (Declaration c : root.getDeclarations()) {
+//			if (c instanceof ProcedureDeclaration) {
+//				ProcedureDeclaration p = (ProcedureDeclaration) c;
+//				if (!merged_procedures.containsKey(p.getIdentifier())) {
+//					merged_procedures.put(p.getIdentifier(), p);
+//				} else {
+//					merged_procedures
+//							.put(p.getIdentifier(),
+//									mergeProcedures(merged_procedures.get(p
+//											.getIdentifier()), p));
+//				}
+//			} else {
+//				unifieddecls.add(c);
+//			}
+//		}
+//		unifieddecls.addAll(merged_procedures.values());
+//		root.setDeclarations(unifieddecls.toArray(new Declaration[unifieddecls
+//				.size()]));
 
 		// collect the names of all global variables.
 		for (Declaration c : root.getDeclarations()) {
@@ -89,8 +89,8 @@ public class ModifiesClauseConstruction {
 		// now build the non-transitive modifies set for each
 		// procedure
 		for (Declaration c : root.getDeclarations()) {
-			if (c instanceof Procedure) {
-				Procedure p = (Procedure) c;
+			if (c instanceof ProcedureDeclaration) {
+				ProcedureDeclaration p = (ProcedureDeclaration) c;
 				instance.computeModifiedGlobalsAndCalls(p);
 			}
 		}
@@ -98,8 +98,8 @@ public class ModifiesClauseConstruction {
 		// now build the transitive modifies set for each
 		// procedure
 		for (Declaration c : root.getDeclarations()) {
-			if (c instanceof Procedure) {
-				Procedure p = (Procedure) c;
+			if (c instanceof ProcedureDeclaration) {
+				ProcedureDeclaration p = (ProcedureDeclaration) c;
 				instance.computeTransitiveModifies(p.getIdentifier(),
 						new HashSet<String>());
 			}
@@ -109,8 +109,8 @@ public class ModifiesClauseConstruction {
 		// updated modifies clauses.
 		HashSet<Declaration> newdecls = new HashSet<Declaration>();
 		for (Declaration c : root.getDeclarations()) {
-			if (c instanceof Procedure) {
-				Procedure p = (Procedure) c;
+			if (c instanceof ProcedureDeclaration) {
+				ProcedureDeclaration p = (ProcedureDeclaration) c;
 				HashSet<Specification> newspec = new HashSet<Specification>();
 				if (p.getSpecification() != null) {
 					for (Specification spec : p.getSpecification()) {
@@ -126,7 +126,7 @@ public class ModifiesClauseConstruction {
 						p.getLocation(), false,
 						identifiers.toArray(new String[identifiers.size()]));
 				newspec.add(modspec);
-				Procedure newproc = new Procedure(p.getLocation(),
+				ProcedureDeclaration newproc = new ProcedureDeclaration(p.getLocation(),
 						p.getAttributes(), p.getIdentifier(),
 						p.getTypeParams(), p.getInParams(), p.getOutParams(),
 						newspec.toArray(new Specification[newspec.size()]),
@@ -150,7 +150,7 @@ public class ModifiesClauseConstruction {
 	 * @param b
 	 * @return a procedure with specification and body
 	 */
-	private static Procedure mergeProcedures(Procedure a, Procedure b) {
+	private static ProcedureDeclaration mergeProcedures(ProcedureDeclaration a, ProcedureDeclaration b) {
 		// Note: this only works because the AST can only be created via the API
 		// or
 		// the parser. If you abuse the library, this will most likely crash.
@@ -186,7 +186,7 @@ public class ModifiesClauseConstruction {
 		} else {
 			body = a.getBody();
 		}
-		return new Procedure(a.getLocation(), a.getAttributes(),
+		return new ProcedureDeclaration(a.getLocation(), a.getAttributes(),
 				a.getIdentifier(), a.getTypeParams(), a.getInParams(),
 				a.getOutParams(), specification, body);
 	}
@@ -201,7 +201,7 @@ public class ModifiesClauseConstruction {
 
 	private HashMap<String, ProcedureInfo> procedureInfoMap = new HashMap<String, ProcedureInfo>();
 
-	private void computeModifiedGlobalsAndCalls(Procedure p) {
+	private void computeModifiedGlobalsAndCalls(ProcedureDeclaration p) {
 		if (this.procedureInfoMap.containsKey(p.getIdentifier())) {
 			return;
 		}
