@@ -57,6 +57,7 @@ import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
 import boogie.declaration.ProcedureDeclaration;
+import boogie.declaration.ProcedureOrImplementationDeclaration;
 import boogie.declaration.TypeDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.enums.UnaryOperator;
@@ -178,8 +179,8 @@ public abstract class AbstractControlFlowFactory {
 		// after previously collecting all global vars, build the cfg for each
 		// procedure
 		for (Declaration decl : astroot.getDeclarations()) {
-			if (decl instanceof ProcedureDeclaration) {
-				ProcedureDeclaration proc = (ProcedureDeclaration) decl;
+			if (decl instanceof ProcedureOrImplementationDeclaration) {
+				ProcedureOrImplementationDeclaration proc = (ProcedureOrImplementationDeclaration) decl;
 				if (!this.procedureGraphs.containsKey(proc
 						.getIdentifier())) {
 					CfgProcedure cfg = new CfgProcedure(
@@ -187,7 +188,7 @@ public abstract class AbstractControlFlowFactory {
 					this.procedureGraphs.put(
 							proc.getIdentifier(), cfg);
 				}
-				constructCfg((ProcedureDeclaration) decl,
+				constructCfg(proc,
 						this.procedureGraphs.get(proc
 								.getIdentifier()));
 				Log.debug("Build CFG for: "
@@ -264,7 +265,7 @@ public abstract class AbstractControlFlowFactory {
 		cfgfun.setLocation(fun.getLocation());
 	}
 	
-	abstract protected void constructCfg(ProcedureDeclaration proc, CfgProcedure cfg);
+	abstract protected void constructCfg(ProcedureOrImplementationDeclaration proc, CfgProcedure cfg);
 	
 	
 	protected CfgExpression[] expression2CfgExpression(Expression[] exp) {
