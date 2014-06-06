@@ -21,6 +21,8 @@ package boogie.statement;
 
 import java.util.List;
 
+import boogie.ast.Attribute;
+import boogie.enums.CallParameters;
 import boogie.expression.Expression;
 import boogie.location.ILocation;
 
@@ -36,7 +38,10 @@ public class CallStatement extends Statement {
 	 * True iff this call statement is forall.
 	 */
 	boolean isForall;
-	boolean async = false;
+	
+	CallParameters callparams = CallParameters.NONE;
+	
+	Attribute[] attributes;
 
 	/**
 	 * The lhs of this call statement.
@@ -91,13 +96,14 @@ public class CallStatement extends Statement {
 	 *            the arguments of this call statement.
 	 */
 	public CallStatement(ILocation loc, boolean isForall, String[] lhs,
-			String methodName, Expression[] arguments, boolean async) {
+			String methodName, Expression[] arguments, CallParameters cp, Attribute[] attributes) {
 		super(loc);
 		this.isForall = isForall;
 		this.lhs = lhs;
 		this.methodName = methodName;
 		this.arguments = arguments;
-		this.async = async;
+		this.callparams = cp;
+		this.attributes = attributes;
 	}
 	
 	/**

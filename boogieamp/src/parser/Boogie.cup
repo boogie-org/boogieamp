@@ -120,6 +120,7 @@ non terminal List<VarList> poutparmOpt, ioutparmOpt;
 non terminal List<Specification> specStar;
 non terminal Specification spec;
 non terminal Boolean freeOpt;
+non terminal CallParameters callParams;
 
 non terminal NamedAttribute[] attributes;
 non terminal List<Expression> attrArgCommaPlus, attrArgCommaStar;
@@ -684,19 +685,12 @@ stmt ::=
 	| lhsCommaPlus:lhs COLONEQUALS exprCommaPlus:rhs SEMI
 	  {: RESULT = new AssignmentStatement
 		(getLocation(lhs$,rhs$,false), lhs.toArray(new LeftHandSide[lhs.size()]), rhs.toArray(new Expression[rhs.size()])); :}
-	| ASYNC:x CALL ID:m LPAR:y exprCommaStar:e RPAR SEMI
-	  {: RESULT = new CallStatement(getLocation(x$,e$,false), false, new String[0], m, e.toArray(new Expression[e.size()]),true); :}
-	| CALL:x ID:m LPAR:y exprCommaStar:e RPAR SEMI
-	  {: RESULT = new CallStatement(getLocation(x$,e$,false), false, new String[0], m, e.toArray(new Expression[e.size()])); :}
-
-	| CALL:x idCommaPlus:ass COLONEQUALS ID:m LPAR exprCommaStar:p RPAR SEMI
-	  {: RESULT = new CallStatement(getLocation(x$,p$,false), false, ass.toArray(new String[ass.size()]), m, p.toArray(new Expression[p.size()])); :}
-	| ASYNC CALL:x idCommaPlus:ass COLONEQUALS ID:m LPAR exprCommaStar:p RPAR SEMI
-	  {: RESULT = new CallStatement(getLocation(x$,p$,false), false, ass.toArray(new String[ass.size()]), m, p.toArray(new Expression[p.size()])); :}
-	| CALL:x FORALL:z ID:m LPAR wildcardExprCommaStar:e RPAR SEMI
-	  {: RESULT = new CallStatement(getLocation(x$,e$,false), true, new String[0], m, e.toArray(new Expression[e.size()]), true); :}
-	| ASYNC CALL:x FORALL:z ID:m LPAR wildcardExprCommaStar:e RPAR SEMI
-	  {: RESULT = new CallStatement(getLocation(x$,e$,false), true, new String[0], m, e.toArray(new Expression[e.size()]), true); :}
+	| callParams:cp CALL:x attributes:attr ID:m LPAR:y exprCommaStar:e RPAR SEMI
+	  {: RESULT = new CallStatement(getLocation(x$,e$,false), false, new String[0], m, e.toArray(new Expression[e.size()]),cp, attr); :}
+	|  callParams:cp CALL:x attributes:attr  idCommaPlus:ass COLONEQUALS ID:m LPAR exprCommaStar:p RPAR SEMI
+	  {: RESULT = new CallStatement(getLocation(x$,p$,false), false, ass.toArray(new String[ass.size()]), m, p.toArray(new Expression[p.size()]), cp, attr); :}
+	|  callParams:cp CALL:x FORALL:z ID:m LPAR wildcardExprCommaStar:e RPAR SEMI
+	  {: RESULT = new CallStatement(getLocation(x$,e$,false), true, new String[0], m, e.toArray(new Expression[e.size()]), cp, new Attribute[0]); :}
 	| ifStmt:s
 	| WHILE:x LPAR wildcardExpr:c RPAR loopInvStar:inv blockStmt:block
 	  {: RESULT = new WhileStatement(getLocation(x$,block$,true), c, inv.toArray(new LoopInvariantSpecification[inv.size()]), block); :}
@@ -716,6 +710,14 @@ stmt ::=
 	| PAR:x parallelCallPlus:pl SEMI
 	  {: RESULT = new ParallelCall(getLocation(x$,x$,false), pl.toArray(new FunctionApplication[pl.size()]) ); :}	  
 	;
+
+callParams ::=
+	  /* empty */ {: RESULT = CallParameters.NONE; :}
+	  | ASYNC FREE {: RESULT = CallParameters.FREEASYNC; :}
+	  | FREE ASYNC {: RESULT = CallParameters.FREEASYNC; :}
+	  | ASYNC {: RESULT = CallParameters.ASYNC; :}
+	  | FREE {: RESULT = CallParameters.FREE; :}
+;
 
 parallelCallPlus ::=
 	expr:e {: RESULT=new LinkedList<Expression>(); RESULT.add(e); :}
