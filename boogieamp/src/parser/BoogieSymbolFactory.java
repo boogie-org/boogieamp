@@ -47,7 +47,7 @@ public class BoogieSymbolFactory implements SymbolFactory {
 		}
 
 		public BoogieSymbol(String name, int id, Symbol left, Symbol right,
-				Object o) {
+				Object o) {			
 			super(id, left, right, o);
 			this.name = name;
 			if (left instanceof BoogieSymbol)

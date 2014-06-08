@@ -21,7 +21,9 @@ package boogie;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -43,6 +45,7 @@ import boogie.ast.VariableLHS;
 import boogie.ast.asttypes.ASTType;
 import boogie.ast.asttypes.ArrayAstType;
 import boogie.ast.asttypes.NamedAstType;
+import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
@@ -104,25 +107,81 @@ public class ProgramFactory {
 	}
 
 	public ProgramFactory(String filename) throws Exception {
+		importBoogieFile(filename, new FileInputStream(filename));
+	}
+	
+	
+	public void importBoogieFile(String filename) throws FileNotFoundException, Exception {
+		importBoogieFile(filename, new FileInputStream(filename));
+	}
+	
+	/*
+	 * imports a boogie file and merges it with the existing AST.
+	 */
+	public void importBoogieFile(String filename, InputStream stream) throws Exception {
 		BoogieSymbolFactory symFactory = new BoogieSymbolFactory();
 		Lexer lexer;
 		Parser parser;
-
+		Unit rootNode = null;
 		try {
-			lexer = new Lexer(new FileInputStream(filename));
+			lexer = new Lexer(stream);
 			lexer.setSymbolFactory(symFactory);
 
 			parser = new Parser(lexer, symFactory);
 			parser.setFileName(filename);
-			this.astRootNode = (Unit) parser.parse().value;
-			ModifiesClauseConstruction.createModifiesClause(astRootNode);
+			rootNode = (Unit) parser.parse().value;
+			ModifiesClauseConstruction.createModifiesClause(rootNode);
 		} catch (Exception e) {
-			//Log.error(e.getMessage());
-			this.astRootNode = null;
-			throw e;
+			Log.error(e.getMessage());
+			rootNode = null;
+			return;
+		}
+		
+		if (this.astRootNode==null) {
+			this.astRootNode = rootNode;
+			return;
+		} else {
+			//merge the new AST into the old one.
+			HashSet<Declaration> decls = new HashSet<Declaration>();
+			for (Declaration d : astRootNode.getDeclarations()) {
+				decls.add(d);
+			}
+			for (Declaration d : rootNode.getDeclarations()) {
+				if (!containsDeclaration(this.astRootNode, d)) {
+					decls.add(d);
+				}
+			}
+			this.astRootNode.setDeclarations(decls.toArray(new Declaration[decls.size()]));
 		}
 	}
 
+	private boolean containsDeclaration(Unit u, Declaration d) {
+		for (Declaration d_ : u.getDeclarations()) {
+			if (d instanceof TypeDeclaration && d_ instanceof TypeDeclaration &&
+				((TypeDeclaration) d).getIdentifier()==((TypeDeclaration) d_).getIdentifier())
+				return true;
+			else if (d instanceof ConstDeclaration && d_ instanceof ConstDeclaration
+					&& ((ConstDeclaration) d).getVarList().toString()==((ConstDeclaration) d_).getVarList().toString() )
+				return true;
+			else if (d instanceof VariableDeclaration && d_ instanceof VariableDeclaration &&
+				((VariableDeclaration) d).getVariables().toString()==((VariableDeclaration) d_).getVariables().toString())
+				return true;				
+			else if (d instanceof FunctionDeclaration && d_ instanceof FunctionDeclaration 
+					&& ((FunctionDeclaration) d).toString()==((FunctionDeclaration) d_).toString() )
+				return true;
+			else if (d instanceof Axiom && d_ instanceof Axiom
+					&& ((Axiom) d).toString()==((Axiom) d_).toString())
+				return true;
+			else if (d instanceof ProcedureDeclaration && d_ instanceof ProcedureDeclaration 
+					&& ((ProcedureDeclaration)d).toString()==((ProcedureDeclaration)d_).toString() )
+				return true;
+			else if (d instanceof Implementation && d_ instanceof Implementation 
+					&& ((Implementation)d).toString()==((Implementation)d_).toString() )
+				return true;			
+		}	
+		return false;
+	}
+	
 	private Unit astRootNode = null;
 	private ILocation dummyLocation = null;
 
