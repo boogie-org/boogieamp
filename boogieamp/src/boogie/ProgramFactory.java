@@ -129,34 +129,115 @@ public class ProgramFactory {
 
 			parser = new Parser(lexer, symFactory);
 			parser.setFileName(filename);
-			rootNode = (Unit) parser.parse().value;
-			ModifiesClauseConstruction.createModifiesClause(rootNode);
+			rootNode = (Unit) parser.parse().value;			
 		} catch (Exception e) {
 			Log.error(e.getMessage());
 			rootNode = null;
 			return;
 		}
 		
-		if (this.astRootNode==null) {
-			this.astRootNode = rootNode;
-			return;
-		} else {
-			//merge the new AST into the old one.
-			HashSet<Declaration> decls = new HashSet<Declaration>();
-			for (Declaration d : astRootNode.getDeclarations()) {
-				decls.add(d);
-			}
-			for (Declaration d : rootNode.getDeclarations()) {
-				if (!containsDeclaration(this.astRootNode, d)) {
-					decls.add(d);
+		//now import the declarations without adding duplicates
+		//and update the this.boogieType2ASTTypeMap
+		for (Declaration d : rootNode.getDeclarations()) {
+			if (d instanceof TypeDeclaration) {
+				TypeDeclaration td = (TypeDeclaration)d;
+				//load all type declaration into boogieType2ASTTypeMap
+				LinkedList<BoogieType> typeParams = new LinkedList<BoogieType>();
+				HashMap<String, BoogieType> placeholders = new HashMap<String, BoogieType>();
+				for (String tparam : td.getTypeParams() ) {
+					if (findTypeDeclaration(tparam)==null) {
+						//this type is not declared, so generate a placeholder instead.
+						if (!placeholders.containsKey(tparam)) {
+							placeholders.put(tparam, this.mkPlaceholderType());
+						}
+						Log.debug("Undeclared type parameter found: "+tparam+". Assuming its a placeholder.");	
+						typeParams.add(placeholders.get(tparam));
+					} else {
+						typeParams.add(this.getNamedType(tparam));
+					}
 				}
+				BoogieType btype = this.getNamedType(td.getIdentifier(), typeParams.toArray(new BoogieType[typeParams.size()]), td.isFinite(), td.getSynonym());
+				this.boogieType2ASTTypeMap.put(btype, this.astTypeFromBoogieType(btype) );
+			} else {
+				//make sure that functions, procedures, and variables are imported properly
+				if (!containsDeclaration(this.globalDeclarations, d)) {
+					if (!this.globalDeclarations.contains(d)) {
+						this.globalDeclarations.add(d);
+					} else {
+						Log.error("Trying to add duplicate "+d.toString());
+					}
+				}				
 			}
-			this.astRootNode.setDeclarations(decls.toArray(new Declaration[decls.size()]));
+		}
+
+		if (this.astRootNode!=null) {
+			Log.debug("Import of "+filename+" made the AST invalid. New one will be created.");
+			this.astRootNode = null;
 		}
 	}
 
-	private boolean containsDeclaration(Unit u, Declaration d) {
-		for (Declaration d_ : u.getDeclarations()) {
+	public BoogieType findTypeByName(String typename) {
+		for (Entry<BoogieType, ASTType> entry : this.boogieType2ASTTypeMap
+				.entrySet()) {
+			if ((entry.getKey()) instanceof ConstructedType) {
+				ConstructedType contype = (ConstructedType) (entry.getKey());
+				if (contype.getConstr().getName() == typename) {
+					return contype;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public TypeDeclaration findTypeDeclaration(String typename) {		
+		for (Declaration d : this.globalDeclarations) {
+			if (d instanceof TypeDeclaration && ((TypeDeclaration) d).getIdentifier()==typename) {				
+				return ((TypeDeclaration) d);
+			}
+		}
+		return null;
+	}
+
+	public VariableDeclaration findVariableDeclaration(String varname) {		
+		for (Declaration d : this.globalDeclarations) {
+			if (d instanceof VariableDeclaration) {
+				VariableDeclaration vd = (VariableDeclaration)d;
+				for (VarList vl : vd.getVariables()) {
+					for (String s : vl.getIdentifiers()) {
+						if (s==varname) return vd;
+					}
+				}
+			}
+					
+		}
+		return null;
+	}
+
+	public ConstDeclaration findConstDeclaration(String constname) {		
+		for (Declaration d : this.globalDeclarations) {
+			if (d instanceof ConstDeclaration) {
+				ConstDeclaration cd = ((ConstDeclaration) d);
+				for (String s : cd.getVarList().getIdentifiers()) {
+					if (s==constname) return cd;
+				}								
+			}
+		}
+		return null;
+	}
+
+	
+	public FunctionDeclaration findFunctionDeclaration(String funname) {		
+		for (Declaration d : this.globalDeclarations) {
+			if (d instanceof FunctionDeclaration && ((FunctionDeclaration) d).getIdentifier()==funname) {
+				return ((FunctionDeclaration) d);
+			}
+		}
+		return null;
+	}
+	
+	
+	private boolean containsDeclaration(LinkedList<Declaration> decls, Declaration d) {
+		for (Declaration d_ : decls) {
 			if (d instanceof TypeDeclaration && d_ instanceof TypeDeclaration &&
 				((TypeDeclaration) d).getIdentifier()==((TypeDeclaration) d_).getIdentifier())
 				return true;
@@ -207,19 +288,17 @@ public class ProgramFactory {
 							.toArray(new Declaration[globalDeclarations.size()]));
 			Log.info("Createing Modifies Clauses");
 			ModifiesClauseConstruction.createModifiesClause(astRootNode);
-		}
+		} 
 		return astRootNode;
 	}
 
 	public void toFile(String filename) {
-		if (astRootNode == null) {
-			astRootNode = getASTRoot();
-		}
+
 		File fpw = new File(filename);
 		try {
 			PrintWriter pw = new PrintWriter(fpw);
 			BoogiePrinter bp = new BoogiePrinter(pw);
-			bp.printBoogieProgram(astRootNode);
+			bp.printBoogieProgram(getASTRoot());
 			pw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -227,15 +306,11 @@ public class ProgramFactory {
 	}
 
 	public void debugPrint() {
-		if (astRootNode == null) {
-			astRootNode = getASTRoot();
-		}
-
 		File fpw = new File("./out.bpl");
 		try {
 			PrintWriter pw = new PrintWriter(fpw);
 			BoogiePrinter bp = new BoogiePrinter(pw);
-			bp.printBoogieProgram(astRootNode);
+			bp.printBoogieProgram(getASTRoot());
 			pw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -759,16 +834,16 @@ public class ProgramFactory {
 
 	public BoogieType getNamedType(String name) {
 		BoogieType[] empty = {};
-		return getNamedType(name, empty, false);
+		return getNamedType(name, empty, false, null);
 	}
 
 	public BoogieType getNamedType(String name, boolean isFinite) {
 		BoogieType[] empty = {};
-		return getNamedType(name, empty, isFinite);
+		return getNamedType(name, empty, isFinite, null);
 	}
 
 	public BoogieType getNamedType(String name, BoogieType[] parameters,
-			boolean isFinite) {
+			boolean isFinite, ASTType synonym) {
 		for (Entry<BoogieType, ASTType> entry : this.boogieType2ASTTypeMap
 				.entrySet()) {
 			if ((entry.getKey()) instanceof ConstructedType) {
@@ -788,7 +863,7 @@ public class ProgramFactory {
 					}
 				}
 			}
-		}
+		}		
 		TypeConstructor tc;
 		if (parameters.length > 0) {
 			int[] order = new int[parameters.length];
@@ -812,14 +887,16 @@ public class ProgramFactory {
 				tparams[i] = generatePlacholderName(((PlaceholderType) parameters[i])
 						.getDepth());
 			} else {
+				System.err.println(parameters[i]);
 				throw new RuntimeException(
 						"that's not working! you have to use substitutePlaceholders on the original type!");
 				// tparams[i]= astTypeFromBoogieType(parameters[i]).toString();
 			}
 		}
+		this.boogieType2ASTTypeMap.put(namedtype, this.astTypeFromBoogieType(namedtype));
 		globalDeclarations.add(new TypeDeclaration(loc, attributes, isFinite,
-				name, tparams));
-
+				name, tparams, synonym));
+		
 		return namedtype;
 	}
 

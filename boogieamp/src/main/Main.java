@@ -52,7 +52,7 @@ public class Main {
 		Log.info("Done.");
 
 		pf.debugPrint();
-
+		
 		Log.info("Run the typechecker");
 		TypeChecker tc = new TypeChecker(pf.getASTRoot());
 		Log.info("Done.");

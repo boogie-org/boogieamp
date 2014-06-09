@@ -95,20 +95,46 @@ public class BoogiePrinter {
 	}
 
 	public void printBoogieProgram(Unit unit) {
+//		for (Declaration d : unit.getDeclarations()) {
+//			if (d instanceof TypeDeclaration)
+//				printTypeDeclaration((TypeDeclaration) d);
+//			else if (d instanceof ConstDeclaration)
+//				printConstDeclaration((ConstDeclaration) d);
+//			else if (d instanceof VariableDeclaration)
+//				printVarDeclaration((VariableDeclaration) d, "");
+//			else if (d instanceof FunctionDeclaration)
+//				printFunctionDeclaration((FunctionDeclaration) d);
+//			else if (d instanceof Axiom)
+//				printAxiom((Axiom) d);
+//			else if (d instanceof ProcedureOrImplementationDeclaration)
+//				printProcedureOrImplementation((ProcedureOrImplementationDeclaration) d);		
+//		}
 		for (Declaration d : unit.getDeclarations()) {
 			if (d instanceof TypeDeclaration)
 				printTypeDeclaration((TypeDeclaration) d);
-			else if (d instanceof ConstDeclaration)
+		}
+		for (Declaration d : unit.getDeclarations()) {
+			if (d instanceof ConstDeclaration)
 				printConstDeclaration((ConstDeclaration) d);
-			else if (d instanceof VariableDeclaration)
+		}
+		for (Declaration d : unit.getDeclarations()) {
+			if (d instanceof VariableDeclaration)
 				printVarDeclaration((VariableDeclaration) d, "");
-			else if (d instanceof FunctionDeclaration)
+		}
+		for (Declaration d : unit.getDeclarations()) {
+			if (d instanceof FunctionDeclaration)
 				printFunctionDeclaration((FunctionDeclaration) d);
-			else if (d instanceof Axiom)
+		}
+		for (Declaration d : unit.getDeclarations()) {
+			if (d instanceof Axiom)
 				printAxiom((Axiom) d);
-			else if (d instanceof ProcedureOrImplementationDeclaration)
+		}
+		for (Declaration d : unit.getDeclarations()) {
+			if (d instanceof ProcedureOrImplementationDeclaration)
 				printProcedureOrImplementation((ProcedureOrImplementationDeclaration) d);		
 		}
+
+	
 	}
 
 	/**

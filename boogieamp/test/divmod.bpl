@@ -3,9 +3,16 @@ type ref;
 type javaType;
 const unique $null : ref;
 
-
 type Field $GenericType__0;
-var $heap : <$GenericType__0>[ref,Field $GenericType__0]$GenericType__0;
+
+type $heap_type = <$GenericType__0>[ref,Field $GenericType__0]$GenericType__0;
+
+var $heap : $heap_type;
+
+
+
+
+
 
 //$type is used to store the type of a java object on the heap.
 //E.g., String s will have $heap[s,$type]==string
@@ -55,6 +62,7 @@ function $xorInt(x:int, y:int) returns ($ret:int);
 function $shlInt(x:int, y:int) returns ($ret:int);
 function $ushrInt(x:int, y:int) returns ($ret:int);
 function $shrInt(x:int, y:int) returns ($ret:int);
+
 
 
 
