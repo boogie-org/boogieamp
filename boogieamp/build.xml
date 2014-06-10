@@ -32,7 +32,7 @@
                 
                 <mkdir dir="${bin}" />
 
-                <javac srcdir="${src}" destdir="${bin}" includeAntRuntime="false">
+                <javac srcdir="${src}" destdir="${bin}" includeAntRuntime="false" debug="on">
                         <classpath>
                                 <fileset dir="${lib}" includes="**/*.jar" />
                         </classpath>

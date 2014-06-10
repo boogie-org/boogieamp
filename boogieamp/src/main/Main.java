@@ -24,6 +24,7 @@ import util.Log;
 import boogie.ProgramFactory;
 import boogie.controlflow.AbstractControlFlowFactory;
 import boogie.controlflow.DefaultControlFlowFactory;
+import boogie.expression.IdentifierExpression;
 
 /**
  * @author martin
@@ -51,6 +52,8 @@ public class Main {
 		}
 		Log.info("Done.");
 
+		IdentifierExpression ie = pf.findGlobalByName("$alloc");
+		
 		pf.debugPrint();
 		
 		Log.info("Run the typechecker");

@@ -45,6 +45,7 @@ import boogie.ast.VariableLHS;
 import boogie.ast.asttypes.ASTType;
 import boogie.ast.asttypes.ArrayAstType;
 import boogie.ast.asttypes.NamedAstType;
+import boogie.ast.asttypes.PrimitiveAstType;
 import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
@@ -188,6 +189,103 @@ public class ProgramFactory {
 		}
 		return null;
 	}
+	
+	public IdentifierExpression findGlobalByName(String name) {
+		VariableDeclaration vd = findVariableDeclaration(name);
+		if (vd!=null) {
+			for (VarList vl : vd.getVariables()) {
+				for (String s : vl.getIdentifiers()) {
+					if (s==name) {
+						return new IdentifierExpression(vd.getLocation(), boogieTypeFromAstType(vl.getType()), name);			
+					}
+				}
+			}			
+		}
+		ConstDeclaration cd = findConstDeclaration(name);
+		if (cd!=null) {
+			for (String s : cd.getVarList().getIdentifiers()) {
+				if (s==name) {
+					return new IdentifierExpression(cd.getLocation(), boogieTypeFromAstType(cd.getVarList().getType()), name);			
+				}				
+			}
+		}
+
+		return null;
+	}
+	
+	private BoogieType boogieTypeFromAstType(ASTType t) {
+		BoogieType ret = findBoogieTypeFromAstType(t);
+		if (ret==null) { 
+			//the boogietype was not found, so it has to be created.
+			ret = createBoogieTypeFromAstType(t);
+			this.boogieType2ASTTypeMap.put(ret, t);
+		}		
+		return ret;
+	}
+	
+	private BoogieType findBoogieTypeFromAstType(ASTType t) {
+		for (Entry<BoogieType, ASTType> entry : this.boogieType2ASTTypeMap.entrySet()) {
+			if (entry.getValue()==t) {
+				return entry.getKey();
+			}
+		}
+		return null;
+	}
+
+	
+	//never call this directly. This should only be used by boogieTypeFromAstType
+	private BoogieType createBoogieTypeFromAstType(ASTType t) {
+		if (t instanceof NamedAstType) {
+			NamedAstType typ = (NamedAstType)t;
+			
+			LinkedList<BoogieType> tparams = new LinkedList<BoogieType>();
+			int torder[] = new int[typ.getTypeArgs().length]; 
+			int i=0;
+			for (ASTType tp : typ.getTypeArgs()) {
+				tparams.add(boogieTypeFromAstType(tp));
+				torder[i] =i; i++;
+			}
+			TypeConstructor tc = new TypeConstructor(typ.getName(), true, typ.getTypeArgs().length, torder);
+			
+			System.err.println(t);
+			
+			return BoogieType.createConstructedType(tc, tparams.toArray(new BoogieType[tparams.size()]));
+		} else if (t instanceof PrimitiveAstType) {
+			PrimitiveAstType typ = (PrimitiveAstType)t;
+			if (typ.getName()=="bool") {
+				return BoogieType.boolType;
+			}
+			if (typ.getName()=="int") {
+				return BoogieType.intType;
+			}
+			if (typ.getName()=="real") {
+				return BoogieType.realType;
+			}
+			
+			throw new RuntimeException("Cannot create BoogieType for "+t.toString());
+		} else if (t instanceof ArrayAstType) {
+			ArrayAstType typ = (ArrayAstType)t;
+			for (String s : typ.getTypeParams()) {
+				//TODO:
+				System.err.println("TODO: "+s);
+			}
+			
+			LinkedList<BoogieType> tparams = new LinkedList<BoogieType>();	
+			for (ASTType tp : typ.getIndexTypes()) {
+				tparams.add(boogieTypeFromAstType(tp));				
+			}
+			BoogieType[] indexTypes = tparams.toArray(new BoogieType[tparams.size()]);
+			BoogieType valueType = boogieTypeFromAstType(typ.getValueType());
+			
+			HashSet<PlaceholderType> placeholders = new HashSet<PlaceholderType>();
+			int numplaceholders = countPlaceHolderTypes(indexTypes, placeholders)
+					+ countPlaceHolderTypes(valueType, placeholders);
+			
+			return BoogieType.createArrayType(numplaceholders, indexTypes, valueType);
+		}
+		return null;
+	}
+	
 	
 	public TypeDeclaration findTypeDeclaration(String typename) {		
 		for (Declaration d : this.globalDeclarations) {
