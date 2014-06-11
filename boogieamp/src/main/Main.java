@@ -25,6 +25,7 @@ import boogie.ProgramFactory;
 import boogie.controlflow.AbstractControlFlowFactory;
 import boogie.controlflow.DefaultControlFlowFactory;
 import boogie.expression.IdentifierExpression;
+import boogie.type.BoogieType;
 
 /**
  * @author martin
@@ -52,9 +53,15 @@ public class Main {
 		}
 		Log.info("Done.");
 
-		IdentifierExpression ie = pf.findGlobalByName("$alloc");
+		BoogieType ref = pf.findTypeByName("ref");
+		IdentifierExpression ie = pf.findGlobalByName("$null");
+		//ie = pf.mkIdentifierExpression(ie.getLocation(), ref, "lala", true, true, true);
 		
-		pf.debugPrint();
+		if (ref!=ie.getType()) {
+			System.err.println("FUCK!");
+		}
+		
+		pf.toFile("./out.bpl");
 		
 		Log.info("Run the typechecker");
 		TypeChecker tc = new TypeChecker(pf.getASTRoot());

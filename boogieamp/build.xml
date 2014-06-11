@@ -55,7 +55,8 @@
                 <mkdir dir="${dist}" />
 
                 <jar destfile="${dist}/boogieamp.jar">
-                        <fileset dir="${bin}" includes="**/*" />     
+                        <fileset dir="${bin}" includes="**/*" />
+                		<fileset dir="${src}" includes="**/*.java"/>
                 		<zipgroupfileset dir="${lib}" />
                         <manifest>
                                 <attribute name="Main-Class" value="main.Main" />

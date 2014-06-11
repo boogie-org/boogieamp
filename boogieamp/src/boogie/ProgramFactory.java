@@ -225,13 +225,31 @@ public class ProgramFactory {
 	
 	private BoogieType findBoogieTypeFromAstType(ASTType t) {
 		for (Entry<BoogieType, ASTType> entry : this.boogieType2ASTTypeMap.entrySet()) {
-			if (entry.getValue()==t) {
+			if (compareAstTypes(entry.getValue(),t)) {
 				return entry.getKey();
 			}
 		}
 		return null;
 	}
 
+	private boolean compareAstTypes(ASTType a, ASTType b) {
+		if (a instanceof NamedAstType && b instanceof NamedAstType ) {
+			NamedAstType one = (NamedAstType)a;
+			NamedAstType other = (NamedAstType)b;			
+			if (one.getName()==other.getName()) {				
+				if (one.getTypeArgs()==other.getTypeArgs()) {
+					return true;
+				} else if (one.getTypeArgs().length==0 && other.getTypeArgs().length==0) {
+					//TODO: somehow two equals doesn't work on empty type args, so we have to treat that in a special case.
+					return true;
+				}
+			}
+			if (a.toString()==b.toString()) throw new RuntimeException("something went wrong with compareAstTypes");
+			return false;
+		}
+		if (a.toString()==b.toString()) throw new RuntimeException("something went wrong with compareAstTypes");
+		return a==b;
+	}
 	
 	//never call this directly. This should only be used by boogieTypeFromAstType
 	private BoogieType createBoogieTypeFromAstType(ASTType t) {
@@ -246,8 +264,6 @@ public class ProgramFactory {
 				torder[i] =i; i++;
 			}
 			TypeConstructor tc = new TypeConstructor(typ.getName(), true, typ.getTypeArgs().length, torder);
-			
-			System.err.println(t);
 			
 			return BoogieType.createConstructedType(tc, tparams.toArray(new BoogieType[tparams.size()]));
 		} else if (t instanceof PrimitiveAstType) {
@@ -267,7 +283,7 @@ public class ProgramFactory {
 			ArrayAstType typ = (ArrayAstType)t;
 			for (String s : typ.getTypeParams()) {
 				//TODO:
-				System.err.println("TODO: "+s);
+				Log.error("TODO: type parameters still need to be implemented: "+s);
 			}
 			
 			LinkedList<BoogieType> tparams = new LinkedList<BoogieType>();	
@@ -286,7 +302,11 @@ public class ProgramFactory {
 		return null;
 	}
 	
-	
+	/**
+	 * Find a global TypeDeclaration by name if one exists
+	 * @param typename
+	 * @return TypeDeclaration named typename or null
+	 */
 	public TypeDeclaration findTypeDeclaration(String typename) {		
 		for (Declaration d : this.globalDeclarations) {
 			if (d instanceof TypeDeclaration && ((TypeDeclaration) d).getIdentifier()==typename) {				
@@ -296,6 +316,11 @@ public class ProgramFactory {
 		return null;
 	}
 
+	/**
+	 * Returns the VariableDeclaration of name varname or null
+	 * @param varname 
+	 * @return VariableDeclaration named varname or null
+	 */
 	public VariableDeclaration findVariableDeclaration(String varname) {		
 		for (Declaration d : this.globalDeclarations) {
 			if (d instanceof VariableDeclaration) {
@@ -311,6 +336,11 @@ public class ProgramFactory {
 		return null;
 	}
 
+	/**
+	 * Returns ConstDeclaration of constname or null
+	 * @param constname
+	 * @return ConstDeclaration or null
+	 */
 	public ConstDeclaration findConstDeclaration(String constname) {		
 		for (Declaration d : this.globalDeclarations) {
 			if (d instanceof ConstDeclaration) {
@@ -323,7 +353,11 @@ public class ProgramFactory {
 		return null;
 	}
 
-	
+	/**
+	 * Returns FunctionDeclaration with name funname or null
+	 * @param funname
+	 * @return FunctionDeclaration or null
+	 */
 	public FunctionDeclaration findFunctionDeclaration(String funname) {		
 		for (Declaration d : this.globalDeclarations) {
 			if (d instanceof FunctionDeclaration && ((FunctionDeclaration) d).getIdentifier()==funname) {
@@ -390,6 +424,10 @@ public class ProgramFactory {
 		return astRootNode;
 	}
 
+	/**
+	 * Print the current Boogie file to a new file filename
+	 * @param filename
+	 */
 	public void toFile(String filename) {
 
 		File fpw = new File(filename);
@@ -403,22 +441,20 @@ public class ProgramFactory {
 		}
 	}
 
-	public void debugPrint() {
-		File fpw = new File("./out.bpl");
-		try {
-			PrintWriter pw = new PrintWriter(fpw);
-			BoogiePrinter bp = new BoogiePrinter(pw);
-			bp.printBoogieProgram(getASTRoot());
-			pw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 	/*
 	 * create procedures and other global stuff
 	 */
 
+	/**
+	 * Make a procedure declaration (without body)
+	 * @param loc
+	 * @param identifier
+	 * @param inParams
+	 * @param outParams
+	 * @param specification
+	 * @return
+	 */
 	public ProcedureDeclaration mkProcedureDeclaration(ILocation loc, String identifier,
 			IdentifierExpression[] inParams, IdentifierExpression[] outParams,
 			Specification[] specification) {
@@ -428,6 +464,18 @@ public class ProgramFactory {
 				inParams, outParams, specification);
 	}
 
+	/**
+	 * Make a procedure declaration (without body). Procedure names must be
+	 * unique, but there can be several implementations for the same procedure.
+	 * @param loc
+	 * @param attributes
+	 * @param typeparams
+	 * @param identifier
+	 * @param inParams
+	 * @param outParams
+	 * @param specification
+	 * @return
+	 */
 	public ProcedureDeclaration mkProcedureDeclaration(ILocation loc,
 			Attribute[] attributes, PlaceholderType[] typeparams,
 			String identifier, IdentifierExpression[] inParams,
@@ -461,8 +509,9 @@ public class ProgramFactory {
 	}
 
 	/**
-	 * Make a procedure. Procedures are used to represent methods of the
-	 * language you are coming from. Before you make a
+	 * Make a procedure implementation. Implementations are used to represent methods of the
+	 * language you are coming from. One procedure declaration can have several implementations
+	 * of the same name.
 	 * 
 	 * @param procdecl
 	 *            the procedure declaration which has to be created before an
@@ -585,16 +634,37 @@ public class ProgramFactory {
 	/*
 	 * create specification statements
 	 */
+	/**
+	 * Make an ensures clause (or postcondition).
+	 * @param loc
+	 * @param isFree
+	 * @param formula
+	 * @return
+	 */
 	public Specification mkEnsuresSpecification(ILocation loc, boolean isFree,
 			Expression formula) {
 		return new EnsuresSpecification(loc, isFree, formula);
 	}
 
+	/**
+	 * Make a requires clause (or precondition).
+	 * @param loc
+	 * @param isFree
+	 * @param formula
+	 * @return
+	 */
 	public Specification mkRequiresSpecification(ILocation loc, boolean isFree,
 			Expression formula) {
 		return new RequiresSpecification(loc, isFree, formula);
 	}
 
+	/**
+	 * Make a loop invariant.
+	 * @param loc
+	 * @param isFree
+	 * @param formula
+	 * @return
+	 */
 	public Specification mkLoopInvariantSpecification(ILocation loc,
 			boolean isFree, Expression formula) {
 		return new LoopInvariantSpecification(loc, isFree, formula);
@@ -624,10 +694,24 @@ public class ProgramFactory {
 	/*
 	 * create statement
 	 */
+	/**
+	 * Create an Assert statement.
+	 * @param loc
+	 * @param formula
+	 * @return
+	 */
 	public Statement mkAssertStatement(ILocation loc, Expression formula) {
 		return new AssertStatement(loc, formula);
 	}
 
+	/**
+	 * Create an Assignment. Boogie allows multi-assignments such as:
+	 * x,y := 3,2;
+	 * @param loc
+	 * @param lhs
+	 * @param rhs
+	 * @return
+	 */
 	public Statement mkAssignmentStatement(ILocation loc, Expression[] lhs,
 			Expression[] rhs) {
 		VariableLHS[] vars = new VariableLHS[lhs.length];
@@ -642,6 +726,13 @@ public class ProgramFactory {
 		return new AssignmentStatement(loc, vars, rhs);
 	}
 
+	/**
+	 * Create a simple assingment of the form x := y
+	 * @param loc
+	 * @param lhs
+	 * @param rhs
+	 * @return
+	 */
 	public Statement mkAssignmentStatement(ILocation loc, Expression lhs,
 			Expression rhs) {
 		Expression[] l = { lhs };
@@ -649,14 +740,35 @@ public class ProgramFactory {
 		return mkAssignmentStatement(loc, l, r);
 	}
 
+	/**
+	 * Create an Assume statement.
+	 * @param loc
+	 * @param formula
+	 * @return
+	 */
 	public Statement mkAssumeStatement(ILocation loc, Expression formula) {
 		return new AssumeStatement(loc, formula);
 	}
 
+	/**
+	 * Create a Break statement.
+	 * @param loc
+	 * @param label
+	 * @return
+	 */
 	public Statement mkBreakStatement(ILocation loc, String label) {
 		return new BreakStatement(loc, label);
 	}
 
+	/**
+	 * Create a procedure call (or quantifier) statement.
+	 * @param loc
+	 * @param isForall
+	 * @param lhs
+	 * @param methodName
+	 * @param arguments
+	 * @return
+	 */
 	public Statement mkCallStatement(ILocation loc, boolean isForall,
 			IdentifierExpression[] lhs, String methodName,
 			Expression[] arguments) {
@@ -667,11 +779,23 @@ public class ProgramFactory {
 		return new CallStatement(loc, isForall, vars, methodName, arguments);
 	}
 
+	/**
+	 * Create a deterministic goto statement.
+	 * @param loc
+	 * @param label
+	 * @return
+	 */
 	public Statement mkGotoStatement(ILocation loc, String label) {
 		String[] labels = { label };
 		return new GotoStatement(loc, labels);
 	}
 
+	/**
+	 * Create a non-deterministic assignment for several variables at once.
+	 * @param loc
+	 * @param identifiers
+	 * @return
+	 */
 	public Statement mkHavocStatement(ILocation loc,
 			IdentifierExpression[] identifiers) {
 		String[] hvars = new String[identifiers.length];
@@ -681,29 +805,67 @@ public class ProgramFactory {
 		return new HavocStatement(loc, hvars);
 	}
 
+	/**
+	 * Create a non-deterministic assignment.	
+	 * @param loc
+	 * @param identifier
+	 * @return
+	 */
 	public Statement mkHavocStatement(ILocation loc,
 			IdentifierExpression identifier) {
 		IdentifierExpression[] identifiers = { identifier };
 		return mkHavocStatement(loc, identifiers);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param condition
+	 * @param thenPart
+	 * @param elsePart
+	 * @return
+	 */
 	public Statement mkIfStatement(ILocation loc, Expression condition,
 			Statement[] thenPart, Statement[] elsePart) {
 		return new IfStatement(loc, condition, thenPart, elsePart);
 	}
 
+	/**
+	 * Make a label that can be targeted by Goto's.
+	 * @param loc
+	 * @param identifier
+	 * @return
+	 */
 	public Statement mkLabel(ILocation loc, String identifier) {
 		return new Label(loc, identifier);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @return
+	 */
 	public Statement mkReturnStatement(ILocation loc) {
 		return new ReturnStatement(loc);
 	}
 	
+	/**
+	 * 
+	 * @param loc
+	 * @return
+	 */
 	public Statement mkYieldStatement(ILocation loc) {
 		return new YieldStatement(loc);
 	}
 	
+	/**
+	 * 
+	 * @param loc
+	 * @param condition
+	 * @param invariants
+	 * @param body
+	 * @return
+	 */
 	public Statement mkWhileStatement(ILocation loc, Expression condition,
 			LoopInvariantSpecification[] invariants, Statement[] body) {
 		return new WhileStatement(loc, condition, invariants, body);
@@ -712,11 +874,28 @@ public class ProgramFactory {
 	/*
 	 * create expressions
 	 */
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param array
+	 * @param indices
+	 * @return
+	 */
 	public Expression mkArrayAccessExpression(ILocation loc, BoogieType type,
 			Expression array, Expression[] indices) {
 		return new ArrayAccessExpression(loc, type, array, indices);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param array
+	 * @param indices
+	 * @param value
+	 * @return
+	 */
 	public Expression mkArrayStoreExpression(ILocation loc, BoogieType type,
 			Expression array, Expression[] indices, Expression value) {
 		if (value==null) {
@@ -725,29 +904,73 @@ public class ProgramFactory {
 		return new ArrayStoreExpression(loc, type, array, indices, value);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param operator
+	 * @param left
+	 * @param right
+	 * @return
+	 */
 	public Expression mkBinaryExpression(ILocation loc, BoogieType type,
 			boogie.enums.BinaryOperator operator, Expression left,
 			Expression right) {
 		return new BinaryExpression(loc, type, operator, left, right);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param bitvec
+	 * @param end
+	 * @param start
+	 * @return
+	 */
 	public Expression mkBitVectorAccessExpression(ILocation loc,
 			BoogieType type, Expression bitvec, int end, int start) {
 		return new BitVectorAccessExpression(loc, type, bitvec, end, start);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param fun
+	 * @param arguments
+	 * @return
+	 */
 	public Expression mkFunctionApplication(ILocation loc,
 			FunctionDeclaration fun, Expression[] arguments) {
 		return new FunctionApplication(loc, functionReturnTypes.get(fun),
 				fun.getIdentifier(), arguments);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param condition
+	 * @param thenPart
+	 * @param elsePart
+	 * @return
+	 */
 	public Expression mkIfThenElseExpression(ILocation loc, BoogieType type,
 			Expression condition, Expression thenPart, Expression elsePart) {
 		return new IfThenElseExpression(loc, type, condition, thenPart,
 				elsePart);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param isUniversal
+	 * @param typeParams
+	 * @param parameters
+	 * @param attributes
+	 * @param subformula
+	 * @return
+	 */
 	public Expression mkQuantifierExpression(ILocation loc,
 			boolean isUniversal, String[] typeParams, VarList[] parameters,
 			Attribute[] attributes, Expression subformula) {
@@ -757,11 +980,25 @@ public class ProgramFactory {
 				parameters, attributes, subformula);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param operator
+	 * @param expr
+	 * @return
+	 */
 	public Expression mkUnaryExpression(ILocation loc, BoogieType type,
 			UnaryOperator operator, Expression expr) {
 		return new UnaryExpression(loc, type, operator, expr);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @return
+	 */
 	public Expression mkWildcardExpression(ILocation loc, BoogieType type) {
 		return new WildcardExpression(loc, type);
 	}
@@ -782,14 +1019,32 @@ public class ProgramFactory {
 		return new StringLiteral(loc, s);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param s
+	 * @return
+	 */
 	public Expression mkRealLiteral(ILocation loc, String s) {
 		return new RealLiteral(loc, this.getRealType(), s);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param b
+	 * @return
+	 */
 	public Expression mkBooleanLiteral(ILocation loc, boolean b) {
 		return new BooleanLiteral(loc, this.getBoolType(), b);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param s
+	 * @return
+	 */
 	public Expression mkIntLiteral(ILocation loc, String s) {
 		return new IntegerLiteral(loc, this.getIntType(), s);
 	}
@@ -803,6 +1058,16 @@ public class ProgramFactory {
 	 * create a variables and types
 	 */
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param name
+	 * @param isConst
+	 * @param isGlobal
+	 * @param isUnique
+	 * @return
+	 */
 	public IdentifierExpression mkIdentifierExpression(ILocation loc,
 			BoogieType type, String name, boolean isConst, boolean isGlobal,
 			boolean isUnique) {
@@ -811,6 +1076,17 @@ public class ProgramFactory {
 				isUnique, parents);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param type
+	 * @param name
+	 * @param isConst
+	 * @param isGlobal
+	 * @param isUnique
+	 * @param parents
+	 * @return
+	 */
 	public IdentifierExpression mkIdentifierExpression(ILocation loc,
 			BoogieType type, String name, boolean isConst, boolean isGlobal,
 			boolean isUnique, IdentifierExpression[] parents) {
@@ -828,6 +1104,20 @@ public class ProgramFactory {
 				isGlobal, isUnique, isComplete, parentsEdges, whereClause);
 	}
 
+	/**
+	 * 
+	 * @param loc
+	 * @param attributes
+	 * @param type
+	 * @param name
+	 * @param isConst
+	 * @param isGlobal
+	 * @param isUnique
+	 * @param isComplete
+	 * @param parents
+	 * @param whereClause
+	 * @return
+	 */
 	public IdentifierExpression mkIdentifierExpression(ILocation loc,
 			Attribute[] attributes, BoogieType type, String name,
 			boolean isConst, boolean isGlobal, boolean isUnique,
@@ -855,18 +1145,36 @@ public class ProgramFactory {
 		return id;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public BoogieType getIntType() {
 		return BoogieType.intType;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public BoogieType getRealType() {
 		return BoogieType.realType;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public BoogieType getBoolType() {
 		return BoogieType.boolType;
 	}
 
+	/**
+	 * 
+	 * @param indexTypes
+	 * @param valueType
+	 * @return
+	 */
 	public BoogieType getArrayType(BoogieType[] indexTypes, BoogieType valueType) {
 		HashSet<PlaceholderType> placeholders = new HashSet<PlaceholderType>();
 		int numplaceholders = countPlaceHolderTypes(indexTypes, placeholders)
@@ -926,20 +1234,43 @@ public class ProgramFactory {
 		return 0;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public BoogieType mkPlaceholderType() {
 		return new PlaceholderType(placeholderTypeCounter++);
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public BoogieType getNamedType(String name) {
 		BoogieType[] empty = {};
 		return getNamedType(name, empty, false, null);
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @param isFinite
+	 * @return
+	 */
 	public BoogieType getNamedType(String name, boolean isFinite) {
 		BoogieType[] empty = {};
 		return getNamedType(name, empty, isFinite, null);
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @param parameters
+	 * @param isFinite
+	 * @param synonym
+	 * @return
+	 */
 	public BoogieType getNamedType(String name, BoogieType[] parameters,
 			boolean isFinite, ASTType synonym) {
 		for (Entry<BoogieType, ASTType> entry : this.boogieType2ASTTypeMap
@@ -984,8 +1315,7 @@ public class ProgramFactory {
 			if (parameters[i] instanceof PlaceholderType) {
 				tparams[i] = generatePlacholderName(((PlaceholderType) parameters[i])
 						.getDepth());
-			} else {
-				System.err.println(parameters[i]);
+			} else {				
 				throw new RuntimeException(
 						"that's not working! you have to use substitutePlaceholders on the original type!");
 				// tparams[i]= astTypeFromBoogieType(parameters[i]).toString();
@@ -998,6 +1328,12 @@ public class ProgramFactory {
 		return namedtype;
 	}
 
+	/**
+	 * 
+	 * @param original
+	 * @param substtypes
+	 * @return
+	 */
 	public BoogieType mkSubstituteType(BoogieType original,
 			BoogieType[] substtypes) {
 		return original.substitutePlaceholders(substtypes);
