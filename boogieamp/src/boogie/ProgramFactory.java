@@ -366,6 +366,20 @@ public class ProgramFactory {
 		}
 		return null;
 	}
+
+	/**
+	 * Returns the ProcedureDeclaration with name funname or null
+	 * @param funname
+	 * @return
+	 */
+	public ProcedureDeclaration findProcedureDeclaration(String funname) {		
+		for (Declaration d : this.globalDeclarations) {
+			if (d instanceof ProcedureDeclaration && ((ProcedureDeclaration) d).getIdentifier()==funname) {
+				return ((ProcedureDeclaration) d);
+			}
+		}
+		return null;
+	}
 	
 	
 	private boolean containsDeclaration(LinkedList<Declaration> decls, Declaration d) {
