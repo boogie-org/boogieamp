@@ -167,7 +167,9 @@ public class ProgramFactory {
 					} else {
 						Log.error("Trying to add duplicate "+d.toString());
 					}
-				}				
+				} else {
+					System.err.println("Double decl " + d);
+				}
 			}
 		}
 
@@ -182,7 +184,7 @@ public class ProgramFactory {
 				.entrySet()) {
 			if ((entry.getKey()) instanceof ConstructedType) {
 				ConstructedType contype = (ConstructedType) (entry.getKey());
-				if (contype.getConstr().getName() == typename) {
+				if (contype.getConstr().getName().equals(typename)) {
 					return contype;
 				}
 			}
@@ -195,7 +197,7 @@ public class ProgramFactory {
 		if (vd!=null) {
 			for (VarList vl : vd.getVariables()) {
 				for (String s : vl.getIdentifiers()) {
-					if (s==name) {
+					if (s.equals(name)) {
 						return new IdentifierExpression(vd.getLocation(), boogieTypeFromAstType(vl.getType()), name);			
 					}
 				}
@@ -204,7 +206,7 @@ public class ProgramFactory {
 		ConstDeclaration cd = findConstDeclaration(name);
 		if (cd!=null) {
 			for (String s : cd.getVarList().getIdentifiers()) {
-				if (s==name) {
+				if (s.equals(name)) {
 					return new IdentifierExpression(cd.getLocation(), boogieTypeFromAstType(cd.getVarList().getType()), name);			
 				}				
 			}
@@ -213,7 +215,12 @@ public class ProgramFactory {
 		return null;
 	}
 	
-	private BoogieType boogieTypeFromAstType(ASTType t) {
+	/**
+	 * 
+	 * @param t
+	 * @return
+	 */
+	public BoogieType boogieTypeFromAstType(ASTType t) {
 		BoogieType ret = findBoogieTypeFromAstType(t);
 		if (ret==null) { 
 			//the boogietype was not found, so it has to be created.
@@ -236,7 +243,7 @@ public class ProgramFactory {
 		if (a instanceof NamedAstType && b instanceof NamedAstType ) {
 			NamedAstType one = (NamedAstType)a;
 			NamedAstType other = (NamedAstType)b;			
-			if (one.getName()==other.getName()) {				
+			if (one.getName().equals(other.getName())) {				
 				if (one.getTypeArgs()==other.getTypeArgs()) {
 					return true;
 				} else if (one.getTypeArgs().length==0 && other.getTypeArgs().length==0) {
@@ -244,10 +251,14 @@ public class ProgramFactory {
 					return true;
 				}
 			}
-			if (a.toString()==b.toString()) throw new RuntimeException("something went wrong with compareAstTypes");
+			if (a.toString().equals(b.toString())) throw new RuntimeException("something went wrong with compareAstTypes");
 			return false;
+		} else if (a instanceof ArrayAstType && b instanceof ArrayAstType ) {
+			if (a.toString().equals(b.toString())) {
+				//TODO: Super HACK!
+				return true;
+			}
 		}
-		if (a.toString()==b.toString()) throw new RuntimeException("something went wrong with compareAstTypes");
 		return a==b;
 	}
 	
@@ -268,13 +279,13 @@ public class ProgramFactory {
 			return BoogieType.createConstructedType(tc, tparams.toArray(new BoogieType[tparams.size()]));
 		} else if (t instanceof PrimitiveAstType) {
 			PrimitiveAstType typ = (PrimitiveAstType)t;
-			if (typ.getName()=="bool") {
+			if (typ.getName().equals("bool")) {
 				return BoogieType.boolType;
 			}
-			if (typ.getName()=="int") {
+			if (typ.getName().equals("int")) {
 				return BoogieType.intType;
 			}
-			if (typ.getName()=="real") {
+			if (typ.getName().equals("real")) {
 				return BoogieType.realType;
 			}
 			
@@ -309,7 +320,7 @@ public class ProgramFactory {
 	 */
 	public TypeDeclaration findTypeDeclaration(String typename) {		
 		for (Declaration d : this.globalDeclarations) {
-			if (d instanceof TypeDeclaration && ((TypeDeclaration) d).getIdentifier()==typename) {				
+			if (d instanceof TypeDeclaration && ((TypeDeclaration) d).getIdentifier().equals(typename)) {				
 				return ((TypeDeclaration) d);
 			}
 		}
@@ -327,7 +338,7 @@ public class ProgramFactory {
 				VariableDeclaration vd = (VariableDeclaration)d;
 				for (VarList vl : vd.getVariables()) {
 					for (String s : vl.getIdentifiers()) {
-						if (s==varname) return vd;
+						if (s.equals(varname)) return vd;
 					}
 				}
 			}
@@ -346,7 +357,7 @@ public class ProgramFactory {
 			if (d instanceof ConstDeclaration) {
 				ConstDeclaration cd = ((ConstDeclaration) d);
 				for (String s : cd.getVarList().getIdentifiers()) {
-					if (s==constname) return cd;
+					if (s.equals(constname)) return cd;
 				}								
 			}
 		}
@@ -360,7 +371,7 @@ public class ProgramFactory {
 	 */
 	public FunctionDeclaration findFunctionDeclaration(String funname) {		
 		for (Declaration d : this.globalDeclarations) {
-			if (d instanceof FunctionDeclaration && ((FunctionDeclaration) d).getIdentifier()==funname) {
+			if (d instanceof FunctionDeclaration && ((FunctionDeclaration) d).getIdentifier().equals(funname)) {
 				return ((FunctionDeclaration) d);
 			}
 		}
@@ -374,8 +385,12 @@ public class ProgramFactory {
 	 */
 	public ProcedureDeclaration findProcedureDeclaration(String funname) {		
 		for (Declaration d : this.globalDeclarations) {
-			if (d instanceof ProcedureDeclaration && ((ProcedureDeclaration) d).getIdentifier()==funname) {
-				return ((ProcedureDeclaration) d);
+			if (d instanceof ProcedureDeclaration) {
+				if (((ProcedureDeclaration) d).getIdentifier().equals(funname) ) {
+					return ((ProcedureDeclaration) d);
+				} else {
+					//nothing
+				}
 			}
 		}
 		return null;
@@ -383,27 +398,27 @@ public class ProgramFactory {
 	
 	
 	private boolean containsDeclaration(LinkedList<Declaration> decls, Declaration d) {
-		for (Declaration d_ : decls) {
+		for (Declaration d_ : decls) {			
 			if (d instanceof TypeDeclaration && d_ instanceof TypeDeclaration &&
-				((TypeDeclaration) d).getIdentifier()==((TypeDeclaration) d_).getIdentifier())
+				((TypeDeclaration) d).getIdentifier().equals(((TypeDeclaration) d_).getIdentifier()))
 				return true;
 			else if (d instanceof ConstDeclaration && d_ instanceof ConstDeclaration
-					&& ((ConstDeclaration) d).getVarList().toString()==((ConstDeclaration) d_).getVarList().toString() )
+					&& ((ConstDeclaration) d).getVarList().toString().equals(((ConstDeclaration) d_).getVarList().toString()) )
 				return true;
 			else if (d instanceof VariableDeclaration && d_ instanceof VariableDeclaration &&
-				((VariableDeclaration) d).getVariables().toString()==((VariableDeclaration) d_).getVariables().toString())
+				((VariableDeclaration) d).getVariables().toString().equals(((VariableDeclaration) d_).getVariables().toString()))
 				return true;				
 			else if (d instanceof FunctionDeclaration && d_ instanceof FunctionDeclaration 
-					&& ((FunctionDeclaration) d).toString()==((FunctionDeclaration) d_).toString() )
+					&& ((FunctionDeclaration) d).toString().equals(((FunctionDeclaration) d_).toString()) )
 				return true;
 			else if (d instanceof Axiom && d_ instanceof Axiom
-					&& ((Axiom) d).toString()==((Axiom) d_).toString())
+					&& ((Axiom) d).toString().equals(((Axiom) d_).toString()))
 				return true;
 			else if (d instanceof ProcedureDeclaration && d_ instanceof ProcedureDeclaration 
-					&& ((ProcedureDeclaration)d).toString()==((ProcedureDeclaration)d_).toString() )
+					&& ((ProcedureDeclaration)d).toString().equals(((ProcedureDeclaration)d_).toString()) )
 				return true;
 			else if (d instanceof Implementation && d_ instanceof Implementation 
-					&& ((Implementation)d).toString()==((Implementation)d_).toString() )
+					&& ((Implementation)d).toString().equals(((Implementation)d_).toString()) )
 				return true;			
 		}	
 		return false;
@@ -1291,7 +1306,7 @@ public class ProgramFactory {
 				.entrySet()) {
 			if ((entry.getKey()) instanceof ConstructedType) {
 				ConstructedType contype = (ConstructedType) (entry.getKey());
-				if (contype.getConstr().getName() == name) {
+				if (contype.getConstr().getName().equals(name)) {
 					if (contype.getConstr().getParamCount() == parameters.length) {
 						boolean same = true;
 						for (int i = 0; i < parameters.length; i++) {
