@@ -170,9 +170,10 @@ public class ProgramFactory {
 					}
 				} else if (d instanceof Implementation) {
 					if (d==existing) {
-						
+						//TODO;
+						System.err.println("DOUBLE "+ ((Implementation)d).getIdentifier() + " / "+((Implementation)existing).getIdentifier());
 					} else {
-						System.err.println("WWWWWWWWWWW");
+						
 					}
 					this.globalDeclarations.add(d);
 				} else {

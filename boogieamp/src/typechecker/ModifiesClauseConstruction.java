@@ -21,6 +21,7 @@ package typechecker;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import util.Log;
 import boogie.ast.ArrayLHS;
@@ -107,7 +108,7 @@ public class ModifiesClauseConstruction {
 
 		// now create new procedure declarations with the
 		// updated modifies clauses.
-		HashSet<Declaration> newdecls = new HashSet<Declaration>();
+		LinkedList<Declaration> newdecls = new LinkedList<Declaration>();
 		for (Declaration c : root.getDeclarations()) {
 			if (c instanceof ProcedureDeclaration) {
 				ProcedureDeclaration p = (ProcedureDeclaration) c;
@@ -140,56 +141,6 @@ public class ModifiesClauseConstruction {
 		root.setDeclarations(newdecls.toArray(new Declaration[newdecls.size()]));
 	}
 
-	/**
-	 * If a procedure is created with the API, there is always a declaration and
-	 * an implementation which are the same, but the declaration has a
-	 * Specification and no Body and for the implementation it is the other way
-	 * around. This is merged here
-	 * 
-	 * @param a
-	 * @param b
-	 * @return a procedure with specification and body
-	 */
-	private static ProcedureDeclaration mergeProcedures(ProcedureDeclaration a, ProcedureDeclaration b) {
-		// Note: this only works because the AST can only be created via the API
-		// or
-		// the parser. If you abuse the library, this will most likely crash.
-		Specification[] specification;
-		if (a.getSpecification() != b.getSpecification()) {
-			if (a.getSpecification() != null && b.getSpecification() == null) {
-				specification = a.getSpecification();
-			} else if (a.getSpecification() == null
-					&& b.getSpecification() != null) {
-				specification = b.getSpecification();
-			} else {
-				throw new RuntimeException(
-						"Error: implementation and declaration of "
-								+ a.getIdentifier()
-								+ " have different sepcifications.");
-			}
-		} else {
-			specification = a.getSpecification();
-		}
-		Body body;
-		if (a.getBody() != b.getBody()) {
-			if (a.getBody() != null && b.getBody() == null) {
-				body = a.getBody();
-			} else if (a.getBody() == null && b.getBody() != null) {
-				body = b.getBody();
-			} else if (a.getBody() == null && b.getBody() == null) {
-				throw new RuntimeException("Error: implementation of "
-						+ a.getIdentifier() + " must have a body.");
-			} else {
-				throw new RuntimeException("Error: " + a.getIdentifier()
-						+ " is declared twice.");
-			}
-		} else {
-			body = a.getBody();
-		}
-		return new ProcedureDeclaration(a.getLocation(), a.getAttributes(),
-				a.getIdentifier(), a.getTypeParams(), a.getInParams(),
-				a.getOutParams(), specification, body);
-	}
 
 	private HashSet<String> globalIdentifier = new HashSet<String>();
 

@@ -57,9 +57,7 @@ public class Main {
 		IdentifierExpression ie = pf.findGlobalByName("$null");
 		//ie = pf.mkIdentifierExpression(ie.getLocation(), ref, "lala", true, true, true);
 		
-		if (ref!=ie.getType()) {
-			System.err.println("FUCK!");
-		}
+
 		
 		pf.toFile("./out.bpl");
 		

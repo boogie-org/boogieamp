@@ -162,9 +162,10 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 
 	private BasicBlock constructCfg(Statement s, BasicBlock b) {
 		if (b == null && !(s instanceof Label)) {
-			// TODO: we may report these statements as infeasible already.
-			// we can create a new basic block here which is already added
-			// to the infeasible blocks.
+			if (s instanceof ReturnStatement) {
+				//in that case, we can safely ignore the statement
+				return null;
+			} 
 			Log.error("Statement " + s + " is unreachable");
 			return null;
 		}

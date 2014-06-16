@@ -109,8 +109,8 @@ public class BoogiePrinter {
 //			else if (d instanceof ProcedureOrImplementationDeclaration)
 //				printProcedureOrImplementation((ProcedureOrImplementationDeclaration) d);		
 //		}
-		for (Declaration d : unit.getDeclarations()) {
-			if (d instanceof TypeDeclaration)
+		for (Declaration d : unit.getDeclarations()) {			
+			if (d instanceof TypeDeclaration) 
 				printTypeDeclaration((TypeDeclaration) d);
 		}
 		for (Declaration d : unit.getDeclarations()) {
