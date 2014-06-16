@@ -161,14 +161,25 @@ public class ProgramFactory {
 				this.boogieType2ASTTypeMap.put(btype, this.astTypeFromBoogieType(btype) );
 			} else {
 				//make sure that functions, procedures, and variables are imported properly
-				if (!containsDeclaration(this.globalDeclarations, d)) {
+				Declaration existing = containsDeclaration(this.globalDeclarations, d);
+				if (existing == null) {
 					if (!this.globalDeclarations.contains(d)) {
 						this.globalDeclarations.add(d);
 					} else {
 						Log.error("Trying to add duplicate "+d.toString());
 					}
+				} else if (d instanceof Implementation) {
+					if (d==existing) {
+						
+					} else {
+						System.err.println("WWWWWWWWWWW");
+					}
+					this.globalDeclarations.add(d);
 				} else {
-					System.err.println("Double decl " + d);
+					System.err.println("Double decl " + d.getClass().toString());
+					Implementation impl = (Implementation)d;
+					System.err.println(impl.getIdentifier());
+					
 				}
 			}
 		}
@@ -397,31 +408,31 @@ public class ProgramFactory {
 	}
 	
 	
-	private boolean containsDeclaration(LinkedList<Declaration> decls, Declaration d) {
+	private Declaration containsDeclaration(LinkedList<Declaration> decls, Declaration d) {
 		for (Declaration d_ : decls) {			
 			if (d instanceof TypeDeclaration && d_ instanceof TypeDeclaration &&
 				((TypeDeclaration) d).getIdentifier().equals(((TypeDeclaration) d_).getIdentifier()))
-				return true;
+				return d_;
 			else if (d instanceof ConstDeclaration && d_ instanceof ConstDeclaration
 					&& ((ConstDeclaration) d).getVarList().toString().equals(((ConstDeclaration) d_).getVarList().toString()) )
-				return true;
+				return d_;
 			else if (d instanceof VariableDeclaration && d_ instanceof VariableDeclaration &&
 				((VariableDeclaration) d).getVariables().toString().equals(((VariableDeclaration) d_).getVariables().toString()))
-				return true;				
+				return d_;				
 			else if (d instanceof FunctionDeclaration && d_ instanceof FunctionDeclaration 
 					&& ((FunctionDeclaration) d).toString().equals(((FunctionDeclaration) d_).toString()) )
-				return true;
+				return d_;
 			else if (d instanceof Axiom && d_ instanceof Axiom
 					&& ((Axiom) d).toString().equals(((Axiom) d_).toString()))
-				return true;
+				return d_;
 			else if (d instanceof ProcedureDeclaration && d_ instanceof ProcedureDeclaration 
 					&& ((ProcedureDeclaration)d).toString().equals(((ProcedureDeclaration)d_).toString()) )
-				return true;
+				return d_;
 			else if (d instanceof Implementation && d_ instanceof Implementation 
 					&& ((Implementation)d).toString().equals(((Implementation)d_).toString()) )
-				return true;			
+				return d_;			
 		}	
-		return false;
+		return null;
 	}
 	
 	private Unit astRootNode = null;
@@ -568,7 +579,7 @@ public class ProgramFactory {
 		Implementation impl = new Implementation(procdecl.getLocation(),
 				procdecl.getAttributes(), procdecl.getIdentifier(),
 				procdecl.getTypeParams(), procdecl.getInParams(),
-				procdecl.getOutParams(), null, body);
+				procdecl.getOutParams(), new Specification[0], body);
 
 		globalDeclarations.add(impl);
 		return impl;

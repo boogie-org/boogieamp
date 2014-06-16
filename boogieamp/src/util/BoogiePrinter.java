@@ -130,8 +130,12 @@ public class BoogiePrinter {
 				printAxiom((Axiom) d);
 		}
 		for (Declaration d : unit.getDeclarations()) {
-			if (d instanceof ProcedureOrImplementationDeclaration)
-				printProcedureOrImplementation((ProcedureOrImplementationDeclaration) d);		
+			if (d instanceof ProcedureDeclaration)
+				printProcedureOrImplementation((ProcedureDeclaration) d);		
+		}
+		for (Declaration d : unit.getDeclarations()) {
+			if (d instanceof Implementation)
+				printProcedureOrImplementation((Implementation) d);		
 		}
 
 	
@@ -519,8 +523,9 @@ public class BoogiePrinter {
 		StringBuilder sb = new StringBuilder();
 		sb.append("type ");
 		appendAttributes(sb, decl.getAttributes());
-		if (decl.isFinite())
-			sb.append("finite ");
+		//TODO: no idea where to put finite! check that.
+//		if (decl.isFinite())
+//			sb.append("finite ");
 		sb.append(decl.getIdentifier());
 		for (String args : decl.getTypeParams())
 			sb.append(" ").append(args);

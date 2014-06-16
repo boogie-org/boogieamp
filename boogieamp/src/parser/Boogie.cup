@@ -308,7 +308,7 @@ implementationDecl ::=
 	  IMPLEMENTATION:x attributes:attr ID:i
 	    typeArgsOpt:ta LPAR idsTypeCommaStar:param RPAR ioutparmOpt:out
 	    body:b
-	  {: RESULT = new Implementation(getLocation(x$,b$,false), attr, i, ta, param.toArray(new VarList[param.size()]), out.toArray(new VarList[out.size()]), null, b); :}
+	  {: RESULT = new Implementation(getLocation(x$,b$,false), attr, i, ta, param.toArray(new VarList[param.size()]), out.toArray(new VarList[out.size()]), new Specification[0], b); :}
 	;
 
 poutparmOpt ::=
