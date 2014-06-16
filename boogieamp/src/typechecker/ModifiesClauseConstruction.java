@@ -31,7 +31,9 @@ import boogie.ast.Unit;
 import boogie.ast.VarList;
 import boogie.ast.VariableLHS;
 import boogie.declaration.Declaration;
+import boogie.declaration.Implementation;
 import boogie.declaration.ProcedureDeclaration;
+import boogie.declaration.ProcedureOrImplementationDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.specification.ModifiesSpecification;
 import boogie.specification.Specification;
@@ -76,6 +78,9 @@ public class ModifiesClauseConstruction {
 //		root.setDeclarations(unifieddecls.toArray(new Declaration[unifieddecls
 //				.size()]));
 
+		HashMap<String, ProcedureDeclaration> proceduredecls = new HashMap<String, ProcedureDeclaration>(); 
+		HashMap<String, LinkedList<Implementation>> implementations = new HashMap<String, LinkedList<Implementation>>();
+		
 		// collect the names of all global variables.
 		for (Declaration c : root.getDeclarations()) {
 			if (c instanceof VariableDeclaration) {
@@ -85,13 +90,26 @@ public class ModifiesClauseConstruction {
 						instance.globalIdentifier.add(v.getIdentifiers()[i]);
 					}
 				}
+			} else if (c instanceof ProcedureDeclaration) {
+				ProcedureDeclaration decl = (ProcedureDeclaration)c;
+				if (proceduredecls.containsKey(decl.getIdentifier())) {
+					throw new RuntimeException("Double declaration of procedure "+decl.getIdentifier());
+				}
+				proceduredecls.put(decl.getIdentifier(), decl);
+			} else if (c instanceof Implementation) {
+				Implementation impl = (Implementation)c;
+				if (!implementations.containsKey(impl.getIdentifier())) {
+					implementations.put(impl.getIdentifier(), new LinkedList<Implementation>());
+				}
+				implementations.get(impl.getIdentifier()).add(impl);
 			}
-		}
+		}		
+		
 		// now build the non-transitive modifies set for each
 		// procedure
 		for (Declaration c : root.getDeclarations()) {
-			if (c instanceof ProcedureDeclaration) {
-				ProcedureDeclaration p = (ProcedureDeclaration) c;
+			if (c instanceof ProcedureOrImplementationDeclaration) {
+				ProcedureOrImplementationDeclaration p = (ProcedureOrImplementationDeclaration) c;
 				instance.computeModifiedGlobalsAndCalls(p);
 			}
 		}
@@ -99,8 +117,8 @@ public class ModifiesClauseConstruction {
 		// now build the transitive modifies set for each
 		// procedure
 		for (Declaration c : root.getDeclarations()) {
-			if (c instanceof ProcedureDeclaration) {
-				ProcedureDeclaration p = (ProcedureDeclaration) c;
+			if (c instanceof ProcedureOrImplementationDeclaration) {
+				ProcedureOrImplementationDeclaration p = (ProcedureOrImplementationDeclaration) c;
 				instance.computeTransitiveModifies(p.getIdentifier(),
 						new HashSet<String>());
 			}
@@ -152,13 +170,11 @@ public class ModifiesClauseConstruction {
 
 	private HashMap<String, ProcedureInfo> procedureInfoMap = new HashMap<String, ProcedureInfo>();
 
-	private void computeModifiedGlobalsAndCalls(ProcedureDeclaration p) {
-		if (this.procedureInfoMap.containsKey(p.getIdentifier())) {
-			return;
+	private void computeModifiedGlobalsAndCalls(ProcedureOrImplementationDeclaration p) {
+		if (!this.procedureInfoMap.containsKey(p.getIdentifier())) {			
+			this.procedureInfoMap.put(p.getIdentifier(), new ProcedureInfo());			
 		}
-		ProcedureInfo pi = new ProcedureInfo();
-		this.procedureInfoMap.put(p.getIdentifier(), pi);
-
+		ProcedureInfo pi = this.procedureInfoMap.get(p.getIdentifier());
 		Body body = p.getBody();
 		if (body == null) {
 			return;

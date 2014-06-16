@@ -46,7 +46,9 @@ import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
+import boogie.declaration.Implementation;
 import boogie.declaration.ProcedureDeclaration;
+import boogie.declaration.ProcedureOrImplementationDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.enums.BinaryOperator;
 import boogie.expression.ArrayAccessExpression;
@@ -327,8 +329,8 @@ public class TypeChecker {
 									+ "): " + expr);
 						}
 					}
-				}
-				resultType = arr.getValueType().substitutePlaceholders(subst);
+				}				
+				resultType = arr.getValueType().substitutePlaceholders(subst);				
 			}
 		} else if (expr instanceof ArrayStoreExpression) {
 			ArrayStoreExpression asexpr = (ArrayStoreExpression) expr;
@@ -459,6 +461,11 @@ public class TypeChecker {
 		} else {
 			throw new IllegalStateException("Unknown expression node " + expr);
 		}
+		
+		if (resultType==null) {
+			throw new RuntimeException("Could not resolve expression type: "+expr);
+		}
+		
 		expr.setType(resultType);
 		return resultType;
 	}
@@ -640,6 +647,8 @@ public class TypeChecker {
 		typeManager.popTypeScope();
 	}
 
+
+	
 	/**
 	 * Type check the procedure declaration
 	 * 
@@ -1052,7 +1061,7 @@ public class TypeChecker {
 		varScopes.pop();
 	}
 
-	private void processImplementation(ProcedureDeclaration impl) {
+	private void processImplementation(ProcedureOrImplementationDeclaration impl) {
 		if (impl.getBody() == null) {
 			/* This is a procedure declaration without body. Nothing to check. */
 			return;
@@ -1181,8 +1190,11 @@ public class TypeChecker {
 		}
 		// pass4: procedure definitions, implementations
 		for (Declaration decl : unit.getDeclarations()) {
-			if (decl instanceof ProcedureDeclaration)
+			if (decl instanceof Implementation)
+				processImplementation((Implementation) decl);
+			if (decl instanceof ProcedureDeclaration && ((ProcedureDeclaration)decl).getBody()!=null)
 				processImplementation((ProcedureDeclaration) decl);
+
 		}
 		return false;
 	}

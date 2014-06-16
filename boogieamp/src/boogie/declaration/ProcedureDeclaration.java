@@ -19,8 +19,6 @@
 
 package boogie.declaration;
 
-import java.util.List;
-
 import boogie.ast.Attribute;
 import boogie.ast.Body;
 import boogie.ast.VarList;

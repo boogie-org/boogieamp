@@ -52,12 +52,6 @@ public class Main {
 			return;
 		}
 		Log.info("Done.");
-
-		BoogieType ref = pf.findTypeByName("ref");
-		IdentifierExpression ie = pf.findGlobalByName("$null");
-		//ie = pf.mkIdentifierExpression(ie.getLocation(), ref, "lala", true, true, true);
-		
-
 		
 		pf.toFile("./out.bpl");
 		
