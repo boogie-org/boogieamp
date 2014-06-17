@@ -43,6 +43,8 @@ import boogie.controlflow.statement.CfgStatement;
 import boogie.declaration.ProcedureOrImplementationDeclaration;
 import boogie.declaration.VariableDeclaration;
 import boogie.enums.UnaryOperator;
+import boogie.location.BoogieLocation;
+import boogie.location.ILocation;
 import boogie.specification.EnsuresSpecification;
 import boogie.specification.LoopInvariantSpecification;
 import boogie.specification.ModifiesSpecification;
@@ -149,8 +151,41 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		cfg.setLocation(proc.getLocation());
 		cfg.setRootNode(root);
 		cfg.setExitNode(context.currentUnifiedExit);
+		fixBlockLocations(cfg);
 	}
 
+
+	/**
+	 * Once the cfg has been generated, create the correct location tags for the BasicBlocks.
+	 * @param cfg
+	 */
+	private void fixBlockLocations(CfgProcedure cfg) {
+		if (cfg.getRootNode()==null) return;
+		LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>();
+		LinkedList<BasicBlock> done = new LinkedList<BasicBlock>();
+		todo.add(cfg.getRootNode());
+		while (todo.size()>0) {
+			BasicBlock current = todo.pop();
+			done.add(current);
+			fixBlockLocations(current);
+			for (BasicBlock succ : current.getSuccessors()) {
+				if (!todo.contains(succ) && !done.contains(succ)) {
+					todo.add(succ);
+				}
+			}
+		}
+	}
+	
+	private void fixBlockLocations(BasicBlock b) {
+		if (b.getStatements()!=null && b.getStatements().size()>0) {
+			ILocation first = b.getStatements().getFirst().getLocation();
+			ILocation last = b.getStatements().getLast().getLocation();
+			ILocation loc = new BoogieLocation(first.getFileName(), first.getStartLine(), 
+					last.getEndLine(), first.getStartColumn(), last.getEndColumn(), first.isLoop());
+			b.setLocationTag(loc);
+		}
+	}
+	
 	private BasicBlock constructCfg(Statement[] seq, BasicBlock b) {		
 		BasicBlock nextblock;
 		for (int i = 0; i < seq.length; i++) {
@@ -320,12 +355,21 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			b.connectToSuccessor(thenentry);
 			b.connectToSuccessor(elseentry);
 			// inject the new assumes
+			ILocation posloc = ifstmt.getLocation();
+			if (ifstmt.getThenPart()!=null && ifstmt.getThenPart().length>0) {
+				posloc = ifstmt.getThenPart()[0].getLocation();
+			}
 			CfgAssumeStatement posguard = new CfgAssumeStatement(
-					s.getLocation(),
+					posloc,
 					expression2CfgExpression(ifstmt.getCondition()));
 			thenentry.addStatement(posguard);
+			
+			ILocation negloc = ifstmt.getLocation();
+			if (ifstmt.getElsePart()!=null && ifstmt.getElsePart().length>0) {
+				negloc = ifstmt.getElsePart()[0].getLocation();
+			}			
 			CfgAssumeStatement negguard = new CfgAssumeStatement(
-					s.getLocation(), new CfgUnaryExpression(s.getLocation(),
+					negloc, new CfgUnaryExpression(ifstmt.getCondition().getLocation(),
 							ifstmt.getCondition().getType(),
 							UnaryOperator.LOGICNEG,
 							expression2CfgExpression(ifstmt.getCondition())));
@@ -376,10 +420,15 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			BasicBlock breakDestination = new BasicBlock(
 					whilestmt.getLocation(), b.getLabel() + "#breaktarget");
 			// insert the guards
+			ILocation posloc = whilestmt.getLocation();
+			if (whilestmt.getBody()!=null && whilestmt.getBody().length>0) {
+				posloc = whilestmt.getBody()[0].getLocation();
+			}
 			CfgAssumeStatement posguard = new CfgAssumeStatement(
-					s.getLocation(),
+					posloc,
 					expression2CfgExpression(whilestmt.getCondition()));
 			loopEntry.addStatement(posguard);
+
 			CfgAssumeStatement negguard = new CfgAssumeStatement(
 					s.getLocation(), new CfgUnaryExpression(s.getLocation(),
 							whilestmt.getCondition().getType(),

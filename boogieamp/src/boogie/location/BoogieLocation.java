@@ -25,51 +25,53 @@ package boogie.location;
  */
 public class BoogieLocation implements ILocation {
 
+	private String filename;
+	private int startLine, endLine, startColumn, endColumn;
+	private boolean isLoop;
+	
 	public BoogieLocation(String filename, int startLine, int endLine,
 			int startColumn, int endColumn, boolean isLoop) {
-		// TODO Auto-generated constructor stub
+		this.filename = filename;
+		this.startLine = startLine;
+		this.endLine = endLine;
+		this.startColumn = startColumn;
+		this.endColumn = endColumn;
+		this.isLoop = isLoop;
 	}
 
 	@Override
 	public String getFileName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.filename;
 	}
 
 	@Override
 	public int getStartLine() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.startLine;
 	}
 
 	@Override
 	public int getEndLine() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.endLine;
 	}
 
 	@Override
 	public int getStartColumn() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.startColumn;
 	}
 
 	@Override
 	public int getEndColumn() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.endColumn;
 	}
 
 	@Override
 	public ILocation getOrigin() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("getOrigin not implemented");
 	}
 
 	@Override
 	public boolean isLoop() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.isLoop;
 	}
 
 }

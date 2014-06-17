@@ -65,6 +65,10 @@ public class BasicBlock {
 		return this.location;
 	}
 
+	public void setLocationTag(ILocation loc) {
+		this.location = loc;
+	}
+	
 	public void connectToSuccessor(BasicBlock successor) {
 		this.successors.add(successor);
 		successor.getPredecessors().add(this);
