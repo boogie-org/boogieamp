@@ -35,11 +35,22 @@ import java.util.ArrayList;
 public class PlaceholderType extends BoogieType {
 
 	private int depth;
+	private String identifier;
+
+	public PlaceholderType(String identifier, int depth) {
+		this.identifier = identifier;
+		this.depth = depth;		
+	}
 
 	public PlaceholderType(int depth) {
 		this.depth = depth;
+		this.identifier = "$GenericType__" + depth;
 	}
-
+	
+	public String getIdentifier() {
+		return this.identifier;
+	}
+	
 	/**
 	 * Get the depth of the declaration where this placeholder points to.
 	 * 
@@ -80,7 +91,7 @@ public class PlaceholderType extends BoogieType {
 		if (relDepth < 0) {
 			/* Placeholder matches some inner scope */
 			return this;
-		} else {
+		} else {			
 			/* Substitute this placeholder */
 			return createPlaceholderType(depth + incDepth);
 		}

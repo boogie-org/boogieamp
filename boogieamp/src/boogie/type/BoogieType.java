@@ -72,13 +72,21 @@ public abstract class BoogieType {
 	 *            the index of the typevar argument.
 	 * @return the placeholder type.
 	 */
-	public static BoogieType createPlaceholderType(int i) {
+	public static BoogieType createPlaceholderType(String tname, int i) {
+		for (int j = s_placeholders.size(); j <= i; j++) {
+			s_placeholders.add(new PlaceholderType(tname, j));
+		}
+		return s_placeholders.get(i);
+	}
+
+	public static BoogieType createPlaceholderType(int i) {		
 		for (int j = s_placeholders.size(); j <= i; j++) {
 			s_placeholders.add(new PlaceholderType(j));
 		}
 		return s_placeholders.get(i);
 	}
-
+	
+	
 	/**
 	 * Create a new constructed type; reuses an old instance if it already
 	 * exists. A constructed type is build from a TypeConstructor and some type

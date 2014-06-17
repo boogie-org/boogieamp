@@ -52,7 +52,7 @@ public class TypeParameters {
 					if (preserveOrder)
 						order[numUsed] = i;
 					numUsed++;
-				}
+				}				
 				return BoogieType.createPlaceholderType(placeHolders[i]
 						+ increment);
 			}
@@ -74,5 +74,16 @@ public class TypeParameters {
 
 	public int getCount() {
 		return placeHolders.length;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("TypeParameters: ");
+		for (String s: this.identifiers) {
+			sb.append(s);
+			if (s==this.identifiers[this.identifiers.length-1]) sb.append("\n");
+			else sb.append(", ");
+		}
+		return sb.toString();
 	}
 }

@@ -149,7 +149,7 @@ public class ProgramFactory {
 					if (findTypeDeclaration(tparam)==null) {
 						//this type is not declared, so generate a placeholder instead.
 						if (!placeholders.containsKey(tparam)) {
-							placeholders.put(tparam, this.mkPlaceholderType());
+							placeholders.put(tparam, this.mkNamedPlaceholderType(tparam));
 						}
 						Log.debug("Undeclared type parameter found: "+tparam+". Assuming its a placeholder.");	
 						typeParams.add(placeholders.get(tparam));
@@ -523,7 +523,7 @@ public class ProgramFactory {
 			IdentifierExpression[] outParams, Specification[] specification) {
 		String[] tparams = new String[typeparams.length];
 		for (int i = 0; i < typeparams.length; i++) {
-			tparams[i] = generatePlacholderName(typeparams[i].getDepth());
+			tparams[i] = typeparams[i].getIdentifier();
 		}
 
 		VarList[] in = new VarList[inParams.length];
@@ -611,7 +611,7 @@ public class ProgramFactory {
 			IdentifierExpression outParam, Expression body) {
 		String[] tparams = new String[typeParams.length];
 		for (int i = 0; i < typeParams.length; i++) {
-			tparams[i] = generatePlacholderName(typeParams[i].getDepth());
+			tparams[i] = typeParams[i].getIdentifier();
 		}
 		VarList[] in = new VarList[inParams.length];
 		for (int i = 0; i < inParams.length; i++) {
@@ -1283,6 +1283,10 @@ public class ProgramFactory {
 		return new PlaceholderType(placeholderTypeCounter++);
 	}
 
+	public BoogieType mkNamedPlaceholderType(String name) {
+		return new PlaceholderType(name, placeholderTypeCounter++);
+	}
+	
 	/**
 	 * 
 	 * @param name
@@ -1354,8 +1358,7 @@ public class ProgramFactory {
 
 		for (int i = 0; i < parameters.length; i++) {
 			if (parameters[i] instanceof PlaceholderType) {
-				tparams[i] = generatePlacholderName(((PlaceholderType) parameters[i])
-						.getDepth());
+				tparams[i] = ((PlaceholderType) parameters[i]).getIdentifier() ;
 			} else {				
 				throw new RuntimeException(
 						"that's not working! you have to use substitutePlaceholders on the original type!");
@@ -1439,7 +1442,7 @@ public class ProgramFactory {
 					param);
 		} else if (type instanceof PlaceholderType) {
 			PlaceholderType phtype = (PlaceholderType) type;
-			String typename = generatePlacholderName(phtype.getDepth());
+			String typename = phtype.getIdentifier();
 			ASTType[] param = {};
 			astType = new NamedAstType(loc, typename, param);
 			typeparams.add((NamedAstType) astType);
@@ -1452,7 +1455,5 @@ public class ProgramFactory {
 		return astType;
 	}
 
-	private String generatePlacholderName(int depth) {
-		return "$GenericType__" + depth;
-	}
+	
 }
