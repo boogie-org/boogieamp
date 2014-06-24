@@ -232,7 +232,6 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 					//ArrayLHS
 					{
 						CfgIdentifierExpression value = new CfgIdentifierExpression(left.getLocation(), var);						
-						//TODO: TEST PLEASE!
 						CfgExpression array = extractArrayVariable(arr.getArray());						
 						CfgExpression[] indices = new CfgExpression[arr.getIndices().length];
 						for (int j=0;j<arr.getIndices().length;j++) {
@@ -247,7 +246,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 										access.getBaseExpression(), access.getIndices(), storeexpr);
 								array = access.getBaseExpression();
 							} else {
-								throw new RuntimeException("THIS CANT BE!!! NOOOOO");
+								throw new RuntimeException("array is of type "+array.getClass().toString()+" but expected CfgArrayAccessExpression");
 							}
 						}
 						CfgIdentifierExpression[] lIdentifier = {(CfgIdentifierExpression) array};

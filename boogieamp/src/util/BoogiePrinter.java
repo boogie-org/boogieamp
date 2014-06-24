@@ -141,6 +141,8 @@ public class BoogiePrinter {
 	
 	}
 
+	
+	
 	/**
 	 * Append a given expression.
 	 * 
@@ -752,16 +754,19 @@ public class BoogiePrinter {
 		if (s instanceof AssertStatement) {
 			AssertStatement assertstmt = (AssertStatement) s;
 			sb.append("assert ");
+			appendAttributes(sb, assertstmt.getAttributes());
 			appendExpression(sb, assertstmt.getFormula(), 0);
 			sb.append(";");
 		} else if (s instanceof AssumeStatement) {
 			AssumeStatement assumestmt = (AssumeStatement) s;
 			sb.append("assume ");
+			appendAttributes(sb, assumestmt.getAttributes());
 			appendExpression(sb, assumestmt.getFormula(), 0);
 			sb.append(";");
 		} else if (s instanceof HavocStatement) {
 			HavocStatement havoc = (HavocStatement) s;
 			sb.append("havoc ");
+			appendAttributes(sb, havoc.getAttributes());
 			String comma = "";
 			for (String id : havoc.getIdentifiers()) {
 				sb.append(comma).append(id);

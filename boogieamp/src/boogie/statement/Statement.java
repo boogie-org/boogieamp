@@ -44,6 +44,7 @@ public abstract class Statement extends ASTNode {
 	 */
 	public Statement(ILocation loc) {
 		super(loc);
+		this.attributes = new Attribute[0];
 	}
 
 	public Statement(ILocation loc, Attribute[] attributes) {
@@ -51,6 +52,10 @@ public abstract class Statement extends ASTNode {
 		this.attributes = attributes;
 	}
 	
+	
+	public Attribute[] getAttributes() {
+		return this.attributes;
+	}
 	
 	/**
 	 * Returns a textual description of this object.

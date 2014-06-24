@@ -74,4 +74,21 @@ public class BoogieLocation implements ILocation {
 		return this.isLoop;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<");
+		sb.append(filename);
+		sb.append(": from (l:");
+		sb.append(this.startLine);
+		sb.append(", c:");
+		sb.append(this.startColumn);
+		sb.append(") to (l:");
+		sb.append(this.endLine);
+		sb.append(", c:");
+		sb.append(this.endColumn);
+		sb.append(") >");
+		return sb.toString();
+	}
+	
 }
