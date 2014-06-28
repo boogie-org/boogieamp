@@ -28,7 +28,6 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 import util.Log;
-
 import boogie.controlflow.expression.CfgExpression;
 import boogie.location.ILocation;
 

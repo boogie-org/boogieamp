@@ -7,7 +7,6 @@ import java.util.HashMap;
 
 import boogie.ast.Body;
 import boogie.location.ILocation;
-import boogie.statement.Statement;
 
 /**
  * @author schaef

@@ -22,7 +22,6 @@ package boogie.statement;
 import java.util.List;
 
 import boogie.ast.Attribute;
-import boogie.expression.Expression;
 import boogie.location.ILocation;
 
 /**

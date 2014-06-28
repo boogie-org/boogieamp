@@ -56,7 +56,6 @@ import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
 import boogie.declaration.FunctionDeclaration;
-import boogie.declaration.ProcedureDeclaration;
 import boogie.declaration.ProcedureOrImplementationDeclaration;
 import boogie.declaration.TypeDeclaration;
 import boogie.declaration.VariableDeclaration;

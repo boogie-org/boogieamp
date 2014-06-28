@@ -24,8 +24,6 @@ import util.Log;
 import boogie.ProgramFactory;
 import boogie.controlflow.AbstractControlFlowFactory;
 import boogie.controlflow.DefaultControlFlowFactory;
-import boogie.expression.IdentifierExpression;
-import boogie.type.BoogieType;
 
 /**
  * @author martin

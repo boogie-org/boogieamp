@@ -915,8 +915,7 @@ public class TypeChecker {
 			String[] lhs = call.getLhs();
 			if (lhs.length != outParams.length) {
 				typeError(statement,
-						"Number of output variables do not match in "
-								+ statement);
+						"Number of output variables do not match in "+statement);
 			} else {
 				for (int i = 0; i < lhs.length; i++) {
 					for (int j = 0; j < i; j++) {

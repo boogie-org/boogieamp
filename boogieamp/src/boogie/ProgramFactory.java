@@ -34,6 +34,7 @@ import parser.BoogieSymbolFactory;
 import parser.Lexer;
 import parser.Parser;
 import typechecker.ModifiesClauseConstruction;
+import typechecker.TypeChecker;
 import util.BoogiePrinter;
 import util.Log;
 import boogie.ast.Attribute;
@@ -47,6 +48,7 @@ import boogie.ast.asttypes.ASTType;
 import boogie.ast.asttypes.ArrayAstType;
 import boogie.ast.asttypes.NamedAstType;
 import boogie.ast.asttypes.PrimitiveAstType;
+import boogie.controlflow.DefaultControlFlowFactory;
 import boogie.declaration.Axiom;
 import boogie.declaration.ConstDeclaration;
 import boogie.declaration.Declaration;
@@ -120,6 +122,11 @@ public class ProgramFactory {
 		importBoogieFile(filename, new FileInputStream(filename));
 	}
 
+	public void runTypeChecker() {
+		TypeChecker tc = new TypeChecker(this.getASTRoot());
+		new DefaultControlFlowFactory(this.getASTRoot(), tc);
+	}
+	
 	/*
 	 * imports a boogie file and merges it with the existing AST.
 	 */

@@ -180,6 +180,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		if (b.getStatements()!=null && b.getStatements().size()>0) {
 			ILocation first = b.getStatements().getFirst().getLocation();
 			ILocation last = b.getStatements().getLast().getLocation();
+			if (first==null || last==null) return;
 			ILocation loc = new BoogieLocation(first.getFileName(), first.getStartLine(), 
 					last.getEndLine(), first.getStartColumn(), last.getEndColumn(), first.isLoop());
 			b.setLocationTag(loc);
