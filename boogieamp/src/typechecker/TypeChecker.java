@@ -122,7 +122,11 @@ public class TypeChecker {
 		}
 	}
 	
-	
+	public List<BoogieType> getAllBoogieTypes() {
+		return this.typeManager.getAllBoogieTypes();
+	}
+
+
 	public BoogieType getBoogieType(ASTType type) {
 		return this.typeManager.resolveType(type);
 	}

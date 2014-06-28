@@ -19,7 +19,9 @@
 
 package typechecker;
 
+import java.util.List;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Stack;
 
@@ -39,6 +41,9 @@ public class TypeManager {
 	private Stack<String> visiting = new Stack<String>();
 	private Stack<TypeParameters> typeParamScopes = new Stack<TypeParameters>();
 	private HashMap<ASTType, BoogieType> typeMap = new HashMap<ASTType, BoogieType>();
+	//for printing purposes only
+	private LinkedList<BoogieType> allBoogieTypes = new LinkedList<BoogieType>();
+
 	
 	private static boolean throwOnError = true;
 
@@ -59,6 +64,10 @@ public class TypeManager {
 		typeParamScopes.pop();
 	}
 
+	public List<BoogieType> getAllBoogieTypes() {
+		return this.allBoogieTypes;
+	}
+ 	
 	public static BoogieType getPrimitiveType(String typeName) {
 		if (typeName.equals("int"))
 			return BoogieType.intType;
@@ -184,10 +193,12 @@ public class TypeManager {
 		type.setBoogieType(boogieType);
 		return boogieType;
 	}
-
+	
 	public BoogieType resolveType(ASTType type) {
 		if (!this.typeMap.containsKey(type)) {
-			this.typeMap.put(type, resolveType(type, true));
+			BoogieType t = resolveType(type, true);
+			if (!allBoogieTypes.contains(t)) allBoogieTypes.add(t);
+			this.typeMap.put(type, t);
 		}
 		return this.typeMap.get(type);
 	}

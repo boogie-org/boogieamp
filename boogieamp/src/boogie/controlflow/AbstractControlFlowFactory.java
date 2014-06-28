@@ -477,6 +477,12 @@ public abstract class AbstractControlFlowFactory {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		//TODO: print the declared types.
+		for (BoogieType bt : this.typechecker.getAllBoogieTypes()) {
+			sb.append("type ");
+			sb.append(bt.toString());
+			sb.append("; \n");
+		}
+		sb.append("; \n");
 		
 		//print the global variables
 		for (Entry<String, CfgVariable> entry : this.globalVars.entrySet()) {			
@@ -486,18 +492,21 @@ public abstract class AbstractControlFlowFactory {
 			sb.append(entry.getValue().getType());
 			sb.append("; \n");
 		}
+		sb.append("; \n");
 		
 		for (CfgAxiom axiom : this.globalAxioms) {
 			sb.append("axiom ");
 			sb.append(axiom.getFormula().toString());
 			sb.append("; \n");
 		}
+		sb.append("; \n");
 		
 		for (Entry<String, CfgFunction> entry : this.cfgFunctions.entrySet()) {
 			sb.append(entry.getValue().toString());
 			sb.append("\n");
 		}
-
+		sb.append("; \n");
+		
 		for (Entry<String, CfgProcedure> entry : this.procedureGraphs.entrySet()) {
 			sb.append(entry.getValue().toString());
 			sb.append("\n");

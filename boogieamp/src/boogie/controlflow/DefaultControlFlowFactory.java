@@ -406,6 +406,9 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			return null;							
 		} else if (s instanceof WhileStatement) {
 			WhileStatement whilestmt = (WhileStatement) s;
+			BasicBlock loopHead = new BasicBlock(whilestmt.getLocation(),
+					b.getLabel() + "#loophead");
+			
 			BasicBlock loopEntry = new BasicBlock(whilestmt.getLocation(),
 					b.getLabel() + "#loopentry");
 			BasicBlock jointLoopExit = new BasicBlock(whilestmt.getLocation(),
@@ -440,8 +443,9 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			
 			jointLoopExit.addStatement(negguard);
 			// connect the loopbody, loopexit, and breakDestionation
-			b.connectToSuccessor(loopEntry);
-			b.connectToSuccessor(jointLoopExit);
+			b.connectToSuccessor(loopHead);
+			loopHead.connectToSuccessor(loopEntry);
+			loopHead.connectToSuccessor(jointLoopExit);
 			jointLoopExit.connectToSuccessor(breakDestination);
 
 			// store the breakDestination as jump target for break
@@ -449,7 +453,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			// build the loop body
 			BasicBlock loopexit = constructCfg(whilestmt.getBody(), loopEntry);
 			if (loopexit != null) {
-				loopexit.connectToSuccessor(loopEntry);
+				loopexit.connectToSuccessor(loopHead);
 			}
 			// remove the current break destination
 			context.currentBreakDestinations.pop();

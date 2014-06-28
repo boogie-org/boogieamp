@@ -1,13 +1,22 @@
-// RUN: %boogie -typeEncoding:m "%s" > "%t"
+// RUN: %boogie -loopUnroll:3 -soundLoopUnrolling "%s" > "%t"
 // RUN: %diff "%s.expect" "%t"
-type{:datatype} finite_map;
-function{:constructor} finite_map(dom:[int]bool, map:[int]int):finite_map;
-
-type{:datatype} partition;
-function{:constructor} partition(owners:[int]int, vars:[int]finite_map):partition;
-
-procedure P(arr:finite_map)
-  requires dom#finite_map(arr)[0];
-  ensures  dom#finite_map(arr)[0];
+procedure foo(N: int)
+  requires N == 2;
 {
+  var n, sum, recent: int;
+  n, sum := 0, 0;
+  while (n < N)
+  {
+    call recent := bar();
+    sum, n := sum + recent, n + 1;
+  }
+  if (n == 2) {
+    assert sum == recent + recent;  // no reason to believe this always to be true
+  }
+}
+
+procedure {:inline 1} bar() returns (r: int)
+{
+  var x: int;
+  r := x;
 }
