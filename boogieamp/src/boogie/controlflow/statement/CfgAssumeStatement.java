@@ -19,6 +19,7 @@
 
 package boogie.controlflow.statement;
 
+import boogie.ast.Attribute;
 import boogie.controlflow.expression.CfgExpression;
 import boogie.location.ILocation;
 
@@ -30,6 +31,12 @@ public class CfgAssumeStatement extends CfgStatement {
 
 	private CfgExpression condition;
 
+	public CfgAssumeStatement(ILocation loc, Attribute[] attributes, CfgExpression cond) {
+		super(loc, attributes);
+		this.condition = cond;
+	}
+	
+	
 	public CfgAssumeStatement(ILocation loc, CfgExpression cond) {
 		super(loc);
 		this.condition = cond;

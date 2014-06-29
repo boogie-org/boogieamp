@@ -205,9 +205,10 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			Log.error("Statement " + s + " is unreachable");
 			return null;
 		}
-		if (s instanceof AssertStatement) {
+		if (s instanceof AssertStatement) {			
 			CfgAssertStatement asrt = new CfgAssertStatement(
 					s.getLocation(),
+					s.getAttributes(),
 					expression2CfgExpression(((AssertStatement) s).getFormula()));
 			this.astStatementMap.put(asrt, s);
 			b.addStatement(asrt);
@@ -280,6 +281,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		} else if (s instanceof AssumeStatement) {
 			CfgAssumeStatement assm = new CfgAssumeStatement(
 					s.getLocation(),
+					s.getAttributes(),
 					expression2CfgExpression(((AssumeStatement) s).getFormula()));
 			b.addStatement(assm);			
 			this.astStatementMap.put(assm, s);
