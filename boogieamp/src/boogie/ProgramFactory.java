@@ -108,6 +108,8 @@ import boogie.type.TypeConstructor;
 public class ProgramFactory {
 
 	public static final String LocationTag = "SourceLocation";
+	
+	public static final String NoCodeTag = "NoCode";
 
 	public ProgramFactory() {
 
@@ -126,7 +128,7 @@ public class ProgramFactory {
 		TypeChecker tc = new TypeChecker(this.getASTRoot());
 		new DefaultControlFlowFactory(this.getASTRoot(), tc);
 	}
-	
+
 	/*
 	 * imports a boogie file and merges it with the existing AST.
 	 */
@@ -510,7 +512,7 @@ public class ProgramFactory {
 	private int placeholderTypeCounter = 0;
 
 	private LinkedList<Declaration> globalDeclarations = new LinkedList<Declaration>();
-	private HashMap<FunctionDeclaration, BoogieType> functionReturnTypes = new HashMap<FunctionDeclaration, BoogieType>();
+	
 
 	/**
 	 * Returns the ast root. If the program has been constructed via the API,
@@ -690,8 +692,7 @@ public class ProgramFactory {
 				this.astTypeFromBoogieType(outParam.getType()));
 		FunctionDeclaration fundec = new FunctionDeclaration(
 				this.dummyLocation, attributes, identifier, tparams, in, out,
-				body);
-		functionReturnTypes.put(fundec, outParam.getType());
+				body);		
 		globalDeclarations.add(fundec);
 		return fundec;
 	}
@@ -723,6 +724,17 @@ public class ProgramFactory {
 						Integer.toString(endColumn)) };
 		return new NamedAttribute(dummyLocation, ProgramFactory.LocationTag,
 				args);
+	}
+	
+	/**
+	 * Make an attribute that indicates the the statement associated with it has no corresponding location
+	 * in the source code.
+	 * Use this, e.g., to suppress false positives in infeasible code detection. 
+	 * @return
+	 */
+	public Attribute mkNoCodeAttribute() {
+		return new NamedAttribute(dummyLocation, ProgramFactory.NoCodeTag,
+				new Expression[]{});
 	}
 
 	/**
@@ -1111,7 +1123,8 @@ public class ProgramFactory {
 	public Expression mkFunctionApplication(FunctionDeclaration fun,
 			Expression[] arguments) {
 		return new FunctionApplication(this.dummyLocation,
-				functionReturnTypes.get(fun), fun.getIdentifier(), arguments);
+				this.boogieTypeFromAstType(fun.getOutParam().getType()),
+				fun.getIdentifier(), arguments);
 	}
 
 	/**

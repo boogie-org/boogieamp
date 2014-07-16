@@ -158,6 +158,7 @@ public abstract class AbstractControlFlowFactory {
 				// do nothing
 			}
 		}
+		
 		//now in a second pass, deal with the parent edges.
 		for (Declaration decl : astroot.getDeclarations()) {
 			if (decl instanceof ConstDeclaration) {
@@ -165,11 +166,13 @@ public abstract class AbstractControlFlowFactory {
 				LinkedList<CfgParentEdge> cfgedges = new LinkedList<CfgParentEdge>();
 				if (cdecl.getParentInfo()!=null) {
 					for (ParentEdge edge : cdecl.getParentInfo()) {
+						
 						CfgParentEdge pedge = new CfgParentEdge(this.globalVars.get(edge.getIdentifier()), edge.isUnique());
 						cfgedges.add(pedge);
 					}
 				}
-				for (String s : cdecl.getVarList().getIdentifiers()) {
+				
+				for (String s : cdecl.getVarList().getIdentifiers()) {		
 					this.globalVars.get(s).setParentEdges(cfgedges);
 				}
 			}
@@ -417,6 +420,9 @@ public abstract class AbstractControlFlowFactory {
 			for (CfgVariable v : this.boundVariables) {
 				if (v.getVarname()==name) return v;
 			}
+		}
+		if (context==null) {
+			throw new RuntimeException("Var "+name+ " not known");
 		}
 		if (context.localVars != null && context.localVars.containsKey(name)) {
 			return context.localVars.get(name);
