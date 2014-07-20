@@ -360,7 +360,7 @@ public class CfgProcedure {
 			}
 			
 			for (BasicBlock b : done ) {
-				pw.println("\""+b.getLabel()+"\" " + "[label=\""+ b.toString().replaceAll("\n", "\\\\n") + "\"];\n" );
+				pw.println("\""+b.getLabel()+"\" " + "[label=\""+ b.getLabel()+"\"];\n" );
 			}
 			pw.println(sb.toString());
 
