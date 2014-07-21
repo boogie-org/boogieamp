@@ -38,7 +38,7 @@ public class CfgWildcardExpression extends CfgExpression {
 
 	@Override
 	public String toString() {		
-		StringBuilder sb = new StringBuilder();
+		//StringBuilder sb = new StringBuilder();
 		throw new RuntimeException("wildcard not implemented");
 		//return sb.toString();
 	}

@@ -41,7 +41,7 @@ public class CfgQuantifierExpression extends CfgExpression {
 	
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
+		//StringBuilder sb = new StringBuilder();
 		//TODO
 		throw new RuntimeException("quantifiers not implemented");
 		//return sb.toString();

@@ -59,6 +59,9 @@ public class ReturnStatement extends Statement {
 		this.expression = e;
 	}
 	
+	public Expression getExpression() {
+		return this.expression;
+	}
 	
 	/**
 	 * Returns a textual description of this object.
