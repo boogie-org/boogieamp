@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<project basedir="./boogieamp_test" default="build" name="boogieamp_test">
+<project basedir="./boogieamp_tests" default="build" name="boogieamp_test">
     <property environment="env"/>    
     <property name="junit.output.dir" value="junit"/>
     <property name="boogieamp.location" value="../boogieamp"/>
