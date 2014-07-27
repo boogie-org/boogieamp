@@ -1,66 +1,68 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- WARNING: Eclipse auto-generated file.
-              Any modifications will be overwritten.
-              To include a user specific buildfile here, simply create one in the same
-              directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="boogieamp">
-    <property environment="env"/>
-    <property name="boogieamp_test.location" value="../boogieamp_tests"/>
-    <property name="junit.output.dir" value="junit"/>
-    <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.7"/>
-    <property name="source" value="1.7"/>
-    <path id="boogieamp.classpath">
-        <pathelement location="bin"/>
-        <pathelement location="lib/java-cup-12.jar"/>
-        <pathelement location="lib/log4j-1.2.16.jar"/>
-    </path>
-    <target name="init">
-        <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="src">
-                <exclude name="**/*.launch"/>
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="clean">
-        <delete dir="bin"/>
-    </target>
-    <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects"/>
-    <target depends="init" name="build-project">
-        <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
-            <src path="src"/>
-            <classpath refid="boogieamp.classpath"/>
-        </javac>
-    </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
-        <ant antfile="build.xml" dir="${boogieamp_test.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${boogieamp_test.location}" inheritAll="false" target="build"/>
-    </target>
-    <target name="CodeplexBoogie">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="boogie.test.CodeplexBoogie" todir="${junit.output.dir}"/>
-            <classpath refid="boogieamp.classpath"/>
-        </junit>
-    </target>
-    <target name="Parser Test">
-        <java classname="main.Main" failonerror="true" fork="yes">
-            <arg line="./test/divmod.bpl -debug"/>
-            <classpath refid="boogieamp.classpath"/>
-        </java>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
-    </target>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     Nov 23, 2011 01:00:00 PM
+
+     gravy
+     Gravy translates Java bytecode to Boogie
+
+     arlt
+     ====================================================================== -->
+<project name="boogieamp" default="default">
+
+        <property name="dist" location="dist" />
+
+        <property name="bin" value="bin" />
+        <property name="lib" value="lib" />
+        <property name="src" value="src" />
+
+        <!-- =================================
+          target: default
+         ================================= -->
+        <target name="default" description="default" depends="dist">
+
+        </target>
+
+        <!-- - - - - - - - - - - - - - - - - - 
+          target: compile
+         - - - - - - - - - - - - - - - - - -->
+        <target name="compile">
+                <delete includeEmptyDirs="true" quiet="true">
+                        <fileset dir="${bin}" />
+                </delete>
+                
+                <mkdir dir="${bin}" />
+
+                <javac srcdir="${src}" destdir="${bin}" includeAntRuntime="false" debug="on">
+                        <classpath>
+                                <fileset dir="${lib}" includes="**/*.jar" />
+                        </classpath>
+                </javac>
+
+                <copy todir="${bin}">
+                        <fileset dir="${src}" includes="**/*.png" />
+                        <fileset dir="${src}" includes="**/*.properties" />
+                </copy>
+        </target>
+
+        <!-- - - - - - - - - - - - - - - - - - 
+          target: dist
+         - - - - - - - - - - - - - - - - - -->
+        <target name="dist" depends="compile">
+                <delete includeEmptyDirs="true" quiet="true">
+                        <fileset dir="${dist}" />
+                </delete>
+
+                <mkdir dir="${dist}" />
+
+                <jar destfile="${dist}/boogieamp.jar">
+                        <fileset dir="${bin}" includes="**/*" />
+                		<fileset dir="${src}" includes="**/*.java"/>
+                		<zipgroupfileset dir="${lib}" />
+                        <manifest>
+                                <attribute name="Main-Class" value="main.Main" />
+                                <attribute name="Class-Path" value="java-cup-12.jar log4j-1.2.16.jar" />
+                        </manifest>
+                </jar>
+        </target>
+
 </project>

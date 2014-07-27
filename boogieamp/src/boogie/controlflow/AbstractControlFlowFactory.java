@@ -422,7 +422,11 @@ public abstract class AbstractControlFlowFactory {
 			}
 		}
 		if (context==null) {
-			throw new RuntimeException("Var "+name+ " not known");
+			if (this.globalVars.containsKey(name)) {
+				return this.globalVars.get(name);
+			} else {
+				throw new RuntimeException("Var "+name+ " not known");
+			}
 		}
 		if (context.localVars != null && context.localVars.containsKey(name)) {
 			return context.localVars.get(name);

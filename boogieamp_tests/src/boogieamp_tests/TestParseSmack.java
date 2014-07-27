@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import typechecker.TypeChecker;
-import util.Log;
 import boogie.ProgramFactory;
+import boogie.controlflow.DefaultControlFlowFactory;
 
 /**
  * @author schaef
@@ -57,15 +57,20 @@ public class TestParseSmack  {
 	public void test() {
 		ProgramFactory pf = null;
 		try {
-			pf = new ProgramFactory(this.input);
-			
+			pf = new ProgramFactory(this.input);				
 		} catch (Exception e) {		    			
 			e.printStackTrace();
 			org.junit.Assert.assertTrue("Parse error: " + e.toString(), false);
 			return;
 		}
-		
-		TypeChecker tc = new TypeChecker(pf.getASTRoot(), false);		
+		TypeChecker tc = new TypeChecker(pf.getASTRoot(), false);
+		try {
+			DefaultControlFlowFactory cff = new DefaultControlFlowFactory(pf.getASTRoot(), tc);
+			cff.getGlobalAxioms();
+		} catch (Exception e) {
+			e.printStackTrace();
+			org.junit.Assert.assertTrue(false);
+		}
 		org.junit.Assert.assertTrue(!tc.hasTypeError());
 		
 	}
