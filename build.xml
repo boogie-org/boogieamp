@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<project basedir="./boogieamp_test" default="build" name="boogieamp_test">
+<project basedir="./boogieamp_tests" default="build" name="boogieamp_test">
     <property environment="env"/>    
     <property name="junit.output.dir" value="junit"/>
     <property name="boogieamp.location" value="../boogieamp"/>
@@ -48,10 +48,10 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="test">
+    <target depends="build" name="test">
         <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
+        <junit fork="yes" printsummary="withOutAndErr" haltonfailure="false">
+            <formatter type="brief" usefile="false"/>
             <test name="boogieamp_tests.AllTests" todir="${junit.output.dir}"/>
             <classpath refid="boogieamp_test.classpath"/>
         </junit>

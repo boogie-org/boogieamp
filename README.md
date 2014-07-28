@@ -1,4 +1,4 @@
-##boogieamp
+##boogieamp [![Build Status](https://travis-ci.org/martinschaef/boogieamp.png)](https://travis-ci.org/martinschaef/boogieamp)
 =========
 
 This is a Java parser for the [Boogie](boogie.codeplex.com) intermediate verification language.
