@@ -25,7 +25,7 @@
         <!-- - - - - - - - - - - - - - - - - - 
           target: compile
          - - - - - - - - - - - - - - - - - -->
-        <target name="compile">
+        <target name="build-project">
                 <delete includeEmptyDirs="true" quiet="true">
                         <fileset dir="${bin}" />
                 </delete>
@@ -47,7 +47,7 @@
         <!-- - - - - - - - - - - - - - - - - - 
           target: dist
          - - - - - - - - - - - - - - - - - -->
-        <target name="dist" depends="compile">
+        <target name="dist" depends="build-project">
                 <delete includeEmptyDirs="true" quiet="true">
                         <fileset dir="${dist}" />
                 </delete>
