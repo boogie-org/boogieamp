@@ -48,10 +48,10 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="test">
+    <target depends="build" name="test">
         <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
+        <junit fork="yes" printsummary="yes">
+            <formatter type="brief"/>
             <test name="boogieamp_tests.AllTests" todir="${junit.output.dir}"/>
             <classpath refid="boogieamp_test.classpath"/>
         </junit>
