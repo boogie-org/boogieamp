@@ -54,7 +54,8 @@ public class TestParseParseErrors  {
 
 	
 	@Test
-	public void test() {		
+	public void test() {	
+		System.out.println("TEST: "+this.shortname);
 		try {
 			new ProgramFactory(this.input);
 		} catch (Exception e) {		    			

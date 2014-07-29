@@ -32,11 +32,21 @@ import boogie.type.BoogieType;
  */
 public class CfgQuantifierExpression extends CfgExpression {
 
+	private boolean isUniversal;
+	private BoogieType[] typeParams;
+	private CfgVariable[] parameters;
+	private Attribute[] attributes; 
+	private CfgExpression subformula;
+	
 	public CfgQuantifierExpression(ILocation loc, BoogieType type, boolean isUniversal, 
 			BoogieType[] typeParams, CfgVariable[] parameters,
 			Attribute[] attributes, CfgExpression subformula) {
 		super(loc, type);
-		// TODO Auto-generated constructor stub
+		this.isUniversal=isUniversal;
+		this.parameters=parameters;
+		this.typeParams=typeParams;
+		this.attributes=attributes;
+		this.subformula=subformula;
 	}
 	
 	@Override
@@ -50,7 +60,14 @@ public class CfgQuantifierExpression extends CfgExpression {
 	@Override
 	public CfgExpression substitute(
 			HashMap<CfgVariable, CfgExpression> substitutes) {
-		throw new RuntimeException("clone/substitute not implemented");
+		//TODO:
+		HashMap<CfgVariable, CfgExpression> localcopy = new HashMap<CfgVariable, CfgExpression>(substitutes);
+		//do not substitute variables that are quantified in the current scope.
+		for (CfgVariable v : this.parameters) {
+			localcopy.remove(v);
+		}
+		CfgExpression e = this.subformula.substitute(localcopy);
+		return new CfgQuantifierExpression(this.getLocation(), this.getType(), this.isUniversal, this.typeParams, this.parameters, this.attributes, e);
 	}
 	
 }

@@ -555,6 +555,30 @@ public class ProgramFactory {
 	 * create procedures and other global stuff
 	 */
 
+	
+	/**
+	 * 
+	 * @param e
+	 * @return
+	 */
+	public Axiom mkAxiom(Expression e) {
+		return mkAxiom(null, e);
+	}
+
+	
+	/**
+	 * 
+	 * @param attributes
+	 * @param e
+	 * @return
+	 */
+	public Axiom mkAxiom(Attribute[] attributes, Expression e) {
+		Axiom a = new Axiom(dummyLocation, attributes, e);
+		globalDeclarations.add(a);
+		return a;
+	}
+	
+	
 	/**
 	 * Make a procedure declaration (without body)
 	 * 
@@ -1151,14 +1175,19 @@ public class ProgramFactory {
 	 * @return
 	 */
 	public Expression mkQuantifierExpression(boolean isUniversal,
-			String[] typeParams, VarList[] parameters, Attribute[] attributes,
+			String[] typeParams, IdentifierExpression[] parameters, Attribute[] attributes,
 			Expression subformula) {
-		// TODO: maybe, we have to throw an exception here
-		// or we just run the typechecker
-		return new QuantifierExpression(this.dummyLocation, isUniversal,
-				typeParams, parameters, attributes, subformula);
-	}
+		
+		VarList[] vl = new VarList[parameters.length];
+		int i=0;
+		for (IdentifierExpression ide : parameters) {
+			vl[i++] = new VarList(dummyLocation, null, new String[]{ide.getIdentifier()}, astTypeFromBoogieType(ide.getType()));
+		}
 
+		return new QuantifierExpression(this.dummyLocation, isUniversal,
+				typeParams, vl, attributes, subformula);
+	}	
+	
 	/**
 	 * 
 	 * @param type
@@ -1247,6 +1276,18 @@ public class ProgramFactory {
 				isGlobal, isUnique, parents);
 	}
 
+	/**
+	 * Creates an IdentifierExpression that can be used in a Quantifier.
+	 * @param name
+	 * @param t
+	 * @return
+	 */
+	public IdentifierExpression mkQuantifiedIdentifierExpression(String name, BoogieType t) {
+		return new IdentifierExpression(dummyLocation, t, name);
+	}
+
+	
+	
 	/**
 	 * 
 	 * @param attributes

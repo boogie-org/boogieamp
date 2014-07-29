@@ -57,6 +57,7 @@ public class TestParseOtherErrors  {
 	@Test
 	public void test() {
 		ProgramFactory pf = null;
+		System.out.println("TEST: "+this.shortname);
 		try {
 			pf = new ProgramFactory(this.input);
 			
