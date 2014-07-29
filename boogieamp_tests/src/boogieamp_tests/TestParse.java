@@ -24,7 +24,8 @@ public class TestParse  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/good");
+		String dirname = System.getProperty("user.dir")+"/regression/good";
+		  File dir = new File(dirname);
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	
@@ -34,11 +35,12 @@ public class TestParse  {
 		    		//Ignore
 		    	}
 		    }
-		  } else {
+		  } else {			  
 		    // Handle the case where dir is not really a directory.
 		    // Checking dir.isDirectory() above would not be sufficient
 		    // to avoid race conditions with another process that deletes
 		    // directories.
+			  throw new RuntimeException(dirname + " NOT FOUND!");
 		  }				  
 	   return filenames;
    }

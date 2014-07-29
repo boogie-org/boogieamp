@@ -2,6 +2,10 @@
 
 <project basedir="./boogieamp_tests" default="build" name="boogieamp_ci">
 
-    <import file="boogieamp_tests/build.xml"/>
+    <target name="test">
+        <subant target="test">
+            <fileset dir="./" includes="build.xml"/>
+        </subant>
+    </target>
     
 </project>

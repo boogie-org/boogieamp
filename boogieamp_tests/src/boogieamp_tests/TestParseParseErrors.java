@@ -23,7 +23,9 @@ public class TestParseParseErrors  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/parse_error");
+		String dirname = System.getProperty("user.dir")+"/regression/parse_error";
+		  File dir = new File(dirname);
+
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	

@@ -25,7 +25,9 @@ public class TestParseSmack  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/smack");
+		String dirname = System.getProperty("user.dir")+"/regression/smack";
+		  File dir = new File(dirname);
+
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	

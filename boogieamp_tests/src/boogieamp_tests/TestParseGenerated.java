@@ -24,7 +24,9 @@ public class TestParseGenerated  {
 	@Parameterized.Parameters (name = "{index}: parse({1})")
 	public static Collection<Object[]> data() {
 		LinkedList<Object[]> filenames = new LinkedList<Object[]>();
-		  File dir = new File("./regression/generated");
+		String dirname = System.getProperty("user.dir")+"/regression/generated";
+		  File dir = new File(dirname);
+
 		  File[] directoryListing = dir.listFiles();
 		  if (directoryListing != null) {
 		    for (File child : directoryListing) {		    	

@@ -3,7 +3,7 @@
 <project basedir="./" default="build" name="boogieamp_tests">
     <property environment="env"/>    
     <property name="junit.output.dir" value="junit"/>
-    <property name="boogieamp.location" value="../boogieamp"/>
+    <property name="boogieamp.location" value="../boogieamp"/>	
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
@@ -50,8 +50,10 @@
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target depends="build" name="test">
         <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="yes">
-            <formatter type="brief"/>
+    	 
+        <junit fork="true" printsummary="yes">
+        	<jvmarg value="-Duser.dir=${basedir}"/>
+            <formatter type="brief" />
             <test name="boogieamp_tests.AllTests" todir="${junit.output.dir}"/>        	
             <classpath refid="boogieamp_test.classpath"/>
         </junit>
