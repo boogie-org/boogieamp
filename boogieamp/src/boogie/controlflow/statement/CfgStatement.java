@@ -23,7 +23,7 @@ import boogie.ast.Attribute;
 import boogie.location.ILocation;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public abstract class CfgStatement {

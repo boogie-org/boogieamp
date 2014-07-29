@@ -45,7 +45,7 @@ import boogie.statement.Statement;
 import boogie.statement.WhileStatement;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class ModifiesClauseConstruction {

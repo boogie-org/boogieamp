@@ -102,7 +102,7 @@ import boogie.type.PrimitiveType;
 import boogie.type.TypeConstructor;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class ProgramFactory {

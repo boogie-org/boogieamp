@@ -27,7 +27,7 @@ import boogie.location.ILocation;
 import boogie.type.BoogieType;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class CfgQuantifierExpression extends CfgExpression {
@@ -51,10 +51,27 @@ public class CfgQuantifierExpression extends CfgExpression {
 	
 	@Override
 	public String toString() {
-		//StringBuilder sb = new StringBuilder();
-		//TODO
-		throw new RuntimeException("quantifiers not implemented");
-		//return sb.toString();
+		StringBuilder sb = new StringBuilder();
+		if (this.isUniversal) sb.append("forall");
+		else sb.append("exists");
+		//forall i:int :: $i2b(i) <==> i != 0);
+		
+		//TODO: attributes and type parameters are missing
+		
+		boolean first = true;
+		for (CfgVariable v : this.parameters) {
+			if (first) first=false;	else sb.append(", ");
+			sb.append(v.getVarname());
+			sb.append(":");
+			sb.append(v.getType());			
+		}
+		first = true;
+		
+		sb.append(" :: ");
+		
+		sb.append(this.subformula);
+		
+		return sb.toString();
 	}
 
 	@Override

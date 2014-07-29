@@ -32,7 +32,7 @@ import boogie.controlflow.expression.CfgExpression;
 import boogie.location.ILocation;
 
 /**
- * @author martin TODO: this should have a different name because it actually
+ * @author schaef TODO: this should have a different name because it actually
  *         represents the procedure/function and its cfg
  */
 public class CfgProcedure {

@@ -24,7 +24,7 @@ import boogie.controlflow.expression.CfgIdentifierExpression;
 import boogie.location.ILocation;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class CfgAssignStatement extends CfgStatement {

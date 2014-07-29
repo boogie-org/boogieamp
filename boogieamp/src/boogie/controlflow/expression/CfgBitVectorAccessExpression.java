@@ -26,7 +26,7 @@ import boogie.location.ILocation;
 import boogie.type.BoogieType;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class CfgBitVectorAccessExpression extends CfgExpression {

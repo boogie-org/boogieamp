@@ -65,7 +65,7 @@ import boogie.statement.WhileStatement;
 import boogie.statement.YieldStatement;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class DefaultControlFlowFactory extends AbstractControlFlowFactory {

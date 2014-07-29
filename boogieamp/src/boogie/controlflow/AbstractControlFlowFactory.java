@@ -81,7 +81,7 @@ import boogie.statement.Statement;
 import boogie.type.BoogieType;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public abstract class AbstractControlFlowFactory {

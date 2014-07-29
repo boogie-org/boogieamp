@@ -4,7 +4,7 @@
 package boogie.controlflow;
 
 /**
- * @author martin
+ * @author schaef
  * represents the partial order information for CfgVariables
  */
 public class CfgParentEdge {

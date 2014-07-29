@@ -20,7 +20,7 @@
 package boogie.ast;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class BoogieSymbol {

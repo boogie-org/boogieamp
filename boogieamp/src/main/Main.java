@@ -26,7 +26,7 @@ import boogie.controlflow.AbstractControlFlowFactory;
 import boogie.controlflow.DefaultControlFlowFactory;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class Main {

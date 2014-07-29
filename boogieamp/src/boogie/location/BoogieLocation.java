@@ -20,7 +20,7 @@
 package boogie.location;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class BoogieLocation implements ILocation {

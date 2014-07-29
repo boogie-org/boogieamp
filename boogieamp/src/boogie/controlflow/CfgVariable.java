@@ -24,7 +24,7 @@ import java.util.LinkedList;
 import boogie.type.BoogieType;
 
 /**
- * @author martin
+ * @author schaef
  * 
  */
 public class CfgVariable {
