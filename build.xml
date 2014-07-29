@@ -1,67 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<project basedir="./boogieamp_tests" default="build" name="boogieamp_test">
-    <property environment="env"/>    
-    <property name="junit.output.dir" value="junit"/>
-    <property name="boogieamp.location" value="../boogieamp"/>
-    <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.7"/>
-    <property name="source" value="1.7"/>
-    <path id="JUnit 4.libraryclasspath">
-        <pathelement location="lib/junit.jar"/>
-        <pathelement location="lib/org.hamcrest.core_1.3.0.jar"/>
-    </path>
-    <path id="boogieamp.classpath">
-        <pathelement location="${boogieamp.location}/bin"/>
-        <pathelement location="${boogieamp.location}/lib/java-cup-12.jar"/>
-        <pathelement location="${boogieamp.location}/lib/log4j-1.2.16.jar"/>
-    </path>
-    <path id="boogieamp_test.classpath">
-        <pathelement location="bin"/>
-        <path refid="JUnit 4.libraryclasspath"/>
-        <path refid="boogieamp.classpath"/>
-    </path>
-    <target name="init">
-        <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="src">
-                <exclude name="**/*.launch"/>
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="clean">
-        <delete dir="bin"/>
-    </target>
-    <target depends="clean" name="cleanall">
-        <ant antfile="build.xml" dir="${boogieamp.location}" inheritAll="false" target="clean"/>
-    </target>
-    <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects">
-        <ant antfile="build.xml" dir="${boogieamp.location}" inheritAll="false" target="build-project"/>
-    </target>
-    <target depends="init" name="build-project">
-        <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
-            <src path="src"/>
-            <classpath refid="boogieamp_test.classpath"/>
-        </javac>
-    </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target depends="build" name="test">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr" haltonfailure="false">
-            <formatter type="brief" usefile="false"/>
-            <test name="boogieamp_tests.AllTests" todir="${junit.output.dir}"/>
-            <classpath refid="boogieamp_test.classpath"/>
-        </junit>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
-    </target>
+<project basedir="./boogieamp_tests" default="build" name="boogieamp_ci">
+
+    <import file="boogieamp_tests/build.xml"/>
+    
 </project>

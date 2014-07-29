@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<project basedir="./" default="build" name="boogieamp_test">
+<project basedir="./" default="build" name="boogieamp_tests">
     <property environment="env"/>    
     <property name="junit.output.dir" value="junit"/>
     <property name="boogieamp.location" value="../boogieamp"/>
@@ -52,7 +52,7 @@
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="yes">
             <formatter type="brief"/>
-            <test name="boogieamp_tests.AllTests" todir="${junit.output.dir}"/>
+            <test name="boogieamp_tests.AllTests" todir="${junit.output.dir}"/>        	
             <classpath refid="boogieamp_test.classpath"/>
         </junit>
     </target>
