@@ -1,5 +1,4 @@
-##boogieamp 
-=========
+##Boogieamp 
 
 This is a Java parser for the [Boogie](boogie.codeplex.com) intermediate verification language.
 Currently, this is work in progress and mostly used for our [Joogie](www.joogie.org) and [GraVy](http://sotec.informatik.uni-freiburg.de/gravy/) projects. In the long run, we try to support more and more features of the actual Boogie language. Please look into the unit tests for more details on what is working and what not.
