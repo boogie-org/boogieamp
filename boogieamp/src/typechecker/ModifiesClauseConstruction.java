@@ -242,6 +242,9 @@ public class ModifiesClauseConstruction {
 	private HashSet<String> computeTransitiveModifies(String identifier,
 			HashSet<String> visited) {
 		ProcedureInfo pi = this.procedureInfoMap.get(identifier);
+		if (pi==null) {
+			throw new RuntimeException("Procedure "+identifier+" not found");
+		}
 		if (visited.contains(identifier)) {
 			return pi.modifiedGlobals;
 		}

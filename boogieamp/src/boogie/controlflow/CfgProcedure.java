@@ -336,7 +336,7 @@ public class CfgProcedure {
 			PrintWriter pw = new PrintWriter(fpw);
 			pw.println("digraph dot {");
 			LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>();
-			LinkedList<BasicBlock> done = new LinkedList<BasicBlock>();
+			HashSet<BasicBlock> done = new HashSet<BasicBlock>();
 			todo.add(this.rootNode);
 			StringBuffer sb = new StringBuffer();
 			while (!todo.isEmpty()) {

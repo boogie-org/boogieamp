@@ -77,6 +77,9 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 	
 	@Override
 	protected void constructCfg(ProcedureOrImplementationDeclaration proc, CfgProcedure cfg) {
+		//reset the blockMap. Labels in Boogie are only visible locally.
+		this.blockMap.clear();
+		
 		this.context = new ProcedureContext();
 		context.inParamVars = new HashMap<String, CfgVariable>();
 		CfgVariable[] vars = varList2CfgVariables(proc.getInParams(), false,
