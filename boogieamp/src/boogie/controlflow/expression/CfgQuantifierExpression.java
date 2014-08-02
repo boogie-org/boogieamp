@@ -31,13 +31,48 @@ import boogie.type.BoogieType;
  * 
  */
 public class CfgQuantifierExpression extends CfgExpression {
-
+	
 	private boolean isUniversal;
 	private BoogieType[] typeParams;
 	private CfgVariable[] parameters;
 	private Attribute[] attributes; 
-	private CfgExpression subformula;
-	
+	private CfgExpression subformula;	
+
+	/**
+	 * @return the isUniversal
+	 */
+	public boolean isUniversal() {
+		return isUniversal;
+	}
+
+	/**
+	 * @return the typeParams
+	 */
+	public BoogieType[] getTypeParams() {
+		return typeParams;
+	}
+
+	/**
+	 * @return the parameters
+	 */
+	public CfgVariable[] getParameters() {
+		return parameters;
+	}
+
+	/**
+	 * @return the attributes
+	 */
+	public Attribute[] getAttributes() {
+		return attributes;
+	}
+
+	/**
+	 * @return the subformula
+	 */
+	public CfgExpression getSubformula() {
+		return subformula;
+	}
+
 	public CfgQuantifierExpression(ILocation loc, BoogieType type, boolean isUniversal, 
 			BoogieType[] typeParams, CfgVariable[] parameters,
 			Attribute[] attributes, CfgExpression subformula) {
