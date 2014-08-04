@@ -28,8 +28,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 import util.Log;
+import boogie.ast.location.ILocation;
 import boogie.controlflow.expression.CfgExpression;
-import boogie.location.ILocation;
 
 /**
  * @author schaef TODO: this should have a different name because it actually

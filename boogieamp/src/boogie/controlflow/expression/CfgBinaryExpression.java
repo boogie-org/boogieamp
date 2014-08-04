@@ -21,9 +21,9 @@ package boogie.controlflow.expression;
 
 import java.util.HashMap;
 
+import boogie.ast.location.ILocation;
 import boogie.controlflow.CfgVariable;
 import boogie.enums.BinaryOperator;
-import boogie.location.ILocation;
 import boogie.type.BoogieType;
 
 /**

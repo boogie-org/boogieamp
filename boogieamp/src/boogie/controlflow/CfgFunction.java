@@ -19,8 +19,8 @@
 
 package boogie.controlflow;
 
+import boogie.ast.location.ILocation;
 import boogie.controlflow.expression.CfgExpression;
-import boogie.location.ILocation;
 
 /**
  * @author schaef

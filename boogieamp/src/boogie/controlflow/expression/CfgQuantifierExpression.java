@@ -22,8 +22,8 @@ package boogie.controlflow.expression;
 import java.util.HashMap;
 
 import boogie.ast.Attribute;
+import boogie.ast.location.ILocation;
 import boogie.controlflow.CfgVariable;
-import boogie.location.ILocation;
 import boogie.type.BoogieType;
 
 /**

@@ -29,6 +29,28 @@ import boogie.ast.Body;
 import boogie.ast.LeftHandSide;
 import boogie.ast.Unit;
 import boogie.ast.VariableLHS;
+import boogie.ast.declaration.ProcedureOrImplementationDeclaration;
+import boogie.ast.declaration.VariableDeclaration;
+import boogie.ast.location.BoogieLocation;
+import boogie.ast.location.ILocation;
+import boogie.ast.specification.EnsuresSpecification;
+import boogie.ast.specification.LoopInvariantSpecification;
+import boogie.ast.specification.ModifiesSpecification;
+import boogie.ast.specification.RequiresSpecification;
+import boogie.ast.specification.Specification;
+import boogie.ast.statement.AssertStatement;
+import boogie.ast.statement.AssignmentStatement;
+import boogie.ast.statement.AssumeStatement;
+import boogie.ast.statement.BreakStatement;
+import boogie.ast.statement.CallStatement;
+import boogie.ast.statement.GotoStatement;
+import boogie.ast.statement.HavocStatement;
+import boogie.ast.statement.IfStatement;
+import boogie.ast.statement.Label;
+import boogie.ast.statement.ReturnStatement;
+import boogie.ast.statement.Statement;
+import boogie.ast.statement.WhileStatement;
+import boogie.ast.statement.YieldStatement;
 import boogie.controlflow.expression.CfgArrayAccessExpression;
 import boogie.controlflow.expression.CfgArrayStoreExpression;
 import boogie.controlflow.expression.CfgExpression;
@@ -40,29 +62,7 @@ import boogie.controlflow.statement.CfgAssumeStatement;
 import boogie.controlflow.statement.CfgCallStatement;
 import boogie.controlflow.statement.CfgHavocStatement;
 import boogie.controlflow.statement.CfgStatement;
-import boogie.declaration.ProcedureOrImplementationDeclaration;
-import boogie.declaration.VariableDeclaration;
 import boogie.enums.UnaryOperator;
-import boogie.location.BoogieLocation;
-import boogie.location.ILocation;
-import boogie.specification.EnsuresSpecification;
-import boogie.specification.LoopInvariantSpecification;
-import boogie.specification.ModifiesSpecification;
-import boogie.specification.RequiresSpecification;
-import boogie.specification.Specification;
-import boogie.statement.AssertStatement;
-import boogie.statement.AssignmentStatement;
-import boogie.statement.AssumeStatement;
-import boogie.statement.BreakStatement;
-import boogie.statement.CallStatement;
-import boogie.statement.GotoStatement;
-import boogie.statement.HavocStatement;
-import boogie.statement.IfStatement;
-import boogie.statement.Label;
-import boogie.statement.ReturnStatement;
-import boogie.statement.Statement;
-import boogie.statement.WhileStatement;
-import boogie.statement.YieldStatement;
 
 /**
  * @author schaef
@@ -205,7 +205,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 				//in that case, we can safely ignore the statement
 				return null;
 			} 
-			Log.error("Statement " + s + " is unreachable");
+			Log.debug("Statement " + s + " is unreachable");
 			return null;
 		}
 		if (s instanceof AssertStatement) {			
@@ -331,7 +331,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			return b;
 		} else if (s instanceof GotoStatement) {
 			if (b == null) {
-				Log.error("Statement " + s + " is unreachable");
+				Log.debug("Statement " + s + " is unreachable");
 				return null;
 			}
 			GotoStatement gotostmt = (GotoStatement) s;

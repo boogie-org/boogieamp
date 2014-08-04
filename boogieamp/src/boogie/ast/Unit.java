@@ -21,8 +21,8 @@ package boogie.ast;
 
 import java.util.List;
 
-import boogie.declaration.Declaration;
-import boogie.location.ILocation;
+import boogie.ast.declaration.Declaration;
+import boogie.ast.location.ILocation;
 
 /**
  * Represents a unit.

@@ -21,7 +21,7 @@ package boogie.ast.asttypes;
 
 import java.util.List;
 
-import boogie.location.ILocation;
+import boogie.ast.location.ILocation;
 import boogie.type.BoogieType;
 
 /**

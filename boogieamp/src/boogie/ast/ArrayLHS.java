@@ -21,8 +21,8 @@ package boogie.ast;
 
 import java.util.List;
 
-import boogie.expression.Expression;
-import boogie.location.ILocation;
+import boogie.ast.expression.Expression;
+import boogie.ast.location.ILocation;
 import boogie.type.BoogieType;
 
 /**

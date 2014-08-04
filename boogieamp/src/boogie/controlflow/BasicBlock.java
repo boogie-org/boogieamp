@@ -23,8 +23,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+import boogie.ast.location.ILocation;
 import boogie.controlflow.statement.CfgStatement;
-import boogie.location.ILocation;
 
 public class BasicBlock {
 

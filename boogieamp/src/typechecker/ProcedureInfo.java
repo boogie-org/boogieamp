@@ -19,7 +19,7 @@
 
 package typechecker;
 
-import boogie.declaration.ProcedureDeclaration;
+import boogie.ast.declaration.ProcedureDeclaration;
 import boogie.type.TypeParameters;
 
 public class ProcedureInfo {

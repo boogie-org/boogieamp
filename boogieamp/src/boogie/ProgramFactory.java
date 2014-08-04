@@ -48,52 +48,52 @@ import boogie.ast.asttypes.ASTType;
 import boogie.ast.asttypes.ArrayAstType;
 import boogie.ast.asttypes.NamedAstType;
 import boogie.ast.asttypes.PrimitiveAstType;
+import boogie.ast.declaration.Axiom;
+import boogie.ast.declaration.ConstDeclaration;
+import boogie.ast.declaration.Declaration;
+import boogie.ast.declaration.FunctionDeclaration;
+import boogie.ast.declaration.Implementation;
+import boogie.ast.declaration.ProcedureDeclaration;
+import boogie.ast.declaration.TypeDeclaration;
+import boogie.ast.declaration.VariableDeclaration;
+import boogie.ast.expression.ArrayAccessExpression;
+import boogie.ast.expression.ArrayStoreExpression;
+import boogie.ast.expression.BinaryExpression;
+import boogie.ast.expression.BitVectorAccessExpression;
+import boogie.ast.expression.Expression;
+import boogie.ast.expression.FunctionApplication;
+import boogie.ast.expression.IdentifierExpression;
+import boogie.ast.expression.IfThenElseExpression;
+import boogie.ast.expression.QuantifierExpression;
+import boogie.ast.expression.UnaryExpression;
+import boogie.ast.expression.WildcardExpression;
+import boogie.ast.expression.literal.BitvecLiteral;
+import boogie.ast.expression.literal.BooleanLiteral;
+import boogie.ast.expression.literal.IntegerLiteral;
+import boogie.ast.expression.literal.RealLiteral;
+import boogie.ast.expression.literal.StringLiteral;
+import boogie.ast.location.ILocation;
+import boogie.ast.specification.EnsuresSpecification;
+import boogie.ast.specification.LoopInvariantSpecification;
+import boogie.ast.specification.ModifiesSpecification;
+import boogie.ast.specification.RequiresSpecification;
+import boogie.ast.specification.Specification;
+import boogie.ast.statement.AssertStatement;
+import boogie.ast.statement.AssignmentStatement;
+import boogie.ast.statement.AssumeStatement;
+import boogie.ast.statement.BreakStatement;
+import boogie.ast.statement.CallStatement;
+import boogie.ast.statement.GotoStatement;
+import boogie.ast.statement.HavocStatement;
+import boogie.ast.statement.IfStatement;
+import boogie.ast.statement.Label;
+import boogie.ast.statement.ReturnStatement;
+import boogie.ast.statement.Statement;
+import boogie.ast.statement.WhileStatement;
+import boogie.ast.statement.YieldStatement;
 import boogie.controlflow.DefaultControlFlowFactory;
-import boogie.declaration.Axiom;
-import boogie.declaration.ConstDeclaration;
-import boogie.declaration.Declaration;
-import boogie.declaration.FunctionDeclaration;
-import boogie.declaration.Implementation;
-import boogie.declaration.ProcedureDeclaration;
-import boogie.declaration.TypeDeclaration;
-import boogie.declaration.VariableDeclaration;
 import boogie.enums.CallParameters;
 import boogie.enums.UnaryOperator;
-import boogie.expression.ArrayAccessExpression;
-import boogie.expression.ArrayStoreExpression;
-import boogie.expression.BinaryExpression;
-import boogie.expression.BitVectorAccessExpression;
-import boogie.expression.Expression;
-import boogie.expression.FunctionApplication;
-import boogie.expression.IdentifierExpression;
-import boogie.expression.IfThenElseExpression;
-import boogie.expression.QuantifierExpression;
-import boogie.expression.UnaryExpression;
-import boogie.expression.WildcardExpression;
-import boogie.expression.literal.BitvecLiteral;
-import boogie.expression.literal.BooleanLiteral;
-import boogie.expression.literal.IntegerLiteral;
-import boogie.expression.literal.RealLiteral;
-import boogie.expression.literal.StringLiteral;
-import boogie.location.ILocation;
-import boogie.specification.EnsuresSpecification;
-import boogie.specification.LoopInvariantSpecification;
-import boogie.specification.ModifiesSpecification;
-import boogie.specification.RequiresSpecification;
-import boogie.specification.Specification;
-import boogie.statement.AssertStatement;
-import boogie.statement.AssignmentStatement;
-import boogie.statement.AssumeStatement;
-import boogie.statement.BreakStatement;
-import boogie.statement.CallStatement;
-import boogie.statement.GotoStatement;
-import boogie.statement.HavocStatement;
-import boogie.statement.IfStatement;
-import boogie.statement.Label;
-import boogie.statement.ReturnStatement;
-import boogie.statement.Statement;
-import boogie.statement.WhileStatement;
-import boogie.statement.YieldStatement;
 import boogie.type.ArrayType;
 import boogie.type.BoogieType;
 import boogie.type.ConstructedType;
@@ -107,9 +107,9 @@ import boogie.type.TypeConstructor;
  */
 public class ProgramFactory {
 
-	public static final String LocationTag = "SourceLocation";
+	public static final String LocationTag = "sourceloc";
 	
-	public static final String NoCodeTag = "NoCode";
+	public static final String NoCodeTag = "noverify";
 
 	public ProgramFactory() {
 
@@ -741,9 +741,9 @@ public class ProgramFactory {
 				new IntegerLiteral(dummyLocation, BoogieType.intType,
 						Integer.toString(startLine)),
 				new IntegerLiteral(dummyLocation, BoogieType.intType,
-						Integer.toString(endline)),
-				new IntegerLiteral(dummyLocation, BoogieType.intType,
 						Integer.toString(startColumn)),
+				new IntegerLiteral(dummyLocation, BoogieType.intType,
+						Integer.toString(endline)),						
 				new IntegerLiteral(dummyLocation, BoogieType.intType,
 						Integer.toString(endColumn)) };
 		return new NamedAttribute(dummyLocation, ProgramFactory.LocationTag,

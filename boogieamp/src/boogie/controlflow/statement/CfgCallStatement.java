@@ -19,10 +19,10 @@
 
 package boogie.controlflow.statement;
 
+import boogie.ast.location.ILocation;
 import boogie.controlflow.CfgProcedure;
 import boogie.controlflow.expression.CfgExpression;
 import boogie.controlflow.expression.CfgIdentifierExpression;
-import boogie.location.ILocation;
 
 /**
  * @author schaef

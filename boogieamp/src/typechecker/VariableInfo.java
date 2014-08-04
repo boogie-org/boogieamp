@@ -19,7 +19,7 @@
 
 package typechecker;
 
-import boogie.declaration.Declaration;
+import boogie.ast.declaration.Declaration;
 import boogie.type.BoogieType;
 
 public class VariableInfo {

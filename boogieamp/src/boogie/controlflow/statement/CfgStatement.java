@@ -20,7 +20,7 @@
 package boogie.controlflow.statement;
 
 import boogie.ast.Attribute;
-import boogie.location.ILocation;
+import boogie.ast.location.ILocation;
 
 /**
  * @author schaef

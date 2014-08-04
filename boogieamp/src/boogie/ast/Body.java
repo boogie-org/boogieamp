@@ -21,9 +21,9 @@ package boogie.ast;
 
 import java.util.List;
 
-import boogie.declaration.VariableDeclaration;
-import boogie.location.ILocation;
-import boogie.statement.Statement;
+import boogie.ast.declaration.VariableDeclaration;
+import boogie.ast.location.ILocation;
+import boogie.ast.statement.Statement;
 
 /**
  * Represents a body.

@@ -7,15 +7,14 @@ import java.util.List;
 import java_cup.runtime.Symbol;
 import boogie.ast.*;
 import boogie.ast.asttypes.*;
-import boogie.declaration.*;
+import boogie.ast.declaration.*;
+import boogie.ast.expression.*;
+import boogie.ast.expression.literal.*;
+import boogie.ast.location.BoogieLocation;
+import boogie.ast.location.ILocation;
+import boogie.ast.specification.*;
+import boogie.ast.statement.*;
 import boogie.enums.*;
-import boogie.expression.*;
-import boogie.expression.literal.*;
-import boogie.location.BoogieLocation;
-import boogie.location.ILocation;
-import boogie.specification.*;
-import boogie.statement.*;
-
 
 parser Parser;
 option symbols = LexerSymbols;

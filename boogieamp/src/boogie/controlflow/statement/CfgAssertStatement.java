@@ -20,8 +20,8 @@
 package boogie.controlflow.statement;
 
 import boogie.ast.Attribute;
+import boogie.ast.location.ILocation;
 import boogie.controlflow.expression.CfgExpression;
-import boogie.location.ILocation;
 
 /**
  * @author schaef

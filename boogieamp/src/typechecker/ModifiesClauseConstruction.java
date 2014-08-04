@@ -23,26 +23,25 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-import util.Log;
 import boogie.ast.ArrayLHS;
 import boogie.ast.Body;
 import boogie.ast.LeftHandSide;
 import boogie.ast.Unit;
 import boogie.ast.VarList;
 import boogie.ast.VariableLHS;
-import boogie.declaration.Declaration;
-import boogie.declaration.Implementation;
-import boogie.declaration.ProcedureDeclaration;
-import boogie.declaration.ProcedureOrImplementationDeclaration;
-import boogie.declaration.VariableDeclaration;
-import boogie.specification.ModifiesSpecification;
-import boogie.specification.Specification;
-import boogie.statement.AssignmentStatement;
-import boogie.statement.CallStatement;
-import boogie.statement.HavocStatement;
-import boogie.statement.IfStatement;
-import boogie.statement.Statement;
-import boogie.statement.WhileStatement;
+import boogie.ast.declaration.Declaration;
+import boogie.ast.declaration.Implementation;
+import boogie.ast.declaration.ProcedureDeclaration;
+import boogie.ast.declaration.ProcedureOrImplementationDeclaration;
+import boogie.ast.declaration.VariableDeclaration;
+import boogie.ast.specification.ModifiesSpecification;
+import boogie.ast.specification.Specification;
+import boogie.ast.statement.AssignmentStatement;
+import boogie.ast.statement.CallStatement;
+import boogie.ast.statement.HavocStatement;
+import boogie.ast.statement.IfStatement;
+import boogie.ast.statement.Statement;
+import boogie.ast.statement.WhileStatement;
 
 /**
  * @author schaef
@@ -51,32 +50,8 @@ import boogie.statement.WhileStatement;
 public class ModifiesClauseConstruction {
 
 	public static void createModifiesClause(Unit root) {
-		Log.info("Warning: as the AST is immutable, computing the Modifies "
-				+ "Clauses creates a new AST, so all your pointers to Procedures "
-				+ "become invalid. If you use this, you have to continue working "
-				+ "on the CFG.");
+
 		ModifiesClauseConstruction instance = new ModifiesClauseConstruction();
-		// unify procedure declarations and implementations
-//		HashSet<Declaration> unifieddecls = new HashSet<Declaration>();
-//		HashMap<String, ProcedureDeclaration> merged_procedures = new HashMap<String, ProcedureDeclaration>();
-//		for (Declaration c : root.getDeclarations()) {
-//			if (c instanceof ProcedureDeclaration) {
-//				ProcedureDeclaration p = (ProcedureDeclaration) c;
-//				if (!merged_procedures.containsKey(p.getIdentifier())) {
-//					merged_procedures.put(p.getIdentifier(), p);
-//				} else {
-//					merged_procedures
-//							.put(p.getIdentifier(),
-//									mergeProcedures(merged_procedures.get(p
-//											.getIdentifier()), p));
-//				}
-//			} else {
-//				unifieddecls.add(c);
-//			}
-//		}
-//		unifieddecls.addAll(merged_procedures.values());
-//		root.setDeclarations(unifieddecls.toArray(new Declaration[unifieddecls
-//				.size()]));
 
 		HashMap<String, ProcedureDeclaration> proceduredecls = new HashMap<String, ProcedureDeclaration>(); 
 		HashMap<String, LinkedList<Implementation>> implementations = new HashMap<String, LinkedList<Implementation>>();

@@ -21,7 +21,7 @@ package boogie.ast;
 
 import java.util.List;
 
-import boogie.location.ILocation;
+import boogie.ast.location.ILocation;
 
 /**
  * Represents a project.

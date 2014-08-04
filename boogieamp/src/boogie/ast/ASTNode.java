@@ -22,8 +22,8 @@ package boogie.ast;
 import java.util.LinkedList;
 import java.util.List;
 
-import boogie.location.BoogieLocation;
-import boogie.location.ILocation;
+import boogie.ast.location.BoogieLocation;
+import boogie.ast.location.ILocation;
 
 public abstract class ASTNode {
 

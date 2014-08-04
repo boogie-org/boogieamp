@@ -19,7 +19,7 @@
 
 package typechecker;
 
-import boogie.declaration.FunctionDeclaration;
+import boogie.ast.declaration.FunctionDeclaration;
 import boogie.type.FunctionSignature;
 import boogie.type.TypeParameters;
 
