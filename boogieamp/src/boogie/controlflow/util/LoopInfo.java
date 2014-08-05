@@ -33,6 +33,27 @@ public class LoopInfo {
 		}		
 	}
 	
+	public void refreshLoopBody() {
+		HashSet<BasicBlock> newbody = new HashSet<BasicBlock>();
+		LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>(); 
+		newbody.add(loopHead);
+		for (BasicBlock b : loopHead.getPredecessors()) {
+			if (!this.loopEntries.contains(b)) {
+				todo.add(b);
+			}
+		}
+		while (!todo.isEmpty()) {
+			BasicBlock current = todo.pop();
+			newbody.add(current);
+			for (BasicBlock b : current.getPredecessors()) {
+				if (!todo.contains(b) && !newbody.contains(b)) {
+					todo.add(b);
+				}
+			}
+		}
+		this.loopBody = newbody;
+	}
+	
 	public LoopInfo(BasicBlock loophead, HashSet<BasicBlock> loopingpred,
 			HashSet<BasicBlock> loopbody, HashSet<BasicBlock> loopexit) {
 		loopHead = loophead;

@@ -109,7 +109,7 @@ public class ProgramFactory {
 
 	public static final String LocationTag = "sourceloc";
 	
-	public static final String NoCodeTag = "noverify";
+	public static final String NoVerifyTag = "noverify";
 
 	public ProgramFactory() {
 
@@ -526,8 +526,7 @@ public class ProgramFactory {
 			astRootNode = new Unit(
 					dummyLocation,
 					globalDeclarations
-							.toArray(new Declaration[globalDeclarations.size()]));
-			Log.info("Createing Modifies Clauses");
+							.toArray(new Declaration[globalDeclarations.size()]));			
 			ModifiesClauseConstruction.createModifiesClause(astRootNode);
 		}
 		return astRootNode;
@@ -751,13 +750,23 @@ public class ProgramFactory {
 	}
 	
 	/**
+	 * Make a custom attribute
+	 * @param filename
+	 * @return
+	 */
+	public Attribute mkCustomAttribute(String filename) {
+		return new NamedAttribute(dummyLocation, ProgramFactory.LocationTag,
+				new Expression[]{});
+	}
+	
+	/**
 	 * Make an attribute that indicates the the statement associated with it has no corresponding location
 	 * in the source code.
 	 * Use this, e.g., to suppress false positives in infeasible code detection. 
 	 * @return
 	 */
-	public Attribute mkNoCodeAttribute() {
-		return new NamedAttribute(dummyLocation, ProgramFactory.NoCodeTag,
+	public Attribute mkNoVerifyAttribute() {
+		return new NamedAttribute(dummyLocation, ProgramFactory.NoVerifyTag,
 				new Expression[]{});
 	}
 
