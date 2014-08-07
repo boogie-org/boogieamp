@@ -19,6 +19,7 @@
 
 package boogie.controlflow.statement;
 
+import util.BoogiePrinter;
 import boogie.ast.Attribute;
 import boogie.ast.location.ILocation;
 import boogie.controlflow.expression.CfgExpression;
@@ -60,6 +61,9 @@ public class CfgAssumeStatement extends CfgStatement {
 	public String toString() {		
 		StringBuilder sb = new StringBuilder();
 		sb.append("assume (");
+		BoogiePrinter bp = new BoogiePrinter(null);
+		bp.appendAttributes(sb, getAttributes());
+		sb.append("(");
 		sb.append(this.condition.toString());
 		sb.append(")");
 		return sb.toString();

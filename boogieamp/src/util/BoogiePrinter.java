@@ -471,7 +471,7 @@ public class BoogiePrinter {
 	 * @param attributes
 	 *            the attributes to handle.
 	 */
-	private void appendAttributes(StringBuilder sb, Attribute[] attributes) {
+	public void appendAttributes(StringBuilder sb, Attribute[] attributes) {
 		if (attributes==null) return;
 		
 		for (Attribute a : attributes) {

@@ -755,7 +755,7 @@ public class ProgramFactory {
 	 * @return
 	 */
 	public Attribute mkCustomAttribute(String filename) {
-		return new NamedAttribute(dummyLocation, ProgramFactory.LocationTag,
+		return new NamedAttribute(dummyLocation, filename,
 				new Expression[]{});
 	}
 	

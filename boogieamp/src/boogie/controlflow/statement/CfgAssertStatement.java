@@ -19,6 +19,7 @@
 
 package boogie.controlflow.statement;
 
+import util.BoogiePrinter;
 import boogie.ast.Attribute;
 import boogie.ast.location.ILocation;
 import boogie.controlflow.expression.CfgExpression;
@@ -59,7 +60,10 @@ public class CfgAssertStatement extends CfgStatement {
 	@Override
 	public String toString() {		
 		StringBuilder sb = new StringBuilder();
-		sb.append("assert (");
+		sb.append("assert ");
+		BoogiePrinter bp = new BoogiePrinter(null);
+		bp.appendAttributes(sb, getAttributes());
+		sb.append("(");
 		sb.append(this.condition.toString());
 		sb.append(")");
 		return sb.toString();
