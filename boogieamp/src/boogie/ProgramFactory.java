@@ -181,28 +181,29 @@ public class ProgramFactory {
 			} else {
 				// make sure that functions, procedures, and variables are
 				// imported properly
-				Declaration existing = containsDeclaration(
-						this.globalDeclarations, d);
-				if (existing == null) {
-					if (!this.globalDeclarations.contains(d)) {
-						this.globalDeclarations.add(d);
-					} else {
-						Log.error("Trying to add duplicate " + d.toString());
-					}
-				} else if (d instanceof Implementation) {
-					if (d == existing) {
-						throw new RuntimeException("DOUBLE "
-								+ ((Implementation) d).getIdentifier() + " / "
-								+ ((Implementation) existing).getIdentifier());
-					}
-					this.globalDeclarations.add(d);
-				} else {
-					System.err
-							.println("Double decl " + d.getClass().toString());
-					System.err.println("this: " + d);
-					System.err.println("other: " + existing);
-					throw new RuntimeException();
-				}
+				this.globalDeclarations.add(d);
+//				Declaration existing = containsDeclaration(
+//						this.globalDeclarations, d);
+//				if (existing == null) {
+//					if (!this.globalDeclarations.contains(d)) {
+//						this.globalDeclarations.add(d);
+//					} else {
+//						Log.error("Trying to add duplicate " + d.toString());
+//					}
+//				} else if (d instanceof Implementation) {
+//					if (d == existing) {
+//						throw new RuntimeException("DOUBLE "
+//								+ ((Implementation) d).getIdentifier() + " / "
+//								+ ((Implementation) existing).getIdentifier());
+//					}
+//					this.globalDeclarations.add(d);
+//				} else {
+//					System.err
+//							.println("Double decl " + d.getClass().toString());
+//					System.err.println("this: " + d);
+//					System.err.println("other: " + existing);
+//					throw new RuntimeException();
+//				}
 			}
 		}
 

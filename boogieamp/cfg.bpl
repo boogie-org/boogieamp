@@ -1334,298 +1334,298 @@ procedure java.lang.String$terpword.CsdRtfConverter$convertRtfToHtml$2140($in_pa
 		$ex_return := false;
 		txt7 := $in_parameter__0;
 		havoc $fakelocal_0;
-		assume ((!select($heap, , $fakelocal_0, $alloc)));
+		assume (((!select($heap, , $fakelocal_0, $alloc)));
 		$heap := store($heap, $fakelocal_0, $alloc, true);
-		assume (($fakelocal_0 != $null));
+		assume ((($fakelocal_0 != $null));
 		$heap := store($heap, $fakelocal_0, $type, javax.swing.text.rtf.RTFEditorKit);
 		temp$09 := $fakelocal_0;
 		$exception := call void$javax.swing.text.rtf.RTFEditorKit$$la$init$ra$$2184(temp$09);;
-		goto root#else, root#then;
-	root#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto root#join;
+		goto root#then, root#else;
 	root#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto exit;
+	root#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto root#join;
+	exit:
+		return;
 	root#join:
 		rtf_edit8 := temp$09;
 		havoc $fakelocal_1;
-		assume ((!select($heap, , $fakelocal_1, $alloc)));
+		assume (((!select($heap, , $fakelocal_1, $alloc)));
 		$heap := store($heap, $fakelocal_1, $alloc, true);
-		assume (($fakelocal_1 != $null));
+		assume ((($fakelocal_1 != $null));
 		$heap := store($heap, $fakelocal_1, $type, javax.swing.text.StyleContext);
 		temp$111 := $fakelocal_1;
 		$exception := call void$javax.swing.text.StyleContext$$la$init$ra$$2210(temp$111);;
-		goto root#join#else, root#join#then;
-	exit:
-		return;
-	root#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto root#join#join;
+		goto root#join#then, root#join#else;
 	root#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto exit;
+	root#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto root#join#join;
 	root#join#join:
 		rtf_context10 := temp$111;
 		havoc $fakelocal_2;
-		assume ((!select($heap, , $fakelocal_2, $alloc)));
+		assume (((!select($heap, , $fakelocal_2, $alloc)));
 		$heap := store($heap, $fakelocal_2, $alloc, true);
-		assume (($fakelocal_2 != $null));
+		assume ((($fakelocal_2 != $null));
 		$heap := store($heap, $fakelocal_2, $type, javax.swing.text.DefaultStyledDocument);
 		temp$213 := $fakelocal_2;
 		$exception := call void$javax.swing.text.DefaultStyledDocument$$la$init$ra$$2143(temp$213, rtf_context10);;
 		goto root#join#join#then, root#join#join#else;
 	root#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto exit;
 	root#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
 		goto root#join#join#join;
 	root#join#join#join:
 		rtf_doc12 := temp$213;
 		goto block1;
 	block1:
 		havoc $fakelocal_3;
-		assume ((!select($heap, , $fakelocal_3, $alloc)));
+		assume (((!select($heap, , $fakelocal_3, $alloc)));
 		$heap := store($heap, $fakelocal_3, $alloc, true);
-		assume (($fakelocal_3 != $null));
+		assume ((($fakelocal_3 != $null));
 		$heap := store($heap, $fakelocal_3, $type, java.io.StringReader);
 		temp$314 := $fakelocal_3;
 		$exception := call void$java.io.StringReader$$la$init$ra$$2174(temp$314, txt7);;
-		goto block1#then, block1#else;
-	block1#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto block2;
+		goto block1#else, block1#then;
 	block1#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
 		goto block1#join;
+	block1#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto block2;
+	block1#join:
+		goto block1#join#else, block1#join#then;
 	block2:
-		assert (($exception != $null));
+		assert { :SourceLocation "CsdRtfConverter.java",36,39,5,3 } (($exception != $null));
 		ex22 := $exception;
 		havoc $fakelocal_11;
-		assume ((!select($heap, , $fakelocal_11, $alloc)));
+		assume (((!select($heap, , $fakelocal_11, $alloc)));
 		$heap := store($heap, $fakelocal_11, $alloc, true);
-		assume (($fakelocal_11 != $null));
+		assume ((($fakelocal_11 != $null));
 		$heap := store($heap, $fakelocal_11, $type, java.lang.Exception);
 		temp$923 := $fakelocal_11;
 		havoc $fakelocal_12;
-		assume ((!select($heap, , $fakelocal_12, $alloc)));
+		assume (((!select($heap, , $fakelocal_12, $alloc)));
 		$heap := store($heap, $fakelocal_12, $alloc, true);
-		assume (($fakelocal_12 != $null));
+		assume ((($fakelocal_12 != $null));
 		$heap := store($heap, $fakelocal_12, $type, java.lang.StringBuffer);
 		temp$1024 := $fakelocal_12;
 		$exception := call void$java.lang.StringBuffer$$la$init$ra$$685(temp$1024);;
 		goto block2#else, block2#then;
-	block1#join:
-		goto block1#join#else, block1#join#then;
-	block2#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block2#join;
-	block2#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto exit;
 	block1#join#else:
-		assume ((!(rtf_edit8 != $null)));
+		assume (((!(rtf_edit8 != $null)));
 		havoc $fakelocal_4;
-		assume ((!select($heap, , $fakelocal_4, $alloc)));
+		assume (((!select($heap, , $fakelocal_4, $alloc)));
 		$heap := store($heap, $fakelocal_4, $alloc, true);
-		assume (($fakelocal_4 != $null));
+		assume ((($fakelocal_4 != $null));
 		$heap := store($heap, $fakelocal_4, $type, java.lang.NullPointerException);
 		$exception := $fakelocal_4;
 		goto block2;
 	block1#join#then:
-		assume ((rtf_edit8 != $null));
+		assume (((rtf_edit8 != $null));
 		$exception := $exception;
 		goto block1#join#join;
-	block2#join:
-		assert ((temp$1024 != $null));
-		$fakelocal_13, $exception := call java.lang.StringBuffer$java.lang.StringBuffer$append$701(temp$1024, $StringConst3);;
-		goto block2#join#then, block2#join#else;
+	block2#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block2#join;
+	block2#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto exit;
 	block1#join#join:
 		$exception := call void$javax.swing.text.rtf.RTFEditorKit$read$2188(rtf_edit8, temp$314, rtf_doc12, 0);;
-		goto block1#join#join#else, block1#join#join#then;
+		goto block1#join#join#then, block1#join#join#else;
+	block2#join:
+		assert { :SourceLocation "CsdRtfConverter.java",38,38,24,69 } ((temp$1024 != $null));
+		$fakelocal_13, $exception := call java.lang.StringBuffer$java.lang.StringBuffer$append$701(temp$1024, $StringConst3);;
+		goto block2#join#then, block2#join#else;
+	block1#join#join#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto block2;
+	block1#join#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block1#join#join#join;
 	block2#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto exit;
 	block2#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
 		goto block2#join#join;
-	block1#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block1#join#join#join;
-	block1#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto block2;
-	block2#join#join:
-		assert ((ex22 != $null));
-		temp$1125, $exception := call java.lang.String$java.lang.Throwable$toString$20(ex22);;
-		goto block2#join#join#then, block2#join#join#else;
 	block1#join#join#join:
 		havoc $fakelocal_5;
-		assume ((!select($heap, , $fakelocal_5, $alloc)));
+		assume (((!select($heap, , $fakelocal_5, $alloc)));
 		$heap := store($heap, $fakelocal_5, $alloc, true);
-		assume (($fakelocal_5 != $null));
+		assume ((($fakelocal_5 != $null));
 		$heap := store($heap, $fakelocal_5, $type, java.io.StringWriter);
 		temp$416 := $fakelocal_5;
 		$exception := call void$java.io.StringWriter$$la$init$ra$$2190(temp$416);;
-		goto block1#join#join#join#else, block1#join#join#join#then;
-	block2#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto exit;
-	block2#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block2#join#join#join;
-	block1#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block1#join#join#join#join;
+		goto block1#join#join#join#then, block1#join#join#join#else;
+	block2#join#join:
+		assert { :SourceLocation "CsdRtfConverter.java",38,38,24,69 } ((ex22 != $null));
+		temp$1125, $exception := call java.lang.String$java.lang.Throwable$toString$20(ex22);;
+		goto block2#join#join#else, block2#join#join#then;
 	block1#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto block2;
-	block2#join#join#join:
-		assert ((temp$1024 != $null));
-		$fakelocal_14, $exception := call java.lang.StringBuffer$java.lang.StringBuffer$append$701(temp$1024, temp$1125);;
-		goto block2#join#join#join#then, block2#join#join#join#else;
+	block1#join#join#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block1#join#join#join#join;
+	block2#join#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block2#join#join#join;
+	block2#join#join#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto exit;
 	block1#join#join#join#join:
 		writer15 := temp$416;
 		havoc $fakelocal_6;
-		assume ((!select($heap, , $fakelocal_6, $alloc)));
+		assume (((!select($heap, , $fakelocal_6, $alloc)));
 		$heap := store($heap, $fakelocal_6, $alloc, true);
-		assume (($fakelocal_6 != $null));
+		assume ((($fakelocal_6 != $null));
 		$heap := store($heap, $fakelocal_6, $type, terpword.CsdMinimalHtmlWriter);
 		temp$518 := $fakelocal_6;
-		goto block1#join#join#join#join#else, block1#join#join#join#join#then;
-	block2#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto exit;
-	block2#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block2#join#join#join#join;
+		goto block1#join#join#join#join#then, block1#join#join#join#join#else;
+	block2#join#join#join:
+		assert { :SourceLocation "CsdRtfConverter.java",38,38,24,69 } ((temp$1024 != $null));
+		$fakelocal_14, $exception := call java.lang.StringBuffer$java.lang.StringBuffer$append$701(temp$1024, temp$1125);;
+		goto block2#join#join#join#then, block2#join#join#join#else;
+	block1#join#join#join#join#then:
+		assume (((rtf_doc12 != $null));
+		$exception := $exception;
+		goto block1#join#join#join#join#join;
 	block1#join#join#join#join#else:
-		assume ((!(rtf_doc12 != $null)));
+		assume (((!(rtf_doc12 != $null)));
 		havoc $fakelocal_7;
-		assume ((!select($heap, , $fakelocal_7, $alloc)));
+		assume (((!select($heap, , $fakelocal_7, $alloc)));
 		$heap := store($heap, $fakelocal_7, $alloc, true);
-		assume (($fakelocal_7 != $null));
+		assume ((($fakelocal_7 != $null));
 		$heap := store($heap, $fakelocal_7, $type, java.lang.NullPointerException);
 		$exception := $fakelocal_7;
 		goto block2;
-	block1#join#join#join#join#then:
-		assume ((rtf_doc12 != $null));
-		$exception := $exception;
-		goto block1#join#join#join#join#join;
-	block2#join#join#join#join:
-		assert ((temp$1024 != $null));
-		temp$1226, $exception := call java.lang.String$java.lang.StringBuffer$toString$738(temp$1024);;
-		goto block2#join#join#join#join#then, block2#join#join#join#join#else;
+	block2#join#join#join#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto exit;
+	block2#join#join#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block2#join#join#join#join;
 	block1#join#join#join#join#join:
 		temp$619, $exception := call int$javax.swing.text.AbstractDocument$getLength$2261(rtf_doc12);;
 		goto block1#join#join#join#join#join#then, block1#join#join#join#join#join#else;
-	block2#join#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto exit;
-	block2#join#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block2#join#join#join#join#join;
+	block2#join#join#join#join:
+		assert { :SourceLocation "CsdRtfConverter.java",38,38,24,69 } ((temp$1024 != $null));
+		temp$1226, $exception := call java.lang.String$java.lang.StringBuffer$toString$738(temp$1024);;
+		goto block2#join#join#join#join#else, block2#join#join#join#join#then;
 	block1#join#join#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto block2;
 	block1#join#join#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
 		goto block1#join#join#join#join#join#join;
-	block2#join#join#join#join#join:
-		$exception := call void$java.lang.Exception$$la$init$ra$$629(temp$923, temp$1226, ex22);;
-		goto block2#join#join#join#join#join#else, block2#join#join#join#join#join#then;
+	block2#join#join#join#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block2#join#join#join#join#join;
+	block2#join#join#join#join#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto exit;
 	block1#join#join#join#join#join#join:
 		$exception := call void$terpword.CsdMinimalHtmlWriter$$la$init$ra$$1889(temp$518, writer15, rtf_doc12, 0, temp$619);;
 		goto block1#join#join#join#join#join#join#else, block1#join#join#join#join#join#join#then;
-	block2#join#join#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block2#join#join#join#join#join#join;
-	block2#join#join#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto exit;
+	block2#join#join#join#join#join:
+		$exception := call void$java.lang.Exception$$la$init$ra$$629(temp$923, temp$1226, ex22);;
+		goto block2#join#join#join#join#join#then, block2#join#join#join#join#join#else;
 	block1#join#join#join#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
 		goto block1#join#join#join#join#join#join#join;
 	block1#join#join#join#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto block2;
-	block2#join#join#join#join#join#join:
-		$exception := temp$923;
+	block2#join#join#join#join#join#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto exit;
+	block2#join#join#join#join#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block2#join#join#join#join#join#join;
 	block1#join#join#join#join#join#join#join:
 		html_edit17 := temp$518;
 		goto block1#join#join#join#join#join#join#join#then, block1#join#join#join#join#join#join#join#else;
+	block2#join#join#join#join#join#join:
+		$exception := temp$923;
+		goto exit;
 	block1#join#join#join#join#join#join#join#then:
-		assume ((html_edit17 != $null));
+		assume (((html_edit17 != $null));
 		$exception := $exception;
 		goto block1#join#join#join#join#join#join#join#join;
 	block1#join#join#join#join#join#join#join#else:
-		assume ((!(html_edit17 != $null)));
+		assume (((!(html_edit17 != $null)));
 		havoc $fakelocal_8;
-		assume ((!select($heap, , $fakelocal_8, $alloc)));
+		assume (((!select($heap, , $fakelocal_8, $alloc)));
 		$heap := store($heap, $fakelocal_8, $alloc, true);
-		assume (($fakelocal_8 != $null));
+		assume ((($fakelocal_8 != $null));
 		$heap := store($heap, $fakelocal_8, $type, java.lang.NullPointerException);
 		$exception := $fakelocal_8;
 		goto block2;
 	block1#join#join#join#join#join#join#join#join:
 		$exception := call void$javax.swing.text.html.MinimalHTMLWriter$write$1893(html_edit17);;
-		goto block1#join#join#join#join#join#join#join#join#then, block1#join#join#join#join#join#join#join#join#else;
-	block1#join#join#join#join#join#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto block2;
+		goto block1#join#join#join#join#join#join#join#join#else, block1#join#join#join#join#join#join#join#join#then;
 	block1#join#join#join#join#join#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
 		goto block1#join#join#join#join#join#join#join#join#join;
+	block1#join#join#join#join#join#join#join#join#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto block2;
 	block1#join#join#join#join#join#join#join#join#join:
-		goto block1#join#join#join#join#join#join#join#join#join#then, block1#join#join#join#join#join#join#join#join#join#else;
-	block1#join#join#join#join#join#join#join#join#join#then:
-		assume ((writer15 != $null));
-		$exception := $exception;
-		goto block1#join#join#join#join#join#join#join#join#join#join;
+		goto block1#join#join#join#join#join#join#join#join#join#else, block1#join#join#join#join#join#join#join#join#join#then;
 	block1#join#join#join#join#join#join#join#join#join#else:
-		assume ((!(writer15 != $null)));
+		assume (((!(writer15 != $null)));
 		havoc $fakelocal_9;
-		assume ((!select($heap, , $fakelocal_9, $alloc)));
+		assume (((!select($heap, , $fakelocal_9, $alloc)));
 		$heap := store($heap, $fakelocal_9, $alloc, true);
-		assume (($fakelocal_9 != $null));
+		assume ((($fakelocal_9 != $null));
 		$heap := store($heap, $fakelocal_9, $type, java.lang.NullPointerException);
 		$exception := $fakelocal_9;
 		goto block2;
+	block1#join#join#join#join#join#join#join#join#join#then:
+		assume (((writer15 != $null));
+		$exception := $exception;
+		goto block1#join#join#join#join#join#join#join#join#join#join;
 	block1#join#join#join#join#join#join#join#join#join#join:
 		temp$720, $exception := call java.lang.String$java.io.StringWriter$toString$2199(writer15);;
-		goto block1#join#join#join#join#join#join#join#join#join#join#then, block1#join#join#join#join#join#join#join#join#join#join#else;
-	block1#join#join#join#join#join#join#join#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
-		goto block2;
+		goto block1#join#join#join#join#join#join#join#join#join#join#else, block1#join#join#join#join#join#join#join#join#join#join#then;
 	block1#join#join#join#join#join#join#join#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
 		goto block1#join#join#join#join#join#join#join#join#join#join#join;
+	block1#join#join#join#join#join#join#join#join#join#join#then:
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		goto block2;
 	block1#join#join#join#join#join#join#join#join#join#join#join:
 		goto block1#join#join#join#join#join#join#join#join#join#join#join#else, block1#join#join#join#join#join#join#join#join#join#join#join#then;
 	block1#join#join#join#join#join#join#join#join#join#join#join#else:
-		assume ((!(temp$720 != $null)));
+		assume (((!(temp$720 != $null)));
 		havoc $fakelocal_10;
-		assume ((!select($heap, , $fakelocal_10, $alloc)));
+		assume (((!select($heap, , $fakelocal_10, $alloc)));
 		$heap := store($heap, $fakelocal_10, $alloc, true);
-		assume (($fakelocal_10 != $null));
+		assume ((($fakelocal_10 != $null));
 		$heap := store($heap, $fakelocal_10, $type, java.lang.NullPointerException);
 		$exception := $fakelocal_10;
 		goto block2;
 	block1#join#join#join#join#join#join#join#join#join#join#join#then:
-		assume ((temp$720 != $null));
+		assume (((temp$720 != $null));
 		$exception := $exception;
 		goto block1#join#join#join#join#join#join#join#join#join#join#join#join;
 	block1#join#join#join#join#join#join#join#join#join#join#join#join:
 		temp$821, $exception := call java.lang.String$java.lang.String$replaceAll$115(temp$720, $StringConst1, $StringConst2);;
-		goto block1#join#join#join#join#join#join#join#join#join#join#join#join#else, block1#join#join#join#join#join#join#join#join#join#join#join#join#then;
-	block1#join#join#join#join#join#join#join#join#join#join#join#join#else:
-		assume ((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
-		goto block1#join#join#join#join#join#join#join#join#join#join#join#join#join;
+		goto block1#join#join#join#join#join#join#join#join#join#join#join#join#then, block1#join#join#join#join#join#join#join#join#join#join#join#join#else;
 	block1#join#join#join#join#join#join#join#join#join#join#join#join#then:
-		assume ((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
+		assume (((($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception)));
 		goto block2;
+	block1#join#join#join#join#join#join#join#join#join#join#join#join#else:
+		assume (((!(($exception != $null) && (select($heap, , $exception, $type) <: java.lang.Exception))));
+		goto block1#join#join#join#join#join#join#join#join#join#join#join#join#join;
 	block1#join#join#join#join#join#join#join#join#join#join#join#join#join:
 		goto block3;
 	block3:
@@ -2116,9 +2116,9 @@ procedure java.lang.Object$java.lang.Object$clone$43($this : ref)  returns ($oth
   modifies $heap;
 	root:
 		havoc $other;
-		assume ((!select($heap, , $other, $alloc)));
+		assume (((!select($heap, , $other, $alloc)));
 		$heap := store($heap, $other, $alloc, true);
-		assume (($other != $null));
+		assume ((($other != $null));
 		$heap := store($heap, $other, $type, select($heap, , $this, $type));
 		goto exit;
 	exit:
