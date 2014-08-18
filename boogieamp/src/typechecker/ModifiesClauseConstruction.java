@@ -150,6 +150,14 @@ public class ModifiesClauseConstruction {
 			this.procedureInfoMap.put(p.getIdentifier(), new ProcedureInfo());			
 		}
 		ProcedureInfo pi = this.procedureInfoMap.get(p.getIdentifier());
+		for (Specification spec : p.getSpecification()) {
+			if (spec instanceof ModifiesSpecification) {
+				ModifiesSpecification mspec = (ModifiesSpecification)spec;
+				for (String id : mspec.getIdentifiers()) {
+					pi.modifiedGlobals.add(id);
+				}
+			}
+		}
 		Body body = p.getBody();
 		if (body == null) {
 			return;
