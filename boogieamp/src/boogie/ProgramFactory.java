@@ -110,6 +110,10 @@ public class ProgramFactory {
 	public static final String LocationTag = "sourceloc";
 	
 	public static final String NoVerifyTag = "noverify";
+	
+	public static final String NotInfeasible = "notinfeasible";
+	
+	public static final String Cloned = "clone";
 
 	public ProgramFactory() {
 
@@ -458,51 +462,51 @@ public class ProgramFactory {
 		return null;
 	}
 
-	private Declaration containsDeclaration(LinkedList<Declaration> decls,
-			Declaration d) {
-		for (Declaration d_ : decls) {
-			if (d instanceof TypeDeclaration
-					&& d_ instanceof TypeDeclaration
-					&& ((TypeDeclaration) d).getIdentifier().equals(
-							((TypeDeclaration) d_).getIdentifier()))
-				return d_;
-			else if (d instanceof ConstDeclaration
-					&& d_ instanceof ConstDeclaration
-					&& ((ConstDeclaration) d)
-							.getVarList()
-							.toString()
-							.equals(((ConstDeclaration) d_).getVarList()
-									.toString()))
-				return d_;
-			else if (d instanceof VariableDeclaration
-					&& d_ instanceof VariableDeclaration
-					&& ((VariableDeclaration) d)
-							.getVariables()
-							.toString()
-							.equals(((VariableDeclaration) d_).getVariables()
-									.toString()))
-				return d_;
-			else if (d instanceof FunctionDeclaration
-					&& d_ instanceof FunctionDeclaration
-					&& ((FunctionDeclaration) d).toString().equals(
-							((FunctionDeclaration) d_).toString()))
-				return d_;
-			else if (d instanceof Axiom && d_ instanceof Axiom
-					&& ((Axiom) d).toString().equals(((Axiom) d_).toString()))
-				return d_;
-			else if (d instanceof ProcedureDeclaration
-					&& d_ instanceof ProcedureDeclaration
-					&& ((ProcedureDeclaration) d).toString().equals(
-							((ProcedureDeclaration) d_).toString()))
-				return d_;
-			else if (d instanceof Implementation
-					&& d_ instanceof Implementation
-					&& ((Implementation) d).toString().equals(
-							((Implementation) d_).toString()))
-				return d_;
-		}
-		return null;
-	}
+//	private Declaration containsDeclaration(LinkedList<Declaration> decls,
+//			Declaration d) {
+//		for (Declaration d_ : decls) {
+//			if (d instanceof TypeDeclaration
+//					&& d_ instanceof TypeDeclaration
+//					&& ((TypeDeclaration) d).getIdentifier().equals(
+//							((TypeDeclaration) d_).getIdentifier()))
+//				return d_;
+//			else if (d instanceof ConstDeclaration
+//					&& d_ instanceof ConstDeclaration
+//					&& ((ConstDeclaration) d)
+//							.getVarList()
+//							.toString()
+//							.equals(((ConstDeclaration) d_).getVarList()
+//									.toString()))
+//				return d_;
+//			else if (d instanceof VariableDeclaration
+//					&& d_ instanceof VariableDeclaration
+//					&& ((VariableDeclaration) d)
+//							.getVariables()
+//							.toString()
+//							.equals(((VariableDeclaration) d_).getVariables()
+//									.toString()))
+//				return d_;
+//			else if (d instanceof FunctionDeclaration
+//					&& d_ instanceof FunctionDeclaration
+//					&& ((FunctionDeclaration) d).toString().equals(
+//							((FunctionDeclaration) d_).toString()))
+//				return d_;
+//			else if (d instanceof Axiom && d_ instanceof Axiom
+//					&& ((Axiom) d).toString().equals(((Axiom) d_).toString()))
+//				return d_;
+//			else if (d instanceof ProcedureDeclaration
+//					&& d_ instanceof ProcedureDeclaration
+//					&& ((ProcedureDeclaration) d).toString().equals(
+//							((ProcedureDeclaration) d_).toString()))
+//				return d_;
+//			else if (d instanceof Implementation
+//					&& d_ instanceof Implementation
+//					&& ((Implementation) d).toString().equals(
+//							((Implementation) d_).toString()))
+//				return d_;
+//		}
+//		return null;
+//	}
 
 	private Unit astRootNode = null;
 	private ILocation dummyLocation = null;
