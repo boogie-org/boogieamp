@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.ASTNode;
@@ -103,5 +104,7 @@ public abstract class Expression extends ASTNode {
 	}
 	
 	abstract public Expression substitute(HashMap<String, Expression> s);
+	
+	abstract public HashSet<IdentifierExpression> getFreeVariables(); 
 	
 }

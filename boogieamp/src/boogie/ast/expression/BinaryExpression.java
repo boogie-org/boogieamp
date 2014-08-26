@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.location.ILocation;
@@ -142,4 +143,13 @@ public class BinaryExpression extends Expression {
 				this.left.substitute(s), 
 				this.right.substitute(s));
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		HashSet<IdentifierExpression> ret = new HashSet<IdentifierExpression>();
+		ret.addAll(this.left.getFreeVariables());
+		ret.addAll(this.right.getFreeVariables());
+		return ret;
+	}
+	
 }

@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.location.ILocation;
@@ -72,4 +73,10 @@ public class WildcardExpression extends Expression {
 	public Expression substitute(HashMap<String, Expression> s) {		
 		return new WildcardExpression(this.getLocation(), this.type);
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		return new HashSet<IdentifierExpression>();
+	}
+
 }

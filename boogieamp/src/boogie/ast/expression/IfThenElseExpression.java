@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.location.ILocation;
@@ -145,4 +146,14 @@ public class IfThenElseExpression extends Expression {
 				this.thenPart.substitute(s), 
 				this.elsePart.substitute(s));
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		HashSet<IdentifierExpression> ret = new HashSet<IdentifierExpression>();
+		ret.addAll(this.condition.getFreeVariables());
+		ret.addAll(this.thenPart.getFreeVariables());
+		ret.addAll(this.elsePart.getFreeVariables());
+		return ret;
+	}
+	
 }

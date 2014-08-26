@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.Attribute;
@@ -224,4 +225,24 @@ public class QuantifierExpression extends Expression {
 	public Expression substitute(HashMap<String, Expression> s) {
 		throw new RuntimeException("substitution/clone for quantifier not implemented");
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		HashSet<IdentifierExpression> ret = new HashSet<IdentifierExpression>();
+		ret.addAll(this.subformula.getFreeVariables());
+		//now remove all variables that are bound by the quantifier.
+		for (VarList vl : this.parameters) {
+			for (String s : vl.getIdentifiers()) {
+				IdentifierExpression found = null;
+				for (IdentifierExpression id : ret) {
+					if (id.getIdentifier().equals(s)) {
+						found = id; break;
+					}
+				}
+				if (found!=null) ret.remove(found);
+			}
+		}
+		return ret;
+	}
+	
 }

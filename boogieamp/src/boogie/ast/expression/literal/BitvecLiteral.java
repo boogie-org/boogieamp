@@ -20,9 +20,11 @@
 package boogie.ast.expression.literal;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.expression.Expression;
+import boogie.ast.expression.IdentifierExpression;
 import boogie.ast.location.ILocation;
 import boogie.type.BoogieType;
 
@@ -122,5 +124,10 @@ public class BitvecLiteral extends Expression {
 	@Override
 	public Expression substitute(HashMap<String, Expression> s) {
 		return 	new BitvecLiteral(this.getLocation(), this.value, this.length);
+	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		return new HashSet<IdentifierExpression>();
 	}
 }

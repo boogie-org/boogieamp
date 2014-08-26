@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.location.ILocation;
@@ -116,4 +117,12 @@ public class UnaryExpression extends Expression {
 	public Expression substitute(HashMap<String, Expression> s) {
 		return new UnaryExpression(this.getLocation(), this.type, this.operator, this.expr.substitute(s));
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		HashSet<IdentifierExpression> ret = new HashSet<IdentifierExpression>();
+		ret.addAll(this.expr.getFreeVariables());
+		return ret;
+	}
+	
 }

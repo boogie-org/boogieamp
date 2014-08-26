@@ -4,9 +4,11 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 import boogie.ast.Body;
 import boogie.ast.location.ILocation;
+import boogie.ast.statement.Statement;
 
 /**
  * @author schaef
@@ -42,4 +44,13 @@ public class CodeExpression extends Expression {
 		throw new RuntimeException("Subsitution for CodeExpression not implemented!");
 	}
 
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		HashSet<IdentifierExpression> ret = new HashSet<IdentifierExpression>();
+		for (Statement s : this.body.getBlock()) {
+			//TODO:
+		}
+		return ret;
+	}
+	
 }

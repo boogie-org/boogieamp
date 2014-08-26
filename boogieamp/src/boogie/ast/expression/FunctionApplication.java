@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.location.ILocation;
@@ -135,4 +136,15 @@ public class FunctionApplication extends Expression {
 		return new FunctionApplication(this.getLocation(), this.getType(),
 				this.identifier, cidx);
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		HashSet<IdentifierExpression> ret = new HashSet<IdentifierExpression>();
+		for (int i=0; i<this.arguments.length; i++) {			
+			ret.addAll(this.arguments[i].getFreeVariables());
+		}
+		return ret;
+	}
+	
+	
 }

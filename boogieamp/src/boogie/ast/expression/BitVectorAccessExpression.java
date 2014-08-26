@@ -20,6 +20,7 @@
 package boogie.ast.expression;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.location.ILocation;
@@ -144,4 +145,12 @@ public class BitVectorAccessExpression extends Expression {
 				this.getType(), 
 				this.bitvec.substitute(s), this.end, this.start);
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		HashSet<IdentifierExpression> ret = new HashSet<IdentifierExpression>();
+		ret.addAll(this.bitvec.getFreeVariables());		
+		return ret;
+	}
+	
 }

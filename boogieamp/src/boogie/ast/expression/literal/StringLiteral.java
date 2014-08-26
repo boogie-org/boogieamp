@@ -20,9 +20,11 @@
 package boogie.ast.expression.literal;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import boogie.ast.expression.Expression;
+import boogie.ast.expression.IdentifierExpression;
 import boogie.ast.location.ILocation;
 import boogie.type.BoogieType;
 
@@ -98,5 +100,11 @@ public class StringLiteral extends Expression {
 	public Expression substitute(HashMap<String, Expression> s) {
 		return new StringLiteral(this.getLocation(), this.getType(), this.value);
 	}
+	
+	@Override
+	public HashSet<IdentifierExpression> getFreeVariables() {
+		return new HashSet<IdentifierExpression>();
+	}
+
 	
 }
