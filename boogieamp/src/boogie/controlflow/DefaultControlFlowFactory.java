@@ -213,7 +213,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 					s.getLocation(),
 					s.getAttributes(),
 					expression2CfgExpression(((AssertStatement) s).getFormula()));
-			this.astStatementMap.put(asrt, s);
+			this.mapCfgToAstStatement(asrt, s);
 			b.addStatement(asrt);
 			return b;
 		} else if (s instanceof AssignmentStatement) {
@@ -269,14 +269,14 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			CfgAssignStatement asgn = new CfgAssignStatement(assign.getLocation(), lhs,rhs);
 			//remember from which ast statement these helpers were 
 			//created.			
-			this.astStatementMap.put(asgn, assign);
+			this.mapCfgToAstStatement(asgn, assign);
 			b.addStatement(asgn);
 			//now add the helper assignments that have been created to remove
 			//the ArrayLHS constructs
 			for (CfgStatement st : helperAssign) {
 				//remember from which ast statement these helpers were 
 				//created.
-				this.astStatementMap.put(st, assign);
+				this.mapCfgToAstStatement(st, assign);
 				b.addStatement(st);
 			}			
 			
@@ -287,7 +287,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 					s.getAttributes(),
 					expression2CfgExpression(((AssumeStatement) s).getFormula()));
 			b.addStatement(assm);			
-			this.astStatementMap.put(assm, s);
+			this.mapCfgToAstStatement(assm, s);
 			
 			return b;
 		} else if (s instanceof BreakStatement) {
@@ -326,7 +326,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 						this.lookupVariable(cstmt.getLhs()[i]));
 			}
 			CfgCallStatement call = new CfgCallStatement(s.getLocation(), lhs, callee, args);
-			this.astStatementMap.put(call, s);
+			this.mapCfgToAstStatement(call, s);
 			b.addStatement(call);
 			return b;
 		} else if (s instanceof GotoStatement) {
@@ -379,9 +379,16 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 							UnaryOperator.LOGICNEG,
 							expression2CfgExpression(ifstmt.getCondition())));
 			elseentry.addStatement(negguard);
-			
-			this.astStatementMap.put(posguard, s);
-			this.astStatementMap.put(negguard, s);
+			if (ifstmt.getThenPart().length>0) {
+				this.mapCfgToAstStatement(posguard, ifstmt.getThenPart()[0]);
+			} else {
+				this.mapCfgToAstStatement(posguard, s);	
+			}
+			if (ifstmt.getElsePart().length>0) {
+				this.mapCfgToAstStatement(negguard, ifstmt.getElsePart()[0]);
+			} else {
+				this.mapCfgToAstStatement(negguard, s);	
+			}
 			
 			// construct the branches.
 			BasicBlock thenexit = constructCfg(ifstmt.getThenPart(), thenentry);
@@ -443,8 +450,8 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 							UnaryOperator.LOGICNEG,
 							expression2CfgExpression(whilestmt.getCondition())));
 			
-			this.astStatementMap.put(posguard, s);
-			this.astStatementMap.put(negguard, s);
+			this.mapCfgToAstStatement(posguard, s);
+			this.mapCfgToAstStatement(negguard, s);
 
 			
 			jointLoopExit.addStatement(negguard);

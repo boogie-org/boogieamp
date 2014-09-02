@@ -61,7 +61,6 @@ public class HasseDiagram {
 		rootNode = new PartialBlockOrderNode(proc.getRootNode(), dom.get(proc.getRootNode()));
 		for (Entry<BasicBlock, HashSet<BasicBlock>>  entry : dom.entrySet()) {
 			rootNode.insert(entry.getKey(), entry.getValue());
-
 		}		
 	}
 	

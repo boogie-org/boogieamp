@@ -94,10 +94,17 @@ public abstract class AbstractControlFlowFactory {
 	protected LinkedList<CfgAxiom> globalAxioms = new LinkedList<CfgAxiom>();
 
 	
-	protected HashMap<CfgStatement, Statement> astStatementMap = new HashMap<CfgStatement, Statement>();
+	private HashMap<CfgStatement, Statement> astStatementMap = new HashMap<CfgStatement, Statement>();
 	
 	public Statement findAstStatement(CfgStatement stmt) {
 		return this.astStatementMap.get(stmt);
+	}
+	
+	protected void mapCfgToAstStatement(CfgStatement cfg, Statement ast) {
+		if (this.astStatementMap.containsKey(cfg)) {
+			throw new RuntimeException("double mapping not allowed "+cfg.toString());
+		}
+		this.astStatementMap.put(cfg, ast);
 	}
 	
 	public void Hack_ThrowAwayProcedureBody(CfgProcedure proc) {		
