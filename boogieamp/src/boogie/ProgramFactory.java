@@ -114,6 +114,8 @@ public class ProgramFactory {
 	public static final String NotInfeasible = "notinfeasible";
 	
 	public static final String Cloned = "clone";
+	
+	public static final String Comment = "comment";
 
 	public ProgramFactory() {
 
@@ -756,11 +758,11 @@ public class ProgramFactory {
 	
 	/**
 	 * Make a custom attribute
-	 * @param filename
+	 * @param attributeName
 	 * @return
 	 */
-	public Attribute mkCustomAttribute(String filename) {
-		return new NamedAttribute(dummyLocation, filename,
+	public Attribute mkCustomAttribute(String attributeName) {
+		return new NamedAttribute(dummyLocation, attributeName,
 				new Expression[]{});
 	}
 	
@@ -775,6 +777,17 @@ public class ProgramFactory {
 				new Expression[]{});
 	}
 
+	/**
+	 * Make an attribute that contains a comment.
+	 * @param str 
+	 * @return
+	 */
+	public Attribute mkCommentAttribute(String str) {
+		return new NamedAttribute(dummyLocation, ProgramFactory.Comment,
+				new Expression[]{new StringLiteral(dummyLocation, str)});
+	}
+	
+	
 	/**
 	 * This is used to make a FunctionDeclaration. Function declarations can be
 	 * used to create helper functions such as function intToBool(int i) {
