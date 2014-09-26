@@ -71,6 +71,10 @@ public class CfgAssumeStatement extends CfgStatement {
 
 	@Override
 	public CfgStatement clone() {		
+		if (this.getAttributes()!=null) {			
+			return new CfgAssumeStatement(this.getLocation(), this.getAttributes().clone(), this.condition.clone());
+		}
+		
 		return new CfgAssumeStatement(this.getLocation(), this.condition.clone());
 	}
 

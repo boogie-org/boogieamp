@@ -71,6 +71,9 @@ public class CfgAssertStatement extends CfgStatement {
 
 	@Override
 	public CfgStatement clone() {
+		if (this.getAttributes()!=null) {			
+			return new CfgAssertStatement(this.getLocation(), this.getAttributes().clone(), this.condition.clone());
+		}
 		return new CfgAssertStatement(this.getLocation(), this.condition.clone());
 	}
 	

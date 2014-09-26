@@ -53,6 +53,6 @@ public abstract class CfgStatement {
 	 */
 	public Attribute[] getAttributes() {
 		return attributes;
-	}
-
+	}	
+	
 }
