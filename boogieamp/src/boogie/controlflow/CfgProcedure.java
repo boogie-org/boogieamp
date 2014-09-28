@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 import util.Log;
 import boogie.ast.location.ILocation;
@@ -448,6 +449,42 @@ public class CfgProcedure {
 		return computeSlice(reachable, from);
 	}
 	
+
+
+	/**
+	 * compute a sub-program that contains all blocks on
+	 * paths through the elements in component
+	 * @param component
+	 * @return
+	 */
+	public CfgProcedure computeSubProg(Collection<BasicBlock> component) {
+		Set<BasicBlock> reachable = getAllReachable(component, false);
+		reachable.addAll(getAllReachable(component, true));
+		return computeSlice(reachable, this.getRootNode());
+	}	
+	
+	
+	private Set<BasicBlock> getAllReachable(Collection<BasicBlock> startset, boolean forward) {
+		LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>();
+		Set<BasicBlock> done = new HashSet<BasicBlock>();
+		todo.addAll(startset);
+		while(!todo.isEmpty()) {
+			BasicBlock current = todo.pop();
+			done.add(current);
+			
+			for (BasicBlock next : getNext(current, forward)) {
+				if (!todo.contains(next) && !done.contains(next)) {
+					todo.contains(next);
+				}
+			}	
+		}
+		return done;
+	}
+	
+	private Set<BasicBlock> getNext(BasicBlock b, boolean forward) {
+		if (forward) return b.getSuccessors();
+		return b.getPredecessors();
+	}
 	
 	/**
 	 * compute a new cfgprocedure containing the slice of all blocks in reachable

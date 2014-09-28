@@ -116,6 +116,9 @@ public class ProgramFactory {
 	public static final String Cloned = "clone";
 	
 	public static final String Comment = "comment";
+	
+	public static final String GeneratedThenBlock = "Boogieamp#THENBLOCK";
+	public static final String GeneratedElseBlock = "Boogieamp#ELSENBLOCK";
 
 	public ProgramFactory() {
 

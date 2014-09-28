@@ -24,13 +24,16 @@ import java.util.LinkedList;
 
 import typechecker.TypeChecker;
 import util.Log;
+import boogie.ProgramFactory;
 import boogie.ast.ArrayLHS;
 import boogie.ast.Body;
 import boogie.ast.LeftHandSide;
+import boogie.ast.NamedAttribute;
 import boogie.ast.Unit;
 import boogie.ast.VariableLHS;
 import boogie.ast.declaration.ProcedureOrImplementationDeclaration;
 import boogie.ast.declaration.VariableDeclaration;
+import boogie.ast.expression.Expression;
 import boogie.ast.location.BoogieLocation;
 import boogie.ast.location.ILocation;
 import boogie.ast.specification.EnsuresSpecification;
@@ -70,16 +73,16 @@ import boogie.enums.UnaryOperator;
  */
 public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 
-	
-	public DefaultControlFlowFactory(Unit astroot, TypeChecker tc) {		
-		super(astroot, tc);		
+	public DefaultControlFlowFactory(Unit astroot, TypeChecker tc) {
+		super(astroot, tc);
 	}
-	
+
 	@Override
-	protected void constructCfg(ProcedureOrImplementationDeclaration proc, CfgProcedure cfg) {
-		//reset the blockMap. Labels in Boogie are only visible locally.
+	protected void constructCfg(ProcedureOrImplementationDeclaration proc,
+			CfgProcedure cfg) {
+		// reset the blockMap. Labels in Boogie are only visible locally.
 		this.blockMap.clear();
-		
+
 		this.context = new ProcedureContext();
 		context.inParamVars = new HashMap<String, CfgVariable>();
 		CfgVariable[] vars = varList2CfgVariables(proc.getInParams(), false,
@@ -90,7 +93,8 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		}
 
 		context.outParamVars = new HashMap<String, CfgVariable>();
-		vars = varList2CfgVariables(proc.getOutParams(), false, false, false, false);
+		vars = varList2CfgVariables(proc.getOutParams(), false, false, false,
+				false);
 		cfg.setOutParams(vars);
 		for (int i = 0; i < vars.length; i++) {
 			context.outParamVars.put(vars[i].getVarname(), vars[i]);
@@ -100,8 +104,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		for (Specification spec : proc.getSpecification()) {
 			if (spec instanceof EnsuresSpecification) {
 				EnsuresSpecification sp = (EnsuresSpecification) spec;
-				cfg.getEnsures()
-						.add(expression2CfgExpression(sp.getFormula()));
+				cfg.getEnsures().add(expression2CfgExpression(sp.getFormula()));
 			} else if (spec instanceof LoopInvariantSpecification) {
 				LoopInvariantSpecification sp = (LoopInvariantSpecification) spec;
 				cfg.getRequires()
@@ -120,18 +123,18 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		}
 
 		context.localVars = new HashMap<String, CfgVariable>();
-		
 
 		BasicBlock root = null;
 		context.currentUnifiedExit = null;
 		if (proc.getBody() != null) {
-			
-			context.currentUnifiedExit = new BasicBlock(proc.getLocation(), "exit");
+
+			context.currentUnifiedExit = new BasicBlock(proc.getLocation(),
+					"exit");
 			Body body = proc.getBody();
 			LinkedList<CfgVariable> tmp = new LinkedList<CfgVariable>();
 			for (VariableDeclaration vdecl : body.getLocalVars()) {
-				for (CfgVariable v :varList2CfgVariables(vdecl.getVariables(), false, false,
-						false, false)) {
+				for (CfgVariable v : varList2CfgVariables(vdecl.getVariables(),
+						false, false, false, false)) {
 					tmp.add(v);
 				}
 			}
@@ -140,9 +143,9 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 				context.localVars.put(vars[i].getVarname(), vars[i]);
 			}
 			cfg.setLocalVars(vars);
-			
+
 			root = new BasicBlock(proc.getBody().getLocation(), "root");
-						
+
 			BasicBlock exit = constructCfg(body.getBlock(), root);
 			// if the last block has an implicit return, connect it to the
 			// unified exit
@@ -157,17 +160,19 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		fixBlockLocations(cfg);
 	}
 
-
 	/**
-	 * Once the cfg has been generated, create the correct location tags for the BasicBlocks.
+	 * Once the cfg has been generated, create the correct location tags for the
+	 * BasicBlocks.
+	 * 
 	 * @param cfg
 	 */
 	private void fixBlockLocations(CfgProcedure cfg) {
-		if (cfg.getRootNode()==null) return;
+		if (cfg.getRootNode() == null)
+			return;
 		LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>();
 		LinkedList<BasicBlock> done = new LinkedList<BasicBlock>();
 		todo.add(cfg.getRootNode());
-		while (todo.size()>0) {
+		while (todo.size() > 0) {
 			BasicBlock current = todo.pop();
 			done.add(current);
 			fixBlockLocations(current);
@@ -178,19 +183,21 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			}
 		}
 	}
-	
+
 	private void fixBlockLocations(BasicBlock b) {
-		if (b.getStatements()!=null && b.getStatements().size()>0) {
+		if (b.getStatements() != null && b.getStatements().size() > 0) {
 			ILocation first = b.getStatements().getFirst().getLocation();
 			ILocation last = b.getStatements().getLast().getLocation();
-			if (first==null || last==null) return;
-			ILocation loc = new BoogieLocation(first.getFileName(), first.getStartLine(), 
-					last.getEndLine(), first.getStartColumn(), last.getEndColumn(), first.isLoop());
+			if (first == null || last == null)
+				return;
+			ILocation loc = new BoogieLocation(first.getFileName(),
+					first.getStartLine(), last.getEndLine(),
+					first.getStartColumn(), last.getEndColumn(), first.isLoop());
 			b.setLocationTag(loc);
 		}
 	}
-	
-	private BasicBlock constructCfg(Statement[] seq, BasicBlock b) {		
+
+	private BasicBlock constructCfg(Statement[] seq, BasicBlock b) {
 		BasicBlock nextblock;
 		for (int i = 0; i < seq.length; i++) {
 			nextblock = constructCfg(seq[i], b);
@@ -202,13 +209,13 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 	private BasicBlock constructCfg(Statement s, BasicBlock b) {
 		if (b == null && !(s instanceof Label)) {
 			if (s instanceof ReturnStatement) {
-				//in that case, we can safely ignore the statement
+				// in that case, we can safely ignore the statement
 				return null;
-			} 
+			}
 			Log.debug("Statement " + s + " is unreachable");
 			return null;
 		}
-		if (s instanceof AssertStatement) {			
+		if (s instanceof AssertStatement) {
 			CfgAssertStatement asrt = new CfgAssertStatement(
 					s.getLocation(),
 					s.getAttributes(),
@@ -218,77 +225,93 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			return b;
 		} else if (s instanceof AssignmentStatement) {
 			AssignmentStatement assign = (AssignmentStatement) s;
-			LeftHandSide[] fixedlhs = new LeftHandSide[assign.getLhs().length]; 
-			
+			LeftHandSide[] fixedlhs = new LeftHandSide[assign.getLhs().length];
+
 			LinkedList<CfgAssignStatement> helperAssign = new LinkedList<CfgAssignStatement>();
-			
-			for (int i=0; i<assign.getLhs().length; i++) {
+
+			for (int i = 0; i < assign.getLhs().length; i++) {
 				LeftHandSide left = assign.getLhs()[i];
 				if (left instanceof ArrayLHS) {
-					//all ArrayLHS arr[i] := foo are replaced by
+					// all ArrayLHS arr[i] := foo are replaced by
 					// tmp = foo; arr = store(arr, i, foo);
-					ArrayLHS arr = (ArrayLHS)left;
-					String tmpvar = "$tmpvar$nr$"+context.localVars.size();
-					CfgVariable var = new CfgVariable(tmpvar, arr.getType(), false, false, false, false);
+					ArrayLHS arr = (ArrayLHS) left;
+					String tmpvar = "$tmpvar$nr$" + context.localVars.size();
+					CfgVariable var = new CfgVariable(tmpvar, arr.getType(),
+							false, false, false, false);
 					context.localVars.put(tmpvar, var);
-					VariableLHS newlhs = new VariableLHS(left.getLocation(), var.getType(), tmpvar);
+					VariableLHS newlhs = new VariableLHS(left.getLocation(),
+							var.getType(), tmpvar);
 					fixedlhs[i] = newlhs;
-					//now create the assignment that replaces the
-					//ArrayLHS
+					// now create the assignment that replaces the
+					// ArrayLHS
 					{
-						CfgIdentifierExpression value = new CfgIdentifierExpression(left.getLocation(), var);						
-						CfgExpression array = extractArrayVariable(arr.getArray());						
-						CfgExpression[] indices = new CfgExpression[arr.getIndices().length];
-						for (int j=0;j<arr.getIndices().length;j++) {
-							indices[j] = expression2CfgExpression(arr.getIndices()[j]);
-						}						
-						CfgExpression storeexpr = new CfgArrayStoreExpression(left.getLocation(), array.getType(), array, indices, value);
-						
+						CfgIdentifierExpression value = new CfgIdentifierExpression(
+								left.getLocation(), var);
+						CfgExpression array = extractArrayVariable(arr
+								.getArray());
+						CfgExpression[] indices = new CfgExpression[arr
+								.getIndices().length];
+						for (int j = 0; j < arr.getIndices().length; j++) {
+							indices[j] = expression2CfgExpression(arr
+									.getIndices()[j]);
+						}
+						CfgExpression storeexpr = new CfgArrayStoreExpression(
+								left.getLocation(), array.getType(), array,
+								indices, value);
+
 						while (!(array instanceof CfgIdentifierExpression)) {
 							if (array instanceof CfgArrayAccessExpression) {
-								CfgArrayAccessExpression access = (CfgArrayAccessExpression)array;
-								storeexpr = new CfgArrayStoreExpression(left.getLocation(), access.getBaseExpression().getType(),
-										access.getBaseExpression(), access.getIndices(), storeexpr);
+								CfgArrayAccessExpression access = (CfgArrayAccessExpression) array;
+								storeexpr = new CfgArrayStoreExpression(
+										left.getLocation(), access
+												.getBaseExpression().getType(),
+										access.getBaseExpression(),
+										access.getIndices(), storeexpr);
 								array = access.getBaseExpression();
 							} else {
-								throw new RuntimeException("array is of type "+array.getClass().toString()+" but expected CfgArrayAccessExpression");
+								throw new RuntimeException(
+										"array is of type "
+												+ array.getClass().toString()
+												+ " but expected CfgArrayAccessExpression");
 							}
 						}
-						CfgIdentifierExpression[] lIdentifier = {(CfgIdentifierExpression) array};
-						CfgExpression[] rExpression = {storeexpr};
-						CfgAssignStatement ass = new CfgAssignStatement(left.getLocation(), lIdentifier, rExpression);
+						CfgIdentifierExpression[] lIdentifier = { (CfgIdentifierExpression) array };
+						CfgExpression[] rExpression = { storeexpr };
+						CfgAssignStatement ass = new CfgAssignStatement(
+								left.getLocation(), lIdentifier, rExpression);
 						helperAssign.add(ass);
 					}
-					
+
 				} else {
 					fixedlhs[i] = assign.getLhs()[i];
 				}
 			}
 			CfgIdentifierExpression[] lhs = lhs2CfgIdentifierExpression(fixedlhs);
 			CfgExpression[] rhs = expression2CfgExpression(assign.getRhs());
-			CfgAssignStatement asgn = new CfgAssignStatement(assign.getLocation(), lhs,rhs);
-			//remember from which ast statement these helpers were 
-			//created.			
+			CfgAssignStatement asgn = new CfgAssignStatement(
+					assign.getLocation(), lhs, rhs);
+			// remember from which ast statement these helpers were
+			// created.
 			this.mapCfgToAstStatement(asgn, assign);
 			b.addStatement(asgn);
-			//now add the helper assignments that have been created to remove
-			//the ArrayLHS constructs
+			// now add the helper assignments that have been created to remove
+			// the ArrayLHS constructs
 			for (CfgStatement st : helperAssign) {
-				//remember from which ast statement these helpers were 
-				//created.
+				// remember from which ast statement these helpers were
+				// created.
 				this.mapCfgToAstStatement(st, assign);
 				b.addStatement(st);
-			}			
-			
+			}
+
 			return b;
 		} else if (s instanceof AssumeStatement) {
 			CfgAssumeStatement assm = new CfgAssumeStatement(
 					s.getLocation(),
 					s.getAttributes(),
 					expression2CfgExpression(((AssumeStatement) s).getFormula()));
-			b.addStatement(assm);			
+			b.addStatement(assm);
 			this.mapCfgToAstStatement(assm, s);
-			
+
 			return b;
 		} else if (s instanceof BreakStatement) {
 			BreakStatement breakstmt = (BreakStatement) s;
@@ -325,7 +348,8 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 				lhs[i] = new CfgIdentifierExpression(cstmt.getLocation(),
 						this.lookupVariable(cstmt.getLhs()[i]));
 			}
-			CfgCallStatement call = new CfgCallStatement(s.getLocation(), lhs, callee, args);
+			CfgCallStatement call = new CfgCallStatement(s.getLocation(), lhs,
+					callee, args);
 			this.mapCfgToAstStatement(call, s);
 			b.addStatement(call);
 			return b;
@@ -361,35 +385,39 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			b.connectToSuccessor(elseentry);
 			// inject the new assumes
 			ILocation posloc = ifstmt.getLocation();
-			if (ifstmt.getThenPart()!=null && ifstmt.getThenPart().length>0) {
+			if (ifstmt.getThenPart() != null && ifstmt.getThenPart().length > 0) {
 				posloc = ifstmt.getThenPart()[0].getLocation();
 			}
-			CfgAssumeStatement posguard = new CfgAssumeStatement(
-					posloc,
+
+			CfgAssumeStatement posguard = new CfgAssumeStatement(posloc,
+					new NamedAttribute[] { new NamedAttribute(s.getLocation(),
+							ProgramFactory.GeneratedThenBlock,
+							new Expression[] {}) },
 					expression2CfgExpression(ifstmt.getCondition()));
 			thenentry.addStatement(posguard);
-			
+
 			ILocation negloc = ifstmt.getLocation();
-			if (ifstmt.getElsePart()!=null && ifstmt.getElsePart().length>0) {
+			if (ifstmt.getElsePart() != null && ifstmt.getElsePart().length > 0) {
 				negloc = ifstmt.getElsePart()[0].getLocation();
-			}			
-			CfgAssumeStatement negguard = new CfgAssumeStatement(
-					negloc, new CfgUnaryExpression(ifstmt.getCondition().getLocation(),
+			}
+			CfgAssumeStatement negguard = new CfgAssumeStatement(negloc,
+					new NamedAttribute[]{new NamedAttribute(s.getLocation(), ProgramFactory.GeneratedElseBlock, new Expression[]{})},
+					new CfgUnaryExpression(ifstmt.getCondition().getLocation(),
 							ifstmt.getCondition().getType(),
 							UnaryOperator.LOGICNEG,
 							expression2CfgExpression(ifstmt.getCondition())));
 			elseentry.addStatement(negguard);
-			if (ifstmt.getThenPart().length>0) {
+			if (ifstmt.getThenPart().length > 0) {
 				this.mapCfgToAstStatement(posguard, ifstmt.getThenPart()[0]);
 			} else {
-				this.mapCfgToAstStatement(posguard, s);	
+				this.mapCfgToAstStatement(posguard, s);
 			}
-			if (ifstmt.getElsePart().length>0) {
+			if (ifstmt.getElsePart().length > 0) {
 				this.mapCfgToAstStatement(negguard, ifstmt.getElsePart()[0]);
 			} else {
-				this.mapCfgToAstStatement(negguard, s);	
+				this.mapCfgToAstStatement(negguard, s);
 			}
-			
+
 			// construct the branches.
 			BasicBlock thenexit = constructCfg(ifstmt.getThenPart(), thenentry);
 			BasicBlock elseexit = constructCfg(ifstmt.getElsePart(), elseentry);
@@ -414,14 +442,14 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 				b.connectToSuccessor(nextblock);
 			}
 			return nextblock;
-		} else if (s instanceof ReturnStatement) {			
+		} else if (s instanceof ReturnStatement) {
 			b.connectToSuccessor(context.currentUnifiedExit);
-			return null;							
+			return null;
 		} else if (s instanceof WhileStatement) {
 			WhileStatement whilestmt = (WhileStatement) s;
 			BasicBlock loopHead = new BasicBlock(whilestmt.getLocation(),
 					b.getLabel() + "#loophead");
-			
+
 			BasicBlock loopEntry = new BasicBlock(whilestmt.getLocation(),
 					b.getLabel() + "#loopentry");
 			BasicBlock jointLoopExit = new BasicBlock(whilestmt.getLocation(),
@@ -436,11 +464,10 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 					whilestmt.getLocation(), b.getLabel() + "#breaktarget");
 			// insert the guards
 			ILocation posloc = whilestmt.getLocation();
-			if (whilestmt.getBody()!=null && whilestmt.getBody().length>0) {
+			if (whilestmt.getBody() != null && whilestmt.getBody().length > 0) {
 				posloc = whilestmt.getBody()[0].getLocation();
 			}
-			CfgAssumeStatement posguard = new CfgAssumeStatement(
-					posloc,
+			CfgAssumeStatement posguard = new CfgAssumeStatement(posloc,
 					expression2CfgExpression(whilestmt.getCondition()));
 			loopEntry.addStatement(posguard);
 
@@ -449,11 +476,10 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 							whilestmt.getCondition().getType(),
 							UnaryOperator.LOGICNEG,
 							expression2CfgExpression(whilestmt.getCondition())));
-			
+
 			this.mapCfgToAstStatement(posguard, s);
 			this.mapCfgToAstStatement(negguard, s);
 
-			
 			jointLoopExit.addStatement(negguard);
 			// connect the loopbody, loopexit, and breakDestionation
 			b.connectToSuccessor(loopHead);
@@ -471,7 +497,7 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 			// remove the current break destination
 			context.currentBreakDestinations.pop();
 			return breakDestination;
-		} else if (s instanceof YieldStatement) {			
+		} else if (s instanceof YieldStatement) {
 			Log.error("Yield not implemented!");
 			return b;
 		}
@@ -482,17 +508,19 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 		if (lhs instanceof VariableLHS) {
 			VariableLHS vlhs = (VariableLHS) lhs;
 			return new CfgIdentifierExpression(lhs.getLocation(),
-					lookupVariable(vlhs.getIdentifier()));			
+					lookupVariable(vlhs.getIdentifier()));
 		} else if (lhs instanceof ArrayLHS) {
-			ArrayLHS arr = (ArrayLHS)lhs;
+			ArrayLHS arr = (ArrayLHS) lhs;
 			CfgExpression base = extractArrayVariable(arr.getArray());
 			CfgExpression[] indices = new CfgExpression[arr.getIndices().length];
-			for (int i=0;i<arr.getIndices().length;i++) {
+			for (int i = 0; i < arr.getIndices().length; i++) {
 				indices[i] = expression2CfgExpression(arr.getIndices()[i]);
 			}
-			return new CfgArrayAccessExpression(lhs.getLocation(), arr.getType(), base, indices);
+			return new CfgArrayAccessExpression(lhs.getLocation(),
+					arr.getType(), base, indices);
 		} else {
-			throw new RuntimeException("Case not implemented in extractArrayVariable");
+			throw new RuntimeException(
+					"Case not implemented in extractArrayVariable");
 		}
 	}
 
@@ -515,5 +543,5 @@ public class DefaultControlFlowFactory extends AbstractControlFlowFactory {
 					"ArrayLHS must be replaced by TypeChecker!");
 		}
 	}
-	
+
 }
