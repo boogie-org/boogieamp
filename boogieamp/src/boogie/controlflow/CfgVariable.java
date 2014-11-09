@@ -131,4 +131,8 @@ public class CfgVariable {
 		this.isComplete = isComplete;
 	}
 
+	@Override
+	public String toString() {
+		return this.getVarname();
+	}
 }

@@ -59,7 +59,7 @@ public class Main {
 
 		Log.info("CFG construction.");
 		AbstractControlFlowFactory cff = new DefaultControlFlowFactory(pf.getASTRoot(), tc);
-		
+				
 		cff.toFile("./cfg.bpl");
 		Log.info("Done.");
 	}

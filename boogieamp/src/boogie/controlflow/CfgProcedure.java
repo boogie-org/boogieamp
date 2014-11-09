@@ -510,7 +510,7 @@ public class CfgProcedure {
 		LinkedList<BasicBlock> exits = new LinkedList<BasicBlock>();
 		todo.add(from);
 		while (!todo.isEmpty()) {
-			BasicBlock current = todo.removeFirst();
+			BasicBlock current = todo.pop();
 			done.add(current);			
 			BasicBlock current_clone = cloneMap.get(current);
 			boolean hasReachableSuccessor = false;
