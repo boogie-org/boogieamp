@@ -18,6 +18,8 @@
 
 package boogie.controlflow.util;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -55,14 +57,55 @@ public class HasseDiagram {
 		for (Entry<BasicBlock, HashSet<BasicBlock>>  entry : pdom.entrySet()) {
 			dom.get(entry.getKey()).addAll(entry.getValue());
 		}		
-				
+		
+		LinkedList<BasicBlock> todo = new LinkedList<BasicBlock>(dom.keySet());
+		LinkedList<PartialBlockOrderNode> nodes = new LinkedList<PartialBlockOrderNode>(); 
+		while (!todo.isEmpty()) {
+			BasicBlock current = todo.pop();
+			HashSet<BasicBlock> equivalenceClassDescriptor = dom.get(current);
+			HashSet<BasicBlock> equivalenceClass = new HashSet<BasicBlock>();			
+			for (BasicBlock b : dom.keySet()) {
+				if (dom.get(b).containsAll(equivalenceClassDescriptor) && equivalenceClassDescriptor.containsAll(dom.get(b))) {
+					equivalenceClass.add(b);
+				}
+			}		
+			todo.removeAll(equivalenceClass);
+			PartialBlockOrderNode node = new PartialBlockOrderNode(equivalenceClass, equivalenceClassDescriptor);
+			nodes.add(node);
+			if (node.getElements().contains(proc.getRootNode())) rootNode = node;
+		}
+		
+		for (PartialBlockOrderNode node : nodes) {
+			bestFitParent(node, nodes);			
+		}
+		
 		//actually, we could both loops ... but for now, we don't 
 		//to do some debug printing in the middle
-		rootNode = new PartialBlockOrderNode(proc.getRootNode(), dom.get(proc.getRootNode()));
-		for (Entry<BasicBlock, HashSet<BasicBlock>>  entry : dom.entrySet()) {
-			rootNode.insert(entry.getKey(), entry.getValue());
-		}		
+//		rootNode = new PartialBlockOrderNode(proc.getRootNode(), dom.get(proc.getRootNode()));
+//		for (Entry<BasicBlock, HashSet<BasicBlock>>  entry : dom.entrySet()) {
+//			rootNode.insert(entry.getKey(), entry.getValue());
+//		}		
 	}
+	
+	private void bestFitParent(PartialBlockOrderNode n, LinkedList<PartialBlockOrderNode> nodes) {
+		
+		PartialBlockOrderNode bestFit = null;
+
+		for (PartialBlockOrderNode p : nodes) {
+			if (p==n) continue;
+			if (n.getUnavoidables().containsAll(p.getUnavoidables())) {
+				if (bestFit==null || p.getUnavoidables().containsAll(bestFit.getUnavoidables())) {
+					bestFit = p;
+				}
+			}
+		}
+		
+		if (bestFit != null) {
+			n.connectParent(bestFit);
+		}
+		
+	}
+	
 	
 	public Set<BasicBlock> getEffectualSet(){		
 		return rootNode.getLeafRepresentatives();	

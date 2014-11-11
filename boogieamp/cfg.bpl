@@ -4671,14 +4671,14 @@ procedure void$org.apache.jmeter.engine.ClientJMeterEngine$exit$10447($this : re
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.SSLManagerCommand$sslManager$14741($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, org.apache.jmeter.util.SSLManager$org.apache.jmeter.util.SSLManager$manager2763, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, org.apache.jmeter.util.SSLManager$org.apache.jmeter.util.SSLManager$manager2763, $heap;
 
 procedure java.net.SocketAddress$java.net.Socket$getLocalSocketAddress$18709($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.io.File$org.apache.jmeter.util.JMeterUtils$findFile$6396($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.samplers.RemoteListenerWrapper$$la$init$ra$$10756($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.SlowSSLSocket$setSoLinger$19092($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($exception : ref)
 
@@ -4700,7 +4700,7 @@ procedure void$org.apache.jmeter.testelement.AbstractTestElement$setThreadContex
   modifies $heap;
 
 procedure java.lang.Object$org.apache.jmeter.save.converters.SampleResultConverter$unmarshal$17741($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.Object$java.lang.Class$newInstance$450($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -4732,14 +4732,14 @@ procedure void$javax.swing.AbstractButton$removeActionListener$5914($this : ref,
 procedure void$com.thoughtworks.xstream.converters.UnmarshallingContext$put$20401($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$initializeTableModel$6039($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.util.Set$org.apache.jmeter.gui.action.LookAndFeelCommand$getActionNames$14349($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.lang.Object$java.awt.event.ItemEvent$getItem$7868($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultControllerMenu$5561()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure int$java.io.InputStream$read$612($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : int)  returns ($return : int, $exception : ref)
 
@@ -4751,7 +4751,7 @@ procedure int$java.io.InputStream$read$610($this : ref)  returns ($return : int,
 procedure int$java.net.Socket$getSoTimeout$18721($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.util.BeanShellInterpreter$$la$init$ra$$16300($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.SelectTemplatesDialog$2$$la$init$ra$$14709($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -4762,12 +4762,12 @@ procedure int$org.w3c.dom.NodeList$getLength$19711($this : ref)  returns ($retur
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.BeanShellInterpreter$$la$init$ra$$16301($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$java.awt.Component$repaint$2828($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SelectTemplatesDialog$checkDirtyAndLoad$14701($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.util.Locale$java.util.Locale$getDefault$2229()  returns ($return : ref, $exception : ref)
 
@@ -4799,10 +4799,10 @@ procedure void$org.apache.jmeter.functions.AbstractFunction$checkParameterCount$
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.BeanShellBeanInfoSupport$$la$init$ra$$18676($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.gui.tree.JMeterTreeTransferHandler$canImport$15163($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$javax.net.ssl.SSLSocket$setEnabledProtocols$19145($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -4837,7 +4837,7 @@ procedure void$org.apache.jmeter.gui.MainFrame$3$$la$init$ra$$15103($this : ref,
 procedure int$javax.swing.JTree$getRowForLocation$12500($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($return : int, $exception : ref)
 
 procedure java.util.LinkedList$org.apache.jmeter.engine.util.FunctionParser$compileString$11529($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
   var $c123728 : int;
   var $c43714 : int;
   var $i83719 : int;
@@ -5459,10 +5459,10 @@ procedure java.util.LinkedList$org.apache.jmeter.engine.util.FunctionParser$comp
 		goto block647#join#join#join#join#join#join#join#join#join;
 
 procedure void$org.apache.jmeter.threads.JMeterThread$runPostProcessors$9237($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.DiskStoreSampleSender$testEnded$17242($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$SECONDS1914, org.apache.log.Logger$org.apache.jmeter.samplers.DiskStoreSampleSender$log3341;
+  modifies org.apache.log.Logger$org.apache.jmeter.samplers.DiskStoreSampleSender$log3341, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$SECONDS1914, $heap;
 
 procedure org.apache.jorphan.collections.HashTree$org.apache.jmeter.gui.GuiPackage$getCurrentSubTree$12093($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -5476,7 +5476,7 @@ procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveSuccess
 procedure java.lang.String$org.apache.jmeter.testelement.property.IntegerProperty$getStringValue$9645($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Skel$$la$clinit$ra$$17570()  returns ($exception : ref)
-  modifies java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Skel$operations3413, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Skel$operations3413;
 
 procedure int$org.apache.jorphan.util.Converter$getInt$20388($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -5500,7 +5500,7 @@ procedure java.util.Map$org.apache.jmeter.engine.util.ReplaceFunctionsWithString
 procedure java.util.Enumeration$java.beans.FeatureDescriptor$attributeNames$11402($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SelectTemplatesDialog$actionPerformed$14703($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$java.util.Calendar$add$15468($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
@@ -5563,7 +5563,7 @@ procedure void$org.apache.jmeter.testelement.AbstractScopedTestElement$setScopeC
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.SavePropertyDialog$$la$clinit$ra$$15278()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.gui.SavePropertyDialog$NAME_SAVE_PFX_LEN0, $stringSizeHeap, java.util.Map$org.apache.jmeter.gui.SavePropertyDialog$functors2902, org.apache.log.Logger$org.apache.jmeter.gui.SavePropertyDialog$log2901;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.SavePropertyDialog$log2901, $stringSizeHeap, int$org.apache.jmeter.gui.SavePropertyDialog$NAME_SAVE_PFX_LEN0, java.util.Map$org.apache.jmeter.gui.SavePropertyDialog$functors2902;
 
 procedure java.lang.Object$org.apache.jmeter.testelement.property.FloatProperty$getObjectValue$18518($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -5580,10 +5580,10 @@ procedure boolean$java.util.Map$isEmpty$1157($this : ref)  returns ($return : in
   modifies $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.config.gui.AbstractConfigGui$createPopupMenu$5552($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.JMeter$start$11088($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmDir1015, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, $refArrHeap, org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$guiPack2069, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmBin1016, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $arrSizeHeap;
+  modifies $stringSizeHeap, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmBin1016, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmDir1015, int$org.apache.jmeter.reporters.Summariser$instanceCount0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $refArrHeap, org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$guiPack2069, $arrSizeHeap, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.testelement.property.ObjectProperty$$la$init$ra$$16930($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -5644,7 +5644,7 @@ procedure void$org.apache.jmeter.save.converters.ConversionHelp$setInVersion$176
   modifies java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$inVersion3446;
 
 procedure void$org.apache.jmeter.gui.action.LoadDraggedFile$loadProject$14063($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.util.JSR223TestElement$LazyHolder$$la$clinit$ra$$19395()  returns ($exception : ref)
   modifies javax.script.ScriptEngineManager$org.apache.jmeter.util.JSR223TestElement$LazyHolder$INSTANCE3768;
@@ -5722,7 +5722,7 @@ procedure boolean$org.apache.jmeter.testelement.property.PropertyIterator$hasNex
   modifies $heap;
 
 procedure void$org.apache.jmeter.config.gui.SimpleConfigGui$addArgument$8691($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure int$javax.swing.JTree$getSelectionCount$12475($this : ref)  returns ($return : int, $exception : ref)
 
@@ -5734,7 +5734,7 @@ procedure void$org.apache.jmeter.threads.JMeterThread$setEngine$9247($this : ref
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.JMeterContextService$startTest$9811()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, long$org.apache.jmeter.threads.JMeterContextService$testStart0;
+  modifies long$org.apache.jmeter.threads.JMeterContextService$testStart0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0;
 
 procedure void$org.apache.jmeter.gui.tree.JMeterTreeNode$$la$clinit$ra$$5826()  returns ($exception : ref)
   modifies org.apache.log.Logger$org.apache.jmeter.gui.tree.JMeterTreeNode$log915;
@@ -5768,7 +5768,7 @@ procedure java.util.Hashtable$org.apache.jmeter.util.JMeterUtils$getAlias$6371($
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$sampleStarted$17580($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.swing.HtmlPane$1$$la$init$ra$$18091($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -5794,7 +5794,7 @@ procedure org.apache.jmeter.testelement.property.MapProperty$org.apache.jmeter.t
   modifies $heap;
 
 procedure org.apache.jorphan.collections.HashTree$org.apache.jmeter.gui.tree.JMeterTreeModel$addSubTree$9670($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0;
+  modifies boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$javax.swing.JSplitPane$setDividerLocation$14235($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -5851,7 +5851,7 @@ procedure void$org.apache.jmeter.testelement.TestElement$clearTestElementChildre
   modifies $heap;
 
 procedure javax.net.ssl.SSLSocketFactory$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$getSSLSocketFactory$19005($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure void$org.apache.jmeter.samplers.DiskStoreSampleSender$2$run$17446($this : ref)  returns ($exception : ref)
 
@@ -5887,12 +5887,12 @@ procedure javax.swing.tree.TreeNode$javax.swing.tree.DefaultMutableTreeNode$getP
 procedure javax.net.ssl.SSLContext$javax.net.ssl.SSLContext$getInstance$19104($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.MenuFactory$addFileMenu$5557($in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$org.apache.jmeter.samplers.SampleResult$getMediaType$1969($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.MenuFactory$addFileMenu$5558($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure javax.net.ssl.SSLContext$javax.net.ssl.SSLContext$getInstance$19102($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -5959,7 +5959,7 @@ procedure void$java.io.ObjectInput$close$625($this : ref)  returns ($exception :
 procedure int$org.apache.jmeter.testelement.AbstractTestElement$hashCode$4760($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Copy$doAction$13767($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.BSFJavaScriptEngine$$la$init$ra$$18821($this : ref)  returns ($exception : ref)
 
@@ -6067,7 +6067,7 @@ procedure boolean$java.net.Socket$isOutputShutdown$18740($this : ref)  returns (
 procedure java.lang.Object$org.apache.jmeter.testbeans.TestBeanHelper$invokeOrBailOut$11211($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SelectTemplatesDialog$init$14702($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.MainFrame$dragOver$12231($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -6075,16 +6075,16 @@ procedure void$org.apache.jmeter.gui.UndoHistory$treeNodesChanged$12346($this : 
   modifies $heap;
 
 procedure java.lang.Object$org.apache.jmeter.util.BeanShellTestElement$clone$18800($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.Start$doAction$14843($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.engine.ConvertListeners$addNode$10475($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.reporters.Summariser$$la$init$ra$$10926($this : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840;
 
 procedure void$org.apache.jmeter.util.ScopePanel$init$3044($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6093,7 +6093,7 @@ procedure void$org.apache.jmeter.gui.MainFrame$clearData$12235($this : ref)  ret
   modifies $heap;
 
 procedure void$org.apache.jmeter.reporters.Summariser$$la$init$ra$$10927($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840;
 
 procedure void$org.apache.jmeter.util.SlowOutputStream$write$19759($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -6112,7 +6112,7 @@ procedure void$org.apache.jmeter.threads.JMeterContextService$ThreadCounts$$la$i
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.JMeterToolBar$setupToolbarContent$12567($in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.reporters.Summariser$Totals$$la$init$ra$$16357($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6132,7 +6132,7 @@ procedure void$org.apache.jmeter.gui.tree.JMeterTreeModel$clearTestPlan$9679($th
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.tree.JMeterTreeModel$clearTestPlan$9678($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure int$org.apache.jmeter.testelement.OnErrorTestElement$getErrorAction$16870($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -6199,7 +6199,7 @@ procedure void$org.apache.jmeter.samplers.DiskStoreSampleSender$3$$la$init$ra$$1
 procedure org.apache.jmeter.gui.action.SelectTemplatesDialog$org.apache.jmeter.gui.action.TemplatesCommand$IODH$access$000$14855()  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$loadExistingFile$10899($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.mozilla.javascript.Context$setDebugger$20478($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -6243,10 +6243,10 @@ procedure void$org.apache.jmeter.samplers.RemoteListenerWrapper$testStarted$1075
 procedure java.lang.String$lp$$rp$$org.apache.jorphan.util.JOrphanUtils$split$20464($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
 
 procedure boolean$org.apache.jmeter.gui.action.Close$performAction$13758($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.samplers.AsynchSampleSender$sampleOccurred$17167($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.samplers.AsynchSampleSender$log3324;
+  modifies org.apache.log.Logger$org.apache.jmeter.samplers.AsynchSampleSender$log3324, $heap;
 
 procedure java.util.List$org.apache.jmeter.gui.util.JMeterToolBar$getIconMappings$12569()  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -6259,7 +6259,7 @@ procedure void$org.apache.jmeter.util.BSFTestElement$processFileOrScript$18831($
 procedure void$org.apache.jorphan.gui.ObjectTableModel$$la$init$ra$$20217($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : ref, $in_parameter__4 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.AddParent$doAction$12742($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.Number$org.apache.jorphan.math.StatCalculatorLong$getMedian$20540($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -6269,7 +6269,7 @@ procedure org.apache.jmeter.testelement.property.PropertyIterator$org.apache.jme
 procedure java.util.Enumeration$java.util.Properties$propertyNames$6863($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure org.apache.jmeter.testelement.TestElement$org.apache.jmeter.control.gui.TestPlanGui$createTestElement$9454($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure int$javax.swing.JOptionPane$showConfirmDialog$6515($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : int, $in_parameter__4 : int)  returns ($return : int, $exception : ref)
 
@@ -6303,7 +6303,7 @@ procedure java.io.File$lp$$rp$$java.io.File$listFiles$7091($this : ref, $in_para
 procedure void$org.apache.jmeter.gui.LoggerPanel$clear$12334($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.threads.JMeterThread$runPreProcessors$9238($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.visualizers.Sample$isSuccess$20153($this : ref)  returns ($return : int, $exception : ref)
 
@@ -6368,7 +6368,7 @@ procedure boolean$org.apache.jmeter.util.JMeterTreeNodeTransferable$isDataFlavor
 procedure boolean$org.apache.jmeter.testelement.AbstractTestElement$isRunningVersion$4796($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.threads.TestCompiler$trackIterationListeners$8944($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.save.converters.BooleanPropertyConverter$$la$init$ra$$17618($this : ref)  returns ($exception : ref)
 
@@ -6392,7 +6392,7 @@ procedure java.security.cert.Certificate$lp$$rp$$java.security.KeyStore$getCerti
 procedure void$org.apache.log.Logger$error$20238($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$sampleOccurred$10906($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, java.io.PrintStream$java.lang.System$out1637, long$org.apache.jmeter.reporters.Summariser$INTERVAL0, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, $intArrHeap, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838;
+  modifies $stringSizeHeap, $arrSizeHeap, $intArrHeap, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, $heap, long$org.apache.jmeter.reporters.Summariser$INTERVAL0, java.io.PrintStream$java.lang.System$out1637, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0;
 
 procedure void$org.apache.jmeter.testelement.property.StringProperty$recoverRunningVersion$5377($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6424,7 +6424,7 @@ procedure javax.swing.JPanel$org.apache.jmeter.gui.OnErrorPanel$createOnErrorPan
 procedure void$org.apache.jmeter.util.NameUpdater$$la$init$ra$$17646($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FilePanelEntry$actionPerformed$15405($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351;
 
 procedure void$org.apache.tika.sax.BodyContentHandler$$la$init$ra$$20500($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -6461,7 +6461,7 @@ procedure java.lang.Object$org.apache.jmeter.testelement.property.ObjectProperty
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$initSampleVariables$9580()  returns ($exception : ref)
-  modifies java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleEvent$variableNames1622, $arrSizeHeap;
+  modifies $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleEvent$variableNames1622;
 
 procedure void$org.apache.jmeter.testelement.property.JMeterProperty$setRunningVersion$5263($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -6534,7 +6534,7 @@ procedure boolean$org.apache.jmeter.testelement.TestElement$canRemove$3204($this
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.JMeterUtils$$la$clinit$ra$$6405()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, org.apache.log.Logger$org.apache.jmeter.util.JMeterUtils$log1002, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.lang.String$org.apache.jmeter.util.JMeterUtils$ENGLISH_LANGUAGE1004, java.lang.ThreadLocal$org.apache.jmeter.util.JMeterUtils$localMatcher1012, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.util.Random$org.apache.jmeter.util.JMeterUtils$rand1013, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.Vector$org.apache.jmeter.util.JMeterUtils$localeChangeListeners1006;
+  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.lang.String$org.apache.jmeter.util.JMeterUtils$ENGLISH_LANGUAGE1004, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.util.Random$org.apache.jmeter.util.JMeterUtils$rand1013, org.apache.log.Logger$org.apache.jmeter.util.JMeterUtils$log1002, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.lang.ThreadLocal$org.apache.jmeter.util.JMeterUtils$localMatcher1012, java.util.Vector$org.apache.jmeter.util.JMeterUtils$localeChangeListeners1006;
 
 procedure void$org.apache.jmeter.samplers.HoldSampleSender$$la$init$ra$$17561($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6550,7 +6550,7 @@ procedure javax.swing.ButtonModel$javax.swing.ButtonGroup$getSelection$14255($th
 procedure void$java.util.Vector$$la$init$ra$$4171($this : ref)  returns ($exception : ref)
 
 procedure org.apache.jmeter.samplers.SampleResult$org.apache.jmeter.threads.JMeterThread$process_sampler$9224($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540;
 
 procedure double$org.apache.jmeter.util.Calculator$getErrorPercentage$18858($this : ref)  returns ($return : int, $exception : ref)
 
@@ -6568,7 +6568,7 @@ procedure long$org.apache.jmeter.samplers.SampleResult$getStartTime$1973($this :
 procedure void$java.io.FileInputStream$$la$init$ra$$13944($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.CreateFunctionDialog$$la$init$ra$$13791($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$java.lang.StackTraceElement$getClassName$146($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -6582,7 +6582,7 @@ procedure void$org.apache.jmeter.gui.util.JLabeledRadioI18N$actionPerformed$1572
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$createDialogBox$15813($this : ref)  returns ($exception : ref)
-  modifies $heap, javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035;
+  modifies javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035, $heap;
 
 procedure java.lang.Object$lp$$rp$$lp$$rp$$org.apache.jmeter.util.JSR223BeanInfoSupport$1$getContents$19338($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -6597,7 +6597,7 @@ procedure void$org.apache.jmeter.samplers.RemoteSampleListenerWrapper$sampleOccu
   modifies $heap;
 
 procedure void$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$init$18178($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.EscapeDialog$$la$init$ra$$12128($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int)  returns ($exception : ref)
 
@@ -6656,7 +6656,7 @@ procedure java.lang.Number$org.apache.jmeter.util.Calculator$getMeanAsNumber$188
 procedure java.util.List$org.apache.jorphan.reflect.ClassFinder$findClassesThatExtend$20267($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : ref, $in_parameter__4 : ref, $in_parameter__5 : int)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SearchTreeDialog$access$000$14691($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$javax.net.ssl.SSLSocketFactory$$la$init$ra$$19018($this : ref)  returns ($exception : ref)
 
@@ -6668,7 +6668,7 @@ procedure void$org.apache.jmeter.save.SaveService$$la$init$ra$$13961($this : ref
 procedure long$org.apache.jmeter.threads.JMeterThread$getStartTime$9216($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.util.BeanShellInterpreter$reset$16303($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.TestElement$setProperty$3170($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
@@ -6680,7 +6680,7 @@ procedure boolean$org.apache.jmeter.testelement.property.AbstractProperty$getBoo
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.SearchTreeDialog$doSearch$14690($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.net.SocketAddress$java.net.Socket$getRemoteSocketAddress$18708($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -6716,7 +6716,7 @@ procedure void$org.apache.jmeter.testelement.AbstractScopedTestElement$setScopeV
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$$la$clinit$ra$$9595()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleEvent$variableNames1622, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, org.apache.log.Logger$org.apache.jmeter.samplers.SampleEvent$log1619, java.lang.String$org.apache.jmeter.samplers.SampleEvent$HOSTNAME1621, $arrSizeHeap;
+  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleEvent$variableNames1622, java.lang.String$org.apache.jmeter.samplers.SampleEvent$HOSTNAME1621, org.apache.log.Logger$org.apache.jmeter.samplers.SampleEvent$log1619;
 
 procedure java.lang.Enum$java.lang.Enum$valueOf$4897($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
@@ -6727,7 +6727,7 @@ procedure void$org.apache.jmeter.threads.JMeterContextService$replaceContext$981
 procedure java.lang.String$org.apache.jmeter.testelement.property.BooleanProperty$getStringValue$9628($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.GUIFactory$$la$clinit$ra$$14882()  returns ($exception : ref)
-  modifies java.util.Map$org.apache.jmeter.gui.GUIFactory$ICON_MAP2802, java.util.Map$org.apache.jmeter.gui.GUIFactory$GUI_MAP2801, java.util.Map$org.apache.jmeter.gui.GUIFactory$DISABLED_ICON_MAP2803;
+  modifies java.util.Map$org.apache.jmeter.gui.GUIFactory$GUI_MAP2801, java.util.Map$org.apache.jmeter.gui.GUIFactory$DISABLED_ICON_MAP2803, java.util.Map$org.apache.jmeter.gui.GUIFactory$ICON_MAP2802;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$setParent$1998($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6799,7 +6799,7 @@ procedure org.apache.jmeter.engine.TreeCloner$org.apache.jmeter.gui.action.Start
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$getRemoteItems$12392($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.util.JDateField$FocusClass$focusLost$15410($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -6827,7 +6827,7 @@ procedure void$org.apache.jmeter.testelement.WorkBench$setSaveWorkBench$9624($th
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.PowerTableModel$addNewColumn$8698($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$setDataType$1948($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6869,7 +6869,7 @@ procedure java.awt.Font$java.awt.Font$deriveFont$3587($this : ref, $in_parameter
 procedure org.apache.jorphan.collections.HashTree$org.apache.jorphan.collections.SearchByClass$getSubTree$20250($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.util.JMeterUtils$setLocale$6350($in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0;
+  modifies boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap;
 
 procedure java.lang.String$org.apache.jmeter.save.TestResultWrapper$getVersion$17797($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -6879,9 +6879,9 @@ procedure void$org.apache.jmeter.config.Argument$setDescription$5227($this : ref
 procedure void$javax.swing.JFileChooser$setSelectedFile$12890($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure $new(obj_type : javaType)  returns ($obj : ref)
+ensures (select($heap, , $obj, $alloc) == true);
 ensures (select($heap, , $obj, $type) == obj_type);
 ensures ($obj != $null);
-ensures (select($heap, , $obj, $alloc) == true);
 requires (select($heap, , $obj, $alloc) == false);
 
 procedure void$org.apache.jmeter.gui.util.IconToolbarBean$$la$clinit$ra$$14961()  returns ($exception : ref)
@@ -6908,7 +6908,7 @@ procedure void$org.apache.jmeter.gui.UndoHistory$restoreTreeState$12351($this : 
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.KeyStrokes$$la$clinit$ra$$8578()  returns ($exception : ref)
-  modifies javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOTE_START_ALL1431, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE1432, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ACTION_SHUTDOWN1443, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$PASTE1436, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_UP_ARROW1446, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$EXIT1429, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SEARCH_TREE1434, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_LEFT_ARROW1448, int$org.apache.jmeter.gui.action.KeyStrokes$CONTROL_MASK0, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$DEBUG_ON1417, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$WHAT_CLASS1437, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$OPEN1428, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOTE_SHUT_ALL1440, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ACTION_STOP1442, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$COLLAPSE_ALL1444, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$HELP1425, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ENTER1421, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$FUNCTIONS1422, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOVE1441, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$DEBUG_OFF1416, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$DUPLICATE1415, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE_GRAPHICS_ALL1424, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE_ALL_AS1433, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ACTION_START1430, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$EXPAND_ALL1445, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$COPY1414, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ESC1420, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$TOGGLE1435, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE_GRAPHICS1423, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CLEAR_ALL1418, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SSL_MANAGER1427, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_RIGHT_ARROW1449, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_DOWN_ARROW1447, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CLEAR1419, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOTE_STOP_ALL1439, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CUT1438, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CLOSE1426;
+  modifies javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE_ALL_AS1433, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SEARCH_TREE1434, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_DOWN_ARROW1447, int$org.apache.jmeter.gui.action.KeyStrokes$CONTROL_MASK0, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$OPEN1428, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ENTER1421, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$EXPAND_ALL1445, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$PASTE1436, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CLEAR_ALL1418, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CUT1438, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOVE1441, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$TOGGLE1435, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOTE_SHUT_ALL1440, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ACTION_START1430, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ACTION_SHUTDOWN1443, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CLEAR1419, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE1432, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$FUNCTIONS1422, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE_GRAPHICS_ALL1424, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_UP_ARROW1446, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ESC1420, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$DEBUG_OFF1416, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$WHAT_CLASS1437, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_LEFT_ARROW1448, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SAVE_GRAPHICS1423, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOTE_STOP_ALL1439, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$DUPLICATE1415, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$COPY1414, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ALT_RIGHT_ARROW1449, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$REMOTE_START_ALL1431, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$ACTION_STOP1442, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$DEBUG_ON1417, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$CLOSE1426, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$HELP1425, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$SSL_MANAGER1427, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$EXIT1429, javax.swing.KeyStroke$org.apache.jmeter.gui.action.KeyStrokes$COLLAPSE_ALL1444;
 
 procedure java.net.InetAddress$java.net.DatagramPacket$getAddress$16220($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -6916,7 +6916,7 @@ procedure void$org.apache.jmeter.testelement.TestPlan$addThreadGroup$9500($this 
   modifies $heap;
 
 procedure boolean$org.apache.jmeter.gui.action.Move$canAddTo$14359($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : int, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$exit$9197($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6937,7 +6937,7 @@ procedure java.lang.String$org.apache.jmeter.gui.tree.JMeterTreeNode$getDocAncho
   modifies $heap;
 
 procedure void$org.apache.jmeter.engine.util.CompoundVariable$$la$clinit$ra$$10954()  returns ($exception : ref)
-  modifies $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.engine.util.CompoundVariable$log1843, org.apache.jmeter.engine.util.FunctionParser$org.apache.jmeter.engine.util.CompoundVariable$functionParser1845, java.util.Map$org.apache.jmeter.engine.util.CompoundVariable$functions1846, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.engine.util.CompoundVariable$log1843, java.util.Map$org.apache.jmeter.engine.util.CompoundVariable$functions1846, org.apache.jmeter.engine.util.FunctionParser$org.apache.jmeter.engine.util.CompoundVariable$functionParser1845, $heap;
 
 procedure void$org.apache.jmeter.gui.util.TristateCheckBox$TristateCheckBoxIcon$$la$init$ra$$15893($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6960,7 +6960,7 @@ procedure void$org.apache.jmeter.gui.action.LoadRecentProject$setRecentFile$1407
 procedure void$java.net.URLClassLoader$$la$init$ra$$9875($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.MenuFactory$makeMenuItem$5576($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.testbeans.gui.FileEditor$removePropertyChangeListener$18376($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -6976,7 +6976,7 @@ procedure void$java.rmi.registry.Registry$rebind$10650($this : ref, $in_paramete
 procedure void$java.net.URLClassLoader$$la$init$ra$$9871($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.MenuFactory$makeMenuItem$5572($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.testelement.ThreadListener$threadStarted$10803($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -7005,23 +7005,23 @@ procedure org.apache.jmeter.testelement.property.JMeterProperty$org.apache.jmete
   modifies $heap;
 
 procedure void$org.apache.jmeter.JMeter$runNonGui$11096($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, int$org.apache.jmeter.reporters.Summariser$instanceCount0, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840;
 
 procedure void$org.apache.jorphan.util.JOrphanUtils$write$20361($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FilePanel$$la$init$ra$$15391($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure boolean$javax.swing.CellEditor$stopCellEditing$6724($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.FilePanel$$la$init$ra$$15390($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure javax.swing.JScrollPane$org.apache.jmeter.gui.MainFrame$createTreePanel$12224($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FilePanel$$la$init$ra$$15392($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure java.util.Set$org.apache.jmeter.gui.action.Help$getActionNames$11657($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -7031,12 +7031,12 @@ procedure void$org.apache.jmeter.testbeans.gui.TestBeanGUI$localeChanged$14901($
 procedure boolean$org.apache.jmeter.testelement.AbstractScopedTestElement$isScopeChildren$3138($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FilePanel$$la$init$ra$$15388($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$javax.swing.AbstractButton$setEnabled$5921($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FilePanel$$la$init$ra$$15389($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$java.lang.System$runFinalization$9771()  returns ($exception : ref)
 
@@ -7046,7 +7046,7 @@ procedure javax.swing.JPanel$org.apache.jmeter.gui.ServerPanel$getConnectTimeOut
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$performAction$11661($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.control.GenericController$fireIterationStart$8825($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -7280,23 +7280,23 @@ procedure void$org.apache.jmeter.samplers.Entry$addConfigElement$8796($this : re
 procedure java.net.URL$java.lang.Class$getResource$503($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.net.Socket$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$createSocket$19013($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : ref, $in_parameter__3 : int)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure java.lang.String$org.apache.oro.text.perl.Perl5Util$substitute$20265($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.net.Socket$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$createSocket$19012($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure void$org.apache.jmeter.gui.action.Help$doAction$11656($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, javax.swing.JDialog$org.apache.jmeter.gui.action.Help$helpWindow1979, $havoc0;
+  modifies $havoc0, $stringSizeHeap, javax.swing.JDialog$org.apache.jmeter.gui.action.Help$helpWindow1979, $heap;
 
 procedure java.net.Socket$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$createSocket$19011($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : ref, $in_parameter__3 : int)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure javax.swing.JLabel$org.apache.jmeter.gui.MainFrame$access$100$12240($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.net.Socket$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$createSocket$19010($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : int)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure void$org.apache.jmeter.gui.util.TristateCheckBox$TSCBChangeListener$stateChanged$16114($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -7311,26 +7311,26 @@ procedure com.thoughtworks.xstream.XStream$org.apache.jmeter.gui.action.template
 procedure boolean$org.apache.jmeter.util.BeanShellTestElement$isResetInterpreter$18814($this : ref)  returns ($return : int, $exception : ref)
 
 procedure org.apache.jmeter.util.SSLManager$org.apache.jmeter.util.SSLManager$getInstance$14754()  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, org.apache.jmeter.util.SSLManager$org.apache.jmeter.util.SSLManager$manager2763, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, org.apache.jmeter.util.SSLManager$org.apache.jmeter.util.SSLManager$manager2763, $heap;
 
 procedure java.lang.Object$java.lang.reflect.Field$get$1371($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.net.Socket$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$createSocket$19009($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure java.lang.Object$org.apache.jmeter.util.BeanShellInterpreter$set$16308($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
   modifies $refArrHeap, $arrSizeHeap;
 
 procedure java.net.Socket$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$createSocket$19007($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : ref, $in_parameter__3 : int, $in_parameter__4 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure boolean$org.apache.jmeter.threads.ThreadGroup$verifyThreadsStopped$11304($this : ref)  returns ($return : int, $exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.threads.ThreadGroup$log1919, long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0;
+  modifies long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0, $heap, org.apache.log.Logger$org.apache.jmeter.threads.ThreadGroup$log1919;
 
 procedure void$org.apache.jmeter.gui.util.ButtonPanel$addButtonListener$15343($this : ref, $in_parameter__0 : int, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure java.net.Socket$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$createSocket$19008($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure boolean$java.lang.Object$equals$42($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -7427,7 +7427,7 @@ procedure void$org.apache.jmeter.visualizers.TableSample$$la$init$ra$$20191($thi
   modifies $heap;
 
 procedure java.lang.String$org.apache.jmeter.util.JMeterUtils$getLocalHostName$6398()  returns ($return : ref, $exception : ref)
-  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009;
+  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011;
 
 procedure void$org.apache.jmeter.visualizers.TableSample$$la$init$ra$$20192($this : ref, $in_parameter__0 : int, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : ref, $in_parameter__4 : ref, $in_parameter__5 : int, $in_parameter__6 : int, $in_parameter__7 : int, $in_parameter__8 : int)  returns ($exception : ref)
   modifies $heap;
@@ -7516,7 +7516,7 @@ procedure void$org.apache.jorphan.gui.ObjectTableModel$addTableModelListener$204
 procedure boolean$org.apache.jorphan.collections.Data$next$20226($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.samplers.SampleResult$NanoOffset$run$17588($this : ref)  returns ($exception : ref)
-  modifies $heap, long$org.apache.jmeter.samplers.SampleResult$NanoOffset$nanoOffset0, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, long$org.apache.jmeter.samplers.SampleResult$NanoOffset$nanoOffset0, $heap;
 
 procedure java.util.Set$org.apache.jmeter.gui.action.Duplicate$getActionNames$13800($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -7557,7 +7557,7 @@ procedure void$org.apache.jmeter.engine.event.LoopIterationEvent$$la$init$ra$$87
 procedure java.lang.String$java.lang.Class$getSimpleName$480($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Close$doAction$13757($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$org.apache.jmeter.save.converters.TestResultWrapperConverter$getVersion$17787()  returns ($return : ref, $exception : ref)
 
@@ -7591,7 +7591,7 @@ procedure java.awt.Color$org.apache.jmeter.util.ColorHelper$changeColorCyclicInc
 procedure void$org.apache.jmeter.util.XPathUtil$1$$la$init$ra$$19857($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$access$000$11310($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure void$org.apache.jmeter.gui.util.NumberFieldErrorListener$$la$clinit$ra$$15758()  returns ($exception : ref)
   modifies org.apache.jmeter.gui.util.NumberFieldErrorListener$org.apache.jmeter.gui.util.NumberFieldErrorListener$listener3022;
@@ -7601,7 +7601,7 @@ procedure boolean$org.apache.jmeter.gui.util.TextAreaTableCellEditor$EditorDeleg
 procedure long$org.apache.jmeter.samplers.SampleResult$getTimeStamp$1929($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.UndoHistory$$la$clinit$ra$$12354()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.gui.UndoHistory$HISTORY_SIZE0, org.apache.log.Logger$org.apache.jmeter.gui.UndoHistory$log2119;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.UndoHistory$log2119, int$org.apache.jmeter.gui.UndoHistory$HISTORY_SIZE0;
 
 procedure int$org.apache.jmeter.reporters.ResultSaver$getNumberPadLen$16911($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -7614,7 +7614,7 @@ procedure org.apache.jmeter.testelement.property.LongProperty$org.apache.jmeter.
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.CheckDirty$$la$clinit$ra$$13750()  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.CheckDirty$log2462, java.util.Set$org.apache.jmeter.gui.action.CheckDirty$commands2464;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.CheckDirty$log2462, java.util.Set$org.apache.jmeter.gui.action.CheckDirty$commands2464, $heap;
 
 procedure void$java.io.IOException$$la$init$ra$$374($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -7650,7 +7650,7 @@ procedure void$org.apache.jmeter.gui.action.template.TemplateManager$addTemplate
   modifies $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultConfigElementMenu$5563()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$org.apache.jmeter.gui.action.KeyStrokes$matches$8577($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : int, $exception : ref)
 
@@ -7692,12 +7692,12 @@ procedure void$org.apache.jmeter.config.gui.LoginConfigGui$modifyTestElement$821
   modifies $heap;
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.MenuFactory$makeMenuItemRes$5573($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure org.apache.log.Logger$org.apache.jmeter.util.XPathUtil$access$000$19873()  returns ($return : ref, $exception : ref)
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.MenuFactory$makeMenuItemRes$5575($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.util.Set$java.util.Map$keySet$1165($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -7750,12 +7750,12 @@ procedure void$org.apache.jmeter.save.converters.StringPropertyConverter$marshal
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveResponseData$2045($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$$la$clinit$ra$$14354()  returns ($exception : ref)
-  modifies org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$lp$$rp$$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$$VALUES2659, $refArrHeap, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$OPTIONS2656, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$FILE2653, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$EDIT2654, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$HELP2657, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$SEARCH2658, $arrSizeHeap, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$RUN2655;
+  modifies $refArrHeap, $arrSizeHeap, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$FILE2653, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$lp$$rp$$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$$VALUES2659, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$RUN2655, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$SEARCH2658, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$EDIT2654, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$HELP2657, org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$org.apache.jmeter.gui.plugin.MenuCreator$MENU_LOCATION$OPTIONS2656;
 
 procedure java.lang.Object$org.apache.jmeter.testelement.property.ObjectProperty$getObjectValue$16932($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.util.keystore.JmeterKeyStore$$la$init$ra$$14759($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.JSR223TestElement$setCacheKey$19402($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -7793,7 +7793,7 @@ procedure com.thoughtworks.xstream.mapper.MapperWrapper$org.apache.jmeter.save.S
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.LoadRecentProject$doAction$14066($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.awt.Image$javax.swing.ImageIcon$getImage$6949($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -7806,13 +7806,13 @@ procedure void$org.apache.jmeter.gui.action.template.Template$setFileName$14727(
 procedure int$org.apache.jmeter.testelement.property.LongProperty$getIntValue$9735($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.LookAndFeelCommand$$la$clinit$ra$$14350()  returns ($exception : ref)
-  modifies java.util.Set$org.apache.jmeter.gui.action.LookAndFeelCommand$commands2650, $stringSizeHeap, $heap, $refArrHeap, java.util.prefs.Preferences$org.apache.jmeter.gui.action.LookAndFeelCommand$PREFS2651, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.gui.action.LookAndFeelCommand$log2648;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.gui.action.LookAndFeelCommand$log2648, $heap, java.util.prefs.Preferences$org.apache.jmeter.gui.action.LookAndFeelCommand$PREFS2651, java.util.Set$org.apache.jmeter.gui.action.LookAndFeelCommand$commands2650;
 
 procedure void$org.apache.jmeter.visualizers.gui.AbstractVisualizer$2$$la$init$ra$$20186($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Paste$$la$clinit$ra$$14367()  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.Paste$log2661, java.util.Set$org.apache.jmeter.gui.action.Paste$commands2662;
+  modifies java.util.Set$org.apache.jmeter.gui.action.Paste$commands2662, $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.Paste$log2661;
 
 procedure void$org.apache.jorphan.collections.ListedHashTree$add$20251($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -7842,7 +7842,7 @@ procedure void$org.apache.jmeter.gui.AbstractJMeterGuiComponent$setName$2306($th
 procedure void$org.apache.jmeter.gui.action.RevertProject$$la$init$ra$$14561($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$pause$9198($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure void$java.util.Map$putAll$1163($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -7874,12 +7874,12 @@ procedure void$org.apache.jmeter.gui.util.TristateCheckBox$TristateCheckBoxIcon$
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.SSLManager$configureKeystore$14756($this : ref, $in_parameter__0 : int, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure void$java.net.Socket$shutdownInput$18733($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Duplicate$doAction$13801($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.TextAreaTableCellEditor$1$$la$init$ra$$15769($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -7894,10 +7894,10 @@ procedure java.lang.String$org.apache.jmeter.engine.util.SimpleVariable$toString
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.AddToTree$$la$clinit$ra$$12775()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.AddToTree$log2295, java.util.Set$org.apache.jmeter.gui.action.AddToTree$commandSet2296;
+  modifies java.util.Set$org.apache.jmeter.gui.action.AddToTree$commandSet2296, org.apache.log.Logger$org.apache.jmeter.gui.action.AddToTree$log2295;
 
 procedure org.apache.jmeter.samplers.Sampler$org.apache.jmeter.control.TransactionController$next2$9023($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.util.ScopePanel$isScopeAll$3056($this : ref)  returns ($return : int, $exception : ref)
 
@@ -7917,7 +7917,7 @@ procedure boolean$org.apache.jmeter.engine.StandardJMeterEngine$stopThread$9176(
   modifies $heap;
 
 procedure javax.swing.JTree$org.apache.jmeter.gui.MainFrame$makeTree$12227($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.samplers.SampleResult$getSampleLabel$1931($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
 
@@ -7933,7 +7933,7 @@ procedure void$org.apache.jmeter.samplers.RemoteTestListenerWrapper$testStarted$
 procedure long$org.apache.jmeter.visualizers.SamplingStatCalculator$getCount$20136($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.TypeEditor$$la$clinit$ra$$18166()  returns ($exception : ref)
-  modifies org.apache.jmeter.testbeans.gui.TypeEditor$lp$$rp$$org.apache.jmeter.testbeans.gui.TypeEditor$$VALUES3555, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$PasswordEditor3551, $refArrHeap, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$TextAreaEditor3553, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$FileEditor3550, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$ComboStringEditor3554, $arrSizeHeap, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$TableEditor3552;
+  modifies org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$TableEditor3552, $refArrHeap, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$ComboStringEditor3554, $arrSizeHeap, org.apache.jmeter.testbeans.gui.TypeEditor$lp$$rp$$org.apache.jmeter.testbeans.gui.TypeEditor$$VALUES3555, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$TextAreaEditor3553, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$FileEditor3550, org.apache.jmeter.testbeans.gui.TypeEditor$org.apache.jmeter.testbeans.gui.TypeEditor$PasswordEditor3551;
 
 procedure void$org.apache.jmeter.testbeans.gui.TextAreaEditor$$la$init$ra$$18399($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -7948,7 +7948,7 @@ procedure void$org.apache.jmeter.gui.action.Duplicate$$la$clinit$ra$$13802()  re
   modifies java.util.HashSet$org.apache.jmeter.gui.action.Duplicate$commands2478;
 
 procedure void$org.apache.jmeter.JMeter$startNonGui$11095($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, int$org.apache.jmeter.reporters.Summariser$instanceCount0, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840;
 
 procedure javax.swing.JButton$org.apache.jmeter.config.gui.ArgumentsPanel$getDeleteButton$6024($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -7994,7 +7994,7 @@ procedure void$org.apache.jmeter.reporters.gui.ResultSaverGui$configure$16883($t
   modifies $heap;
 
 procedure javax.net.ssl.SSLContext$org.apache.jmeter.util.JsseSSLManager$getContext$19035($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure void$javax.swing.JComponent$registerKeyboardAction$2427($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int)  returns ($exception : ref)
 
@@ -8067,7 +8067,7 @@ procedure void$org.apache.jmeter.gui.util.JSyntaxTextArea$$la$init$ra$$7480($thi
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.BeanShellInterpreter$$la$clinit$ra$$16312()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.util.BeanShellInterpreter$log3089, java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshGet3090, java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshEval3092, $refArrHeap, java.lang.Class$org.apache.jmeter.util.BeanShellInterpreter$bshClass3094, java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshSet3091, $arrSizeHeap, java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshSource3093;
+  modifies java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshEval3092, org.apache.log.Logger$org.apache.jmeter.util.BeanShellInterpreter$log3089, $refArrHeap, java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshSet3091, $arrSizeHeap, java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshSource3093, java.lang.Class$org.apache.jmeter.util.BeanShellInterpreter$bshClass3094, java.lang.reflect.Method$org.apache.jmeter.util.BeanShellInterpreter$bshGet3090;
 
 procedure long$org.apache.jmeter.visualizers.Sample$getData$20150($this : ref)  returns ($return : int, $exception : ref)
 
@@ -8084,7 +8084,7 @@ procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$makeEditMenu$12386($this
   modifies $heap;
 
 procedure void$org.apache.jmeter.JMeter$initializeProperties$11093($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $stringSizeHeap, $heap, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmBin1016, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmDir1015, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005;
+  modifies $stringSizeHeap, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmBin1016, java.lang.String$org.apache.jmeter.util.JMeterUtils$jmDir1015, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005;
 
 procedure void$org.apache.jmeter.engine.util.SimpleVariable$setName$11536($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -8158,7 +8158,7 @@ procedure void$org.apache.jmeter.gui.action.Remove$$la$clinit$ra$$14556()  retur
   modifies $heap, boolean$org.apache.jmeter.gui.action.Remove$SKIP_CONFIRM0, java.util.Set$org.apache.jmeter.gui.action.Remove$commands2694;
 
 procedure org.apache.jmeter.testbeans.gui.WrapperEditor$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$createWrapperEditor$18172($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.save.CSVSaveService$isVariableName$17053($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -8174,7 +8174,7 @@ procedure void$org.apache.jmeter.save.TestResultWrapper$$la$init$ra$$17792($this
 procedure void$java.io.StringReader$$la$init$ra$$11539($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.samplers.gui.AbstractSamplerGui$createPopupMenu$17559($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.samplers.SampleSaveConfiguration$setFieldNames$2063($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -8188,7 +8188,7 @@ procedure void$org.apache.jmeter.reporters.gui.SummariserGui$modifyTestElement$1
 procedure long$java.io.RandomAccessFile$getFilePointer$16972($this : ref)  returns ($return : int, $exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.AbstractScopedJMeterGuiComponent$createPopupMenu$2298($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure org.apache.jmeter.samplers.Sampler$org.apache.jmeter.control.GenericController$next$8802($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -8201,7 +8201,7 @@ procedure void$org.apache.jmeter.gui.action.AboutCommand$$la$clinit$ra$$12073() 
   modifies java.util.Set$org.apache.jmeter.gui.action.AboutCommand$commandSet2066;
 
 procedure java.lang.String$org.apache.jmeter.reporters.ResultSaver$makeFileName$16901($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : int)  returns ($return : ref, $exception : ref)
-  modifies long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0, $heap;
+  modifies $heap, long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0;
 
 procedure java.beans.MethodDescriptor$lp$$rp$$org.apache.jmeter.testelement.AbstractTestElementBeanInfo$getMethodDescriptors$18490($this : ref)  returns ($return : ref, $exception : ref)
   modifies $arrSizeHeap;
@@ -8224,18 +8224,18 @@ procedure void$javax.swing.JSplitPane$setContinuousLayout$14230($this : ref, $in
 procedure void$java.io.BufferedOutputStream$$la$init$ra$$17011($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure boolean$org.apache.jmeter.config.gui.ArgumentsPanel$testFunctors$6040()  returns ($return : int, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$processSamples$17047($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.threads.JMeterThread$getThreadName$9229($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.control.GenericController$$la$clinit$ra$$8830()  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.control.GenericController$DUMMY1488, org.apache.log.Logger$org.apache.jmeter.control.GenericController$log1485;
+  modifies org.apache.log.Logger$org.apache.jmeter.control.GenericController$log1485, java.lang.Object$org.apache.jmeter.control.GenericController$DUMMY1488;
 
 procedure void$org.apache.jmeter.threads.TestCompiler$subtractNode$8943($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.threads.TestCompiler$IS_USE_STATIC_SET0, org.apache.log.Logger$org.apache.jmeter.threads.TestCompiler$LOG1492, java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494, $arrSizeHeap;
+  modifies org.apache.log.Logger$org.apache.jmeter.threads.TestCompiler$LOG1492, $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494, $heap, boolean$org.apache.jmeter.threads.TestCompiler$IS_USE_STATIC_SET0;
 
 procedure void$java.lang.StringBuilder$setLength$2213($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -8260,13 +8260,13 @@ procedure void$org.apache.jmeter.threads.JMeterThread$IterationListener$$la$init
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Copy$$la$clinit$ra$$13774()  returns ($exception : ref)
-  modifies java.util.HashSet$org.apache.jmeter.gui.action.Copy$commands2470, org.apache.log.Logger$org.apache.jmeter.gui.action.Copy$log2469;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.Copy$log2469, java.util.HashSet$org.apache.jmeter.gui.action.Copy$commands2470;
 
 procedure void$org.apache.jmeter.threads.JMeterThread$IterationListener$$la$init$ra$$18572($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Skel$$la$clinit$ra$$18658()  returns ($exception : ref)
-  modifies $refArrHeap, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Skel$operations3659, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Skel$operations3659;
 
 procedure long$org.apache.jmeter.visualizers.Sample$getEndTime$20162($this : ref)  returns ($return : int, $exception : ref)
 
@@ -8338,7 +8338,7 @@ procedure void$org.apache.jmeter.testbeans.gui.EnumEditor$$la$init$ra$$18347($th
   modifies $heap;
 
 procedure java.lang.String$org.apache.jmeter.util.JMeterUtils$getLocalHostIP$6397()  returns ($return : ref, $exception : ref)
-  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009;
+  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011;
 
 procedure void$org.apache.jmeter.testbeans.gui.LongPropertyEditor$$la$init$ra$$18411($this : ref)  returns ($exception : ref)
 
@@ -8365,7 +8365,7 @@ procedure void$org.apache.jmeter.control.TransactionSampler$setTransactionDone$9
 procedure void$org.apache.jmeter.exceptions.IllegalUserActionException$$la$init$ra$$11116($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.samplers.AsynchSampleSender$testEnded$17166($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, org.apache.jmeter.samplers.SampleEvent$org.apache.jmeter.samplers.AsynchSampleSender$FINAL_EVENT3325, org.apache.log.Logger$org.apache.jmeter.samplers.AsynchSampleSender$log3324;
+  modifies org.apache.log.Logger$org.apache.jmeter.samplers.AsynchSampleSender$log3324, org.apache.jmeter.samplers.SampleEvent$org.apache.jmeter.samplers.AsynchSampleSender$FINAL_EVENT3325, $heap;
 
 procedure org.apache.jmeter.testelement.property.JMeterProperty$org.apache.jmeter.testelement.property.AbstractProperty$createProperty$5360($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -8380,7 +8380,7 @@ procedure void$java.lang.System$arraycopy$9756($in_parameter__0 : ref, $in_param
 procedure void$javax.swing.JSplitPane$setTopComponent$14218($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.JMeter$startGui$11087($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$guiPack2069, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$guiPack2069, $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.plugin.PluginManager$$la$init$ra$$16315($this : ref)  returns ($exception : ref)
 
@@ -8450,7 +8450,7 @@ procedure int$org.apache.jmeter.gui.action.LoadRecentProject$getShortcutKey$1407
 procedure void$org.apache.commons.collections.map.LinkedMap$$la$init$ra$$20411($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.TemplatesCommand$IODH$$la$clinit$ra$$14856()  returns ($exception : ref)
-  modifies $heap, org.apache.jmeter.gui.action.SelectTemplatesDialog$org.apache.jmeter.gui.action.TemplatesCommand$IODH$dialog2795, $arrSizeHeap;
+  modifies $arrSizeHeap, org.apache.jmeter.gui.action.SelectTemplatesDialog$org.apache.jmeter.gui.action.TemplatesCommand$IODH$dialog2795, $heap;
 
 procedure void$java.util.concurrent.ExecutorService$shutdown$17250($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -8558,7 +8558,7 @@ procedure void$org.apache.jmeter.testbeans.gui.IntegerPropertyEditor$$la$init$ra
 procedure void$java.lang.Exception$$la$init$ra$$627($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$initializeTableModel$9474($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$java.lang.Exception$$la$init$ra$$628($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -8578,10 +8578,10 @@ procedure void$org.apache.jmeter.threads.gui.ThreadGroupGui$initGui$18567($this 
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.StatisticalSampleSender$$la$clinit$ra$$17601()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.samplers.StatisticalSampleSender$log3431, int$org.apache.jmeter.samplers.StatisticalSampleSender$NUM_SAMPLES_THRESHOLD0, boolean$org.apache.jmeter.samplers.StatisticalSampleSender$KEY_ON_THREADNAME0, long$org.apache.jmeter.samplers.StatisticalSampleSender$TIME_THRESHOLD_MS0;
+  modifies org.apache.log.Logger$org.apache.jmeter.samplers.StatisticalSampleSender$log3431, boolean$org.apache.jmeter.samplers.StatisticalSampleSender$KEY_ON_THREADNAME0, long$org.apache.jmeter.samplers.StatisticalSampleSender$TIME_THRESHOLD_MS0, int$org.apache.jmeter.samplers.StatisticalSampleSender$NUM_SAMPLES_THRESHOLD0;
 
 procedure void$org.apache.jmeter.gui.MainFrame$actionPerformed$12236($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.config.gui.RowDetailDialog$removeUpdate$6416($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -8591,7 +8591,7 @@ procedure long$org.apache.jmeter.util.Calculator$getMax$18855($this : ref)  retu
 procedure void$java.net.DatagramSocket$receive$11139($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.lang.Object$lp$$rp$$org.apache.jmeter.gui.util.PowerTableModel$createDefaultRow$8706($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure double$org.apache.jmeter.util.Calculator$getKBPerSecond$18862($this : ref)  returns ($return : int, $exception : ref)
 
@@ -8661,7 +8661,7 @@ procedure void$org.apache.jmeter.functions.gui.FunctionHelper$HelpListener$$la$i
 procedure void$javax.swing.table.DefaultTableCellRenderer$setBackground$6707($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.BeanShellInterpreter$init$16302($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure boolean$javax.swing.JMenuBar$isSelected$7899($this : ref)  returns ($return : int, $exception : ref)
 
@@ -8695,7 +8695,7 @@ procedure java.lang.Object$lp$$rp$$java.util.Collection$toArray$573($this : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Load$doAction$13935($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.beans.BeanDescriptor$java.beans.BeanInfo$getBeanDescriptor$14904($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -8736,7 +8736,7 @@ procedure void$org.apache.jmeter.gui.AbstractJMeterGuiComponent$initGui$2317($th
 procedure java.util.List$org.apache.jmeter.threads.SamplePackage$getSampleListeners$8991($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure org.apache.jmeter.samplers.SampleSender$org.apache.jmeter.samplers.SampleSenderFactory$getInstance$17568($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.gui.action.template.Template$org.apache.jmeter.gui.action.template.TemplateManager$getTemplateByName$14721($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -8765,7 +8765,7 @@ procedure void$org.apache.jmeter.gui.util.PowerTableModel$$la$clinit$ra$$8716() 
   modifies org.apache.log.Logger$org.apache.jmeter.gui.util.PowerTableModel$log1475;
 
 procedure void$org.apache.jmeter.util.JMeterUtils$initializeProperties$6346($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005;
+  modifies boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005;
 
 procedure java.io.ObjectOutputStream$org.apache.jmeter.samplers.DiskStoreSampleSender$access$000$17245($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -8794,7 +8794,7 @@ procedure double$java.lang.Double$doubleValue$1071($this : ref)  returns ($retur
 procedure void$org.apache.jmeter.save.converters.SampleEventConverter$$la$init$ra$$17725($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.BeanShellServer$run$16345($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.testelement.property.DoubleProperty$$la$init$ra$$18493($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -8832,7 +8832,7 @@ procedure void$org.apache.jmeter.samplers.SampleResult$setStampAndTime$1917($thi
   modifies $heap;
 
 procedure javax.swing.JMenu$org.apache.jmeter.gui.util.MenuFactory$makeMenu$5569($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$java.io.ByteArrayOutputStream$$la$init$ra$$17747($this : ref)  returns ($exception : ref)
 
@@ -8848,30 +8848,30 @@ procedure void$org.apache.jmeter.testelement.TestPlan$addTestElement$9499($this 
   modifies $heap;
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$$la$init$ra$$6011($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$$la$init$ra$$6012($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.save.converters.MultiPropertyConverter$canConvert$17721($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.save.converters.ConversionHelp$$la$clinit$ra$$17641()  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, org.apache.log.Logger$org.apache.jmeter.save.converters.ConversionHelp$log3437, java.util.Map$org.apache.jmeter.save.converters.ConversionHelp$propertyToAttribute3448, java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$outVersion3447;
+  modifies java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$outVersion3447, $stringSizeHeap, java.util.Map$org.apache.jmeter.save.converters.ConversionHelp$propertyToAttribute3448, $heap, org.apache.log.Logger$org.apache.jmeter.save.converters.ConversionHelp$log3437;
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$$la$init$ra$$6013($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure javax.swing.JMenu$org.apache.jmeter.gui.util.MenuFactory$makeMenu$5570($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$$la$init$ra$$6014($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$$la$init$ra$$6015($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : int)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$$la$init$ra$$6016($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : int, $in_parameter__4 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.MapProperty$clear$5295($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -8879,7 +8879,7 @@ procedure void$org.apache.jmeter.testelement.property.MapProperty$clear$5295($th
 procedure void$java.awt.Color$$la$init$ra$$3661($this : ref, $in_parameter__0 : int, $in_parameter__1 : int, $in_parameter__2 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.BSFBeanInfoSupport$$la$clinit$ra$$18818()  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, java.lang.String$lp$$rp$$org.apache.jmeter.util.BSFBeanInfoSupport$LANGUAGE_TAGS3688, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.util.BSFBeanInfoSupport$LANGUAGE_TAGS3688, $heap;
 
 procedure void$java.awt.Color$$la$init$ra$$3665($this : ref, $in_parameter__0 : int, $in_parameter__1 : int, $in_parameter__2 : int)  returns ($exception : ref)
 
@@ -8892,7 +8892,7 @@ procedure int$org.apache.jmeter.testelement.property.MapProperty$hashCode$5282($
   modifies $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.testbeans.gui.TestBeanGUI$createPopupMenu$14890($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$javax.swing.JToggleButton$ToggleButtonModel$$la$init$ra$$15854($this : ref)  returns ($exception : ref)
 
@@ -8916,7 +8916,7 @@ procedure void$org.apache.jmeter.samplers.SampleResult$$la$init$ra$$1910($this :
 procedure void$org.apache.jmeter.testelement.property.NullProperty$setObjectValue$16120($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.lang.Object$org.apache.jmeter.save.converters.SampleEventConverter$unmarshal$17729($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$$la$init$ra$$1913($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -8975,7 +8975,7 @@ procedure java.lang.String$org.apache.jmeter.testbeans.gui.FileEditor$getJavaIni
   modifies $heap;
 
 procedure org.apache.jmeter.samplers.SampleSaveConfiguration$org.apache.jmeter.save.CSVSaveService$getSampleSaveConfiguration$17051($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.AbstractProperty$$la$clinit$ra$$5368()  returns ($exception : ref)
   modifies org.apache.log.Logger$org.apache.jmeter.testelement.property.AbstractProperty$log831;
@@ -9024,7 +9024,7 @@ procedure void$org.apache.jmeter.threads.JMeterThread$stopScheduler$9219($this :
 procedure java.util.ListIterator$java.util.LinkedList$listIterator$8880($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.threads.JMeterThread$$la$clinit$ra$$9253()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, boolean$org.apache.jmeter.threads.JMeterThread$reversePostProcessors0, boolean$org.apache.jmeter.threads.JMeterThread$startEarlier0, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0, java.lang.String$org.apache.jmeter.threads.JMeterThread$TRUE1543;
+  modifies boolean$org.apache.jmeter.threads.JMeterThread$startEarlier0, java.lang.String$org.apache.jmeter.threads.JMeterThread$TRUE1543, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, boolean$org.apache.jmeter.threads.JMeterThread$reversePostProcessors0;
 
 procedure java.util.List$org.apache.jorphan.collections.Data$getColumnAsObjectArray$20336($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -9054,7 +9054,7 @@ procedure void$org.apache.jmeter.gui.CommentPanel$$la$init$ra$$3161($this : ref)
   modifies $heap;
 
 procedure java.awt.Component$org.apache.jmeter.config.gui.SimpleConfigGui$createTablePanel$8688($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.reporters.gui.ResultSaverGui$getLabelResource$16882($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -9082,7 +9082,7 @@ procedure void$org.apache.jmeter.gui.GuiPackage$showMessage$12113($in_parameter_
   modifies $heap;
 
 procedure void$org.apache.jmeter.services.FileServer$$la$clinit$ra$$10553()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.services.FileServer$BASE_PREFIX1759, $heap, org.apache.log.Logger$org.apache.jmeter.services.FileServer$log1756, java.lang.String$org.apache.jmeter.services.FileServer$DEFAULT_BASE1757, org.apache.jmeter.services.FileServer$org.apache.jmeter.services.FileServer$server1762;
+  modifies org.apache.jmeter.services.FileServer$org.apache.jmeter.services.FileServer$server1762, java.lang.String$org.apache.jmeter.services.FileServer$BASE_PREFIX1759, org.apache.log.Logger$org.apache.jmeter.services.FileServer$log1756, $heap, java.lang.String$org.apache.jmeter.services.FileServer$DEFAULT_BASE1757;
 
 procedure boolean$java.awt.event.InputEvent$isShiftDown$4908($this : ref)  returns ($return : int, $exception : ref)
 
@@ -9113,13 +9113,13 @@ procedure void$org.apache.jmeter.reporters.ResultCollector$flushFileOutput$10912
   modifies $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.control.gui.WorkBenchGui$createPopupMenu$9618($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.util.SlowOutputStream$$la$init$ra$$19757($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.TestCompiler$$la$clinit$ra$$8950()  returns ($exception : ref)
-  modifies boolean$org.apache.jmeter.threads.TestCompiler$IS_USE_STATIC_SET0, org.apache.log.Logger$org.apache.jmeter.threads.TestCompiler$LOG1492, java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494;
+  modifies org.apache.log.Logger$org.apache.jmeter.threads.TestCompiler$LOG1492, java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494, boolean$org.apache.jmeter.threads.TestCompiler$IS_USE_STATIC_SET0;
 
 procedure void$org.apache.jmeter.control.gui.TransactionControllerGui$init$9576($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -9139,7 +9139,7 @@ procedure int$org.apache.jmeter.gui.util.MenuFactory$samplers_size$5591()  retur
 procedure java.lang.Object$javax.swing.tree.DefaultTreeModel$getRoot$9686($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.util.PropertiesBasedPrefixResolver$$la$clinit$ra$$19671()  returns ($exception : ref)
-  modifies $heap, java.util.Map$org.apache.jmeter.util.PropertiesBasedPrefixResolver$NAMESPACE_MAP3808, org.apache.log.Logger$org.apache.jmeter.util.PropertiesBasedPrefixResolver$logger3806;
+  modifies java.util.Map$org.apache.jmeter.util.PropertiesBasedPrefixResolver$NAMESPACE_MAP3808, org.apache.log.Logger$org.apache.jmeter.util.PropertiesBasedPrefixResolver$logger3806, $heap;
 
 procedure void$org.apache.jmeter.engine.TurnElementsOn$addNode$10501($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -9175,12 +9175,12 @@ procedure org.apache.jmeter.samplers.Sampler$org.apache.jmeter.control.IfControl
   modifies $heap;
 
 procedure org.apache.jmeter.util.keystore.JmeterKeyStore$org.apache.jmeter.util.keystore.JmeterKeyStore$getInstance$14767($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$java.lang.IllegalStateException$$la$init$ra$$10497($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure org.apache.jmeter.util.keystore.JmeterKeyStore$org.apache.jmeter.util.keystore.JmeterKeyStore$getInstance$14766($in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure java.lang.Class$java.lang.Class$forName$447($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -9215,7 +9215,7 @@ procedure boolean$org.apache.jmeter.control.TransactionSampler$isTransactionDone
 procedure long$org.apache.jmeter.visualizers.RunningSample$getAverage$16442($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.threads.JMeterThread$triggerEndOfLoopOnParentControllers$9223($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540;
 
 procedure java.awt.Image$java.beans.BeanInfo$getIcon$14911($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -9306,7 +9306,7 @@ procedure void$org.apache.jmeter.testelement.TestPlan$testEnded$9502($this : ref
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.CheckDirty$$la$init$ra$$13743($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$java.lang.Boolean$booleanValue$853($this : ref)  returns ($return : int, $exception : ref)
 
@@ -9337,7 +9337,7 @@ procedure void$org.apache.jmeter.testelement.property.LongProperty$recoverRunnin
   modifies $heap;
 
 procedure void$org.apache.jmeter.testbeans.gui.TestBeanGUI$$la$clinit$ra$$14903()  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.testbeans.gui.TestBeanGUI$log2804, $arrSizeHeap;
+  modifies org.apache.log.Logger$org.apache.jmeter.testbeans.gui.TestBeanGUI$log2804, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.control.RunTime$resetLoopCount$9441($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -9354,7 +9354,7 @@ procedure double$org.apache.jmeter.visualizers.Sample$getThroughput$20158($this 
 procedure java.lang.Object$org.apache.jorphan.collections.Data$getColumnValue$20337($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$TextBoxDoubleClick$mouseClicked$15808($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035;
+  modifies javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035, $heap;
 
 procedure void$java.rmi.server.Operation$$la$init$ra$$10642($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -9387,12 +9387,12 @@ procedure void$java.text.DecimalFormat$setMinimumFractionDigits$16416($this : re
 procedure int$org.apache.jmeter.visualizers.Sample$hashCode$20161($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.save.converters.SampleResultConverter$marshal$17732($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.io.File$javax.swing.JFileChooser$getCurrentDirectory$12893($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure org.apache.jmeter.testelement.TestElement$org.apache.jmeter.reporters.gui.SummariserGui$createTestElement$16918($this : ref)  returns ($return : ref, $exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840;
 
 procedure void$org.apache.jmeter.gui.OnErrorPanel$init$15262($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -9406,7 +9406,7 @@ procedure java.util.Collection$org.apache.jmeter.gui.JMeterGUIComponent$getMenuC
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$1$run$12663($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure long$org.apache.jmeter.reporters.ResultSaver$nextNumber$16894($this : ref)  returns ($return : int, $exception : ref)
   modifies long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0;
@@ -9446,7 +9446,7 @@ procedure void$org.apache.jmeter.samplers.SampleSaveConfiguration$setResponseDat
   modifies $heap;
 
 procedure void$org.apache.jmeter.config.gui.SimpleConfigGui$configure$8683($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.w3c.tidy.Tidy$$la$init$ra$$20518($this : ref)  returns ($exception : ref)
 
@@ -9476,13 +9476,13 @@ procedure void$org.apache.jmeter.threads.JMeterThread$setThreadNum$9246($this : 
   modifies $heap;
 
 procedure void$org.apache.jmeter.functions.gui.FunctionHelper$initializeFunctionList$11641($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.services.FileServer$setBaseForScript$10527($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.CollapseExpand$$la$clinit$ra$$13764()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.CollapseExpand$commands2468;
+  modifies java.util.Set$org.apache.jmeter.gui.action.CollapseExpand$commands2468, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$setStopTest$1961($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -9494,7 +9494,7 @@ procedure boolean$org.apache.jmeter.gui.tree.JMeterTreeNode$isEnabled$5810($this
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.JSR223BeanInfoSupport$$la$clinit$ra$$19346()  returns ($exception : ref)
-  modifies java.lang.String$lp$$rp$$org.apache.jmeter.util.JSR223BeanInfoSupport$LANGUAGE_TAGS3753, java.util.ResourceBundle$org.apache.jmeter.util.JSR223BeanInfoSupport$NAME_BUNDLE3755, java.lang.String$lp$$rp$$lp$$rp$$org.apache.jmeter.util.JSR223BeanInfoSupport$LANGUAGE_NAMES3754, $heap, $refArrHeap, $arrSizeHeap;
+  modifies java.lang.String$lp$$rp$$lp$$rp$$org.apache.jmeter.util.JSR223BeanInfoSupport$LANGUAGE_NAMES3754, java.util.ResourceBundle$org.apache.jmeter.util.JSR223BeanInfoSupport$NAME_BUNDLE3755, $refArrHeap, java.lang.String$lp$$rp$$org.apache.jmeter.util.JSR223BeanInfoSupport$LANGUAGE_TAGS3753, $arrSizeHeap, $heap;
 
 procedure java.lang.Class$java.lang.ClassLoader$loadClass$1207($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -9504,7 +9504,7 @@ procedure org.apache.jmeter.gui.JMeterGUIComponent$org.apache.jmeter.gui.GuiPack
 procedure java.lang.Class$com.thoughtworks.xstream.mapper.MapperWrapper$realClass$20433($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SaveGraphics$saveImage$14593($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352, $stringSizeHeap, $heap, $refArrHeap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352;
 
 procedure long$org.apache.jmeter.testelement.property.JMeterProperty$getLongValue$5267($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -9522,7 +9522,7 @@ procedure void$org.apache.jmeter.visualizers.Visualizer$add$10958($this : ref, $
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$waitThreadsStopped$11306($this : ref)  returns ($exception : ref)
-  modifies $heap, long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0;
+  modifies long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0, $heap;
 
 procedure void$org.apache.jmeter.gui.action.Duplicate$$la$init$ra$$13799($this : ref)  returns ($exception : ref)
 
@@ -9538,18 +9538,18 @@ procedure java.lang.String$java.awt.Component$getName$2707($this : ref)  returns
 procedure void$org.apache.jmeter.gui.util.FileListPanel$clearFiles$9469($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.reporters.Summariser$testEnded$10937($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.io.PrintStream$java.lang.System$out1637, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, int$org.apache.jmeter.reporters.Summariser$instanceCount0, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, $heap, java.io.PrintStream$java.lang.System$out1637, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0;
 
 procedure boolean$java.util.Collection$add$575($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.reporters.Summariser$testEnded$10935($this : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.io.PrintStream$java.lang.System$out1637, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, int$org.apache.jmeter.reporters.Summariser$instanceCount0, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, $heap, java.io.PrintStream$java.lang.System$out1637, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0;
 
 procedure boolean$java.net.Socket$getReuseAddress$18731($this : ref)  returns ($return : int, $exception : ref)
 
 procedure java.util.Collection$org.apache.jmeter.config.gui.ArgumentsPanel$getMenuCategories$6017($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure java.util.Map$org.apache.jmeter.config.Arguments$getArgumentsAsMap$5385($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -9579,7 +9579,7 @@ procedure void$org.apache.jmeter.control.gui.TestFragmentControllerGui$init$9449
 procedure boolean$org.apache.jmeter.util.SlowSSLSocket$getKeepAlive$19067($this : ref)  returns ($return : int, $exception : ref)
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$getSupportedCipherSuites$19015($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure javax.swing.tree.TreeNode$lp$$rp$$javax.swing.tree.DefaultTreeModel$getPathToRoot$9701($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -9614,7 +9614,7 @@ procedure boolean$org.apache.jmeter.testelement.TestElement$isTemporary$3179($th
 procedure java.util.Properties$org.apache.jmeter.save.SaveService$loadProperties$13964()  returns ($return : ref, $exception : ref)
 
 procedure org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$getInstance$11673()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure javax.net.ssl.TrustManager$lp$$rp$$javax.net.ssl.TrustManagerFactory$getTrustManagers$19500($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -9646,10 +9646,10 @@ procedure void$org.apache.jmeter.testelement.property.IntegerProperty$$la$init$r
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Remove$doAction$14554($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.action.Load$loadProjectFile$13936($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$org.apache.jmeter.testbeans.gui.WrapperEditor$fixGetAsTextBug$18213($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -9658,12 +9658,12 @@ procedure void$java.io.BufferedWriter$$la$init$ra$$10557($this : ref, $in_parame
 procedure java.util.Map$org.apache.jmeter.engine.util.AbstractTransformer$getVariables$11526($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Load$loadProjectFile$13937($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : int)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$java.lang.String$toUpperCase$121($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.JMeter$waitForSignals$11107($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerWrapper$$la$init$ra$$10798($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -9681,7 +9681,7 @@ procedure void$org.apache.jmeter.testelement.property.IntegerProperty$$la$init$r
   modifies $heap;
 
 procedure java.util.List$org.apache.jmeter.gui.action.LoadRecentProject$getRecentFileMenuItems$14068()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.util.ScopePanel$$la$init$ra$$3042($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -9698,7 +9698,7 @@ procedure java.lang.String$org.apache.jmeter.testelement.property.FunctionProper
 procedure void$javax.swing.JTextField$addActionListener$7456($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$$la$clinit$ra$$18662()  returns ($exception : ref)
-  modifies java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$array$Ljava$lang$Object3666, boolean$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$useNewInvoke0, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$java$lang$reflect$Method3665, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$java$rmi$Remote3664, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$org$apache$jmeter$threads$RemoteThreadsListener3667, $refArrHeap, java.lang.reflect.Method$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$$method_threadStarted_13662, java.lang.reflect.Method$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$$method_threadFinished_03661, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$java$rmi$server$RemoteRef3663, $arrSizeHeap, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$operations3660;
+  modifies java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$org$apache$jmeter$threads$RemoteThreadsListener3667, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$array$Ljava$lang$Object3666, $refArrHeap, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$java$rmi$server$RemoteRef3663, boolean$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$useNewInvoke0, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$java$lang$reflect$Method3665, $arrSizeHeap, java.lang.reflect.Method$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$$method_threadFinished_03661, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$operations3660, java.lang.reflect.Method$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$$method_threadStarted_13662, java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Stub$class$java$rmi$Remote3664;
 
 procedure int$javax.swing.tree.DefaultTreeModel$getChildCount$9689($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -9736,14 +9736,14 @@ procedure java.io.File$org.apache.jmeter.samplers.DiskStoreSampleSender$access$2
 procedure boolean$org.apache.jmeter.save.converters.HashTreeConverter$canConvert$17706($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl$rconfigure$10967($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, org.apache.log.Logger$org.apache.jmeter.engine.RemoteJMeterEngineImpl$log1849;
+  modifies org.apache.log.Logger$org.apache.jmeter.engine.RemoteJMeterEngineImpl$log1849, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535;
 
 procedure void$org.apache.jmeter.util.BSFJavaScriptEngine$declareBean$18823($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure boolean$java.util.HashSet$remove$9856($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$TextBoxDoubleClickPressed$mousePressed$15819($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035;
+  modifies javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035, $heap;
 
 procedure java.beans.Customizer$org.apache.jmeter.testbeans.gui.TestBeanGUI$createCustomizer$14885($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -9825,9 +9825,9 @@ procedure void$org.apache.jmeter.samplers.SampleResult$setMonitor$1982($this : r
 procedure void$java.rmi.UnmarshalException$$la$init$ra$$11051($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure java.lang.Object$java.lang.Object$clone$43($this : ref)  returns ($other : ref)
+ensures ($other != $null);
 ensures (select($heap, , $other, $type) == select($heap, , $this, $type));
 ensures (select($heap, , $other, $alloc) == true);
-ensures ($other != $null);
 
 procedure int$org.apache.jmeter.testbeans.BeanInfoSupport$getDefaultPropertyIndex$18145($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -9842,7 +9842,7 @@ procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl$$la$init$ra$$
 procedure java.util.Set$org.apache.jmeter.gui.action.Cut$getActionNames$13796($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.save.converters.SampleResultConverter$saveAssertions$17738($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$equals$2024($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -9888,7 +9888,7 @@ procedure java.lang.String$org.apache.jmeter.save.converters.SampleEventConverte
 procedure void$javax.swing.JComponent$revalidate$2515($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SearchTreeCommand$$la$clinit$ra$$14685()  returns ($exception : ref)
-  modifies java.util.Set$org.apache.jmeter.gui.action.SearchTreeCommand$commands2714, $heap;
+  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.SearchTreeCommand$commands2714;
 
 procedure boolean$javax.swing.JTree$isExpanded$12484($this : ref, $in_parameter__0 : int)  returns ($return : int, $exception : ref)
 
@@ -9917,7 +9917,7 @@ procedure void$org.apache.jmeter.threads.JMeterThread$notifyTestListeners$9240($
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.BatchSampleSender$$la$clinit$ra$$17230()  returns ($exception : ref)
-  modifies long$org.apache.jmeter.samplers.BatchSampleSender$TIME_THRESHOLD_MS0, org.apache.log.Logger$org.apache.jmeter.samplers.BatchSampleSender$log3334, int$org.apache.jmeter.samplers.BatchSampleSender$NUM_SAMPLES_THRESHOLD0;
+  modifies org.apache.log.Logger$org.apache.jmeter.samplers.BatchSampleSender$log3334, int$org.apache.jmeter.samplers.BatchSampleSender$NUM_SAMPLES_THRESHOLD0, long$org.apache.jmeter.samplers.BatchSampleSender$TIME_THRESHOLD_MS0;
 
 procedure void$org.apache.jmeter.gui.action.ChangeParent$changeParent$13025($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -9963,7 +9963,7 @@ procedure java.util.Collection$org.apache.jmeter.testelement.property.AbstractPr
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$processBatch$17578($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.control.gui.TransactionControllerGui$getLabelResource$9575($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -9973,7 +9973,7 @@ procedure java.lang.Object$org.apache.jmeter.testelement.property.StringProperty
 procedure void$javax.swing.ImageIcon$setDescription$6952($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.SavePropertyDialog$$la$init$ra$$15272($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.engine.ClientJMeterEngine$$la$init$ra$$10441($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10021,7 +10021,7 @@ procedure void$java.util.Locale$setDefault$2233($in_parameter__0 : ref)  returns
 procedure java.lang.Object$org.apache.jmeter.testelement.property.DoubleProperty$getObjectValue$18498($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.util.Collection$org.apache.jmeter.visualizers.gui.AbstractListenerGui$getMenuCategories$16893($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.gui.action.StopStoppables$doAction$14850($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10086,7 +10086,7 @@ procedure boolean$java.util.AbstractCollection$isEmpty$5030($this : ref)  return
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerTestElement$threadFinished$10790($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$$la$clinit$ra$$19016()  returns ($exception : ref)
-  modifies java.lang.String$lp$$rp$$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$protocols3709, java.lang.String$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$protocolList3708, org.apache.log.Logger$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$log3706;
+  modifies org.apache.log.Logger$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$log3706, java.lang.String$lp$$rp$$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$protocols3709, java.lang.String$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$protocolList3708;
 
 procedure int$org.apache.jmeter.gui.util.MenuFactory$elementsToSkip_size$5593()  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -10098,7 +10098,7 @@ procedure void$org.w3c.tidy.Tidy$setOutputEncoding$20520($this : ref, $in_parame
 procedure void$javax.swing.JFrame$setDefaultCloseOperation$8548($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$testEnded$10895($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.io.PrintStream$java.lang.System$out1637, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, int$org.apache.jmeter.reporters.Summariser$instanceCount0, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, $heap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, java.io.PrintStream$java.lang.System$out1637, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834;
 
 procedure long$org.apache.jmeter.testelement.property.LongProperty$getLongValue$9736($this : ref)  returns ($return : int, $exception : ref)
 
@@ -10110,7 +10110,7 @@ procedure void$org.apache.jmeter.testelement.OnErrorTestElement$setErrorAction$1
   modifies $heap;
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$testEnded$10897($this : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.io.PrintStream$java.lang.System$out1637, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, int$org.apache.jmeter.reporters.Summariser$instanceCount0, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, $heap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, java.io.PrintStream$java.lang.System$out1637, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834;
 
 procedure void$org.apache.jmeter.testbeans.gui.TextAreaEditor$focusLost$18396($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -10151,7 +10151,7 @@ procedure void$org.apache.jmeter.testelement.property.MapProperty$$la$init$ra$$5
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.StatisticalSampleSender$sampleOccurred$17598($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, org.apache.log.Logger$org.apache.jmeter.samplers.StatisticalSampleSender$log3431, $arrSizeHeap;
+  modifies org.apache.log.Logger$org.apache.jmeter.samplers.StatisticalSampleSender$log3431, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure org.w3c.dom.Node$org.w3c.dom.Node$getFirstChild$19678($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -10180,7 +10180,7 @@ procedure boolean$java.util.Set$contains$235($this : ref, $in_parameter__0 : ref
   modifies $heap;
 
 procedure java.util.Properties$org.apache.jmeter.util.JMeterUtils$getProperties$6337($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005;
+  modifies boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, java.util.Properties$org.apache.jmeter.util.JMeterUtils$appProperties1005;
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$addFilename$9468($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -10246,7 +10246,7 @@ procedure void$org.apache.jmeter.gui.AbstractJMeterGuiComponent$$la$clinit$ra$$2
   modifies org.apache.log.Logger$org.apache.jmeter.gui.AbstractJMeterGuiComponent$log361;
 
 procedure void$org.apache.jmeter.gui.util.MenuFactory$addEditMenu$5555($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$org.apache.jmeter.save.converters.SampleSaveConfigurationConverter$MyWrapper$shouldSerializeMember$17762($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : int, $exception : ref)
 
@@ -10272,7 +10272,7 @@ procedure java.lang.String$java.lang.String$substring$107($this : ref, $in_param
 procedure java.lang.String$java.lang.String$substring$108($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$$la$init$ra$$18169($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$java.io.File$getCanonicalPath$7072($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -10354,7 +10354,7 @@ procedure java.beans.PropertyDescriptor$lp$$rp$$java.beans.BeanInfo$getPropertyD
 procedure java.awt.Container$javax.swing.JDialog$getContentPane$6761($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.JMeter$2$run$16189($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jorphan.gui.JLabeledTextField$setText$20264($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -10395,7 +10395,7 @@ procedure java.util.List$org.apache.jmeter.gui.tree.JMeterTreeNode$getPathToThre
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$$la$init$ra$$15809($this : ref)  returns ($exception : ref)
-  modifies $heap, javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035;
+  modifies javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035, $heap;
 
 procedure java.awt.Component$org.apache.jmeter.testbeans.gui.ComboStringEditor$getCustomEditor$18287($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -10408,13 +10408,13 @@ procedure void$org.apache.jmeter.testelement.TestElement$setThreadContext$3201($
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$$la$init$ra$$15810($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035;
+  modifies javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035, $heap;
 
 procedure java.lang.Object$java.util.Queue$poll$8934($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$$la$init$ra$$15811($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies $heap, javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035;
+  modifies javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035, $heap;
 
 procedure void$org.apache.jmeter.save.converters.SampleSaveConfigurationConverter$$la$clinit$ra$$17769()  returns ($exception : ref)
   modifies com.thoughtworks.xstream.converters.reflection.ReflectionProvider$org.apache.jmeter.save.converters.SampleSaveConfigurationConverter$rp3488;
@@ -10459,7 +10459,7 @@ procedure void$org.apache.jmeter.reporters.gui.ResultActionGui$init$16867($this 
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.RevertProject$doAction$14563($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.UndoHistory$saveTreeState$12350($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10486,7 +10486,7 @@ procedure void$javax.swing.DefaultButtonModel$setEnabled$15867($this : ref, $in_
 procedure void$org.apache.jmeter.config.gui.RowDetailDialog$1$actionPerformed$8503($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$access$200$11312($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure org.apache.jmeter.testelement.TestElement$org.apache.jmeter.control.gui.TransactionControllerGui$createTestElement$9572($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -10516,7 +10516,7 @@ procedure void$java.util.concurrent.ConcurrentHashMap$$la$init$ra$$8961($this : 
 procedure void$org.apache.jmeter.threads.TestCompiler$processPath$8945($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.threads.JMeterThread$rampUpDelay$9243($this : ref)  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0;
 
 procedure void$org.apache.jmeter.gui.GuiPackage$registerAsListener$12076($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10529,7 +10529,7 @@ procedure java.util.Collection$java.util.Map$values$1166($this : ref)  returns (
 procedure org.apache.oro.text.regex.MatchResult$org.apache.oro.text.regex.Perl5Matcher$getMatch$20406($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure org.apache.jmeter.samplers.SampleResult$lp$$rp$$org.apache.jmeter.samplers.SampleResult$getSubResults$1938($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.StandardSampleSender$sampleOccurred$17605($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10538,7 +10538,7 @@ procedure java.lang.Class$org.apache.jmeter.engine.util.CompoundVariable$getFunc
   modifies $heap;
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.util.JMeterUtils$getTestSamples$6369($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$javax.swing.JMenu$setPopupMenuVisible$5747($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -10557,7 +10557,7 @@ procedure java.util.Hashtable$org.apache.jmeter.util.JMeterUtils$getHashtable$63
 procedure java.lang.String$org.apache.jmeter.testelement.property.TestElementProperty$getStringValue$5472($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$testStarted$17585($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$testStarted$17584($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10569,7 +10569,7 @@ procedure void$org.apache.jmeter.threads.ThreadGroup$setEndTime$11289($this : re
   modifies $heap;
 
 procedure javax.swing.JButton$org.apache.jmeter.gui.util.JMeterToolBar$makeButtonItemRes$12568($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.commons.cli.avalon.CLArgsParser$$la$init$ra$$20340($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -10587,7 +10587,7 @@ procedure java.lang.String$org.apache.jmeter.gui.AbstractJMeterGuiComponent$getD
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.JMeterThread$notifyListeners$9241($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure javax.swing.tree.TreePath$javax.swing.JTree$getPathForRow$12493($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
 
@@ -10605,7 +10605,7 @@ procedure javax.script.CompiledScript$javax.script.Compilable$compile$19418($thi
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.MenuFactory$addUndoItems$5559($in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.threads.TestCompiler$saveSamplerConfigs$8946($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10625,7 +10625,7 @@ procedure void$java.lang.Error$$la$init$ra$$6($this : ref)  returns ($exception 
 procedure void$org.apache.jmeter.util.XPathUtil$MyErrorHandler$fatalError$19953($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$preActionPerformed$11670($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.CollectionProperty$remove$5309($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -10737,7 +10737,7 @@ procedure void$org.apache.jmeter.save.converters.SampleResultConverter$saveReque
 procedure void$org.apache.jmeter.gui.util.MenuFactory$$la$init$ra$$5554($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.functions.gui.FunctionHelper$$la$init$ra$$11638($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.threads.JMeterContext$org.apache.jmeter.threads.JMeterContextService$getContext$9808()  returns ($return : ref, $exception : ref)
 
@@ -10764,10 +10764,10 @@ procedure void$org.apache.jmeter.testbeans.gui.ComboStringEditor$startEditing$18
 procedure java.text.DateFormat$org.apache.jmeter.samplers.SampleSaveConfiguration$formatter$2078($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.threads.JMeterThread$run$9222($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, $arrSizeHeap, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
+  modifies $refArrHeap, $arrSizeHeap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
 
 procedure void$org.apache.jmeter.threads.JMeterContextService$$la$clinit$ra$$9821()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$totalThreads0, java.lang.ThreadLocal$org.apache.jmeter.threads.JMeterContextService$threadContext1652, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, long$org.apache.jmeter.threads.JMeterContextService$testStart0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
+  modifies long$org.apache.jmeter.threads.JMeterContextService$testStart0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, java.lang.ThreadLocal$org.apache.jmeter.threads.JMeterContextService$threadContext1652, int$org.apache.jmeter.threads.JMeterContextService$totalThreads0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
 
 procedure org.apache.jmeter.testelement.TestElement$org.apache.jmeter.reporters.gui.ResultSaverGui$createTestElement$16884($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -10824,18 +10824,18 @@ procedure java.beans.PropertyEditor$org.apache.jmeter.testbeans.gui.TypeEditor$1
   modifies $stringSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.LoggerPanel$$la$clinit$ra$$12338()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.gui.LoggerPanel$LOGGER_PANEL_MAX_LENGTH0, boolean$org.apache.jmeter.gui.LoggerPanel$LOGGER_PANEL_RECEIVE_WHEN_CLOSED0;
+  modifies boolean$org.apache.jmeter.gui.LoggerPanel$LOGGER_PANEL_RECEIVE_WHEN_CLOSED0, int$org.apache.jmeter.gui.LoggerPanel$LOGGER_PANEL_MAX_LENGTH0;
 
 procedure void$org.apache.jmeter.config.gui.SimpleConfigGui$init$8686($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.JMeter$ListenToTest$run$16298($this : ref)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$SECONDS1914;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$SECONDS1914, $heap;
 
 procedure java.lang.Throwable$org.mozilla.javascript.WrappedException$getWrappedException$20484($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.TestBeanGUI$configure$14891($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$getInstance$12075()  returns ($return : ref, $exception : ref)
 
@@ -10843,7 +10843,7 @@ procedure void$org.apache.jmeter.threads.ThreadGroup$setRampUp$11291($this : ref
   modifies $heap;
 
 procedure org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$getInstance$12077($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$guiPack2069;
+  modifies org.apache.jmeter.gui.GuiPackage$org.apache.jmeter.gui.GuiPackage$guiPack2069, $heap;
 
 procedure void$org.apache.jmeter.testelement.TestElement$removeProperty$3197($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -10937,7 +10937,7 @@ procedure void$java.lang.Runtime$addShutdownHook$17020($this : ref, $in_paramete
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveUrl$2064($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.ClientJMeterEngine$runTest$10445($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$totalThreads0, java.lang.Object$org.apache.jmeter.engine.ClientJMeterEngine$LOCK1743, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, long$org.apache.jmeter.threads.JMeterContextService$testStart0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0, org.apache.log.Logger$org.apache.jmeter.engine.ClientJMeterEngine$log1742;
+  modifies $stringSizeHeap, java.lang.Object$org.apache.jmeter.engine.ClientJMeterEngine$LOCK1743, long$org.apache.jmeter.threads.JMeterContextService$testStart0, org.apache.log.Logger$org.apache.jmeter.engine.ClientJMeterEngine$log1742, $heap, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, int$org.apache.jmeter.threads.JMeterContextService$totalThreads0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
 
 procedure void$org.apache.jmeter.gui.action.ChangeParent$$la$init$ra$$13022($this : ref)  returns ($exception : ref)
 
@@ -10978,7 +10978,7 @@ procedure org.apache.jmeter.testelement.property.JMeterProperty$org.apache.jmete
   modifies $heap;
 
 procedure javax.net.ssl.SSLContext$org.apache.jmeter.util.JsseSSLManager$createContext$19037($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure javax.swing.UIDefaults$javax.swing.UIManager$getLookAndFeelDefaults$14185()  returns ($return : ref, $exception : ref)
 
@@ -11047,13 +11047,13 @@ procedure void$org.apache.jmeter.samplers.SampleResult$setEndTime$1975($this : r
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Save$$la$clinit$ra$$14570()  returns ($exception : ref)
-  modifies java.util.Set$org.apache.jmeter.gui.action.Save$commands2699, $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.Save$log2697;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.Save$log2697, java.util.Set$org.apache.jmeter.gui.action.Save$commands2699, $heap;
 
 procedure java.lang.String$org.apache.jmeter.testelement.property.JMeterProperty$getName$5261($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
 
 procedure org.apache.jmeter.DynamicClassLoader$org.apache.jmeter.NewDriver$2$run$16455($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.keystore.JmeterKeyStore$$la$clinit$ra$$14770()  returns ($exception : ref)
   modifies org.apache.log.Logger$org.apache.jmeter.util.keystore.JmeterKeyStore$LOG2768;
@@ -11080,7 +11080,7 @@ procedure int$org.apache.jmeter.gui.GuiPackage$getTestElementCheckSum$12124($thi
   modifies $heap;
 
 procedure java.util.LinkedList$org.apache.jmeter.engine.util.FunctionParser$parseParams$11531($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$javax.swing.JOptionPane$showMessageDialog$6511($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : int)  returns ($exception : ref)
 
@@ -11114,7 +11114,7 @@ procedure org.apache.jmeter.testelement.property.AbstractProperty$org.apache.jme
   modifies $heap;
 
 procedure java.lang.Object$org.apache.jmeter.testbeans.TestBeanHelper$unwrapProperty$11209($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$java.lang.Thread$$la$init$ra$$1792($this : ref)  returns ($exception : ref)
 
@@ -11163,7 +11163,7 @@ procedure void$org.apache.jmeter.samplers.SampleResult$setEncodingAndType$1950($
 procedure boolean$org.apache.jmeter.save.converters.TestElementPropertyConverter$canConvert$17782($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure javax.swing.JMenu$org.apache.jmeter.gui.util.JMeterMenuBar$makeLanguageMenu$12384()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$java.awt.event.KeyAdapter$$la$init$ra$$15611($this : ref)  returns ($exception : ref)
 
@@ -11230,7 +11230,7 @@ procedure void$org.apache.jmeter.samplers.SampleResult$latencyEnd$1991($this : r
   modifies $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.control.gui.AbstractControllerGui$createPopupMenu$9326($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure org.apache.jorphan.collections.Data$org.apache.jmeter.gui.util.PowerTableModel$getData$8697($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -11238,7 +11238,7 @@ procedure void$org.apache.jmeter.testelement.AbstractTestElement$setTemporary$48
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.tree.JMeterTreeTransferHandler$$la$init$ra$$15158($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.engine.util.ReplaceStringWithFunctions$setMasterFunction$11609($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -11250,10 +11250,10 @@ procedure org.apache.jorphan.collections.ListedHashTree$org.apache.jmeter.engine
 procedure java.lang.Throwable$java.rmi.RemoteException$getCause$10461($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$makeSearchMenu$12388($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$$la$clinit$ra$$9211()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.engine.StandardJMeterEngine$log1534, boolean$org.apache.jmeter.engine.StandardJMeterEngine$exitAfterTest0, boolean$org.apache.jmeter.engine.StandardJMeterEngine$SYSTEM_EXIT_ON_STOP_FAIL0, boolean$org.apache.jmeter.engine.StandardJMeterEngine$startListenersLater0, boolean$org.apache.jmeter.engine.StandardJMeterEngine$REMOTE_SYSTEM_EXIT0, boolean$org.apache.jmeter.engine.StandardJMeterEngine$SYSTEM_EXIT_FORCED0, java.util.List$org.apache.jmeter.engine.StandardJMeterEngine$testList1536;
+  modifies boolean$org.apache.jmeter.engine.StandardJMeterEngine$REMOTE_SYSTEM_EXIT0, boolean$org.apache.jmeter.engine.StandardJMeterEngine$SYSTEM_EXIT_FORCED0, org.apache.log.Logger$org.apache.jmeter.engine.StandardJMeterEngine$log1534, java.util.List$org.apache.jmeter.engine.StandardJMeterEngine$testList1536, boolean$org.apache.jmeter.engine.StandardJMeterEngine$startListenersLater0, boolean$org.apache.jmeter.engine.StandardJMeterEngine$SYSTEM_EXIT_ON_STOP_FAIL0, boolean$org.apache.jmeter.engine.StandardJMeterEngine$exitAfterTest0;
 
 procedure void$org.apache.jmeter.control.gui.WhileControllerGui$clearGui$9600($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -11286,7 +11286,7 @@ procedure boolean$org.apache.jmeter.gui.util.TextAreaTableCellEditor$EditorDeleg
 procedure java.lang.String$java.util.ResourceBundle$getString$6872($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Close$$la$clinit$ra$$13760()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.Close$commands2467;
+  modifies java.util.Set$org.apache.jmeter.gui.action.Close$commands2467, $heap;
 
 procedure void$org.apache.jmeter.engine.JMeterEngine$exit$9314($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -11333,7 +11333,7 @@ procedure int$org.apache.jmeter.control.LoopController$getLoops$9404($this : ref
   modifies $heap;
 
 procedure void$org.apache.jmeter.control.TransactionController$$la$clinit$ra$$9031()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.control.TransactionController$TRUE1516, org.apache.log.Logger$org.apache.jmeter.control.TransactionController$log1519;
+  modifies org.apache.log.Logger$org.apache.jmeter.control.TransactionController$log1519, java.lang.String$org.apache.jmeter.control.TransactionController$TRUE1516;
 
 procedure void$java.awt.Window$setLocation$4593($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($exception : ref)
 
@@ -11344,7 +11344,7 @@ procedure long$org.apache.jmeter.samplers.SampleResult$currentTimeInMillis$1915(
 procedure void$java.util.Hashtable$$la$init$ra$$3288($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$la$clinit$ra$$17574()  returns ($exception : ref)
-  modifies java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_sampleStopped_33418, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$lang$reflect$Method3425, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$rmi$Remote3424, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_processBatch_03415, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$org$apache$jmeter$samplers$RemoteSampleListener3427, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testEnded_43419, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$org$apache$jmeter$samplers$SampleEvent3429, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$array$Ljava$lang$Object3426, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_sampleOccurred_13416, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_sampleStarted_23417, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testStarted_73422, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$util$List3428, $refArrHeap, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$rmi$server$RemoteRef3423, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$operations3414, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testEnded_53420, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$lang$String3430, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testStarted_63421, boolean$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$useNewInvoke0, $arrSizeHeap;
+  modifies java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testStarted_63421, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$org$apache$jmeter$samplers$RemoteSampleListener3427, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testStarted_73422, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$array$Ljava$lang$Object3426, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$rmi$server$RemoteRef3423, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$lang$reflect$Method3425, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_sampleStopped_33418, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_sampleStarted_23417, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$operations3414, $refArrHeap, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$rmi$Remote3424, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_sampleOccurred_13416, boolean$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$useNewInvoke0, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$org$apache$jmeter$samplers$SampleEvent3429, $arrSizeHeap, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_processBatch_03415, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$util$List3428, java.lang.Class$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$class$java$lang$String3430, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testEnded_43419, java.lang.reflect.Method$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$method_testEnded_53420;
 
 procedure void$org.apache.jmeter.gui.action.SSLManagerCommand$$la$clinit$ra$$14742()  returns ($exception : ref)
   modifies java.util.Set$org.apache.jmeter.gui.action.SSLManagerCommand$commandSet2755;
@@ -11393,7 +11393,7 @@ procedure java.beans.PropertyEditor$org.apache.jmeter.testbeans.gui.TypeEditor$4
   modifies $heap;
 
 procedure java.util.Collection$org.apache.jmeter.control.gui.AbstractControllerGui$getMenuCategories$9327($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure boolean$org.apache.jmeter.engine.StandardJMeterEngine$verifyThreadsStopped$9192($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -11405,7 +11405,7 @@ procedure java.lang.Class$org.apache.jmeter.threads.RemoteThreadsListenerImpl_St
 procedure int$java.util.StringTokenizer$countTokens$14551($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.visualizers.gui.AbstractVisualizer$$la$clinit$ra$$20185()  returns ($exception : ref)
-  modifies $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.visualizers.gui.AbstractVisualizer$log3850, $refArrHeap, $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.visualizers.gui.AbstractVisualizer$EXTS3851;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.visualizers.gui.AbstractVisualizer$EXTS3851, org.apache.log.Logger$org.apache.jmeter.visualizers.gui.AbstractVisualizer$log3850;
 
 procedure void$org.apache.jmeter.config.gui.RowDetailDialog$init$6410($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -11507,7 +11507,7 @@ procedure javax.swing.border.Border$javax.swing.BorderFactory$createEtchedBorder
 procedure java.lang.reflect.Field$java.lang.Class$getDeclaredField$499($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.TableEditor$setDescriptor$18434($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $havoc0, $arrSizeHeap;
+  modifies $havoc0, $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$access$000$18184($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $stringSizeHeap;
@@ -11678,7 +11678,7 @@ procedure void$org.apache.jmeter.testelement.property.IntegerProperty$setNumberV
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$actionPerformed$9475($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerImpl_Skel$dispatch$18660($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : int)  returns ($exception : ref)
   modifies $heap, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
@@ -11749,12 +11749,12 @@ procedure java.lang.String$org.apache.jmeter.util.PropertiesBasedPrefixResolver$
   modifies $heap;
 
 procedure void$org.apache.jmeter.testbeans.gui.TableEditor$initializeModel$18435($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $havoc0, $arrSizeHeap;
+  modifies $havoc0, $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$com.thoughtworks.xstream.io.xml.DomDriver$$la$init$ra$$20285($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$LangMenuHelper$$la$init$ra$$15727($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$org.apache.jmeter.testbeans.gui.TableEditor$supportsCustomEditor$18433($this : ref)  returns ($return : int, $exception : ref)
 
@@ -11783,18 +11783,18 @@ procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$setTextBox$15816($this
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$$la$init$ra$$9464($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$$la$init$ra$$9463($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$$la$init$ra$$9462($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.TristateState$2$next$16183($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$$la$init$ra$$9461($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$setResponseOK$1926($this : ref)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -11816,7 +11816,7 @@ procedure boolean$java.util.Locale$equals$2269($this : ref, $in_parameter__0 : r
 procedure java.lang.String$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$getDetails$18171($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure javax.swing.JCheckBoxMenuItem$org.apache.jmeter.gui.util.JMeterMenuBar$makeCheckBoxMenuItemRes$12404($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.util.Locale$java.util.ResourceBundle$getLocale$6875($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -11824,7 +11824,7 @@ procedure void$java.rmi.registry.Registry$unbind$10649($this : ref, $in_paramete
   modifies $heap;
 
 procedure javax.swing.JCheckBoxMenuItem$org.apache.jmeter.gui.util.JMeterMenuBar$makeCheckBoxMenuItemRes$12405($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$setResponseHeaders$1967($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -11925,7 +11925,7 @@ procedure void$org.fife.ui.rsyntaxtextarea.RSyntaxTextArea$$la$init$ra$$20312($t
 procedure java.lang.String$java.net.Socket$toString$18735($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.awt.Component$org.apache.jmeter.config.gui.ArgumentsPanel$makeMainPanel$6042($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jorphan.util.JMeterError$toString$20269($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -11964,7 +11964,7 @@ procedure void$org.apache.jmeter.threads.JMeterThread$setInitialContext$9213($th
 procedure java.lang.String$org.apache.jmeter.testbeans.gui.TestBeanGUI$getDocAnchor$14902($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.config.gui.SimpleConfigGui$actionPerformed$8687($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.control.gui.TransactionControllerGui$$la$init$ra$$9571($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -11981,7 +11981,7 @@ procedure javax.swing.JRootPane$org.apache.jmeter.gui.action.SearchTreeDialog$cr
 procedure void$java.util.concurrent.ArrayBlockingQueue$$la$init$ra$$17195($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.ScriptingBeanInfoSupport$$la$init$ra$$18819($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.TextAreaTableCellEditor$1$setValue$15770($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $stringSizeHeap;
@@ -12007,7 +12007,7 @@ procedure void$org.apache.jmeter.testelement.property.BooleanProperty$recoverRun
 procedure void$javax.swing.JFrame$setIconImage$8562($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.ScriptingBeanInfoSupport$$la$init$ra$$18820($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.BSFTestElement$$la$init$ra$$18828($this : ref)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -12074,12 +12074,12 @@ procedure org.mozilla.javascript.Scriptable$org.mozilla.javascript.Context$initS
 procedure int$java.net.DatagramPacket$getLength$16224($this : ref)  returns ($return : int, $exception : ref)
 
 procedure boolean$org.apache.jmeter.gui.action.Load$insertLoadedTree$13938($in_parameter__0 : int, $in_parameter__1 : ref, $in_parameter__2 : int)  returns ($return : int, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$java.lang.String$trim$123($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure boolean$org.apache.jmeter.gui.action.Load$insertLoadedTree$13939($in_parameter__0 : int, $in_parameter__1 : ref)  returns ($return : int, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure int$org.apache.jmeter.gui.util.TextAreaCellRenderer$getPreferredHeight$15768($this : ref)  returns ($return : int, $exception : ref)
 
@@ -12102,7 +12102,7 @@ procedure java.security.cert.X509Certificate$lp$$rp$$org.apache.jmeter.util.keys
 procedure void$org.apache.jorphan.collections.Data$addColumnValue$20329($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure javax.swing.JLabel$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$createLabel$18179($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure java.lang.String$org.apache.xpath.objects.XObject$getTypeString$20529($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -12110,7 +12110,7 @@ procedure void$org.w3c.dom.Node$normalize$19690($this : ref)  returns ($exceptio
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.MainFrame$$la$clinit$ra$$12243()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.gui.MainFrame$DEFAULT_TITLE2090, boolean$org.apache.jmeter.gui.MainFrame$DISPLAY_TOOLBAR0, boolean$org.apache.jmeter.gui.MainFrame$DISPLAY_ERROR_FATAL_COUNTER0, boolean$org.apache.jmeter.gui.MainFrame$DISPLAY_LOGGER_PANEL0, org.apache.log.Logger$org.apache.jmeter.gui.MainFrame$log2091;
+  modifies boolean$org.apache.jmeter.gui.MainFrame$DISPLAY_LOGGER_PANEL0, org.apache.log.Logger$org.apache.jmeter.gui.MainFrame$log2091, boolean$org.apache.jmeter.gui.MainFrame$DISPLAY_ERROR_FATAL_COUNTER0, java.lang.String$org.apache.jmeter.gui.MainFrame$DEFAULT_TITLE2090, boolean$org.apache.jmeter.gui.MainFrame$DISPLAY_TOOLBAR0;
 
 procedure java.lang.Object$java.util.Map$Entry$getKey$5546($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -12133,14 +12133,14 @@ procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$moveUp$6032($this : r
   modifies $heap;
 
 procedure java.lang.Object$org.apache.jmeter.testbeans.TestBeanHelper$unwrapCollection$11210($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.bsf.BSFException$$la$init$ra$$20486($this : ref, $in_parameter__0 : int, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
 
 procedure javax.net.ssl.KeyManagerFactory$javax.net.ssl.KeyManagerFactory$getInstance$19519($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure org.apache.jmeter.gui.tree.JMeterTreeNode$lp$$rp$$org.apache.jmeter.gui.action.Copy$cloneTreeNodes$13772($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.ScopePanel$setScopeAll$3048($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -12152,7 +12152,7 @@ procedure void$org.apache.jmeter.threads.JMeterThread$ThreadListenerTraverser$ad
 procedure java.lang.Object$java.util.Properties$setProperty$6847($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.util.Document$$la$clinit$ra$$18963()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.util.Document$log3704, int$org.apache.jmeter.util.Document$MAX_DOCUMENT_SIZE0;
+  modifies int$org.apache.jmeter.util.Document$MAX_DOCUMENT_SIZE0, org.apache.log.Logger$org.apache.jmeter.util.Document$log3704;
 
 procedure int$org.apache.jmeter.testelement.property.FloatProperty$getIntValue$18523($this : ref)  returns ($return : int, $exception : ref)
 
@@ -12248,7 +12248,7 @@ procedure javax.swing.JPanel$org.apache.jmeter.reporters.gui.ResultSaverGui$crea
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Help$$la$clinit$ra$$11658()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.gui.action.Help$HELP_DOCS1976, $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.Help$log1974, java.util.Set$org.apache.jmeter.gui.action.Help$commands1975, org.apache.jmeter.swing.HtmlPane$org.apache.jmeter.gui.action.Help$helpDoc1980, javax.swing.JScrollPane$org.apache.jmeter.gui.action.Help$scroller1981, java.lang.String$org.apache.jmeter.gui.action.Help$HELP_FUNCTIONS1978, java.lang.String$org.apache.jmeter.gui.action.Help$HELP_PAGE1977;
+  modifies java.util.Set$org.apache.jmeter.gui.action.Help$commands1975, org.apache.jmeter.swing.HtmlPane$org.apache.jmeter.gui.action.Help$helpDoc1980, java.lang.String$org.apache.jmeter.gui.action.Help$HELP_PAGE1977, $heap, java.lang.String$org.apache.jmeter.gui.action.Help$HELP_DOCS1976, org.apache.log.Logger$org.apache.jmeter.gui.action.Help$log1974, javax.swing.JScrollPane$org.apache.jmeter.gui.action.Help$scroller1981, java.lang.String$org.apache.jmeter.gui.action.Help$HELP_FUNCTIONS1978;
 
 procedure int$javax.swing.tree.DefaultMutableTreeNode$getLevel$5959($this : ref)  returns ($return : int, $exception : ref)
 
@@ -12273,7 +12273,7 @@ procedure void$org.apache.jmeter.gui.util.FileListPanel$fireFileChanged$9473($th
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerImpl$$la$clinit$ra$$10787()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.threads.RemoteThreadsListenerImpl$DEFAULT_LOCAL_PORT0, org.apache.log.Logger$org.apache.jmeter.threads.RemoteThreadsListenerImpl$log1803;
+  modifies org.apache.log.Logger$org.apache.jmeter.threads.RemoteThreadsListenerImpl$log1803, int$org.apache.jmeter.threads.RemoteThreadsListenerImpl$DEFAULT_LOCAL_PORT0;
 
 procedure void$org.apache.jmeter.JMeter$ListenToTest$testEnded$16295($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -12315,7 +12315,7 @@ procedure java.net.InetAddress$java.net.Socket$getInetAddress$18704($this : ref)
 procedure java.lang.Object$org.apache.commons.collections.map.LinkedMap$put$20412($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Skel$$la$clinit$ra$$11043()  returns ($exception : ref)
-  modifies $refArrHeap, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Skel$operations1865, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Skel$operations1865;
 
 procedure void$org.apache.jmeter.reporters.gui.SummariserGui$configure$16917($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -12341,7 +12341,7 @@ procedure long$org.apache.jmeter.visualizers.RunningSample$getMin$16440($this : 
 procedure org.apache.commons.cli.avalon.CLOption$org.apache.commons.cli.avalon.CLArgsParser$getArgumentById$20342($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.BeanInfoSupport$$la$init$ra$$18136($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.testelement.property.JMeterProperty$org.apache.jmeter.engine.util.ReplaceFunctionsWithStrings$transformValue$11598($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -12353,7 +12353,7 @@ procedure void$com.thoughtworks.xstream.converters.DataHolder$put$20441($this : 
 procedure boolean$org.apache.jmeter.util.ScopePanel$isScopeVariable$3057($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.save.OldSaveService$$la$clinit$ra$$17077()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.save.OldSaveService$log3293, org.apache.avalon.framework.configuration.DefaultConfigurationBuilder$org.apache.jmeter.save.OldSaveService$builder3310;
+  modifies org.apache.avalon.framework.configuration.DefaultConfigurationBuilder$org.apache.jmeter.save.OldSaveService$builder3310, org.apache.log.Logger$org.apache.jmeter.save.OldSaveService$log3293;
 
 procedure void$org.apache.jorphan.gui.ComponentUtil$centerComponentInWindow$20220($in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -12370,12 +12370,12 @@ procedure void$org.apache.jmeter.engine.util.ValueReplacer$$la$clinit$ra$$10585(
   modifies org.apache.log.Logger$org.apache.jmeter.engine.util.ValueReplacer$log1774;
 
 procedure void$org.apache.jmeter.threads.JMeterThread$delay$9239($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540;
 
 procedure void$java.net.PasswordAuthentication$$la$init$ra$$16347($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.functions.gui.FunctionHelper$init$11640($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.Integer$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$PropertyComparator$propertyOrder$18387($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -12392,7 +12392,7 @@ procedure java.util.Set$org.apache.jmeter.gui.action.ChangeLanguage$getActionNam
 procedure boolean$org.apache.jmeter.samplers.AbstractSampler$applies$9284($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.visualizers.gui.AbstractVisualizer$stateChanged$20175($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.services.FileServer$readLine$10538($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -12414,13 +12414,13 @@ procedure void$org.apache.jmeter.gui.tree.JMeterTreeModel$$la$init$ra$$9667($thi
   modifies $heap;
 
 procedure void$org.apache.jmeter.save.OldSaveService$processSamples$17076($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.LoggerPanel$1$run$15041($this : ref)  returns ($exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.tree.JMeterTreeModel$$la$init$ra$$9666($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure java.lang.String$org.apache.jmeter.gui.JMeterGUIComponent$getDocAnchor$2342($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -12467,7 +12467,7 @@ procedure void$org.apache.jmeter.gui.util.NumberFieldErrorListener$focusLost$157
   modifies $stringSizeHeap, $heap;
 
 procedure java.util.Collection$org.apache.jmeter.assertions.gui.AbstractAssertionGui$getMenuCategories$2295($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure int$org.apache.jmeter.gui.LoggerPanel$access$200$12337()  returns ($return : int, $exception : ref)
 
@@ -12505,7 +12505,7 @@ procedure java.util.Vector$org.apache.jmeter.util.JMeterUtils$getControllers$636
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveTime$2056($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$postActionPerformed$11671($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$addSubResult$1935($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -12519,7 +12519,7 @@ procedure void$org.apache.jmeter.gui.MainFrame$$la$init$ra$$12202($this : ref)  
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.MainFrame$$la$init$ra$$12201($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure org.apache.jmeter.threads.JMeterVariables$org.apache.jmeter.engine.util.SimpleVariable$getVariables$11538($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -12660,7 +12660,7 @@ procedure java.lang.String$com.thoughtworks.xstream.io.HierarchicalStreamReader$
 procedure void$javax.swing.SwingUtilities$invokeAndWait$12697($in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.lang.Object$org.apache.jmeter.save.converters.TestResultWrapperConverter$unmarshal$17791($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$inVersion3446, $heap;
+  modifies $stringSizeHeap, $heap, java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$inVersion3446;
 
 procedure org.mozilla.javascript.Context$org.mozilla.javascript.Context$enter$20233()  returns ($return : ref, $exception : ref)
 
@@ -12684,7 +12684,7 @@ procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl$sampleOccurre
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.NameUpdater$$la$clinit$ra$$17648()  returns ($exception : ref)
-  modifies java.util.Properties$org.apache.jmeter.util.NameUpdater$nameMap3449, $heap, org.apache.log.Logger$org.apache.jmeter.util.NameUpdater$log3450;
+  modifies org.apache.log.Logger$org.apache.jmeter.util.NameUpdater$log3450, java.util.Properties$org.apache.jmeter.util.NameUpdater$nameMap3449, $heap;
 
 procedure void$org.apache.jmeter.functions.InvalidVariableException$$la$init$ra$$10882($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -12715,7 +12715,7 @@ procedure void$org.apache.jmeter.services.FileServer$reserveFile$10533($this : r
   modifies $heap;
 
 procedure java.lang.Object$org.apache.jmeter.util.JSR223TestElement$processFileOrScript$19400($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, java.util.Map$org.apache.jmeter.util.JSR223TestElement$compiledScriptsCache3770;
+  modifies java.util.Map$org.apache.jmeter.util.JSR223TestElement$compiledScriptsCache3770, $heap;
 
 procedure void$javax.swing.JSplitPane$setOneTouchExpandable$14224($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -12791,7 +12791,7 @@ procedure void$org.apache.jmeter.ProxyAuthenticator$$la$init$ra$$16313($this : r
   modifies $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.visualizers.gui.AbstractListenerGui$createPopupMenu$16892($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure long$org.apache.jmeter.threads.ThreadGroup$getStartTime$11284($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -12812,7 +12812,7 @@ procedure boolean$java.util.List$isEmpty$153($this : ref)  returns ($return : in
   modifies $heap;
 
 procedure void$org.apache.jmeter.JMeter$$la$clinit$ra$$11112()  returns ($exception : ref)
-  modifies $stringSizeHeap, java.lang.String$lp$$rp$$lp$$rp$$org.apache.jmeter.JMeter$DEFAULT_ICONS1896, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.JMeter$log1888, org.apache.commons.cli.avalon.CLOptionDescriptor$lp$$rp$$org.apache.jmeter.JMeter$options1893, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.JMeter$log1888, $arrSizeHeap, org.apache.commons.cli.avalon.CLOptionDescriptor$lp$$rp$$org.apache.jmeter.JMeter$options1893, java.lang.String$lp$$rp$$lp$$rp$$org.apache.jmeter.JMeter$DEFAULT_ICONS1896;
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$configure$9181($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -12858,7 +12858,7 @@ procedure void$org.apache.jmeter.control.RunTime$$la$init$ra$$9431($this : ref) 
 procedure org.apache.jmeter.threads.JMeterThread$org.apache.jmeter.threads.JMeterContext$getThread$5245($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$la$clinit$ra$$11054()  returns ($exception : ref)
-  modifies java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$lang$reflect$Method1875, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$rmi$server$RemoteRef1873, boolean$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$useNewInvoke0, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$operations1866, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$org$apache$jorphan$collections$HashTree1878, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$array$Ljava$lang$Object1876, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$util$Properties1881, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$org$apache$jmeter$engine$RemoteJMeterEngine1877, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$io$File1880, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rconfigure_01867, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rexit_11868, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rrunTest_31870, $refArrHeap, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rsetProperties_41871, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$lang$String1879, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$rmi$Remote1874, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rstopTest_51872, $arrSizeHeap, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rreset_21869;
+  modifies java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rsetProperties_41871, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$lang$String1879, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rexit_11868, java.rmi.server.Operation$lp$$rp$$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$operations1866, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$org$apache$jmeter$engine$RemoteJMeterEngine1877, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rconfigure_01867, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rstopTest_51872, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rrunTest_31870, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$array$Ljava$lang$Object1876, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$util$Properties1881, java.lang.reflect.Method$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$$method_rreset_21869, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$rmi$Remote1874, $refArrHeap, $arrSizeHeap, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$io$File1880, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$lang$reflect$Method1875, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$org$apache$jorphan$collections$HashTree1878, boolean$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$useNewInvoke0, java.lang.Class$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$class$java$rmi$server$RemoteRef1873;
 
 procedure long$org.apache.jmeter.visualizers.RunningSample$getErrorCount$16447($this : ref)  returns ($return : int, $exception : ref)
 
@@ -12962,7 +12962,7 @@ procedure void$org.apache.jmeter.config.Arguments$addArgument$5386($this : ref, 
 procedure void$java.io.FileReader$$la$init$ra$$16810($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.ComboStringEditor$$la$clinit$ra$$18298()  returns ($exception : ref)
-  modifies java.lang.String$lp$$rp$$org.apache.jmeter.testbeans.gui.ComboStringEditor$EMPTY_STRING_ARRAY3595, $arrSizeHeap;
+  modifies $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.testbeans.gui.ComboStringEditor$EMPTY_STRING_ARRAY3595;
 
 procedure void$java.util.Calendar$roll$15469($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
@@ -13079,7 +13079,7 @@ procedure java.lang.String$org.apache.jmeter.gui.JMeterGUIComponent$getStaticLab
   modifies $heap;
 
 procedure void$org.apache.jmeter.visualizers.gui.AbstractVisualizer$3$actionPerformed$20189($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.visualizers.Sample$org.apache.jmeter.visualizers.CachingStatCalculator$getSample$20113($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -13091,7 +13091,7 @@ procedure java.io.ObjectOutputStream$org.apache.jmeter.samplers.DiskStoreSampleS
   modifies $heap;
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$1$run$11082($this : ref)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure void$org.apache.jorphan.gui.JLabeledTextField$$la$init$ra$$20261($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
 
@@ -13121,7 +13121,7 @@ procedure void$org.apache.jmeter.JMeter$1$$la$init$ra$$16186($this : ref, $in_pa
   modifies $heap;
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.gui.action.template.TemplateManager$getTemplateNames$14719($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure java.io.InputStream$org.apache.jmeter.util.SlowSSLSocket$getInputStream$19042($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -13132,7 +13132,7 @@ procedure int$org.apache.jmeter.gui.util.MenuFactory$controllers_size$5586()  re
   modifies $heap;
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl$$la$clinit$ra$$10974()  returns ($exception : ref)
-  modifies boolean$org.apache.jmeter.engine.RemoteJMeterEngineImpl$createServer0, int$org.apache.jmeter.engine.RemoteJMeterEngineImpl$DEFAULT_RMI_PORT0, org.apache.log.Logger$org.apache.jmeter.engine.RemoteJMeterEngineImpl$log1849, int$org.apache.jmeter.engine.RemoteJMeterEngineImpl$DEFAULT_LOCAL_PORT0;
+  modifies int$org.apache.jmeter.engine.RemoteJMeterEngineImpl$DEFAULT_RMI_PORT0, org.apache.log.Logger$org.apache.jmeter.engine.RemoteJMeterEngineImpl$log1849, boolean$org.apache.jmeter.engine.RemoteJMeterEngineImpl$createServer0, int$org.apache.jmeter.engine.RemoteJMeterEngineImpl$DEFAULT_LOCAL_PORT0;
 
 procedure int$java.lang.Math$round$15062($in_parameter__0 : int)  returns ($return : int, $exception : ref)
 
@@ -13171,7 +13171,7 @@ procedure void$java.io.ObjectOutput$writeObject$642($this : ref, $in_parameter__
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.SaveGraphics$doAction$14592($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352, $stringSizeHeap, $heap, $refArrHeap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352;
 
 procedure void$org.apache.jmeter.gui.NamePanel$setName$3152($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -13223,25 +13223,25 @@ procedure org.apache.oro.text.regex.Pattern$org.apache.oro.text.PatternCacheLRU$
 procedure int$java.awt.event.ItemEvent$getStateChange$7869($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.MainFrame$drop$12232($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.samplers.DataStrippingSampleSender$testEnded$17234($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.JMeterMenuBar$makeMenuItemRes$12400($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.testbeans.gui.WrapperEditor$resetValue$18200($this : ref)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.JMeterMenuBar$makeMenuItemRes$12401($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.JMeterMenuBar$makeMenuItemRes$12402($in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.JMeterMenuBar$makeMenuItemRes$12403($in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : ref, $in_parameter__3 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$java.net.Socket$isConnected$18736($this : ref)  returns ($return : int, $exception : ref)
 
@@ -13260,7 +13260,7 @@ procedure boolean$org.apache.jmeter.gui.util.TextAreaTableCellEditor$EditorDeleg
 procedure void$org.apache.jmeter.gui.MainFrame$setExtendedFrameTitle$12222($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.RemoteStart$$la$clinit$ra$$14538()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.RemoteStart$commands2689, org.apache.log.Logger$org.apache.jmeter.gui.action.RemoteStart$log2685;
+  modifies java.util.Set$org.apache.jmeter.gui.action.RemoteStart$commands2689, org.apache.log.Logger$org.apache.jmeter.gui.action.RemoteStart$log2685, $heap;
 
 procedure java.lang.String$org.apache.jmeter.config.gui.LoginConfigGui$getLabelResource$8210($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -13294,12 +13294,12 @@ procedure java.lang.Class$com.thoughtworks.xstream.converters.UnmarshallingConte
 procedure java.lang.String$java.io.File$getAbsolutePath$7070($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultSaver$clear$16897($this : ref)  returns ($exception : ref)
-  modifies long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0, java.lang.String$org.apache.jmeter.reporters.ResultSaver$timeStamp3244, $stringSizeHeap, $heap, int$org.apache.jmeter.reporters.ResultSaver$numberPadLength0, java.lang.Object$org.apache.jmeter.reporters.ResultSaver$LOCK3243;
+  modifies java.lang.Object$org.apache.jmeter.reporters.ResultSaver$LOCK3243, java.lang.String$org.apache.jmeter.reporters.ResultSaver$timeStamp3244, $stringSizeHeap, int$org.apache.jmeter.reporters.ResultSaver$numberPadLength0, $heap, long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0;
 
 procedure boolean$org.apache.jmeter.testbeans.gui.WrapperEditor$supportsCustomEditor$18202($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$$la$clinit$ra$$10920()  returns ($exception : ref)
-  modifies $stringSizeHeap, boolean$org.apache.jmeter.reporters.ResultCollector$SAVING_AUTOFLUSH0, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, java.util.Map$org.apache.jmeter.reporters.ResultCollector$files1833, org.apache.log.Logger$org.apache.jmeter.reporters.ResultCollector$log1821, int$org.apache.jmeter.reporters.ResultCollector$MIN_XML_FILE_LEN0;
+  modifies int$org.apache.jmeter.reporters.ResultCollector$MIN_XML_FILE_LEN0, $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.reporters.ResultCollector$log1821, boolean$org.apache.jmeter.reporters.ResultCollector$SAVING_AUTOFLUSH0, java.util.Map$org.apache.jmeter.reporters.ResultCollector$files1833, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832;
 
 procedure void$javax.swing.CellEditor$cancelCellEditing$6725($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -13333,7 +13333,7 @@ procedure void$org.apache.jmeter.engine.util.ReplaceFunctionsWithStrings$$la$ini
   modifies $heap;
 
 procedure java.awt.Component$org.apache.jmeter.gui.MainFrame$createToolBar$12223($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.awt.Component$javax.swing.tree.DefaultTreeCellRenderer$getTreeCellRendererComponent$15138($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : int, $in_parameter__4 : int, $in_parameter__5 : int, $in_parameter__6 : int)  returns ($return : ref, $exception : ref)
 
@@ -13357,7 +13357,7 @@ procedure javax.swing.JPanel$org.apache.jmeter.control.gui.RunTimeGui$createLoop
 procedure void$javax.swing.SwingUtilities$replaceUIActionMap$12712($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.JsseSSLManager$$la$clinit$ra$$19039()  returns ($exception : ref)
-  modifies $stringSizeHeap, int$org.apache.jmeter.util.JsseSSLManager$CPS0, java.lang.String$org.apache.jmeter.util.JsseSSLManager$DEFAULT_SSL_PROTOCOL3714, org.apache.log.Logger$org.apache.jmeter.util.JsseSSLManager$log3712, boolean$org.apache.jmeter.util.JsseSSLManager$SHARED_SESSION_CONTEXT0;
+  modifies java.lang.String$org.apache.jmeter.util.JsseSSLManager$DEFAULT_SSL_PROTOCOL3714, $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.JsseSSLManager$log3712, int$org.apache.jmeter.util.JsseSSLManager$CPS0, boolean$org.apache.jmeter.util.JsseSSLManager$SHARED_SESSION_CONTEXT0;
 
 procedure void$org.apache.jmeter.testelement.VariablesCollection$addJMeterVariables$18531($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -13368,7 +13368,7 @@ procedure boolean$org.apache.jmeter.engine.util.ValueReplacer$containsKey$10575(
   modifies $heap;
 
 procedure void$org.apache.jmeter.JMeter$access$200$11111($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure java.net.URI$java.io.File$toURI$7076($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -13396,7 +13396,7 @@ procedure int$org.apache.jmeter.gui.util.MenuFactory$listeners_size$5587()  retu
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.BeanShellTestElement$$la$init$ra$$18795($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jorphan.collections.Data$setColumnData$20331($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -13428,10 +13428,10 @@ procedure boolean$org.apache.jmeter.NewDriver$3$accept$16458($this : ref, $in_pa
 procedure void$org.apache.jmeter.gui.tree.JMeterTreeModel$removeNodeFromParent$9672($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.util.Collection$org.apache.jmeter.processor.gui.AbstractPostProcessorGui$getMenuCategories$16481($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.visualizers.gui.AbstractVisualizer$$la$init$ra$$20168($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$java.beans.PropertyEditor$removePropertyChangeListener$18197($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -13442,12 +13442,12 @@ procedure java.util.Collection$org.apache.jmeter.testbeans.gui.TableEditor$conve
   modifies $heap;
 
 procedure java.lang.String$org.apache.jmeter.save.CSVSaveService$resultToDelimitedString$17059($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap, $heap;
 
 procedure void$java.awt.Dimension$$la$init$ra$$3625($this : ref, $in_parameter__0 : int, $in_parameter__1 : int)  returns ($exception : ref)
 
 procedure java.lang.String$org.apache.jmeter.save.CSVSaveService$resultToDelimitedString$17058($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap, $heap;
 
 procedure boolean$org.apache.jmeter.testbeans.gui.ComboStringEditor$UniqueObject$equals$18281($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -13496,7 +13496,7 @@ procedure void$org.apache.jmeter.gui.AbstractScopedJMeterGuiComponent$showScopeS
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.MenuFactory$addPasteResetMenu$5556($in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.util.FilePanelEntry$init$15399($this : ref)  returns ($exception : ref)
 
@@ -13533,10 +13533,10 @@ procedure void$org.apache.jmeter.engine.PreCompiler$processPath$10472($this : re
 procedure javax.swing.JMenuItem$javax.swing.JMenu$add$5754($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$promptToOpenFile$12961()  returns ($return : ref, $exception : ref)
-  modifies $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351;
 
 procedure javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$promptToOpenFile$12962($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351;
 
 procedure void$org.apache.jmeter.save.converters.MultiPropertyConverter$marshal$17722($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -13585,7 +13585,7 @@ procedure com.thoughtworks.xstream.io.HierarchicalStreamWriter$com.thoughtworks.
 procedure javax.swing.JPopupMenu$org.apache.jmeter.config.gui.ObsoleteGui$createPopupMenu$8500($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.lang.String$org.apache.jmeter.util.SSLManager$getPassword$14751($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757;
+  modifies org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure java.rmi.registry.Registry$java.rmi.registry.LocateRegistry$createRegistry$10983($in_parameter__0 : int)  returns ($return : ref, $exception : ref)
 
@@ -13601,12 +13601,12 @@ procedure boolean$org.apache.jmeter.gui.JMeterFileFilter$accept$15038($this : re
 procedure boolean$org.apache.jmeter.testelement.property.FloatProperty$getBooleanValue$18520($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.threads.ListenerNotifier$notifyListeners$9578($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure javax.swing.ListSelectionModel$javax.swing.JTable$getSelectionModel$6218($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$getDefaultCipherSuites$19014($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure java.lang.String$org.apache.jmeter.save.SaveService$XStreamWrapper$1$serializedClass$18079($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -13640,7 +13640,7 @@ procedure void$org.apache.jmeter.engine.StandardJMeterEngine$access$900$9209($in
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.SavePropertyDialog$actionPerformed$15275($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$javax.swing.AbstractCellEditor$$la$init$ra$$15797($this : ref)  returns ($exception : ref)
 
@@ -13698,7 +13698,7 @@ procedure void$org.apache.jmeter.samplers.SampleResult$setThreadName$1928($this 
   modifies $heap;
 
 procedure org.apache.jmeter.samplers.SampleResult$org.apache.jmeter.save.OldSaveService$getSampleResult$17067($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jorphan.util.JOrphanUtils$isBlank$20206($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -13707,7 +13707,7 @@ procedure java.lang.Byte$java.lang.Byte$valueOf$1727($in_parameter__0 : int)  re
 procedure int$javax.swing.tree.DefaultMutableTreeNode$getIndex$5944($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultSaver$$la$clinit$ra$$16912()  returns ($exception : ref)
-  modifies long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0, org.apache.log.Logger$org.apache.jmeter.reporters.ResultSaver$log3242, java.lang.Object$org.apache.jmeter.reporters.ResultSaver$LOCK3243;
+  modifies java.lang.Object$org.apache.jmeter.reporters.ResultSaver$LOCK3243, org.apache.log.Logger$org.apache.jmeter.reporters.ResultSaver$log3242, long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0;
 
 procedure void$org.apache.jmeter.testbeans.gui.ComboStringEditor$clearGui$18296($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -13723,22 +13723,22 @@ procedure org.apache.jmeter.gui.util.NumberFieldErrorListener$org.apache.jmeter.
 procedure org.apache.avalon.framework.configuration.Configuration$org.apache.avalon.framework.configuration.DefaultConfigurationBuilder$buildFromFile$20426($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Skel$dispatch$11045($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int, $in_parameter__3 : int)  returns ($exception : ref)
-  modifies $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, org.apache.log.Logger$org.apache.jmeter.engine.RemoteJMeterEngineImpl$log1849;
+  modifies org.apache.log.Logger$org.apache.jmeter.engine.RemoteJMeterEngineImpl$log1849, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535;
 
 procedure double$java.lang.Double$parseDouble$1058($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure javax.swing.ImageIcon$org.apache.jmeter.util.JMeterUtils$getImage$6363($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FilePanelEntry$$la$init$ra$$15396($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure javax.swing.ImageIcon$org.apache.jmeter.util.JMeterUtils$getImage$6364($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.FilePanelEntry$$la$init$ra$$15397($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.FilePanelEntry$$la$init$ra$$15394($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.threads.JMeterContextService$ThreadCounts$org.apache.jmeter.threads.JMeterContextService$getThreadCounts$9815()  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -13747,12 +13747,12 @@ procedure void$org.apache.jmeter.config.LoginConfig$setPassword$8775($this : ref
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.FilePanelEntry$$la$init$ra$$15395($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.avalon.framework.configuration.Configuration$getValue$20423($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$populateCommandMap$11672($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.MainFrame$setEditMenu$12207($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -13793,7 +13793,7 @@ procedure void$org.apache.jmeter.gui.GUIFactory$registerGUI$14881($in_parameter_
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.What$$la$clinit$ra$$14874()  returns ($exception : ref)
-  modifies java.util.Set$org.apache.jmeter.gui.action.What$commandSet2800, org.apache.log.Logger$org.apache.jmeter.gui.action.What$log2799;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.What$log2799, java.util.Set$org.apache.jmeter.gui.action.What$commandSet2800;
 
 procedure java.lang.String$org.apache.jmeter.testelement.TestPlan$getBasedir$9483($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -13848,7 +13848,7 @@ procedure void$org.apache.jmeter.gui.action.Paste$addNode$14366($this : ref, $in
   modifies $stringSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.control.gui.TestPlanGui$$la$init$ra$$9452($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.threads.JMeterVariables$org.apache.jmeter.threads.JMeterContext$getVariables$5236($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -13861,10 +13861,10 @@ procedure void$org.apache.jmeter.testelement.AbstractTestElement$setThreadName$4
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.JMeterThread$startScheduler$9220($this : ref)  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0;
 
 procedure boolean$org.apache.jmeter.threads.ThreadGroup$verifyThreadStopped$11305($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.threads.ThreadGroup$log1919, long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0;
+  modifies long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0, $heap, org.apache.log.Logger$org.apache.jmeter.threads.ThreadGroup$log1919;
 
 procedure void$javax.swing.tree.DefaultTreeModel$$la$init$ra$$9681($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -13881,7 +13881,7 @@ procedure java.util.Iterator$org.apache.jmeter.threads.JMeterVariables$getIterat
 procedure void$javax.swing.DefaultComboBoxModel$$la$init$ra$$18299($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SelectTemplatesDialog$$la$init$ra$$14699($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$actionPerformed$6029($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -13907,10 +13907,10 @@ procedure javax.swing.JButton$org.apache.jmeter.util.JMeterUtils$createSimpleBut
 procedure void$org.apache.jmeter.util.JSR223TestElement$LazyHolder$$la$init$ra$$19394($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.config.gui.SimpleConfigGui$$la$init$ra$$8680($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.config.gui.SimpleConfigGui$$la$init$ra$$8681($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.functions.gui.FunctionHelper$2$$la$init$ra$$11649($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -13919,7 +13919,7 @@ procedure int$org.apache.jmeter.gui.util.MenuFactory$preProcessors_size$5590()  
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.JMeterToolBar$localeChanged$12570($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$javax.swing.InputMap$put$3382($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -14001,7 +14001,7 @@ procedure org.apache.jmeter.gui.action.Command$org.apache.jmeter.gui.action.Acti
   modifies $heap;
 
 procedure void$org.apache.jmeter.control.gui.TestPlanGui$modifyTestElement$9455($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.threads.AbstractThreadGroup$$la$clinit$ra$$9282()  returns ($exception : ref)
   modifies java.lang.Object$org.apache.jmeter.threads.AbstractThreadGroup$DUMMY1557;
@@ -14010,7 +14010,7 @@ procedure org.apache.jmeter.testelement.property.JMeterProperty$org.apache.jmete
   modifies $heap;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$StringQuoter$$la$init$ra$$17804($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $heap, $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$updateMenuElement$12395($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -14024,7 +14024,7 @@ procedure javax.swing.JComponent$org.apache.jmeter.gui.GUIFactory$getGUI$14878($
 procedure int$org.apache.jmeter.threads.JMeterVariables$getIteration$9160($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.save.SaveService$initProps$13965()  returns ($exception : ref)
-  modifies $stringSizeHeap, java.lang.String$org.apache.jmeter.save.SaveService$fileVersion2587, $heap, $refArrHeap, java.lang.String$org.apache.jmeter.save.SaveService$fileEncoding2589, $arrSizeHeap, java.lang.String$org.apache.jmeter.save.SaveService$propertiesVersion2585;
+  modifies java.lang.String$org.apache.jmeter.save.SaveService$fileEncoding2589, $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.String$org.apache.jmeter.save.SaveService$propertiesVersion2585, $heap, java.lang.String$org.apache.jmeter.save.SaveService$fileVersion2587;
 
 procedure void$org.apache.jmeter.util.SlowSSLSocket$$la$init$ra$$19040($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
@@ -14053,7 +14053,7 @@ procedure java.lang.String$org.apache.jmeter.testbeans.gui.GenericTestBeanCustom
 procedure void$javax.net.ssl.KeyManagerFactory$init$19523($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.BeanShellTestElement$init$18798($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.GuiPackage$notifyChangeInHistory$12125($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14073,10 +14073,10 @@ procedure void$org.apache.jmeter.samplers.DiskStoreSampleSender$$la$init$ra$$172
   modifies $heap;
 
 procedure org.apache.jmeter.samplers.Sampler$org.apache.jmeter.control.TransactionController$next$9020($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.Save$doAction$14567($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352;
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListener$sampleOccurred$10781($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14133,7 +14133,7 @@ procedure void$org.apache.jmeter.testelement.property.MapProperty$addProperty$52
   modifies $heap;
 
 procedure void$org.apache.jmeter.functions.gui.FunctionHelper$HelpListener$actionPerformed$11653($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$org.apache.jmeter.gui.action.template.Template$isTestPlan$14730($this : ref)  returns ($return : int, $exception : ref)
 
@@ -14196,12 +14196,12 @@ procedure long$org.apache.jmeter.visualizers.TableSample$getBytes$20193($this : 
 procedure void$javax.swing.JRadioButton$$la$init$ra$$12047($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.MainFrame$init$12220($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.mozilla.javascript.Context$exit$20237()  returns ($exception : ref)
 
 procedure java.lang.String$org.apache.jmeter.util.JMeterUtils$getLocalHostFullName$6399()  returns ($return : ref, $exception : ref)
-  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009;
+  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011;
 
 procedure org.apache.jmeter.gui.LoggerPanel$org.apache.jmeter.gui.GuiPackage$getLoggerPanel$12120($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -14220,7 +14220,7 @@ procedure java.lang.Short$java.lang.Short$valueOf$1005($in_parameter__0 : int)  
 procedure void$javax.net.ssl.HttpsURLConnection$setDefaultHostnameVerifier$19507($in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.JSR223BeanInfoSupport$$la$init$ra$$19345($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.util.BeanShellInterpreter$isInterpreterPresent$16311()  returns ($return : int, $exception : ref)
 
@@ -14230,7 +14230,7 @@ procedure double$java.lang.Number$doubleValue$912($this : ref)  returns ($return
   modifies $heap;
 
 procedure boolean$org.apache.jmeter.gui.util.MenuFactory$canAddTo$5579($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : int, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.AbstractProperty$$la$init$ra$$5338($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14244,7 +14244,7 @@ procedure java.lang.String$java.beans.PropertyEditor$getJavaInitializationString
   modifies $heap;
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$StopTest$run$11084($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies $stringSizeHeap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, org.apache.jmeter.engine.StandardJMeterEngine$org.apache.jmeter.engine.StandardJMeterEngine$engine1535;
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$setEditEnabled$12376($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -14273,7 +14273,7 @@ procedure javax.script.Bindings$javax.script.ScriptEngine$createBindings$19385($
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$$la$clinit$ra$$2016()  returns ($exception : ref)
-  modifies boolean$org.apache.jmeter.samplers.SampleResult$GETBYTES_HEADERS_SIZE0, java.lang.String$org.apache.jmeter.samplers.SampleResult$OK_CODE264, boolean$org.apache.jmeter.samplers.SampleResult$GETBYTES_NETWORK_SIZE0, org.apache.jmeter.assertions.AssertionResult$lp$$rp$$org.apache.jmeter.samplers.SampleResult$EMPTY_AR245, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleResult$NON_BINARY_TYPES267, java.lang.String$org.apache.jmeter.samplers.SampleResult$DEFAULT_ENCODING239, long$org.apache.jmeter.samplers.SampleResult$NanoOffset$nanoOffset0, java.lang.String$org.apache.jmeter.samplers.SampleResult$DEFAULT_CHARSET240, org.apache.jmeter.samplers.SampleResult$lp$$rp$$org.apache.jmeter.samplers.SampleResult$EMPTY_SR244, $stringSizeHeap, boolean$org.apache.jmeter.samplers.SampleResult$GETBYTES_BODY_REALSIZE0, $refArrHeap, long$org.apache.jmeter.samplers.SampleResult$NANOTHREAD_SLEEP0, byte$lp$$rp$$org.apache.jmeter.samplers.SampleResult$EMPTY_BA243, boolean$org.apache.jmeter.samplers.SampleResult$USENANOTIME0, boolean$org.apache.jmeter.samplers.SampleResult$startTimeStamp0, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleResult$BINARY_TYPES266, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.samplers.SampleResult$log237;
+  modifies java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleResult$BINARY_TYPES266, byte$lp$$rp$$org.apache.jmeter.samplers.SampleResult$EMPTY_BA243, $stringSizeHeap, org.apache.jmeter.samplers.SampleResult$lp$$rp$$org.apache.jmeter.samplers.SampleResult$EMPTY_SR244, java.lang.String$org.apache.jmeter.samplers.SampleResult$DEFAULT_CHARSET240, org.apache.log.Logger$org.apache.jmeter.samplers.SampleResult$log237, boolean$org.apache.jmeter.samplers.SampleResult$GETBYTES_NETWORK_SIZE0, long$org.apache.jmeter.samplers.SampleResult$NANOTHREAD_SLEEP0, java.lang.String$org.apache.jmeter.samplers.SampleResult$OK_CODE264, boolean$org.apache.jmeter.samplers.SampleResult$startTimeStamp0, $refArrHeap, $arrSizeHeap, boolean$org.apache.jmeter.samplers.SampleResult$GETBYTES_HEADERS_SIZE0, boolean$org.apache.jmeter.samplers.SampleResult$USENANOTIME0, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleResult$NON_BINARY_TYPES267, org.apache.jmeter.assertions.AssertionResult$lp$$rp$$org.apache.jmeter.samplers.SampleResult$EMPTY_AR245, long$org.apache.jmeter.samplers.SampleResult$NanoOffset$nanoOffset0, boolean$org.apache.jmeter.samplers.SampleResult$GETBYTES_BODY_REALSIZE0, java.lang.String$org.apache.jmeter.samplers.SampleResult$DEFAULT_ENCODING239;
 
 procedure int$org.apache.jmeter.engine.StandardJMeterEngine$countStillActiveThreads$9190($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -14281,10 +14281,10 @@ procedure int$org.apache.jmeter.engine.StandardJMeterEngine$countStillActiveThre
 procedure java.lang.Class$java.lang.Class$getSuperclass$463($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.MainFrame$WindowHappenings$windowClosing$15110($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.action.Start$$la$clinit$ra$$14846()  returns ($exception : ref)
-  modifies java.util.Set$org.apache.jmeter.gui.action.Start$commands2791, $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.Start$log2790;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.Start$log2790, java.util.Set$org.apache.jmeter.gui.action.Start$commands2791, $heap;
 
 procedure void$javax.swing.JComboBox$setSelectedIndex$7002($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -14314,7 +14314,7 @@ procedure int$java.util.Set$size$233($this : ref)  returns ($return : int, $exce
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.template.TemplateManager$$la$clinit$ra$$14722()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.template.TemplateManager$log2741, $heap, org.apache.jmeter.gui.action.template.TemplateManager$org.apache.jmeter.gui.action.template.TemplateManager$SINGLETON2742, java.lang.String$org.apache.jmeter.gui.action.template.TemplateManager$TEMPLATE_FILES2740;
+  modifies java.lang.String$org.apache.jmeter.gui.action.template.TemplateManager$TEMPLATE_FILES2740, org.apache.jmeter.gui.action.template.TemplateManager$org.apache.jmeter.gui.action.template.TemplateManager$SINGLETON2742, $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.template.TemplateManager$log2741;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$StringQuoter$append$17806($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14335,7 +14335,7 @@ procedure void$org.apache.jmeter.save.CSVSaveService$StringQuoter$append$17810($
 procedure long$org.apache.jmeter.visualizers.Sample$getAverage$20148($this : ref)  returns ($return : int, $exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultSamplerMenu$5562()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.util.JsseSSLManager$setContext$19033($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -14344,7 +14344,7 @@ procedure java.lang.Object$org.apache.jmeter.testelement.property.BooleanPropert
 procedure void$com.thoughtworks.xstream.XStream$setMode$20451($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.TestBeanHelper$prepare$11208($in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleSaveConfiguration$setDefaultTimeStampFormat$2084($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14432,7 +14432,7 @@ procedure void$java.awt.GridBagLayout$$la$init$ra$$15349($this : ref)  returns (
 procedure java.lang.String$org.apache.jmeter.visualizers.Sample$getThreadName$20156($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$makeOptionsMenu$12382($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.testbeans.gui.FieldStringEditor$$la$init$ra$$18355($this : ref)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -14473,7 +14473,7 @@ procedure void$org.apache.jmeter.gui.GuiPackage$setMainToolbar$12099($this : ref
 procedure void$javax.swing.JSplitPane$setRightComponent$14220($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.lang.Object$org.apache.jmeter.save.ScriptWrapperConverter$unmarshal$18088($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$inVersion3446, $heap;
+  modifies $stringSizeHeap, $heap, java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$inVersion3446;
 
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveAssertionResultsFailureMessage$2070($this : ref)  returns ($return : int, $exception : ref)
 
@@ -14497,10 +14497,10 @@ procedure boolean$org.apache.jmeter.testelement.TestPlan$isFunctionalMode$9480($
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$waitThreadStopped$11307($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0;
+  modifies long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0, $heap;
 
 procedure void$org.apache.jmeter.gui.action.ResetSearchCommand$$la$clinit$ra$$14560()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.ResetSearchCommand$commands2695;
+  modifies java.util.Set$org.apache.jmeter.gui.action.ResetSearchCommand$commands2695, $heap;
 
 procedure void$org.apache.jmeter.config.Argument$$la$init$ra$$5220($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14524,12 +14524,12 @@ procedure boolean$org.apache.jmeter.threads.ThreadGroup$stopThread$11299($this :
 procedure void$javax.swing.JFileChooser$setDialogTitle$12906($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$sampleOccurred$17579($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure javax.swing.JScrollPane$org.apache.jorphan.gui.GuiUtils$makeScrollPane$20338($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.CreateFunctionDialog$$la$clinit$ra$$13794()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.CreateFunctionDialog$commands2476;
+  modifies java.util.Set$org.apache.jmeter.gui.action.CreateFunctionDialog$commands2476, $heap;
 
 procedure void$org.apache.jmeter.plugin.PluginManager$install$16316($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
@@ -14552,7 +14552,7 @@ procedure java.beans.PropertyDescriptor$lp$$rp$$org.apache.jmeter.testelement.Ab
 procedure java.lang.String$javax.swing.UIManager$LookAndFeelInfo$getClassName$14261($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.AbstractAction$popupShouldSave$12659($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.config.Argument$$la$init$ra$$5219($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14562,7 +14562,7 @@ procedure void$org.apache.jmeter.gui.util.FileDialoger$$la$init$ra$$12960($this 
 procedure void$java.lang.ThreadLocal$set$6908($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.EnableComponent$$la$clinit$ra$$13812()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.EnableComponent$commands2481, org.apache.log.Logger$org.apache.jmeter.gui.action.EnableComponent$log2480;
+  modifies $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.EnableComponent$log2480, java.util.Set$org.apache.jmeter.gui.action.EnableComponent$commands2481;
 
 procedure void$org.apache.jmeter.processor.gui.AbstractPreProcessorGui$$la$init$ra$$16482($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14590,7 +14590,7 @@ procedure java.lang.String$org.apache.jmeter.testbeans.gui.GenericTestBeanCustom
 procedure int$java.awt.Toolkit$getMenuShortcutKeyMask$4335($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.threads.TestCompiler$initialize$8938()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494;
+  modifies java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494, $heap;
 
 procedure java.lang.String$java.nio.charset.Charset$name$2109($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -14599,7 +14599,7 @@ procedure void$java.util.EventObject$$la$init$ra$$4936($this : ref, $in_paramete
 procedure int$org.apache.jmeter.threads.JMeterContext$getThreadNum$5243($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.BooleanPropertyEditor$$la$clinit$ra$$18278()  returns ($exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, java.lang.String$lp$$rp$$org.apache.jmeter.testbeans.gui.BooleanPropertyEditor$TAGS3592, $arrSizeHeap;
+  modifies java.lang.String$lp$$rp$$org.apache.jmeter.testbeans.gui.BooleanPropertyEditor$TAGS3592, $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.testelement.property.DoubleProperty$setRunningVersion$18505($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -14647,7 +14647,7 @@ procedure void$org.apache.jmeter.testbeans.gui.GenericTestBeanCustomizer$setObje
   modifies $heap;
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.save.CSVSaveService$csvSplitString$17063($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure int$org.apache.jmeter.testelement.property.CollectionProperty$hashCode$5304($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -14674,7 +14674,7 @@ procedure java.net.InetAddress$java.net.Socket$getLocalAddress$18705($this : ref
 procedure int$javax.swing.TransferHandler$TransferSupport$getDropAction$15223($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.FileEditor$actionPerformed$18367($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351;
 
 procedure void$com.thoughtworks.xstream.XStream$useAttributeFor$20288($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -14697,7 +14697,7 @@ procedure boolean$org.apache.jmeter.testelement.AbstractTestElement$getPropertyA
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Load$$la$clinit$ra$$13941()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.Load$commands2561, org.apache.log.Logger$org.apache.jmeter.gui.action.Load$log2560, boolean$org.apache.jmeter.gui.action.Load$expandTree0;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.Load$log2560, boolean$org.apache.jmeter.gui.action.Load$expandTree0, $heap, java.util.Set$org.apache.jmeter.gui.action.Load$commands2561;
 
 procedure void$java.util.Hashtable$putAll$3301($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -14707,7 +14707,7 @@ procedure boolean$org.apache.jmeter.testelement.AbstractTestElement$getPropertyA
   modifies $heap;
 
 procedure void$org.apache.jmeter.testelement.TestPlan$setFunctionalMode$9488($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $heap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0;
+  modifies boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.testelement.AbstractTestElement$setProperty$4792($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
@@ -14724,7 +14724,7 @@ procedure void$org.apache.jmeter.testelement.AbstractTestElement$setProperty$479
 procedure double$org.apache.jmeter.testelement.property.FloatProperty$getDoubleValue$18521($this : ref)  returns ($return : int, $exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultExtractorMenu$5567()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$java.io.File$mkdirs$7094($this : ref)  returns ($return : int, $exception : ref)
 
@@ -14755,7 +14755,7 @@ procedure void$org.apache.jmeter.testelement.AbstractTestElement$setProperty$478
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$saveVars$9587($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap;
+  modifies $refArrHeap, $heap;
 
 procedure void$org.apache.jmeter.threads.PostThreadGroup$$la$init$ra$$11206($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14823,7 +14823,7 @@ procedure java.lang.String$org.apache.jmeter.util.JsseSSLManager$WrappedX509KeyM
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.JsseSSLManager$$la$init$ra$$19032($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerTestElement$$la$init$ra$$10788($this : ref)  returns ($exception : ref)
 
@@ -14855,7 +14855,7 @@ procedure org.apache.log.Logger$org.apache.jorphan.logging.LoggingManager$getLog
 procedure int$org.apache.jmeter.util.SlowSSLSocket$getLocalPort$19069($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$makeRunMenu$12385($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$java.io.BufferedReader$readLine$10727($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -14868,7 +14868,7 @@ procedure void$org.apache.jmeter.NewDriver$main$16325($in_parameter__0 : ref)  r
   modifies $refArrHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.gui.util.FileDialoger$$la$clinit$ra$$12968()  returns ($exception : ref)
-  modifies javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351;
+  modifies java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352;
 
 procedure void$java.lang.RuntimeException$$la$init$ra$$924($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -14887,15 +14887,15 @@ procedure javax.swing.border.Border$javax.swing.BorderFactory$createEmptyBorder$
 procedure javax.swing.border.Border$javax.swing.BorderFactory$createEmptyBorder$6462()  returns ($return : ref, $exception : ref)
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.save.CSVSaveService$csvReadFile$17061($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.ExitCommand$doAction$13815($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.util.FilePanelEntry$setFilename$15403($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.MenuFactory$$la$clinit$ra$$5595()  returns ($exception : ref)
-  modifies java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_ADD_CONTROLLER865, java.util.List$org.apache.jmeter.gui.util.MenuFactory$controllers870, java.util.List$org.apache.jmeter.gui.util.MenuFactory$configElements874, $heap, java.util.List$org.apache.jmeter.gui.util.MenuFactory$fragments873, org.apache.log.Logger$org.apache.jmeter.gui.util.MenuFactory$log851, java.util.List$org.apache.jmeter.gui.util.MenuFactory$timers869, java.util.List$org.apache.jmeter.gui.util.MenuFactory$threads872, java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_PARENT_SAMPLER868, java.util.Map$org.apache.jmeter.gui.util.MenuFactory$menuMap863, java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_ADD_SAMPLER867, java.util.List$org.apache.jmeter.gui.util.MenuFactory$assertions875, java.util.Set$org.apache.jmeter.gui.util.MenuFactory$elementsToSkip864, $stringSizeHeap, $refArrHeap, java.util.List$org.apache.jmeter.gui.util.MenuFactory$listeners876, java.util.List$org.apache.jmeter.gui.util.MenuFactory$preProcessors879, java.util.List$org.apache.jmeter.gui.util.MenuFactory$postProcessors878, java.util.List$org.apache.jmeter.gui.util.MenuFactory$nonTestElements877, java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_PARENT_CONTROLLER866, java.util.List$org.apache.jmeter.gui.util.MenuFactory$samplers871, $arrSizeHeap;
+  modifies java.util.List$org.apache.jmeter.gui.util.MenuFactory$samplers871, java.util.List$org.apache.jmeter.gui.util.MenuFactory$postProcessors878, java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_ADD_SAMPLER867, $stringSizeHeap, java.util.List$org.apache.jmeter.gui.util.MenuFactory$configElements874, java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_PARENT_SAMPLER868, java.util.Set$org.apache.jmeter.gui.util.MenuFactory$elementsToSkip864, java.util.List$org.apache.jmeter.gui.util.MenuFactory$fragments873, java.util.List$org.apache.jmeter.gui.util.MenuFactory$nonTestElements877, java.util.List$org.apache.jmeter.gui.util.MenuFactory$assertions875, java.util.List$org.apache.jmeter.gui.util.MenuFactory$listeners876, org.apache.log.Logger$org.apache.jmeter.gui.util.MenuFactory$log851, $refArrHeap, $arrSizeHeap, java.util.Map$org.apache.jmeter.gui.util.MenuFactory$menuMap863, java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_ADD_CONTROLLER865, java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.MenuFactory$MENU_PARENT_CONTROLLER866, java.util.List$org.apache.jmeter.gui.util.MenuFactory$timers869, $heap, java.util.List$org.apache.jmeter.gui.util.MenuFactory$preProcessors879, java.util.List$org.apache.jmeter.gui.util.MenuFactory$controllers870, java.util.List$org.apache.jmeter.gui.util.MenuFactory$threads872;
 
 procedure int$java.awt.event.InputEvent$getModifiers$4914($this : ref)  returns ($return : int, $exception : ref)
 
@@ -14909,7 +14909,7 @@ procedure java.lang.String$org.apache.jmeter.save.SaveService$classToAlias$13968
 procedure void$org.apache.jmeter.util.JMeterUtils$initLogging$6338()  returns ($exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultMenu$5568()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.samplers.AbstractSampleSender$testEnded$17161($this : ref)  returns ($exception : ref)
 
@@ -14920,7 +14920,7 @@ procedure boolean$org.apache.jmeter.control.TransactionController$isParent$9019(
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.ChangeLanguage$$la$clinit$ra$$13021()  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.gui.action.ChangeLanguage$log2359, java.util.Set$org.apache.jmeter.gui.action.ChangeLanguage$commands2358;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.ChangeLanguage$log2359, java.util.Set$org.apache.jmeter.gui.action.ChangeLanguage$commands2358, $heap;
 
 procedure void$com.thoughtworks.xstream.converters.collections.AbstractCollectionConverter$writeItem$20373($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
 
@@ -14932,7 +14932,7 @@ procedure javax.swing.JRootPane$org.apache.jmeter.config.gui.RowDetailDialog$cre
 procedure void$java.io.PrintStream$print$201($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.timers.gui.AbstractTimerGui$createPopupMenu$18674($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.action.Command$doAction$11676($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -14949,7 +14949,7 @@ procedure javax.swing.JPanel$org.apache.jmeter.config.gui.ArgumentsPanel$makeBut
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveFileName$2068($this : ref)  returns ($return : int, $exception : ref)
 
 procedure java.awt.datatransfer.Transferable$org.apache.jmeter.gui.tree.JMeterTreeTransferHandler$createTransferable$15160($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $intArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $intArrHeap, $heap;
 
 procedure void$java.lang.StringBuilder$$la$init$ra$$2131($this : ref)  returns ($exception : ref)
 
@@ -14978,7 +14978,7 @@ procedure void$org.apache.jmeter.testelement.AbstractTestElement$clear$4756($thi
   modifies $heap;
 
 procedure void$org.apache.jmeter.control.TransactionSampler$$la$clinit$ra$$9015()  returns ($exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, java.util.Set$org.apache.jmeter.control.TransactionSampler$APPLIABLE_CONFIG_CLASSES1512, $arrSizeHeap;
+  modifies java.util.Set$org.apache.jmeter.control.TransactionSampler$APPLIABLE_CONFIG_CLASSES1512, $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure java.util.Vector$org.apache.jmeter.util.JMeterUtils$getVisualizers$6367($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -15000,7 +15000,7 @@ procedure void$org.apache.jmeter.save.converters.TestResultWrapperConverter$$la$
 procedure void$org.apache.jmeter.util.JMeterUtils$1$$la$init$ra$$19304($this : ref)  returns ($exception : ref)
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.services.FileServer$getParsedLine$10540($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : int)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.reporters.Summariser$Totals$access$200$16354($in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -15057,13 +15057,13 @@ procedure void$org.apache.jmeter.samplers.SampleResult$setRequestHeaders$1966($t
 procedure java.lang.String$org.apache.jmeter.gui.NamePanel$getDocAnchor$3160($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$testStarted$10896($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.ResultCollector$log1821;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.reporters.ResultCollector$log1821, int$org.apache.jmeter.reporters.Summariser$instanceCount0, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, $heap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834;
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$testStarted$10898($this : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $stringSizeHeap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.ResultCollector$log1821;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.reporters.ResultCollector$log1821, int$org.apache.jmeter.reporters.Summariser$instanceCount0, int$org.apache.jmeter.reporters.ResultCollector$instanceCount0, $heap, java.lang.Object$org.apache.jmeter.reporters.ResultCollector$LOCK1832, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Thread$org.apache.jmeter.reporters.ResultCollector$shutdownHook1834;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$1$$la$clinit$ra$$17799()  returns ($exception : ref)
-  modifies $intArrHeap, $arrSizeHeap, int$lp$$rp$$org.apache.jmeter.save.CSVSaveService$1$$SwitchMap$org$apache$jmeter$save$CSVSaveService$ParserState3504;
+  modifies $arrSizeHeap, $intArrHeap, int$lp$$rp$$org.apache.jmeter.save.CSVSaveService$1$$SwitchMap$org$apache$jmeter$save$CSVSaveService$ParserState3504;
 
 procedure void$org.apache.jmeter.gui.MainFrame$WindowHappenings$$la$init$ra$$15111($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -15106,7 +15106,7 @@ procedure void$javax.net.ssl.SSLSocket$setUseClientMode$19151($this : ref, $in_p
   modifies $heap;
 
 procedure void$org.apache.jmeter.save.converters.SampleResultConverter$readFile$17744($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.bsf.util.BSFEngineImpl$initialize$20487($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
 
@@ -15151,7 +15151,7 @@ procedure void$org.apache.jmeter.timers.gui.AbstractTimerGui$$la$init$ra$$18673(
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.JMeterUtils$getLocalHostDetails$6400()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009;
+  modifies java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostIP1009, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostName1010, java.lang.String$org.apache.jmeter.util.JMeterUtils$localHostFullName1011;
 
 procedure boolean$org.apache.jmeter.gui.util.TextAreaTableCellEditor$shouldSelectCell$15790($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -15173,7 +15173,7 @@ procedure void$org.apache.jmeter.config.gui.LoginConfigGui$clearGui$8214($this :
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.MenuFactory$initializeMenus$5577()  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure org.w3c.dom.Element$org.w3c.dom.Document$getDocumentElement$19722($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -15191,7 +15191,7 @@ procedure java.nio.charset.Charset$java.nio.charset.Charset$defaultCharset$2107(
 procedure void$org.apache.jmeter.util.SlowSSLSocket$close$19062($this : ref)  returns ($exception : ref)
 
 procedure org.apache.jmeter.util.BeanShellInterpreter$org.apache.jmeter.util.BeanShellTestElement$getBeanShellInterpreter$18797($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.Object$org.apache.jmeter.save.converters.TestElementPropertyConverter$unmarshal$17784($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -15205,10 +15205,10 @@ procedure void$org.apache.jmeter.gui.GuiPackage$1$$la$init$ra$$14915($this : ref
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$$la$clinit$ra$$11315()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.threads.ThreadGroup$RAMPUP_GRANULARITY0, org.apache.log.Logger$org.apache.jmeter.threads.ThreadGroup$log1919, long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0;
+  modifies long$org.apache.jmeter.threads.ThreadGroup$WAIT_TO_DIE0, int$org.apache.jmeter.threads.ThreadGroup$RAMPUP_GRANULARITY0, org.apache.log.Logger$org.apache.jmeter.threads.ThreadGroup$log1919;
 
 procedure java.util.Collection$org.apache.jmeter.timers.gui.AbstractTimerGui$getMenuCategories$18675($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure int$org.apache.commons.httpclient.params.HttpConnectionParams$getConnectionTimeout$20504($this : ref)  returns ($return : int, $exception : ref)
 
@@ -15272,7 +15272,7 @@ procedure void$org.apache.jmeter.testelement.AbstractTestElement$recoverRunningV
   modifies $heap;
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.engine.util.CompoundVariable$getFunctionNames$10950()  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.HttpSSLProtocolSocketFactory$$la$init$ra$$19002($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
   modifies $heap;
@@ -15311,7 +15311,7 @@ procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.JMeterGUIComponent$create
   modifies $heap;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$saveCSVStats$17057($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int)  returns ($exception : ref)
-  modifies $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap;
 
 procedure void$java.util.ArrayList$$la$init$ra$$5405($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -15321,26 +15321,26 @@ procedure void$org.apache.jmeter.reporters.ResultCollector$ShutdownHook$run$1692
 procedure int$java.lang.Math$min$15074($in_parameter__0 : int, $in_parameter__1 : int)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.save.CSVSaveService$saveCSVStats$17054($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$setAllThreads$2004($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$saveCSVStats$17055($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $heap, $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap, $heap;
 
 procedure boolean$org.apache.jmeter.samplers.SampleResult$isBinaryType$1951($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$javax.swing.JPanel$$la$init$ra$$2328($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$promptToSaveFile$12966($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352, $stringSizeHeap, $heap, $refArrHeap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$saveCSVStats$17056($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap;
 
 procedure javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$promptToSaveFile$12967($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352, $stringSizeHeap, $heap, $refArrHeap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, javax.swing.JFileChooser$org.apache.jmeter.gui.util.FileDialoger$jfc2352;
 
 procedure boolean$java.lang.Boolean$parseBoolean$852($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -15365,7 +15365,7 @@ procedure void$org.apache.jmeter.testbeans.gui.TextAreaEditor$propertyChange$184
 procedure java.lang.Object$org.apache.jmeter.gui.util.TextAreaTableCellEditor$EditorDelegate$getCellEditorValue$15773($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.threads.JMeterThread$checkAssertions$9235($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.testbeans.gui.FieldStringEditor$getAsText$18356($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -15384,7 +15384,7 @@ procedure void$org.apache.jmeter.threads.JMeterContext$setRestartNextLoop$5256($
 procedure java.lang.String$java.lang.String$concat$110($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.processor.gui.AbstractPreProcessorGui$createPopupMenu$16483($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$com.thoughtworks.xstream.mapper.Mapper$serializedClass$20402($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -15407,7 +15407,7 @@ procedure void$org.apache.jmeter.testelement.property.NullProperty$mergeIn$16124
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.LoadRecentProject$$la$clinit$ra$$14075()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.LoadRecentProject$commands2603, java.util.prefs.Preferences$org.apache.jmeter.gui.action.LoadRecentProject$prefs2604;
+  modifies java.util.prefs.Preferences$org.apache.jmeter.gui.action.LoadRecentProject$prefs2604, java.util.Set$org.apache.jmeter.gui.action.LoadRecentProject$commands2603, $heap;
 
 procedure java.lang.Object$org.apache.jorphan.collections.HashTree$clone$20307($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -15448,7 +15448,7 @@ procedure void$org.apache.jmeter.util.CPSPauser$$la$init$ra$$18865($this : ref, 
 procedure void$org.apache.jmeter.util.JSR223TestElement$testStarted$19404($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure org.apache.jmeter.testelement.property.JMeterProperty$org.apache.jmeter.engine.util.ReplaceStringWithFunctions$transformValue$11606($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.save.converters.MultiPropertyConverter$getVersion$17720()  returns ($return : ref, $exception : ref)
 
@@ -15469,7 +15469,7 @@ procedure java.lang.Object$javax.script.ScriptEngine$eval$19380($this : ref, $in
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.FileListPanel$init$9466($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.TestElementProperty$$la$init$ra$$5469($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -15531,7 +15531,7 @@ procedure long$org.apache.jmeter.testelement.property.AbstractProperty$getLongVa
 procedure void$javax.swing.JTextArea$$la$init$ra$$9506($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$createMenuBar$12380($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$javax.swing.JTextArea$$la$init$ra$$9507($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -15550,7 +15550,7 @@ procedure void$org.apache.jmeter.util.SlowInputStream$$la$init$ra$$19754($this :
   modifies $heap;
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$rstopTest$11063($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$java.io.FileOutputStream$$la$init$ra$$14574($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -15561,7 +15561,7 @@ procedure void$java.io.FileOutputStream$$la$init$ra$$14573($this : ref, $in_para
 procedure boolean$org.apache.jmeter.save.converters.BooleanPropertyConverter$canConvert$17620($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.SavePropertyDialog$initDialog$15274($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$java.lang.NoClassDefFoundError$$la$init$ra$$2($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -15629,12 +15629,12 @@ procedure java.lang.String$org.apache.jmeter.gui.MainFrame$3$getToolTipText$1510
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.JMeterColor$$la$clinit$ra$$15726()  returns ($exception : ref)
-  modifies java.awt.Color$org.apache.jmeter.gui.util.JMeterColor$purple3019, java.awt.Color$org.apache.jmeter.gui.util.JMeterColor$LAVENDER3018, java.awt.Color$org.apache.jmeter.gui.util.JMeterColor$dark_green3017;
+  modifies java.awt.Color$org.apache.jmeter.gui.util.JMeterColor$dark_green3017, java.awt.Color$org.apache.jmeter.gui.util.JMeterColor$purple3019, java.awt.Color$org.apache.jmeter.gui.util.JMeterColor$LAVENDER3018;
 
 procedure void$org.fife.ui.rsyntaxtextarea.RSyntaxTextArea$setSyntaxEditingStyle$20313($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$ThreadStarter$run$18672($this : ref)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure java.awt.Image$org.apache.jmeter.testbeans.TestBeanBeanInfo$getIcon$18470($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
 
@@ -15681,7 +15681,7 @@ procedure org.apache.jmeter.testelement.property.PropertyIterator$org.apache.jme
   modifies $heap;
 
 procedure java.lang.String$lp$$rp$$lp$$rp$$org.apache.jmeter.JMeter$getIconMappings$11101($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap;
+  modifies $refArrHeap, $stringSizeHeap, $heap;
 
 procedure boolean$java.lang.Class$isPrimitive$455($this : ref)  returns ($return : int, $exception : ref)
 
@@ -15728,7 +15728,7 @@ procedure java.lang.Object$org.apache.jmeter.save.converters.TestElementConverte
   modifies $stringSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.ChangeLanguage$doAction$13019($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $stringSizeHeap, $heap, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0;
+  modifies $stringSizeHeap, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap;
 
 procedure java.lang.Object$org.apache.jmeter.util.BeanShellInterpreter$evalNoLog$16306($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $refArrHeap, $arrSizeHeap;
@@ -15759,7 +15759,7 @@ procedure void$org.apache.jmeter.visualizers.gui.AbstractVisualizer$configureTes
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.SSLManagerCommand$doAction$14739($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, org.apache.jmeter.util.SSLManager$org.apache.jmeter.util.SSLManager$manager2763, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, org.apache.jmeter.util.SSLManager$org.apache.jmeter.util.SSLManager$manager2763, $heap;
 
 procedure org.apache.jorphan.collections.HashTree$org.apache.jorphan.collections.ListedHashTree$add$20253($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
@@ -15768,7 +15768,7 @@ procedure void$javax.swing.JPopupMenu$show$3106($this : ref, $in_parameter__0 : 
 procedure java.lang.Number$org.apache.jorphan.math.StatCalculatorLong$getPercentPoint$20541($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Clear$$la$clinit$ra$$13754()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.Clear$commands2466, org.apache.log.Logger$org.apache.jmeter.gui.action.Clear$log2465;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.Clear$log2465, $heap, java.util.Set$org.apache.jmeter.gui.action.Clear$commands2466;
 
 procedure void$org.apache.jmeter.control.IfController$$la$clinit$ra$$9381()  returns ($exception : ref)
   modifies org.apache.log.Logger$org.apache.jmeter.control.IfController$logger1574;
@@ -15819,7 +15819,7 @@ procedure void$org.apache.jmeter.threads.JMeterContextService$removeContext$9809
 procedure void$javax.swing.text.JTextComponent$setCaretPosition$8120($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultSaver$saveSample$16900($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0, $heap;
+  modifies $heap, long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0;
 
 procedure void$org.apache.jmeter.save.SaveService$saveSampleResult$13972($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $stringSizeHeap;
@@ -15828,7 +15828,7 @@ procedure void$org.apache.jmeter.engine.StandardJMeterEngine$tellThreadGroupsToS
   modifies $heap;
 
 procedure org.apache.jmeter.gui.util.JMeterToolBar$org.apache.jmeter.gui.util.JMeterToolBar$createToolbar$12566($in_parameter__0 : int)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure int$org.apache.jmeter.gui.util.MenuFactory$postProcessors_size$5589()  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -15837,7 +15837,7 @@ procedure void$org.apache.jmeter.engine.TreeClonerNoTimer$$la$init$ra$$11519($th
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.DataStrippingSampleSender$sampleOccurred$17235($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.CollectionProperty$set$5307($this : ref, $in_parameter__0 : int, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -15871,19 +15871,19 @@ procedure boolean$org.apache.jmeter.threads.AbstractThreadGroup$isDone$9255($thi
 procedure void$java.awt.Window$setVisible$4598($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.JMeterUtils$initLocale$6339()  returns ($exception : ref)
-  modifies java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0;
+  modifies boolean$org.apache.jmeter.util.JMeterUtils$ignoreResorces0, java.util.ResourceBundle$org.apache.jmeter.util.JMeterUtils$resources1008, java.util.Locale$org.apache.jmeter.util.JMeterUtils$locale1007, $heap;
 
 procedure boolean$org.apache.jmeter.gui.MainFrame$openJmxFilesFromDragAndDrop$12233($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.util.List$org.apache.jmeter.testelement.AbstractScopedTestElement$getSampleList$3147($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.config.gui.RowDetailDialog$changedUpdate$6417($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
 
 procedure void$org.apache.jmeter.testelement.TestPlan$$la$clinit$ra$$9505()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.testelement.TestPlan$log1602, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0;
+  modifies boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, org.apache.log.Logger$org.apache.jmeter.testelement.TestPlan$log1602;
 
 procedure void$org.apache.jmeter.testelement.property.JMeterProperty$mergeIn$5265($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -15903,7 +15903,7 @@ procedure void$org.apache.jmeter.gui.JMeterFileFilter$$la$init$ra$$15036($this :
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.CheckDirty$doAction$13745($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.JMeterFileFilter$$la$init$ra$$15035($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -15977,7 +15977,7 @@ procedure void$org.apache.jmeter.testbeans.gui.WrapperEditor$$la$init$ra$$18199(
 procedure void$org.apache.jmeter.functions.AbstractFunction$$la$init$ra$$11627($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.reporters.Summariser$sampleOccurred$10928($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, java.io.PrintStream$java.lang.System$out1637, long$org.apache.jmeter.reporters.Summariser$INTERVAL0, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838;
+  modifies $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, $heap, long$org.apache.jmeter.reporters.Summariser$INTERVAL0, java.io.PrintStream$java.lang.System$out1637, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0;
 
 procedure void$javax.swing.JFileChooser$setCurrentDirectory$12894($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -15995,10 +15995,10 @@ procedure java.lang.Object$org.apache.jmeter.util.BeanShellInterpreter$get$16310
   modifies $refArrHeap, $arrSizeHeap;
 
 procedure java.util.Collection$org.apache.jmeter.control.gui.TestFragmentControllerGui$getMenuCategories$9450($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.gui.tree.JMeterTreeListener$keyPressed$12278($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.threads.JMeterThread$stopTest$9232($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -16009,7 +16009,7 @@ procedure org.apache.jmeter.samplers.Sampler$org.apache.jmeter.control.Transacti
 procedure boolean$org.apache.jmeter.visualizers.TableSample$isSuccess$20196($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.SelectTemplatesDialog$2$actionPerformed$14710($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$javax.swing.ButtonModel$getActionCommand$7851($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -16031,7 +16031,7 @@ procedure int$org.apache.jmeter.testelement.property.AbstractProperty$compareTo$
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.SearchTreeDialog$2$actionPerformed$14696($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.JMeter$$la$init$ra$$11086($this : ref)  returns ($exception : ref)
 
@@ -16045,10 +16045,10 @@ procedure boolean$java.util.Hashtable$contains$3294($this : ref, $in_parameter__
 procedure void$org.apache.jorphan.gui.ObjectTableModel$fireTableDataChanged$20308($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JDateField$$la$clinit$ra$$15420()  returns ($exception : ref)
-  modifies int$lp$$rp$$org.apache.jmeter.gui.util.JDateField$fieldPositions2954, $intArrHeap, $arrSizeHeap;
+  modifies int$lp$$rp$$org.apache.jmeter.gui.util.JDateField$fieldPositions2954, $arrSizeHeap, $intArrHeap;
 
 procedure void$org.apache.jmeter.gui.action.EnableComponent$doAction$13808($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.UndoHistory$treeStructureChanged$12349($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -16101,7 +16101,7 @@ procedure java.lang.Object$lp$$rp$$org.apache.jmeter.gui.util.PowerTableModel$ge
 procedure boolean$org.apache.jmeter.testelement.property.IntegerProperty$getBooleanValue$9648($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Close$closeProject$13759($in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.threads.gui.SetupThreadGroupGui$$la$init$ra$$18569($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -16142,7 +16142,7 @@ procedure void$org.apache.jmeter.util.XPathUtil$MyErrorHandler$$la$init$ra$$1995
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$delayBy$11295($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure boolean$org.apache.avalon.framework.configuration.Configuration$getAttributeAsBoolean$20415($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : int, $exception : ref)
 
@@ -16164,7 +16164,7 @@ procedure void$org.apache.jmeter.util.SlowSocket$$la$init$ra$$19760($this : ref,
   modifies $heap;
 
 procedure void$org.apache.jmeter.save.CSVSaveService$$la$clinit$ra$$17065()  returns ($exception : ref)
-  modifies $stringSizeHeap, org.apache.log.Logger$org.apache.jmeter.save.CSVSaveService$log3267, $refArrHeap, java.lang.String$lp$$rp$$org.apache.jmeter.save.CSVSaveService$DATE_FORMAT_STRINGS3290, java.lang.String$org.apache.jmeter.save.CSVSaveService$LINE_SEP3291, org.apache.jmeter.samplers.SampleSaveConfiguration$org.apache.jmeter.save.CSVSaveService$_saveConfig3289, org.apache.commons.collections.map.LinkedMap$org.apache.jmeter.save.CSVSaveService$headerLabelMethods3292, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.commons.collections.map.LinkedMap$org.apache.jmeter.save.CSVSaveService$headerLabelMethods3292, java.lang.String$org.apache.jmeter.save.CSVSaveService$LINE_SEP3291, org.apache.log.Logger$org.apache.jmeter.save.CSVSaveService$log3267, java.lang.String$lp$$rp$$org.apache.jmeter.save.CSVSaveService$DATE_FORMAT_STRINGS3290, org.apache.jmeter.samplers.SampleSaveConfiguration$org.apache.jmeter.save.CSVSaveService$_saveConfig3289;
 
 procedure java.lang.String$org.apache.jmeter.config.LoginConfig$toString$8778($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -16219,7 +16219,7 @@ procedure void$org.apache.jmeter.samplers.RemoteSampleListener$testStarted$10776
   modifies $heap;
 
 procedure void$org.apache.jmeter.reporters.Summariser$testStarted$10934($this : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840;
 
 procedure boolean$java.io.InputStream$markSupported$618($this : ref)  returns ($return : int, $exception : ref)
 
@@ -16229,7 +16229,7 @@ procedure void$org.apache.jmeter.samplers.RemoteSampleListener$testStarted$10777
 procedure int$org.apache.jmeter.gui.util.TristateCheckBox$TristateCheckBoxIcon$getIconHeight$15899($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.reporters.Summariser$testStarted$10936($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, int$org.apache.jmeter.reporters.Summariser$instanceCount0, $heap, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840;
 
 procedure void$org.apache.jmeter.testbeans.gui.FieldStringEditor$focusLost$18364($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -16299,7 +16299,7 @@ procedure void$org.apache.jmeter.engine.JMeterEngineException$$la$init$ra$$10466
 procedure void$org.apache.jmeter.engine.JMeterEngineException$$la$init$ra$$10465($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.samplers.SampleSaveConfiguration$$la$clinit$ra$$2089()  returns ($exception : ref)
-  modifies boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_printMilliseconds0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_requestHeaders0, org.apache.jmeter.samplers.SampleSaveConfiguration$org.apache.jmeter.samplers.SampleSaveConfiguration$_static314, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_code0, java.lang.String$org.apache.jmeter.samplers.SampleSaveConfiguration$_delimiter311, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_label0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_threadName0, $stringSizeHeap, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_encoding0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_success0, java.text.DateFormat$org.apache.jmeter.samplers.SampleSaveConfiguration$_formatter310, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_fieldNames0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_assertions0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_idleTime0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_bytes0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_xml0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_latency0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_threadCounts0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_hostname0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_sampleCount0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_responseData0, $heap, java.lang.String$org.apache.jmeter.samplers.SampleSaveConfiguration$_timeStampFormat309, org.apache.log.Logger$org.apache.jmeter.samplers.SampleSaveConfiguration$log269, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_url0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_subresults0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_samplerData0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_fileName0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_timestamp0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_time0, int$org.apache.jmeter.samplers.SampleSaveConfiguration$_assertionsResultsToSave0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_responseHeaders0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_message0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_saveAssertionResultsFailureMessage0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_dataType0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_responseDataOnError0;
+  modifies boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_responseDataOnError0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_success0, int$org.apache.jmeter.samplers.SampleSaveConfiguration$_assertionsResultsToSave0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_responseData0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_printMilliseconds0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_code0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_subresults0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_dataType0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_bytes0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_fileName0, java.lang.String$org.apache.jmeter.samplers.SampleSaveConfiguration$_delimiter311, java.lang.String$org.apache.jmeter.samplers.SampleSaveConfiguration$_timeStampFormat309, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_requestHeaders0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_message0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_latency0, $heap, org.apache.jmeter.samplers.SampleSaveConfiguration$org.apache.jmeter.samplers.SampleSaveConfiguration$_static314, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_fieldNames0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_threadName0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_label0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_samplerData0, $stringSizeHeap, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_timestamp0, java.text.DateFormat$org.apache.jmeter.samplers.SampleSaveConfiguration$_formatter310, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_assertions0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_url0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_idleTime0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_time0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_xml0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_sampleCount0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_encoding0, org.apache.log.Logger$org.apache.jmeter.samplers.SampleSaveConfiguration$log269, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_responseHeaders0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_threadCounts0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_hostname0, boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$_saveAssertionResultsFailureMessage0;
 
 procedure void$org.apache.jmeter.engine.JMeterEngineException$$la$init$ra$$10464($this : ref)  returns ($exception : ref)
 
@@ -16373,7 +16373,7 @@ procedure void$org.apache.jmeter.samplers.HoldSampleSender$testEnded$17563($this
   modifies $heap;
 
 procedure java.lang.Object$org.apache.jmeter.gui.util.PowerTableModel$createDefaultValue$8708($this : ref, $in_parameter__0 : int)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.testelement.property.IntegerProperty$setRunningVersion$9638($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -16426,7 +16426,7 @@ procedure void$org.apache.jmeter.gui.GuiPackage$1$run$14916($this : ref)  return
 procedure int$java.util.concurrent.atomic.AtomicInteger$incrementAndGet$9836($this : ref)  returns ($return : int, $exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultAssertionMenu$5566()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.save.SaveService$saveTestElement$13974($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -16493,7 +16493,7 @@ procedure void$org.apache.jmeter.samplers.SampleSaveConfiguration$setIdleTime$20
   modifies $heap;
 
 procedure void$org.apache.jmeter.JMeter$startOptionalServers$11091($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$javax.swing.AbstractCellEditor$fireEditingCanceled$15806($this : ref)  returns ($exception : ref)
 
@@ -16550,7 +16550,7 @@ procedure org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.Tr
 procedure void$javax.swing.ImageIcon$$la$init$ra$$6941($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure org.apache.jmeter.threads.JMeterThread$IterationListener$org.apache.jmeter.threads.JMeterThread$initRun$9226($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$setStartTime$1974($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -16561,7 +16561,7 @@ procedure void$org.apache.jmeter.testelement.TestElement$setEnabled$3177($this :
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.RemoteStart$doAction$14530($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure long$java.lang.Long$parseLong$875($in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -16632,7 +16632,7 @@ procedure void$org.apache.jmeter.control.WhileController$triggerEndOfLoop$9607($
   modifies $stringSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.SaveGraphics$$la$clinit$ra$$14594()  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, java.util.Set$org.apache.jmeter.gui.action.SaveGraphics$commands2705, java.lang.String$lp$$rp$$org.apache.jmeter.gui.action.SaveGraphics$extensions2706, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.gui.action.SaveGraphics$extensions2706, $heap, java.util.Set$org.apache.jmeter.gui.action.SaveGraphics$commands2705;
 
 procedure boolean$java.net.Socket$isClosed$18738($this : ref)  returns ($return : int, $exception : ref)
 
@@ -16657,7 +16657,7 @@ procedure void$org.apache.bsf.BSFManager$$la$init$ra$$20491($this : ref)  return
 procedure boolean$org.apache.jmeter.save.converters.IntegerPropertyConverter$canConvert$17712($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.save.converters.SampleResultConverter$saveSubResults$17737($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure javax.script.ScriptEngine$org.apache.jmeter.util.JSR223TestElement$getScriptEngine$19398($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -16705,7 +16705,7 @@ procedure javax.swing.JCheckBox$org.apache.jmeter.visualizers.gui.AbstractVisual
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveFieldNames$2062($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.control.TransactionController$notifyListeners$9025($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.TristateCheckBox$TSCBChangeListener$$la$init$ra$$16115($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -16737,7 +16737,7 @@ procedure long$org.apache.jmeter.visualizers.TableSample$getLatency$20204($this 
 procedure javax.swing.JComponent$org.apache.jmeter.testbeans.gui.TableEditor$makePanel$18428($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.util.CompoundVariable$setParameters$10947($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.template.TemplateManager$Templates$$la$init$ra$$14852($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -16756,7 +16756,7 @@ procedure void$org.apache.jmeter.control.Controller$initialize$8782($this : ref)
   modifies $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultTimerMenu$5565()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$NanoOffset$$la$init$ra$$17591($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -16796,7 +16796,7 @@ procedure void$org.apache.jmeter.threads.SamplePackage$addPostProcessor$8994($th
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$makeHelpMenu$12381($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.util.SlowSSLSocket$setTrafficClass$19095($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -16806,20 +16806,20 @@ procedure boolean$org.apache.jmeter.samplers.SampleResult$markFile$1918($this : 
 procedure byte$lp$$rp$$org.apache.jmeter.samplers.SampleResult$getResponseData$1942($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.util.Collection$org.apache.jmeter.processor.gui.AbstractPreProcessorGui$getMenuCategories$16484($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$NanoOffset$$la$init$ra$$17586($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.config.gui.ArgumentsPanel$init$6045($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.TristateState$$la$clinit$ra$$15842()  returns ($exception : ref)
-  modifies $refArrHeap, org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.TristateState$INDETERMINATE3042, org.apache.jmeter.gui.util.TristateState$lp$$rp$$org.apache.jmeter.gui.util.TristateState$$VALUES3044, org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.TristateState$SELECTED3041, $arrSizeHeap, org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.TristateState$DESELECTED3043;
+  modifies $refArrHeap, $arrSizeHeap, org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.TristateState$SELECTED3041, org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.TristateState$DESELECTED3043, org.apache.jmeter.gui.util.TristateState$lp$$rp$$org.apache.jmeter.gui.util.TristateState$$VALUES3044, org.apache.jmeter.gui.util.TristateState$org.apache.jmeter.gui.util.TristateState$INDETERMINATE3042;
 
 procedure java.lang.String$org.apache.jmeter.engine.util.SimpleVariable$getName$11535($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.TemplatesCommand$$la$clinit$ra$$14860()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.TemplatesCommand$commands2796;
+  modifies java.util.Set$org.apache.jmeter.gui.action.TemplatesCommand$commands2796, $heap;
 
 procedure void$org.apache.xml.utils.PrefixResolverDefault$$la$init$ra$$20513($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -16844,12 +16844,12 @@ procedure void$org.apache.jmeter.config.gui.ObsoleteGui$modifyTestElement$8499($
 procedure void$javax.swing.JTree$collapseRow$12498($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure javax.swing.JMenu$org.apache.jmeter.gui.util.MenuFactory$makeMenus$5560($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.gui.util.PowerTableModel$removeRow$8699($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultSaver$processSample$16899($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0, $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap, long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0;
 
 procedure void$org.apache.jmeter.threads.SamplePackage$addTimer$8996($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -16876,7 +16876,7 @@ procedure java.lang.String$java.net.URL$getPath$1416($this : ref)  returns ($ret
 procedure void$java.io.CharArrayWriter$reset$17821($this : ref)  returns ($exception : ref)
 
 procedure javax.swing.JMenuItem$org.apache.jmeter.gui.util.JMeterMenuBar$makeMenuItemNoRes$12399($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure boolean$org.apache.jmeter.testbeans.gui.EnumEditor$supportsCustomEditor$18348($this : ref)  returns ($return : int, $exception : ref)
 
@@ -16887,7 +16887,7 @@ procedure java.beans.PropertyDescriptor$lp$$rp$$org.apache.jmeter.testbeans.Bean
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$$la$clinit$ra$$11675()  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, org.apache.log.Logger$org.apache.jmeter.gui.action.ActionRouter$log1982;
+  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.ActionRouter$log1982, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983;
 
 procedure java.lang.Object$org.apache.jmeter.control.GenericController$readResolve$8829($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -16917,7 +16917,7 @@ procedure java.beans.PropertyEditor$org.apache.jmeter.testbeans.gui.TypeEditor$3
 procedure boolean$java.lang.Runtime$removeShutdownHook$17021($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$run$9189($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleEvent$variableNames1622, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$totalThreads0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, long$org.apache.jmeter.threads.JMeterContextService$testStart0, java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494, $arrSizeHeap, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.util.Set$org.apache.jmeter.threads.TestCompiler$PAIRING1494, java.lang.String$lp$$rp$$org.apache.jmeter.samplers.SampleEvent$variableNames1622, long$org.apache.jmeter.threads.JMeterContextService$testStart0, $heap, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsStarted0, int$org.apache.jmeter.threads.JMeterContextService$numberOfActiveThreads0, int$org.apache.jmeter.threads.JMeterContextService$totalThreads0, int$org.apache.jmeter.threads.JMeterContextService$numberOfThreadsFinished0;
 
 procedure void$org.apache.jmeter.util.SlowSSLSocket$setOOBInline$19088($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -16949,7 +16949,7 @@ procedure boolean$org.apache.jmeter.gui.tree.JMeterTreeListener$isRightClick$122
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.save.CSVSaveService$splitHeader$17052($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.samplers.AsynchSampleSender$$la$clinit$ra$$17170()  returns ($exception : ref)
-  modifies int$org.apache.jmeter.samplers.AsynchSampleSender$serverConfiguredCapacity0, $heap, org.apache.jmeter.samplers.SampleEvent$org.apache.jmeter.samplers.AsynchSampleSender$FINAL_EVENT3325, org.apache.log.Logger$org.apache.jmeter.samplers.AsynchSampleSender$log3324, $arrSizeHeap;
+  modifies org.apache.log.Logger$org.apache.jmeter.samplers.AsynchSampleSender$log3324, $arrSizeHeap, int$org.apache.jmeter.samplers.AsynchSampleSender$serverConfiguredCapacity0, org.apache.jmeter.samplers.SampleEvent$org.apache.jmeter.samplers.AsynchSampleSender$FINAL_EVENT3325, $heap;
 
 procedure java.lang.Object$org.apache.jmeter.save.converters.LongPropertyConverter$unmarshal$17719($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -16965,7 +16965,7 @@ procedure void$org.apache.jmeter.util.JMeterUtils$runSafe$6402($in_parameter__0 
 procedure void$java.awt.dnd.DropTargetDropEvent$dropComplete$12605($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.util.BSFTestElement$$la$clinit$ra$$18835()  returns ($exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.BSFTestElement$log3690, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.BSFTestElement$log3690;
 
 procedure void$org.apache.jmeter.save.converters.ConversionHelp$setOutVersion$17625($in_parameter__0 : ref)  returns ($exception : ref)
   modifies java.lang.String$org.apache.jmeter.save.converters.ConversionHelp$outVersion3447;
@@ -17014,7 +17014,7 @@ procedure void$org.apache.jmeter.samplers.RemoteSampleListenerWrapper$$la$init$r
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.SelectTemplatesDialog$access$000$14707($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.util.JSR223TestElement$populateBindings$19399($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -17035,7 +17035,7 @@ procedure void$org.apache.jmeter.testelement.TestPlan$addParameter$9498($this : 
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.EditCommand$$la$clinit$ra$$13806()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.EditCommand$commands2479;
+  modifies java.util.Set$org.apache.jmeter.gui.action.EditCommand$commands2479, $heap;
 
 procedure void$org.apache.jmeter.threads.gui.PostThreadGroupGui$$la$init$ra$$18551($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -17131,7 +17131,7 @@ procedure float$org.apache.jmeter.reporters.FileReporter$GraphPanel$getMin$16490
   modifies $heap;
 
 procedure void$org.apache.jmeter.ProxyAuthenticator$1$$la$clinit$ra$$16485()  returns ($exception : ref)
-  modifies int$lp$$rp$$org.apache.jmeter.ProxyAuthenticator$1$$SwitchMap$java$net$Authenticator$RequestorType3152, $intArrHeap, $arrSizeHeap;
+  modifies $arrSizeHeap, $intArrHeap, int$lp$$rp$$org.apache.jmeter.ProxyAuthenticator$1$$SwitchMap$java$net$Authenticator$RequestorType3152;
 
 procedure void$javax.swing.AbstractButton$setRolloverEnabled$5892($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -17235,7 +17235,7 @@ procedure boolean$org.apache.jmeter.reporters.ResultCollector$isSampleWanted$108
   modifies $heap;
 
 procedure void$org.apache.jmeter.functions.gui.FunctionHelper$localeChanged$11644($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleSaveConfiguration$setThreadName$2055($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -17252,7 +17252,7 @@ procedure int$java.util.Collection$hashCode$583($this : ref)  returns ($return :
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.AddParent$addParentToTree$12744($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jmeter.testelement.property.JMeterProperty$getStringValue$5271($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -17277,7 +17277,7 @@ procedure double$org.apache.jmeter.visualizers.SamplingStatCalculator$getMean$20
 procedure void$javax.swing.JComponent$setBorder$2407($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$pause$11309($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure float$org.apache.jmeter.testelement.property.IntegerProperty$getFloatValue$9650($this : ref)  returns ($return : int, $exception : ref)
 
@@ -17347,7 +17347,7 @@ procedure void$javax.swing.JMenuItem$$la$init$ra$$5661($this : ref, $in_paramete
 procedure org.apache.jorphan.collections.HashTree$org.apache.jorphan.collections.HashTree$get$20274($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.GuiPackage$clearTestPlan$12108($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl$rexit$10971($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -17446,7 +17446,7 @@ procedure void$org.apache.jmeter.gui.GuiPackage$showInfoMessage$12111($in_parame
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleResult$NanoOffset$getOffset$17589($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $heap, long$org.apache.jmeter.samplers.SampleResult$NanoOffset$nanoOffset0, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, long$org.apache.jmeter.samplers.SampleResult$NanoOffset$nanoOffset0, $heap;
 
 procedure org.apache.jmeter.visualizers.Sample$org.apache.jmeter.visualizers.CachingStatCalculator$addSample$20115($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -17466,7 +17466,7 @@ procedure void$org.apache.jmeter.samplers.BatchSampleSender$sampleOccurred$17228
   modifies org.apache.log.Logger$org.apache.jmeter.samplers.BatchSampleSender$log3334, $heap;
 
 procedure void$org.apache.jmeter.threads.RemoteThreadsListenerImpl$$la$init$ra$$10784($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.DoubleProperty$recoverRunningVersion$18506($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -17478,7 +17478,7 @@ procedure java.util.List$org.apache.jmeter.gui.util.PowerTableModel$getColumnDat
 procedure void$org.apache.jmeter.testelement.AbstractTestElement$clearTestElementChildren$4757($this : ref)  returns ($exception : ref)
 
 procedure org.apache.jmeter.gui.tree.JMeterTreeNode$lp$$rp$$org.apache.jmeter.gui.action.Copy$keepOnlyAncestors$13770($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testbeans.gui.PasswordEditor$firePropertyChange$18421($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -17537,7 +17537,7 @@ procedure void$org.fife.ui.rsyntaxtextarea.RSyntaxTextArea$discardAllEdits$20319
 procedure void$java.util.concurrent.atomic.AtomicInteger$$la$init$ra$$9825($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure java.lang.Object$org.apache.jmeter.util.BeanShellTestElement$readResolve$18799($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$java.lang.Throwable$printStackTrace$21($this : ref)  returns ($exception : ref)
 
@@ -17564,7 +17564,7 @@ procedure void$org.apache.jmeter.gui.util.PowerTableModel$removeColumn$8700($thi
 procedure java.awt.AWTEvent$java.awt.EventQueue$getCurrentEvent$13591()  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.NewDriver$$la$clinit$ra$$16326()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.NewDriver$OS_NAME3104, $heap, $refArrHeap, org.apache.jmeter.DynamicClassLoader$org.apache.jmeter.NewDriver$loader3107, java.lang.String$org.apache.jmeter.NewDriver$jmDir3108, java.lang.String$org.apache.jmeter.NewDriver$CLASSPATH_SEPARATOR3103, java.lang.String$org.apache.jmeter.NewDriver$OS_NAME_LC3105, $arrSizeHeap;
+  modifies java.lang.String$org.apache.jmeter.NewDriver$OS_NAME_LC3105, $refArrHeap, $arrSizeHeap, org.apache.jmeter.DynamicClassLoader$org.apache.jmeter.NewDriver$loader3107, java.lang.String$org.apache.jmeter.NewDriver$OS_NAME3104, java.lang.String$org.apache.jmeter.NewDriver$CLASSPATH_SEPARATOR3103, $heap, java.lang.String$org.apache.jmeter.NewDriver$jmDir3108;
 
 procedure java.lang.String$org.apache.jmeter.gui.AbstractJMeterGuiComponent$getName$2310($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -17614,7 +17614,7 @@ procedure float$java.lang.Math$max$15072($in_parameter__0 : int, $in_parameter__
 procedure void$org.apache.jmeter.samplers.SampleSenderFactory$$la$init$ra$$17567($this : ref)  returns ($exception : ref)
 
 procedure boolean$org.apache.jmeter.gui.tree.JMeterTreeTransferHandler$importData$15164($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$java.io.StringWriter$$la$init$ra$$19916($this : ref)  returns ($exception : ref)
 
@@ -17706,7 +17706,7 @@ procedure java.lang.String$org.apache.jmeter.visualizers.RunningSample$getRateSt
   modifies $stringSizeHeap;
 
 procedure void$org.apache.jmeter.util.BSFBeanInfoSupport$$la$init$ra$$18817($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure int$org.apache.jmeter.functions.gui.FunctionHelper$2$compare$11650($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : int, $exception : ref)
 
@@ -17724,7 +17724,7 @@ procedure void$java.io.BufferedReader$mark$10731($this : ref, $in_parameter__0 :
 procedure java.lang.String$java.util.Locale$toString$2250($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.AddParent$$la$clinit$ra$$12746()  returns ($exception : ref)
-  modifies org.apache.log.Logger$org.apache.jmeter.gui.action.AddParent$log2287, $heap, java.util.Set$org.apache.jmeter.gui.action.AddParent$commands2288;
+  modifies java.util.Set$org.apache.jmeter.gui.action.AddParent$commands2288, org.apache.log.Logger$org.apache.jmeter.gui.action.AddParent$log2287, $heap;
 
 procedure void$org.apache.jmeter.control.LoopController$reInitialize$9417($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -17762,7 +17762,7 @@ procedure void$org.apache.jmeter.engine.StandardJMeterEngine$notifyTestListeners
 procedure double$org.apache.jmeter.testelement.property.IntegerProperty$getDoubleValue$9649($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.Paste$doAction$14365($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.threads.gui.AbstractThreadGroupGui$$la$init$ra$$18539($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -17804,7 +17804,7 @@ procedure void$org.apache.jmeter.gui.util.TristateCheckBox$setTristateFromProper
   modifies $heap;
 
 procedure void$org.apache.jmeter.util.keystore.JmeterKeyStore$load$14760($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure long$org.apache.jmeter.testelement.property.IntegerProperty$getLongValue$9652($this : ref)  returns ($return : int, $exception : ref)
 
@@ -17823,7 +17823,7 @@ procedure void$org.apache.jmeter.threads.JMeterThread$setStartTime$9215($this : 
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Move$$la$clinit$ra$$14362()  returns ($exception : ref)
-  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.Move$commands2660;
+  modifies java.util.Set$org.apache.jmeter.gui.action.Move$commands2660, $heap;
 
 procedure java.lang.String$javax.swing.JTree$convertValueToText$12457($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : int, $in_parameter__4 : int, $in_parameter__5 : int)  returns ($return : ref, $exception : ref)
 
@@ -17907,7 +17907,7 @@ procedure void$org.apache.jmeter.samplers.DiskStoreSampleSender$2$$la$init$ra$$1
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.TextBoxDialoger$init$15812($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035;
+  modifies javax.swing.JDialog$org.apache.jmeter.gui.util.TextBoxDialoger$dialog3035, $heap;
 
 procedure void$org.apache.oro.text.regex.Perl5Compiler$$la$init$ra$$20256($this : ref)  returns ($exception : ref)
 
@@ -17929,7 +17929,7 @@ procedure void$org.apache.jmeter.threads.ThreadGroup$start$11296($this : ref, $i
 procedure java.lang.String$org.apache.jmeter.util.BeanShellTestElement$getFilename$18812($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.control.gui.TestPlanGui$createPopupMenu$9453($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.threads.JMeterContextService$$la$init$ra$$9807($this : ref)  returns ($exception : ref)
 
@@ -17968,7 +17968,7 @@ procedure void$org.apache.jmeter.threads.JMeterContext$clear0$5235($this : ref) 
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.util.JSyntaxTextArea$$la$clinit$ra$$7485()  returns ($exception : ref)
-  modifies boolean$org.apache.jmeter.gui.util.JSyntaxTextArea$LINE_WRAP0, boolean$org.apache.jmeter.gui.util.JSyntaxTextArea$CODE_FOLDING0, int$org.apache.jmeter.gui.util.JSyntaxTextArea$MAX_UNDOS0, boolean$org.apache.jmeter.gui.util.JSyntaxTextArea$WRAP_STYLE_WORD0;
+  modifies boolean$org.apache.jmeter.gui.util.JSyntaxTextArea$CODE_FOLDING0, int$org.apache.jmeter.gui.util.JSyntaxTextArea$MAX_UNDOS0, boolean$org.apache.jmeter.gui.util.JSyntaxTextArea$WRAP_STYLE_WORD0, boolean$org.apache.jmeter.gui.util.JSyntaxTextArea$LINE_WRAP0;
 
 procedure java.lang.String$org.apache.jmeter.save.SaveService$getFileEncoding$13984($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -17985,7 +17985,7 @@ procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveSampler
 procedure void$java.awt.Graphics$drawRect$3430($this : ref, $in_parameter__0 : int, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : int)  returns ($exception : ref)
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.threads.gui.AbstractThreadGroupGui$createPopupMenu$18541($this : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure int$org.apache.jmeter.util.JMeterUtils$getPropDefault$6374($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : int, $exception : ref)
 
@@ -18003,7 +18003,7 @@ procedure void$org.apache.jorphan.collections.HashTree$replaceKey$20243($this : 
 procedure java.lang.Object$java.security.AccessController$doPrivileged$16460($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.ExitCommand$$la$clinit$ra$$13816()  returns ($exception : ref)
-  modifies java.util.Set$org.apache.jmeter.gui.action.ExitCommand$commands2482, $heap;
+  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.ExitCommand$commands2482;
 
 procedure void$org.apache.jmeter.control.RunTime$triggerEndOfLoop$9444($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18014,7 +18014,7 @@ procedure boolean$org.apache.jmeter.threads.ThreadGroup$isDelayedStartup$11293($
 procedure org.apache.jmeter.samplers.RemoteSampleListener$org.apache.jmeter.samplers.BatchSampleSender$getListener$17225($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$rsetProperties$11062($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.util.SlowSSLSocket$isOutputShutdown$19085($this : ref)  returns ($return : int, $exception : ref)
 
@@ -18024,7 +18024,7 @@ procedure void$org.apache.jmeter.testelement.property.JMeterProperty$setName$526
 procedure javax.swing.TransferHandler$DropLocation$javax.swing.TransferHandler$TransferSupport$getDropLocation$15220($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$makeFileMenu$12387($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$javax.swing.JLabel$setLabelFor$6083($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -18035,7 +18035,7 @@ procedure long$org.apache.jmeter.visualizers.Sample$getCount$20149($this : ref) 
 procedure java.lang.String$org.apache.jmeter.config.gui.ObsoleteGui$getLabelResource$8497($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.util.Collection$org.apache.jmeter.samplers.gui.AbstractSamplerGui$getMenuCategories$17560($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure java.lang.String$org.apache.avalon.framework.configuration.Configuration$getAttribute$20420($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
@@ -18092,10 +18092,10 @@ procedure void$org.apache.log.Logger$info$20240($this : ref, $in_parameter__0 : 
 procedure void$org.apache.jmeter.util.LocaleChangeEvent$$la$init$ra$$11646($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.reporters.ResultSaver$sampleOccurred$16898($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0, $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap, long$org.apache.jmeter.reporters.ResultSaver$sequenceNumber0;
 
 procedure void$org.apache.jmeter.reporters.Summariser$$la$clinit$ra$$10938()  returns ($exception : ref)
-  modifies java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, long$org.apache.jmeter.reporters.Summariser$INTERVAL0, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0, java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838;
+  modifies java.lang.Object$org.apache.jmeter.reporters.Summariser$lock1839, org.apache.log.Logger$org.apache.jmeter.reporters.Summariser$log1838, boolean$org.apache.jmeter.reporters.Summariser$TOOUT0, long$org.apache.jmeter.reporters.Summariser$INTERVAL0, java.util.Map$org.apache.jmeter.reporters.Summariser$accumulators1840, boolean$org.apache.jmeter.reporters.Summariser$TOLOG0;
 
 procedure java.beans.BeanDescriptor$org.apache.jmeter.testbeans.BeanInfoSupport$getBeanDescriptor$18143($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -18107,7 +18107,7 @@ procedure java.awt.Image$org.apache.jmeter.testbeans.BeanInfoSupport$getIcon$181
 procedure void$javax.xml.parsers.DocumentBuilderFactory$setIgnoringElementContentWhitespace$19881($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$notifyTestListenersOfStart$9184($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.util.List$org.apache.jmeter.util.JMeterUtils$findClassesThatExtend$6347($in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $refArrHeap, $arrSizeHeap;
@@ -18118,7 +18118,7 @@ procedure void$org.apache.jmeter.visualizers.SamplingStatCalculator$$la$init$ra$
   modifies $stringSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.util.JMeterVersion$$la$clinit$ra$$19312()  returns ($exception : ref)
-  modifies java.lang.String$org.apache.jmeter.util.JMeterVersion$IMPLEMENTATION3745, $stringSizeHeap;
+  modifies $stringSizeHeap, java.lang.String$org.apache.jmeter.util.JMeterVersion$IMPLEMENTATION3745;
 
 procedure void$org.apache.jmeter.engine.util.ReplaceStringWithFunctions$setVariables$11607($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18146,7 +18146,7 @@ procedure void$org.apache.jmeter.samplers.SampleResult$setResponseMessageOK$1925
   modifies $stringSizeHeap, $heap;
 
 procedure javax.swing.JPopupMenu$org.apache.jmeter.gui.util.MenuFactory$getDefaultVisualizerMenu$5564()  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$org.apache.jmeter.control.gui.LogicControllerGui$init$9386($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18205,7 +18205,7 @@ procedure void$org.apache.jmeter.threads.SamplePackage$addPreProcessor$8995($thi
 procedure void$org.apache.jmeter.gui.util.FileListPanel$enableFile$9467($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.CheckDirty$actionPerformed$13744($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$org.apache.jorphan.util.JOrphanUtils$trim$20365($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
@@ -18213,7 +18213,7 @@ procedure void$org.apache.jmeter.reporters.ResultCollector$$la$init$ra$$10884($t
   modifies $heap;
 
 procedure void$org.apache.jmeter.engine.StandardJMeterEngine$access$500$9205($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($exception : ref)
-  modifies $heap, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap;
 
 procedure org.apache.jmeter.samplers.Sampler$org.apache.jmeter.control.GenericController$nextIsASampler$8808($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -18236,13 +18236,13 @@ procedure void$org.apache.jmeter.control.TransactionSampler$addSubSamplerResult$
 procedure boolean$org.apache.jmeter.samplers.SampleResult$isSuccessful$1947($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.save.CSVSaveService$ParserState$$la$clinit$ra$$17803()  returns ($exception : ref)
-  modifies org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$EMBEDDEDQUOTE3508, $refArrHeap, org.apache.jmeter.save.CSVSaveService$ParserState$lp$$rp$$org.apache.jmeter.save.CSVSaveService$ParserState$$VALUES3509, org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$INITIAL3505, org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$PLAIN3506, $arrSizeHeap, org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$QUOTED3507;
+  modifies $refArrHeap, org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$QUOTED3507, $arrSizeHeap, org.apache.jmeter.save.CSVSaveService$ParserState$lp$$rp$$org.apache.jmeter.save.CSVSaveService$ParserState$$VALUES3509, org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$EMBEDDEDQUOTE3508, org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$INITIAL3505, org.apache.jmeter.save.CSVSaveService$ParserState$org.apache.jmeter.save.CSVSaveService$ParserState$PLAIN3506;
 
 procedure void$org.apache.jmeter.gui.action.LoggerPanelEnableDisable$$la$clinit$ra$$14147()  returns ($exception : ref)
   modifies $heap, java.util.Set$org.apache.jmeter.gui.action.LoggerPanelEnableDisable$commands2608;
 
 procedure void$org.apache.jmeter.gui.util.PowerTableModel$addNewRow$8705($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.engine.util.CompoundVariable$$la$init$ra$$10939($this : ref)  returns ($exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -18254,7 +18254,7 @@ procedure void$org.apache.jmeter.gui.action.What$doAction$14872($this : ref, $in
   modifies $stringSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.threads.JMeterVariables$$la$clinit$ra$$9172()  returns ($exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, java.lang.String$lp$$rp$$org.apache.jmeter.threads.JMeterVariables$PRE_LOAD1533, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.String$lp$$rp$$org.apache.jmeter.threads.JMeterVariables$PRE_LOAD1533;
 
 procedure java.net.Authenticator$RequestorType$lp$$rp$$java.net.Authenticator$RequestorType$values$16448()  returns ($return : ref, $exception : ref)
 
@@ -18270,7 +18270,7 @@ procedure boolean$java.io.PrintWriter$checkError$261($this : ref)  returns ($ret
 procedure void$java.io.RandomAccessFile$$la$init$ra$$16952($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.JMeter$ListenToTest$1$run$16292($this : ref)  returns ($exception : ref)
-  modifies $heap, java.io.PrintStream$java.lang.System$out1637, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, java.io.PrintStream$java.lang.System$out1637;
 
 procedure java.lang.Class$lp$$rp$$java.lang.reflect.Method$getParameterTypes$1325($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -18284,7 +18284,7 @@ procedure void$org.apache.jmeter.samplers.SampleSaveConfiguration$setSampleCount
   modifies $heap;
 
 procedure void$org.apache.jmeter.threads.JMeterThread$delayBy$9244($this : ref, $in_parameter__0 : int, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540, java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0;
+  modifies java.util.concurrent.TimeUnit$java.util.concurrent.TimeUnit$MILLISECONDS1913, $heap, int$org.apache.jmeter.threads.JMeterThread$RAMPUP_GRANULARITY0, org.apache.log.Logger$org.apache.jmeter.threads.JMeterThread$log1540;
 
 procedure void$org.mozilla.javascript.Context$setOptimizationLevel$20475($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
@@ -18294,7 +18294,7 @@ procedure int$javax.swing.ListSelectionModel$getAnchorSelectionIndex$6600($this 
 procedure void$org.apache.log.Logger$debug$20229($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.lang.Object$org.apache.jmeter.engine.util.FunctionParser$makeFunction$11530($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.testelement.property.AbstractProperty$org.apache.jmeter.testelement.property.LongProperty$clone$9737($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -18319,10 +18319,10 @@ procedure void$org.apache.jmeter.control.gui.LoopControlPanel$setState$9398($thi
 procedure void$java.text.MessageFormat$$la$init$ra$$7388($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$testEnded$17583($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.util.keystore.JmeterKeyStore$org.apache.jmeter.util.SSLManager$getKeyStore$14750($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, org.apache.log.Logger$org.apache.jmeter.util.SSLManager$log2757, $heap;
 
 procedure void$org.apache.jmeter.threads.ThreadGroup$setDuration$11286($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -18354,7 +18354,7 @@ procedure void$org.apache.jorphan.collections.ListedHashTree$traverse$20270($thi
 procedure void$java.awt.Window$addWindowListener$4636($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure org.apache.jorphan.collections.HashTree$org.apache.jmeter.gui.GuiPackage$addSubTree$12092($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0;
+  modifies boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.testelement.property.JMeterProperty$recoverRunningVersion$5264($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18362,7 +18362,7 @@ procedure void$org.apache.jmeter.testelement.property.JMeterProperty$recoverRunn
 procedure java.lang.String$lp$$rp$$org.apache.jorphan.collections.Data$getHeaders$20328($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure java.awt.Component$org.apache.jmeter.gui.util.MenuFactory$makeMenuItem$5574($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.io.File$org.apache.jmeter.services.FileServer$getBaseDirRelative$10532($this : ref)  returns ($return : ref, $exception : ref)
 
@@ -18386,14 +18386,14 @@ procedure java.lang.String$org.apache.jmeter.testbeans.gui.GenericTestBeanCustom
 procedure java.lang.String$org.apache.avalon.framework.configuration.Configuration$getAttribute$20414($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.testelement.TestPlan$testStarted$9504($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$$la$init$ra$$17576($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure javax.script.ScriptEngine$javax.script.ScriptEngineManager$getEngineByName$19367($this : ref, $in_parameter__0 : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.testelement.TestPlan$testStarted$9503($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.save.CSVSaveService$ParserState$lp$$rp$$org.apache.jmeter.save.CSVSaveService$ParserState$values$17800()  returns ($return : ref, $exception : ref)
 
@@ -18410,12 +18410,12 @@ procedure java.awt.datatransfer.DataFlavor$lp$$rp$$javax.swing.TransferHandler$T
 procedure java.lang.String$org.apache.jmeter.control.gui.RunTimeGui$getLabelResource$9426($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$doActionNow$11662($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$javax.script.ScriptException$$la$init$ra$$19410($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.engine.util.CompoundVariable$$la$init$ra$$10940($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.testelement.TestStateListener$testStarted$9541($this : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18454,7 +18454,7 @@ procedure void$javax.swing.JTextPane$$la$init$ra$$11681($this : ref)  returns ($
 procedure void$javax.swing.JCheckBoxMenuItem$$la$init$ra$$12318($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.control.TransactionController$triggerEndOfLoop$9024($this : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure int$javax.swing.DefaultComboBoxModel$getSize$18304($this : ref)  returns ($return : int, $exception : ref)
 
@@ -18477,7 +18477,7 @@ procedure boolean$java.util.Enumeration$hasMoreElements$9155($this : ref)  retur
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.GuiPackage$goInHistory$12121($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.gui.action.LoadRecentProject$updateMenuItems$14070($in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18488,7 +18488,7 @@ procedure void$org.apache.jmeter.save.converters.ConversionHelp$restoreClass$176
   modifies $stringSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.UndoHistory$loadHistoricalTree$12343($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.testbeans.gui.TableEditor$focusGained$18440($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -18540,13 +18540,13 @@ procedure java.net.SocketAddress$org.apache.jmeter.util.SlowSSLSocket$getRemoteS
 procedure double$org.apache.jmeter.util.Calculator$getRate$18859($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.gui.UndoHistory$moveInHistory$12342($this : ref, $in_parameter__0 : int, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.reporters.ResultCollector$access$200$10919()  returns ($exception : ref)
   modifies $heap;
 
 procedure org.apache.jmeter.assertions.AssertionResult$lp$$rp$$org.apache.jmeter.samplers.SampleResult$getAssertionResults$1934($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.util.JLabeledRadioI18N$setText$15718($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18567,12 +18567,12 @@ procedure void$org.apache.jmeter.threads.ThreadGroup$setScheduler$11281($this : 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl$checkOwner$10973($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.action.ActionRouter$access$000$11674($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.MainFrame$setEditAddEnabled$12210($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.save.SaveService$$la$clinit$ra$$13990()  returns ($exception : ref)
-  modifies $heap, java.util.Properties$org.apache.jmeter.save.SaveService$classToAlias2583, java.lang.String$org.apache.jmeter.save.SaveService$TESTLOG_FORMAT2581, org.apache.log.Logger$org.apache.jmeter.save.SaveService$log2567, com.thoughtworks.xstream.XStream$org.apache.jmeter.save.SaveService$JMXSAVER2571, java.lang.String$org.apache.jmeter.save.SaveService$fileVersion2587, $stringSizeHeap, $refArrHeap, com.thoughtworks.xstream.XStream$org.apache.jmeter.save.SaveService$JTLSAVER2572, boolean$org.apache.jmeter.save.SaveService$IS_TESTPLAN_FORMAT_220, java.lang.String$org.apache.jmeter.save.SaveService$fileEncoding2589, boolean$org.apache.jmeter.save.SaveService$versionsOK0, java.util.Properties$org.apache.jmeter.save.SaveService$aliasToClass2582, $arrSizeHeap, java.lang.String$org.apache.jmeter.save.SaveService$TESTPLAN_FORMAT2580, java.lang.String$org.apache.jmeter.save.SaveService$propertiesVersion2585;
+  modifies $stringSizeHeap, java.util.Properties$org.apache.jmeter.save.SaveService$classToAlias2583, java.util.Properties$org.apache.jmeter.save.SaveService$aliasToClass2582, java.lang.String$org.apache.jmeter.save.SaveService$TESTPLAN_FORMAT2580, java.lang.String$org.apache.jmeter.save.SaveService$fileEncoding2589, $refArrHeap, $arrSizeHeap, com.thoughtworks.xstream.XStream$org.apache.jmeter.save.SaveService$JMXSAVER2571, java.lang.String$org.apache.jmeter.save.SaveService$TESTLOG_FORMAT2581, java.lang.String$org.apache.jmeter.save.SaveService$propertiesVersion2585, $heap, com.thoughtworks.xstream.XStream$org.apache.jmeter.save.SaveService$JTLSAVER2572, boolean$org.apache.jmeter.save.SaveService$versionsOK0, boolean$org.apache.jmeter.save.SaveService$IS_TESTPLAN_FORMAT_220, java.lang.String$org.apache.jmeter.save.SaveService$fileVersion2587, org.apache.log.Logger$org.apache.jmeter.save.SaveService$log2567;
 
 procedure boolean$java.awt.datatransfer.DataFlavor$match$6640($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -18608,7 +18608,7 @@ procedure long$java.lang.Number$longValue$910($this : ref)  returns ($return : i
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Analyze$doAction$12877($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap, java.lang.String$org.apache.jmeter.gui.util.FileDialoger$lastJFCDirectory2351;
 
 procedure void$org.apache.bsf.util.BSFFunctions$$la$init$ra$$20489($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
 
@@ -18616,7 +18616,7 @@ procedure java.lang.String$org.apache.jmeter.testelement.property.AbstractProper
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.UndoCommand$doAction$14867($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, boolean$org.apache.jmeter.testelement.TestPlan$functionalMode0, $heap;
 
 procedure void$org.apache.jmeter.samplers.DataStrippingSampleSender$$la$init$ra$$17233($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18693,19 +18693,19 @@ procedure void$org.apache.jorphan.logging.LoggingManager$setPriority$20355($in_p
 procedure void$org.apache.jmeter.DynamicClassLoader$updateLoader$9870($in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.lang.Object$org.apache.jmeter.NewDriver$2$run$16456($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.EnableComponent$$la$init$ra$$13807($this : ref)  returns ($exception : ref)
 
 procedure java.lang.Number$org.apache.jmeter.visualizers.SamplingStatCalculator$getMeanAsNumber$20139($this : ref)  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.testbeans.gui.TestBeanGUI$init$14896($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure java.lang.String$javax.swing.UIManager$getSystemLookAndFeelClassName$14159()  returns ($return : ref, $exception : ref)
 
 procedure void$org.apache.jmeter.util.JMeterTreeNodeTransferable$$la$clinit$ra$$13781()  returns ($exception : ref)
-  modifies $refArrHeap, java.awt.datatransfer.DataFlavor$org.apache.jmeter.util.JMeterTreeNodeTransferable$JMETER_TREE_NODE_ARRAY_DATA_FLAVOR2471, $arrSizeHeap, java.awt.datatransfer.DataFlavor$lp$$rp$$org.apache.jmeter.util.JMeterTreeNodeTransferable$DATA_FLAVORS2472;
+  modifies $refArrHeap, $arrSizeHeap, java.awt.datatransfer.DataFlavor$lp$$rp$$org.apache.jmeter.util.JMeterTreeNodeTransferable$DATA_FLAVORS2472, java.awt.datatransfer.DataFlavor$org.apache.jmeter.util.JMeterTreeNodeTransferable$JMETER_TREE_NODE_ARRAY_DATA_FLAVOR2471;
 
 procedure java.lang.String$org.apache.jmeter.util.JMeterUtils$getJMeterCopyright$6394()  returns ($return : ref, $exception : ref)
 
@@ -18739,7 +18739,7 @@ procedure java.beans.MethodDescriptor$lp$$rp$$org.apache.jmeter.testbeans.BeanIn
   modifies $heap;
 
 procedure org.apache.jmeter.samplers.SampleEvent$org.apache.jmeter.save.CSVSaveService$makeResultFromDelimitedString$17048($in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : int)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $heap, $arrSizeHeap;
+  modifies $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.samplers.Sampler$org.apache.jmeter.control.WhileController$next$9608($this : ref)  returns ($return : ref, $exception : ref)
   modifies $stringSizeHeap, $heap;
@@ -18764,7 +18764,7 @@ procedure java.lang.String$java.beans.PropertyEditor$getAsText$18191($this : ref
 procedure void$org.apache.jmeter.gui.action.AboutCommand$1$mouseClicked$12058($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$$la$init$ra$$9586($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : int)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure float$org.apache.jmeter.testelement.property.JMeterProperty$getFloatValue$5269($this : ref)  returns ($return : int, $exception : ref)
   modifies $heap;
@@ -18772,21 +18772,21 @@ procedure float$org.apache.jmeter.testelement.property.JMeterProperty$getFloatVa
 procedure void$org.mozilla.javascript.Scriptable$put$20481($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$$la$init$ra$$9582($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$$la$init$ra$$9583($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveSampleCount$2074($this : ref)  returns ($return : int, $exception : ref)
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$$la$init$ra$$9584($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$$la$init$ra$$9585($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : int)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.Move$doAction$14357($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.gui.action.LoadRecentProject$updateRecentFileMenuItems$14069($in_parameter__0 : ref, $in_parameter__1 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18850,7 +18850,7 @@ procedure void$java.net.Socket$connect$18697($this : ref, $in_parameter__0 : ref
 procedure void$java.net.Socket$connect$18696($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.lang.String$lp$$rp$$org.apache.jmeter.gui.util.JMeterMenuBar$getLanguages$12383()  returns ($return : ref, $exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure void$org.apache.jmeter.NewDriver$1$$la$init$ra$$16452($this : ref)  returns ($exception : ref)
 
@@ -18871,7 +18871,7 @@ procedure void$org.apache.jmeter.gui.LoggerPanel$init$12332($this : ref)  return
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.UndoCommand$$la$clinit$ra$$14870()  returns ($exception : ref)
-  modifies java.util.Set$org.apache.jmeter.gui.action.UndoCommand$commands2798, $heap;
+  modifies $heap, java.util.Set$org.apache.jmeter.gui.action.UndoCommand$commands2798;
 
 procedure boolean$org.apache.jmeter.visualizers.gui.AbstractVisualizer$isStats$20169($this : ref)  returns ($return : int, $exception : ref)
 
@@ -18881,7 +18881,7 @@ procedure boolean$javax.net.ssl.SSLSocket$getUseClientMode$19152($this : ref)  r
 procedure boolean$org.apache.jmeter.util.JMeterUtils$getPropDefault$6375($in_parameter__0 : ref, $in_parameter__1 : int)  returns ($return : int, $exception : ref)
 
 procedure java.util.Collection$org.apache.jmeter.threads.gui.AbstractThreadGroupGui$getMenuCategories$18540($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure void$org.apache.jmeter.threads.AbstractThreadGroup$setNumThreads$9266($this : ref, $in_parameter__0 : int)  returns ($exception : ref)
   modifies $heap;
@@ -18943,7 +18943,7 @@ procedure void$org.apache.jmeter.threads.JMeterThread$ThreadListenerTraverser$$l
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.SearchTreeDialog$actionPerformed$14689($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $stringSizeHeap, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure java.lang.String$lp$$rp$$lp$$rp$$org.apache.jmeter.JMeter$getResourceBundles$11102($this : ref)  returns ($return : ref, $exception : ref)
   modifies $arrSizeHeap;
@@ -18967,10 +18967,10 @@ procedure void$org.apache.jmeter.samplers.SampleResult$sampleStart$1978($this : 
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.MainFrame$testEnded$12218($this : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, long$org.apache.jmeter.threads.JMeterContextService$testStart0;
+  modifies $stringSizeHeap, long$org.apache.jmeter.threads.JMeterContextService$testStart0, $heap;
 
 procedure void$org.apache.jmeter.gui.MainFrame$testEnded$12219($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $stringSizeHeap, $heap, long$org.apache.jmeter.threads.JMeterContextService$testStart0;
+  modifies $stringSizeHeap, long$org.apache.jmeter.threads.JMeterContextService$testStart0, $heap;
 
 procedure void$org.apache.jmeter.testbeans.gui.ComboStringEditor$$la$init$ra$$18285($this : ref, $in_parameter__0 : ref, $in_parameter__1 : int, $in_parameter__2 : int, $in_parameter__3 : ref)  returns ($exception : ref)
   modifies $heap;
@@ -18987,7 +18987,7 @@ procedure java.lang.String$java.rmi.server.RemoteRef$remoteToString$10486($this 
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.SampleEvent$$la$init$ra$$9581($this : ref)  returns ($exception : ref)
-  modifies $heap, $arrSizeHeap;
+  modifies $arrSizeHeap, $heap;
 
 procedure boolean$org.apache.jmeter.samplers.SampleSaveConfiguration$saveSubresults$2050($this : ref)  returns ($return : int, $exception : ref)
 
@@ -19006,7 +19006,7 @@ procedure void$org.apache.jmeter.testelement.property.AbstractProperty$setRunnin
   modifies $heap;
 
 procedure void$org.apache.jmeter.gui.action.Cut$doAction$13797($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.threads.JMeterContext$org.apache.jmeter.testelement.AbstractTestElement$getThreadContext$4802($this : ref)  returns ($return : ref, $exception : ref)
   modifies $heap;
@@ -19033,12 +19033,12 @@ procedure java.lang.Object$java.lang.ThreadLocal$get$6906($this : ref)  returns 
 procedure void$java.beans.PropertyEditorSupport$$la$init$ra$$18257($this : ref)  returns ($exception : ref)
 
 procedure void$org.apache.jmeter.gui.util.JMeterMenuBar$$la$init$ra$$12371($this : ref)  returns ($exception : ref)
-  modifies java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, $refArrHeap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, java.lang.Object$org.apache.jmeter.gui.action.ActionRouter$LOCK1983, $heap, org.apache.jmeter.gui.action.ActionRouter$org.apache.jmeter.gui.action.ActionRouter$router1984;
 
 procedure void$javax.swing.JComponent$scrollRectToVisible$2461($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
 procedure java.util.Collection$org.apache.jmeter.config.gui.AbstractConfigGui$getMenuCategories$5553($this : ref)  returns ($return : ref, $exception : ref)
-  modifies $stringSizeHeap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $stringSizeHeap, $arrSizeHeap;
 
 procedure boolean$org.apache.jmeter.testelement.AbstractScopedTestElement$isScopeParent$3137($this : ref, $in_parameter__0 : ref)  returns ($return : int, $exception : ref)
 
@@ -19064,7 +19064,7 @@ procedure org.apache.jorphan.collections.HashTree$org.apache.jmeter.gui.tree.JMe
   modifies $heap;
 
 procedure void$org.apache.jmeter.engine.RemoteJMeterEngineImpl_Stub$rconfigure$11058($this : ref, $in_parameter__0 : ref, $in_parameter__1 : ref, $in_parameter__2 : ref, $in_parameter__3 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure void$java.io.StringWriter$write$19920($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
 
@@ -19072,7 +19072,7 @@ procedure int$org.apache.jmeter.config.Arguments$getArgumentCount$5396($this : r
   modifies $heap;
 
 procedure void$org.apache.jmeter.samplers.RemoteSampleListenerImpl_Stub$sampleStopped$17581($this : ref, $in_parameter__0 : ref)  returns ($exception : ref)
-  modifies $heap, $refArrHeap, $arrSizeHeap;
+  modifies $refArrHeap, $arrSizeHeap, $heap;
 
 procedure org.apache.jmeter.testelement.TestElement$org.apache.jmeter.gui.tree.JMeterTreeNode$getTestElement$5819($this : ref)  returns ($return : ref, $exception : ref)
 

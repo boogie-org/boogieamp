@@ -18,6 +18,7 @@
 
 package boogie.controlflow.util;
 
+import java.util.Collection;
 import java.util.HashSet;
 
 import util.Log;
@@ -63,6 +64,12 @@ public class PartialBlockOrderNode {
 		this.currentClass.add(b);
 	}
 
+	public PartialBlockOrderNode(Collection<BasicBlock> blocks, HashSet<BasicBlock> unav) {
+		this.unavoidables = unav;
+		this.currentClass.addAll(blocks);
+	}
+	
+	
 	public void printLeafInfo() {
 		if (this.successors.size()==0) {
 			Log.info("LEAF: ");
@@ -87,6 +94,15 @@ public class PartialBlockOrderNode {
 	
 	public HashSet<BasicBlock> getElements() {
 		return this.currentClass;
+	}
+
+	public HashSet<BasicBlock> getUnavoidables() {
+		return this.unavoidables;
+	}
+
+	public void connectParent(PartialBlockOrderNode parent) {
+		this.parent = parent;
+		parent.getSuccessors().add(this);
 	}
 	
 	public HashSet<BasicBlock> getLeafRepresentatives() {
