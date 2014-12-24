@@ -753,7 +753,7 @@ public class BoogiePrinter {
 		} else if (s instanceof HavocStatement) {
 			HavocStatement havoc = (HavocStatement) s;
 			sb.append("havoc ");
-			appendAttributes(sb, havoc.getAttributes());
+//			appendAttributes(sb, havoc.getAttributes());
 			String comma = "";
 			for (String id : havoc.getIdentifiers()) {
 				sb.append(comma).append(id);
