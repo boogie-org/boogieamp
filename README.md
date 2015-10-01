@@ -23,6 +23,7 @@ If the status is red we do not yet pass all unit tests from other Boogie-based p
 
 ####Related
 The following projects are related:
+- [Ultimate](https://github.com/ultimate-pa/ultimate), we stole most of the parser code from an early version of the Ultimate project.
 - [Smack](https://github.com/smackers/smack), a translation from llvm IR into Boogie
 - [Jar2Bpl](https://github.com/martinschaef/jar2bpl), a translation from Java bytecode into Boogie,
 - [Boogie](boogie.codeplex.com), a deductive verifier for the Booige language,
